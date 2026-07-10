@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Exercices corrigés de physique pour classes préparatoires aux grandes écoles et licence.">
+<meta name="keywords" content="exercices corrigés physique, classes préparatoires, CPGE, PCSI, MPSI, PSI, kholaweb">
+<meta name="author" content="Hubert de Haan — KholaWeb">
+<title>KholaWeb — Exercices de physique · Classes préparatoires & Licence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="nav-inner">
+    <div class="logo" onclick="showPage('home')">Khola<span>Web</span></div>
+    <nav id="main-nav">
+      <!-- data-disc : attribut personnalisé lu par JavaScript pour activer le bon lien -->
+      <a onclick="showDisc('electricite')"       data-disc="electricite">Électricité</a>
+      <a onclick="showDisc('electromagnetisme')" data-disc="electromagnetisme">Électromagnétisme</a>
+      <a onclick="showDisc('electronique')"      data-disc="electronique">Électronique</a>
+      <a onclick="showDisc('mecanique')"         data-disc="mecanique">Mécanique</a>
+      <a onclick="showDisc('optique')"           data-disc="optique">Optique</a>
+      <a onclick="showDisc('thermodynamique')"   data-disc="thermodynamique">Thermodynamique</a>
+      <a href="https://payhip.com/kholor" target="_blank" class="nav-cta">Kholor ↗</a>
+    </nav>
+    <button class="hamburger" id="burger" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <line x1="3" y1="6"  x2="19" y2="6"/>
+        <line x1="3" y1="11" x2="19" y2="11"/>
+        <line x1="3" y1="16" x2="19" y2="16"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+
+<!-- ════════════════════════════════════════
+     PAGE ACCUEIL
+     ════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HÉROS -->
+  <section class="hero">
+    <div>
+      <p class="section-label" style="margin-bottom:.75rem;">Classes préparatoires · Licence</p>
+      <h1 class="hero-title">Énoncés & corrigés<br>d'exercices de <em>physique</em></h1>
+      <p class="hero-sub">Ressources pour les étudiants en CPGE (PCSI, MPSI, PSI, PC, MP) et en premier cycle universitaire. Préparation aux oraux des concours.</p>
+      <span class="btn-primary" onclick="document.getElementById('disciplines').scrollIntoView({behavior:'smooth'})">Parcourir les exercices</span>
+      <a href="https://payhip.com/kholor" target="_blank" class="btn-outline">Découvrir Kholor</a>
+    </div>
+    <div class="hero-visual">
+      <!-- Animation de cercles concentriques — illustration physique -->
+      <div class="anim-container">
+        <div class="anim-circle anim-c1"></div>
+        <div class="anim-circle anim-c2"></div>
+        <div class="anim-circle anim-c3"></div>
+        <div class="anim-circle anim-center"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- GRILLE DES 6 DISCIPLINES -->
+  <section class="section" id="disciplines">
+    <p class="section-label">Thématiques</p>
+    <h2 class="section-title">Six domaines de la physique</h2>
+    <div class="disciplines-grid">
+      <div class="disc-card" onclick="showDisc('electricite')">
+        <div class="disc-icon" style="background:var(--tag-elec-bg)">⚡</div>
+        <div class="disc-name">Électricité</div>
+        <div class="disc-count">Circuits · RLC · Régimes</div>
+      </div>
+      <div class="disc-card" onclick="showDisc('electromagnetisme')">
+        <div class="disc-icon" style="background:var(--tag-em-bg)">🧲</div>
+        <div class="disc-name">Électromagnétisme</div>
+        <div class="disc-count">Maxwell · Ondes · Induction</div>
+      </div>
+      <div class="disc-card" onclick="showDisc('electronique')">
+        <div class="disc-icon" style="background:var(--tag-elek-bg)">🔌</div>
+        <div class="disc-name">Électronique</div>
+        <div class="disc-count">AOP · Filtres · Numérique</div>
+      </div>
+      <div class="disc-card" onclick="showDisc('mecanique')">
+        <div class="disc-icon" style="background:var(--tag-mec-bg)">⚙️</div>
+        <div class="disc-name">Mécanique</div>
+        <div class="disc-count">Newton · Énergie · Solide</div>
+      </div>
+      <div class="disc-card" onclick="showDisc('optique')">
+        <div class="disc-icon" style="background:var(--tag-opt-bg)">🔭</div>
+        <div class="disc-name">Optique</div>
+        <div class="disc-count">Géométrique · Ondulatoire</div>
+      </div>
+      <div class="disc-card" onclick="showDisc('thermodynamique')">
+        <div class="disc-icon" style="background:var(--tag-thermo-bg)">🌡️</div>
+        <div class="disc-name">Thermodynamique</div>
+        <div class="disc-count">Gaz · Cycles · Transferts</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- ACTUALITÉS KHOLOR -->
+  <section class="section">
+    <p class="section-label">Actualités</p>
+    <h2 class="section-title">Nouveauté — Projet Kholor</h2>
+    <div class="news-card">
+      <div>
+        <span class="news-badge">Nouveau</span>
+        <div class="news-title">I1. Forces de Laplace — dernier ouvrage paru</div>
+        <div class="news-body">Kholor propose des corrigés soignés et détaillés pour chaque chapitre du programme CPGE et Licence. Le dernier ouvrage traite des actions mécaniques d'un champ magnétique : forces de Laplace en translation et en rotation, avec applications aux moteurs, galvanomètres et haut-parleurs.</div>
+        <a href="https://payhip.com/b/4Vhaf" target="_blank" class="news-link">Voir l'ouvrage sur Payhip ↗</a>
+      </div>
+      <div class="news-meta">Maj : mai 2025</div>
+    </div>
+    <div style="margin-top:1.5rem;"><p style="font-size:.85rem;color:var(--text-muted);margin-bottom:1rem;">Tous les ouvrages sur <a href="https://payhip.com/kholor" target="_blank" style="color:var(--accent-mid)">payhip.com/kholor</a></p></div>
+    <div class="kholor-grid">
+
+      <a href="https://payhip.com/b/4Vhaf" target="_blank" class="kholor-book">
+        <div class="book-cover">
+          <img src="https://payhip.com/cdn-cgi/image/format=auto/https://pe56d.s3.amazonaws.com/o_1irvi18ka13638rpu0s13dt1jso16.png" alt="Couverture I1 Forces de Laplace" loading="lazy">
+          <span class="book-price-badge">2,49 €</span>
+        </div>
+        <div class="book-info">
+          <div class="book-code">I1 · Électromagnétisme</div>
+          <div class="book-title">Forces de Laplace</div>
+          <span class="book-cta">Voir sur Payhip ↗</span>
+        </div>
+      </a>
+
+      <a href="https://payhip.com/b/b1zEZ" target="_blank" class="kholor-book">
+        <div class="book-cover">
+          <img src="https://payhip.com/cdn-cgi/image/format=auto/https://pe56d.s3.amazonaws.com/o_1ih1grim117ogekkcm33561vgqr.png" alt="Couverture M6 Force centrale" loading="lazy">
+          <span class="book-price-badge">3,49 €</span>
+        </div>
+        <div class="book-info">
+          <div class="book-code">M6 · Mécanique</div>
+          <div class="book-title">Mouvements à force centrale conservative</div>
+          <span class="book-cta">Voir sur Payhip ↗</span>
+        </div>
+      </a>
+
+      <a href="https://payhip.com/b/YmgwO" target="_blank" class="kholor-book">
+        <div class="book-cover">
+          <img src="https://payhip.com/cdn-cgi/image/format=auto/https://pe56d.s3.amazonaws.com/o_1httpbtlfk1h18bd4op11g917cf15.png" alt="Couverture M5 Moment cinétique" loading="lazy">
+          <span class="book-price-badge">2,89 €</span>
+        </div>
+        <div class="book-info">
+          <div class="book-code">M5 · Mécanique</div>
+          <div class="book-title">Théorème du moment cinétique</div>
+          <span class="book-cta">Voir sur Payhip ↗</span>
+        </div>
+      </a>
+
+      <a href="https://payhip.com/b/Q3Rqn" target="_blank" class="kholor-book">
+        <div class="book-cover">
+          <img src="https://payhip.com/cdn-cgi/image/format=auto/https://pe56d.s3.amazonaws.com/o_1hj8g1kg8170egci1irt1s3b1ohf10.png" alt="Couverture M4 Particules chargées" loading="lazy">
+          <span class="book-price-badge">2,49 €</span>
+        </div>
+        <div class="book-info">
+          <div class="book-code">M4 · Mécanique</div>
+          <div class="book-title">Particules chargées dans les champs E et B</div>
+          <span class="book-cta">Voir sur Payhip ↗</span>
+        </div>
+      </a>
+
+      <a href="https://payhip.com/b/TViO7" target="_blank" class="kholor-book">
+        <div class="book-cover">
+          <img src="https://payhip.com/cdn-cgi/image/format=auto/https://pe56d.s3.amazonaws.com/o_1gom8e9561367nv51sr51nk31khb10.png" alt="Couverture M3 Travail Puissance Énergie" loading="lazy">
+          <span class="book-price-badge">3,59 €</span>
+        </div>
+        <div class="book-info">
+          <div class="book-code">M3 · Mécanique</div>
+          <div class="book-title">Travail, Puissance, Énergie</div>
+          <span class="book-cta">Voir sur Payhip ↗</span>
+        </div>
+      </a>
+
+      <a href="https://payhip.com/b/NnXqd" target="_blank" class="kholor-book">
+        <div class="book-cover">
+          <img src="https://payhip.com/cdn-cgi/image/format=auto/https://pe56d.s3.amazonaws.com/o_1g0gu5lm8hf6q5s1i3f271r14r.png" alt="Couverture M2 Dynamique" loading="lazy">
+          <span class="book-price-badge">3,69 €</span>
+        </div>
+        <div class="book-info">
+          <div class="book-code">M2 · Mécanique</div>
+          <div class="book-title">Dynamique du point matériel</div>
+          <span class="book-cta">Voir sur Payhip ↗</span>
+        </div>
+      </a>
+
+      <a href="https://payhip.com/b/Epak7" target="_blank" class="kholor-book">
+        <div class="book-cover">
+          <img src="https://payhip.com/cdn-cgi/image/format=auto/https://pe56d.s3.amazonaws.com/o_1fv9607edbmn1cb21crah4r1832m.png" alt="Couverture M1 Cinématique" loading="lazy">
+          <span class="book-price-badge">2,39 €</span>
+        </div>
+        <div class="book-info">
+          <div class="book-code">M1 · Mécanique</div>
+          <div class="book-title">Cinématique du point matériel — 24 exercices</div>
+          <span class="book-cta">Voir sur Payhip ↗</span>
+        </div>
+      </a>
+
+      <a href="https://payhip.com/b/Z4YW" target="_blank" class="kholor-book">
+        <div class="book-cover">
+          <img src="https://payhip.com/cdn-cgi/image/format=auto/https://pe56d.s3.amazonaws.com/o_1fv97bscn6is14qd15og1cfbrasm.png" alt="Couverture E3 Réseaux régime transitoire" loading="lazy">
+          <span class="book-price-badge">3,59 €</span>
+        </div>
+        <div class="book-info">
+          <div class="book-code">E3 · Électricité</div>
+          <div class="book-title">Réseaux du 1er et 2e ordre — régime transitoire</div>
+          <span class="book-cta">Voir sur Payhip ↗</span>
+        </div>
+      </a>
+
+      <a href="https://payhip.com/b/2ABgC" target="_blank" class="kholor-book">
+        <div class="book-cover">
+          <img src="https://payhip.com/cdn-cgi/image/format=auto/https://pe56d.s3.amazonaws.com/o_1ih2egohl8kqcs5hakp0tqnvr.png" alt="Couverture Pack M1 à M6 mécanique" loading="lazy">
+          <span class="book-price-badge">12,90 €</span>
+        </div>
+        <div class="book-info">
+          <div class="book-code">M1→M6 · Pack mécanique</div>
+          <div class="book-title">Les six premiers chapitres de mécanique</div>
+          <span class="book-cta">Voir sur Payhip ↗</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- INFOS & CONTACT -->
+  <section class="section">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+      <div style="background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:1.25rem;">
+        <p style="font-size:.75rem;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text-hint);margin-bottom:.5rem;">À propos</p>
+        <p style="font-size:.92rem;color:var(--text-muted);">KholaWeb est une ressource de <strong style="color:var(--text);font-weight:600;">Hubert de Haan</strong>, professeur agrégé de physique, destinée à la préparation aux khôlles et aux concours des grandes écoles.</p>
+        <p style="font-size:.82rem;color:var(--text-hint);margin-top:.75rem;">Le badge orange indique un exercice sans corrigé.</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:1.25rem;">
+        <p style="font-size:.75rem;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text-hint);margin-bottom:.5rem;">Contact</p>
+        <p style="font-size:.92rem;color:var(--text-muted);">Pour toute remarque, erreur ou suggestion :</p>
+        <a href="mailto:kholaweb@free.fr" style="display:inline-block;margin-top:.75rem;font-family:var(--font-mono);font-size:.85rem;color:var(--accent-mid);border-bottom:1px solid var(--accent-mid);padding-bottom:1px;">kholaweb@free.fr</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /#page-home -->
+
+
+
+<!-- ════════════════════════════════════════
+     PAGES PAR DISCIPLINE
+     ════════════════════════════════════════ -->
+
+<div id="page-electricite" class="page">
+  <span class="back-btn" onclick="showPage('home')">← Retour à l'accueil</span>
+  <div class="disc-header">
+    <div class="disc-header-icon" style="background:var(--tag-elec-bg)">⚡</div>
+    <div><div class="disc-header-title">Électricité</div><div class="disc-header-sub">Circuits, dipôles, régimes transitoires et sinusoïdaux, filtres</div></div>
+  </div>
+  <section class="section">
+    <div class="acc-list">
+
+      <div class="acc-item" id="el-e1">
+        <div class="acc-head" onclick="toggleAcc('el-e1')">
+          <div class="acc-head-left"><span class="acc-code">E1</span><span class="acc-title">Approximation des régimes quasi stationnaires. Dipôles.</span></div>
+          <div class="acc-meta"><span class="acc-count">9 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_1/e_1_1/e_1_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E1.1</div><div class="exo-title">Thermistance.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_1/e_1_2/e_1_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E1.2</div><div class="exo-title">Détermination d'une tension.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_1/e_1_3/e_1_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E1.3</div><div class="exo-title">Étude d'un réseau. Lois de Kirchhoff.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_1/e_1_4/e_1_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E1.4</div><div class="exo-title">Réseau à résistance réglable.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_1/e_1_5/e_1_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E1.5</div><div class="exo-title">Analyse d'un réseau linéaire.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_1/e_1_6/e_1_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E1.6</div><div class="exo-title">Lois de Kirchhoff. Utilisation des symétries.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_1/e_1_7/e_1_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E1.7</div><div class="exo-title">Thermistance (II).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_1/e_1_8/e_1_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E1.8</div><div class="exo-title">Circuit avec voltamètre.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_1/e_1_9/e_1_9_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E1.9</div><div class="exo-title">Transfert de puissance d'un générateur à un récepteur.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-e2">
+        <div class="acc-head" onclick="toggleAcc('el-e2')">
+          <div class="acc-head-left"><span class="acc-code">E2</span><span class="acc-title">Réseaux linéaires. Théorèmes généraux.</span></div>
+          <div class="acc-meta"><span class="acc-count">18 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_1/e_2_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.1</div><div class="exo-title">Détermination d'une tension.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_2/e_2_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.2</div><div class="exo-title">Étude d'un réseau.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_3/e_2_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.3</div><div class="exo-title">Analyse d'un réseau linéaire par différentes méthodes.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_4/e_2_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.4</div><div class="exo-title">Étude d'un circuit par la méthode de superposition des états.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_5/e_2_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.5</div><div class="exo-title">Utilisation du théorème de Millman.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_6/e_2_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.6</div><div class="exo-title">Résistances équivalentes (cube).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_7/e_2_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.7</div><div class="exo-title">Résistances équivalentes (treillis).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_8/e_2_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.8</div><div class="exo-title">Résistance équivalente. Utilisation des symétries.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_9/e_2_9_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.9</div><div class="exo-title">Résistance itérative.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_10/e_2_10_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.10</div><div class="exo-title">Association de générateurs. Dipôle équivalent.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_11/e_2_11_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.11</div><div class="exo-title">Générateur de Thévenin équivalent.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_12/e_2_12_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.12</div><div class="exo-title">Représentations de Thévenin et de Norton.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_13/e_2_13_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.13</div><div class="exo-title">Intensité traversant un générateur de tension.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_14/e_2_14_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.14</div><div class="exo-title">Théorème de superposition et source liée.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_15/e_2_15_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.15</div><div class="exo-title">Optimisation d'un groupement de piles.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_16/e_2_16_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.16</div><div class="exo-title">Pont de Wheatstone alimenté par une source de courant.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_17/e_2_17_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.17</div><div class="exo-title">Transformation triangle-étoile. Théorème de Kennely.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_2/e_2_18/e_2_18_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E2.18</div><div class="exo-title">Générateurs en opposition.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-e3">
+        <div class="acc-head" onclick="toggleAcc('el-e3')">
+          <div class="acc-head-left"><span class="acc-code">E3</span><span class="acc-title">Réseaux linéaires en régime transitoire. <span class="acc-kholor">Kholor — <a href="https://payhip.com/b/Z4YW" target="_blank" style="color:inherit">3,59 €</a></span></span></div>
+          <div class="acc-meta"><span class="acc-count">12 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_3/e_3_1/e_3_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E3.1</div><div class="exo-title">Circuit RC série soumis à une tension carrée.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_3/e_3_2/e_3_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E3.2</div><div class="exo-title">Régime transitoire et facteur de qualité d'un circuit RLC.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_3/e_3_3/e_3_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E3.3</div><div class="exo-title">Réponse à une tension en dent de scie.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_3/e_3_4/e_3_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E3.4</div><div class="exo-title">Étude du circuit de Wien en régime transitoire.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_3/e_3_5/e_3_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E3.5</div><div class="exo-title">Étude d'un circuit (RL, R//C) en régime transitoire.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_3/e_3_6/e_3_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E3.6</div><div class="exo-title">Circuit (R1//(R2//L)).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_3/e_3_7/e_3_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E3.7</div><div class="exo-title">Réponse indicielle.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_3/e_3_8/e_3_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E3.8</div><div class="exo-title">Étude d'une réponse en tension.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_3/e_3_9/e_3_9_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E3.9</div><div class="exo-title">Étude d'une réponse en courant.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_3/e_3_10/e_3_10_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E3.10</div><div class="exo-title">Réponse d'un circuit R, R₀//C à un échelon de tension.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_3/e_3_11/e_3_11_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E3.11</div><div class="exo-title">Étude d'un circuit RLC parallèle.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_3/e_3_12/e_3_12_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E3.12</div><div class="exo-title">Décharge d'un condensateur dans un circuit RLC série.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-e4">
+        <div class="acc-head" onclick="toggleAcc('el-e4')">
+          <div class="acc-head-left"><span class="acc-code">E4</span><span class="acc-title">Réseaux linéaires en régime sinusoïdal forcé.</span></div>
+          <div class="acc-meta"><span class="acc-count">8 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_4/e_4_1/e_4_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E4.1</div><div class="exo-title">Étude d'un montage déphaseur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_4/e_4_2/e_4_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E4.2</div><div class="exo-title">Condition d'obtention d'une amplitude maximale.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_4/e_4_3/e_4_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E4.3</div><div class="exo-title">Courant et tension en phase.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_4/e_4_4/e_4_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E4.4</div><div class="exo-title">Circuits (L, C) et (R, L, C).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_4/e_4_5/e_4_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E4.5</div><div class="exo-title">Détermination des caractéristiques d'une tension.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_4/e_4_6/e_4_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E4.6</div><div class="exo-title">Circuit RLC : amplitude et déphasage de différentes intensités.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_4/e_4_7/e_4_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E4.7</div><div class="exo-title">Impédance itérative.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_4/e_4_8/e_4_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E4.8</div><div class="exo-title">Recherche des caractéristiques d'un courant dans une maille.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-e5">
+        <div class="acc-head" onclick="toggleAcc('el-e5')">
+          <div class="acc-head-left"><span class="acc-code">E5</span><span class="acc-title">Fonctions de transfert des réseaux linéaires.</span></div>
+          <div class="acc-meta"><span class="acc-count">14 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_5/e_5_1/e_5_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E5.1</div><div class="exo-title">Pont de Wien.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_5/e_5_2/e_5_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E5.2</div><div class="exo-title">Circuit coupe-bande du second ordre.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_5/e_5_3/e_5_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E5.3</div><div class="exo-title">Circuit passe-bande du second ordre.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_5/e_5_4/e_5_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E5.4</div><div class="exo-title">Biporte RC du second ordre.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_5/e_5_5/e_5_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E5.5</div><div class="exo-title">Déphaseur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_5/e_5_6/e_5_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E5.6</div><div class="exo-title">Filtre passe-haut du second ordre.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_5/e_5_7/e_5_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E5.7</div><div class="exo-title">Étude d'un montage réjecteur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_5/e_5_8/e_5_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E5.8</div><div class="exo-title">Étude d'un filtre avec AO.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_5/e_5_9/e_5_9_tot.htm" target="_blank" style="display:contents"><div class="exo-num">E5.9</div><div class="exo-title">Double (R,C) série.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_5/e_5_10/e_5_10_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E5.10</div><div class="exo-title">Étude d'un filtre avec AO (II).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_5/e_5_11/e_5_11_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E5.11</div><div class="exo-title">Réalisation d'un filtre.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_5/e_5_12/e_5_12_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E5.12</div><div class="exo-title">Étude d'un filtre coupe-bande. Interprétation de courbes.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_5/e_5_13/e_5_13_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E5.13</div><div class="exo-title">Filtre à avance de phase.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_5/e_5_14/e_5_14_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E5.14</div><div class="exo-title">Étude d'un filtre.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-e6">
+        <div class="acc-head" onclick="toggleAcc('el-e6')">
+          <div class="acc-head-left"><span class="acc-code">E6</span><span class="acc-title">Filtres actifs du second ordre.</span></div>
+          <div class="acc-meta"><span class="acc-count">8 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_6/e_6_1/e_6_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E6.1</div><div class="exo-title">Fonction de transfert (1).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_6/e_6_2/e_6_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E6.2</div><div class="exo-title">Fonction de transfert. Caractéristiques du signal de sortie.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_6/e_6_3/e_6_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E6.3</div><div class="exo-title">Filtre passe-bande de Rauch.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_6/e_6_4/e_6_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E6.4</div><div class="exo-title">Filtre à structure de Rauch (II).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_6/e_6_5/e_6_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E6.5</div><div class="exo-title">Filtre avec AO.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_6/e_6_6/e_6_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E6.6</div><div class="exo-title">Étude d'un montage passe-bande.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_6/e_6_7/e_6_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E6.7</div><div class="exo-title">Filtre passe-bande. Décomposition en série de Fourier.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_6/e_6_8/e_6_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E6.8</div><div class="exo-title">Étude d'un montage déphaseur.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-e7">
+        <div class="acc-head" onclick="toggleAcc('el-e7')">
+          <div class="acc-head-left"><span class="acc-code">E7</span><span class="acc-title">Puissance en régime sinusoïdal forcé.</span></div>
+          <div class="acc-meta"><span class="acc-count">5 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_7/e_7_1/e_7_1_tot.htm" target="_blank" style="display:contents"><div class="exo-num">E7.1</div><div class="exo-title">Puissance moyenne dissipée par un dipôle.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_7/e_7_2/e_7_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E7.2</div><div class="exo-title">Relèvement du facteur de puissance d'un moteur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_7/e_7_3/e_7_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E7.3</div><div class="exo-title">Facteur de puissance.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_7/e_7_4/e_7_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E7.4</div><div class="exo-title">Méthode des trois ampèremètres. Détermination du facteur de puissance.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electricite/e_7/e_7_5/e_7_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">E7.5</div><div class="exo-title">Puissance moyenne maximale.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="page-electromagnetisme" class="page">
+  <span class="back-btn" onclick="showPage('home')">← Retour à l'accueil</span>
+  <div class="disc-header">
+    <div class="disc-header-icon" style="background:var(--tag-em-bg)">🧲</div>
+    <div><div class="disc-header-title">Électromagnétisme</div><div class="disc-header-sub">Champ électrostatique, magnétostatique, particules chargées, forces de Laplace</div></div>
+  </div>
+  <section class="section">
+    <div class="acc-list">
+
+      <div class="acc-item" id="el-em1">
+        <div class="acc-head" onclick="toggleAcc('el-em1')">
+          <div class="acc-head-left"><span class="acc-code">EM1</span><span class="acc-title">Champ électrostatique.</span></div>
+          <div class="acc-meta"><span class="acc-count">7 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_1/em_1_1/em_1_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM1.1</div><div class="exo-title">Champ au centre d'un anneau présentant une ouverture.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_1/em_1_2/em_1_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM1.2</div><div class="exo-title">Champ créé par une demi-sphère chargée en surface.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_1/em_1_3/em_1_3_enon/em_1_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM1.3</div><div class="exo-title">Champ créé par une portion de cône.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_1/em_1_4/em_1_4_enon/em_1_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM1.4</div><div class="exo-title">Champ créé par un disque en un point de son axe.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_1/em_1_5/em_1_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM1.5</div><div class="exo-title">Champ électrostatique créé par un segment électrisé.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_1/em_1_6/em_1_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM1.6</div><div class="exo-title">Champ électrostatique créé par une demi-sphère chargée en surface.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_1/em_1_7/em_1_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM1.7</div><div class="exo-title">Champ électrique sur l'axe d'un système (-q, +q).</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-em2">
+        <div class="acc-head" onclick="toggleAcc('el-em2')">
+          <div class="acc-head-left"><span class="acc-code">EM2</span><span class="acc-title">Potentiel électrostatique.</span></div>
+          <div class="acc-meta"><span class="acc-count">4 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_2/em_2_1/em_2_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM2.1</div><div class="exo-title">Potentiel et champ créés par un disque en un point de son axe.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_2/em_2_2/em_2_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM2.2</div><div class="exo-title">Potentiel et champ créés par une demi-sphère chargée en surface.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_2/em_2_3/em_2_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM2.3</div><div class="exo-title">Potentiel créé par une portion de cône.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_2/em_2_4/em_2_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM2.4</div><div class="exo-title">Lignes de champ.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-em3">
+        <div class="acc-head" onclick="toggleAcc('el-em3')">
+          <div class="acc-head-left"><span class="acc-code">EM3</span><span class="acc-title">Théorème de Gauss. Applications.</span></div>
+          <div class="acc-meta"><span class="acc-count">10 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_3/em_3_1/em_3_1_tot.htm" target="_blank" style="display:contents"><div class="exo-num">EM3.1</div><div class="exo-title">Atome d'hydrogène.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_3/em_3_2/em_3_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM3.2</div><div class="exo-title">Étude d'une distribution cylindrique de charge.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_3/em_3_3/em_3_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM3.3</div><div class="exo-title">Traversée d'une couche chargée.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_3/em_3_4/em_3_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM3.4</div><div class="exo-title">Champ sur l'axe d'une ouverture circulaire d'un plan.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_3/em_3_5/em_3_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM3.5</div><div class="exo-title">Champ dans une cavité sphérique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_3/em_3_6/em_3_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM3.6</div><div class="exo-title">Recherche de la direction du champ électrostatique créé par une demi-sphère.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_3/em_3_7/em_3_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM3.7</div><div class="exo-title">Étude d'une distribution sphérique inhomogène.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_3/em_3_8/em_3_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM3.8</div><div class="exo-title">Champ au voisinage de l'axe d'un cerceau uniformément chargé.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_3/em_3_9/em_3_9_enon_version2.htm" target="_blank" style="display:contents"><div class="exo-num">EM3.9</div><div class="exo-title">Sphère creuse.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_3/em_3_10/em_3_10_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM3.10</div><div class="exo-title">Densité volumique uniforme entre deux plans.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-em4">
+        <div class="acc-head" onclick="toggleAcc('el-em4')">
+          <div class="acc-head-left"><span class="acc-code">EM4</span><span class="acc-title">Dipôle électrostatique.</span></div>
+          <div class="acc-meta"><span class="acc-count">3 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_4/em_4_1/em_4_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM4.1</div><div class="exo-title">Potentiel et champ d'un quadripôle. Modélisation de CO2.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_4/em_4_2/em_4_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM4.2</div><div class="exo-title">Oscillations d'un dipôle dans le champ créé par un anneau.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_4/em_4_3/em_4_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM4.3</div><div class="exo-title">Étude de distributions linéiques.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-em5">
+        <div class="acc-head" onclick="toggleAcc('el-em5')">
+          <div class="acc-head-left"><span class="acc-code">EM5</span><span class="acc-title">Mouvements d'une particule chargée dans un champ électromagnétique. <span class="acc-kholor">Kholor — <a href="https://payhip.com/b/Q3Rqn" target="_blank" style="color:inherit">2,49 €</a></span></span></div>
+          <div class="acc-meta"><span class="acc-count">7 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_5/em_5_1/em_5_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM5.1</div><div class="exo-title">Actions d'un champ magnétique et d'une force de rappel.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_5/em_5_2/em_5_2_tot.htm" target="_blank" style="display:contents"><div class="exo-num">EM5.2</div><div class="exo-title">Actions d'un champ magnétique et d'une force de frottement.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_5/em_5_3/em_5_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM5.3</div><div class="exo-title">E et B orthogonaux. Cycloïde.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_5/em_5_4/em_5_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM5.4</div><div class="exo-title">Mouvement d'un proton dans un liquide.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_5/em_5_5/em_5_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM5.5</div><div class="exo-title">Mouvement d'une particule chargée dans un champ magnétique uniforme.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_5/em_5_6/em_5_6-enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM5.6</div><div class="exo-title">Action d'un champ magnétique. Déflexion magnétique. Mouvement hélicoïdal.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_5/em_5_7/em_5_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM5.7</div><div class="exo-title">Mouvement d'une particule dans un volume cylindrique chargé.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-em6">
+        <div class="acc-head" onclick="toggleAcc('el-em6')">
+          <div class="acc-head-left"><span class="acc-code">EM6</span><span class="acc-title">Champ magnétique.</span></div>
+          <div class="acc-meta"><span class="acc-count">8 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_6/em_6_1/em_6_1_tot.htm" target="_blank" style="display:contents"><div class="exo-num">EM6.1</div><div class="exo-title">Champ magnétique créé par une spire carrée.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_6/em_6_2/em_6_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM6.2</div><div class="exo-title">Champ magnétique en un point du plan d'une spire.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_6/em_6_3/em_6_3_tot.htm" target="_blank" style="display:contents"><div class="exo-num">EM6.3</div><div class="exo-title">Détermination du champ magnétique au centre d'une sphère bobinée.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_6/em_6_4/em_6_4_tot.htm" target="_blank" style="display:contents"><div class="exo-num">EM6.4</div><div class="exo-title">Champ magnétique d'un circuit coudé à angle droit.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_6/em_6_5/em_6_5_tot.htm" target="_blank" style="display:contents"><div class="exo-num">EM6.5</div><div class="exo-title">Champ magnétique créé par des fils et deux demi-spires.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_6/em_6_6/em_6_6_tot.htm" target="_blank" style="display:contents"><div class="exo-num">EM6.6</div><div class="exo-title">Champ magnétique créé par deux demi-spires.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_6/em_6_7/em_6_7_tot.htm" target="_blank" style="display:contents"><div class="exo-num">EM6.7</div><div class="exo-title">Champ magnétique créé par deux circuits de même longueur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_6/em_6_8/em_6_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM6.8</div><div class="exo-title">Solénoïde de section carrée.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-em7">
+        <div class="acc-head" onclick="toggleAcc('el-em7')">
+          <div class="acc-head-left"><span class="acc-code">EM7</span><span class="acc-title">Théorème d'Ampère. Flux du champ magnétique.</span></div>
+          <div class="acc-meta"><span class="acc-count">3 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_7/em_7_1/em_7_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">EM7.1</div><div class="exo-title">Détermination de la direction d'un champ magnétique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_7/em_7_2/em_7_2.htm" target="_blank" style="display:contents"><div class="exo-num">EM7.2</div><div class="exo-title">Champ magnétique à l'intérieur d'un tore.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electromagnetisme/em_7/em_7_3/em_7_3.htm" target="_blank" style="display:contents"><div class="exo-num">EM7.3</div><div class="exo-title">Détermination des caractéristiques d'une distribution de courants.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="page-electronique" class="page">
+  <span class="back-btn" onclick="showPage('home')">← Retour à l'accueil</span>
+  <div class="disc-header">
+    <div class="disc-header-icon" style="background:var(--tag-elek-bg)">🔌</div>
+    <div><div class="disc-header-title">Électronique</div><div class="disc-header-sub">Amplificateur opérationnel, filtres, comparateurs, oscillateurs</div></div>
+  </div>
+  <section class="section">
+    <div class="acc-list">
+
+      <div class="acc-item" id="el-ao1">
+        <div class="acc-head" onclick="toggleAcc('el-ao1')">
+          <div class="acc-head-left"><span class="acc-code">AO1</span><span class="acc-title">Montages de base de l'amplificateur opérationnel.</span></div>
+          <div class="acc-meta"><span class="acc-count">4 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electronique/ao_1/ao_1_1/ao_1_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">AO1.1</div><div class="exo-title">Amplificateur inverseur-non inverseur à gain réglable. Résistance d'entrée.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electronique/ao_1/ao_1_2/ao_1_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">AO1.2</div><div class="exo-title">Sommateur-soustracteur multiple.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electronique/ao_1/ao_1_3/ao_1_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">AO1.3</div><div class="exo-title">Appareil de mesure.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electronique/ao_1/ao_1_4/ao_1_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">AO1.4</div><div class="exo-title">Gain complexe. Stabilité.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-ao2">
+        <div class="acc-head" onclick="toggleAcc('el-ao2')">
+          <div class="acc-head-left"><span class="acc-code">AO2</span><span class="acc-title">Filtre passe-bas. Montage intégrateur.</span></div>
+          <div class="acc-meta"><span class="acc-count">2 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electronique/ao_2/ao_2_1/ao_2_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">AO2.1</div><div class="exo-title">Dérive d'un intégrateur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electronique/ao_2/ao_2_2/ao_2_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">AO2.2</div><div class="exo-title">Intégrateur.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-ao3">
+        <div class="acc-head" onclick="toggleAcc('el-ao3')">
+          <div class="acc-head-left"><span class="acc-code">AO3</span><span class="acc-title">Filtre passe-haut. Montage dérivateur.</span></div>
+          <div class="acc-meta"><span class="acc-count">1 exercice</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electronique/ao_3/ao_3_2/ao_3_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">AO3.2</div><div class="exo-title">Montage dérivateur. Modélisation à bande passante limitée.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-ao4">
+        <div class="acc-head" onclick="toggleAcc('el-ao4')">
+          <div class="acc-head-left"><span class="acc-code">AO4</span><span class="acc-title">Comparateurs.</span></div>
+          <div class="acc-meta"><span class="acc-count">1 exercice</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electronique/ao_4/ao_4_1/ao_4_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">AO4.1</div><div class="exo-title">Étude du régime transitoire d'un comparateur à hystérésis.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-ao5">
+        <div class="acc-head" onclick="toggleAcc('el-ao5')">
+          <div class="acc-head-left"><span class="acc-code">AO5</span><span class="acc-title">Multivibrateurs. Générateurs de fonctions.</span></div>
+          <div class="acc-meta"><span class="acc-count">3 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electronique/ao_5/ao_5_1/ao_5_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">AO5.1</div><div class="exo-title">Générateur de fonctions.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electronique/ao_5/ao_5_2/ao_5_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">AO5.2</div><div class="exo-title">Générateur de fonctions à comparateur inverseur à hystérésis.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electronique/ao_5/ao_5_3/ao_5_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">AO5.3</div><div class="exo-title">Multivibrateur astable.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-ao6">
+        <div class="acc-head" onclick="toggleAcc('el-ao6')">
+          <div class="acc-head-left"><span class="acc-code">AO6</span><span class="acc-title">Circuits avec diodes. Redressement.</span></div>
+          <div class="acc-meta"><span class="acc-count">2 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electronique/ao_6/ao_6_1/ao_6_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">AO6.1</div><div class="exo-title">Étude d'un redresseur double alternance sans seuil.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electronique/ao_6/ao_6_2/ao_6_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">AO6.2</div><div class="exo-title">Étude d'un redresseur simple alternance avec amplification.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="el-ao7">
+        <div class="acc-head" onclick="toggleAcc('el-ao7')">
+          <div class="acc-head-left"><span class="acc-code">AO7</span><span class="acc-title">Oscillateur quasi sinusoïdal.</span></div>
+          <div class="acc-meta"><span class="acc-count">2 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electronique/ao_7/ao_7_1/ao_7_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">AO7.1</div><div class="exo-title">Oscillateur à pont de Wien.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/electronique/ao_7/ao_7_2/ao_7_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">AO7.2</div><div class="exo-title">Oscillateurs à résistance négative.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="page-mecanique" class="page">
+  <span class="back-btn" onclick="showPage('home')">← Retour à l'accueil</span>
+  <div class="disc-header">
+    <div class="disc-header-icon" style="background:var(--tag-mec-bg)">⚙️</div>
+    <div><div class="disc-header-title">Mécanique</div><div class="disc-header-sub">Cinématique, dynamique, énergie, oscillateurs, référentiels non galiléens, gravitation</div></div>
+  </div>
+  <section class="section">
+    <div class="acc-list">
+
+      <div class="acc-item" id="me-m1">
+        <div class="acc-head" onclick="toggleAcc('me-m1')">
+          <div class="acc-head-left"><span class="acc-code">M1</span><span class="acc-title">Cinématique du point matériel. <span class="acc-kholor">Kholor — <a href="https://payhip.com/b/Epak7" target="_blank" style="color:inherit">2,39 €</a></span></span></div>
+          <div class="acc-meta"><span class="acc-count">11 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_1/M1_1/mecanique_1_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M1.1</div><div class="exo-title">Cardioïde.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_1/M1_2/m_1_2_ens.htm" target="_blank" style="display:contents"><div class="exo-num">M1.2</div><div class="exo-title">Mouvement hélicoïdal.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_1/M1_3/mecanique_1_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M1.3</div><div class="exo-title">Mouvement d'un point sur un pourtour plan.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_1/M1_4/mecanique_1_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M1.4</div><div class="exo-title">Mouvement cycloïdal.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_1/M1_5/mecanique_1_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M1.5</div><div class="exo-title">Mouvement en spirale (I).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_1/M1_6/mecanique_1_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M1.6</div><div class="exo-title">Mouvement en spirale (II).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_1/M1_7/mecanique_1_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M1.7</div><div class="exo-title">Mouvement d'un point matériel sur une parabole.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_1/M1_8/mecanique_1_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M1.8</div><div class="exo-title">Mouvement d'un point matériel sur une spirale tracée sur un cône.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_1/M1_9/m_1_9_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M1.9</div><div class="exo-title">Mouvement d'un point matériel sur une sextique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_1/M1_10/m_1_10_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M1.10</div><div class="exo-title">Mouvement d'un point matériel.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_1/m_1_11/m_1_11_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M1.11</div><div class="exo-title">Courbe d'équation r = a·exp(θ).</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="me-m2">
+        <div class="acc-head" onclick="toggleAcc('me-m2')">
+          <div class="acc-head-left"><span class="acc-code">M2</span><span class="acc-title">Dynamique du point matériel. <span class="acc-kholor">Kholor — <a href="https://payhip.com/b/NnXqd" target="_blank" style="color:inherit">3,69 €</a></span></span></div>
+          <div class="acc-meta"><span class="acc-count">11 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_2/M2_1/M2_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M2.1</div><div class="exo-title">Pendule conique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_2/M2_2/M2_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M2.2</div><div class="exo-title">Pendule simple.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_2/M2_3/M2_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M2.3</div><div class="exo-title">Mouvement d'une sphère dans un liquide.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_2/M2_4/M2_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M2.4</div><div class="exo-title">Mouvement d'un point sur une sphère.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_2/M2_5/M2_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M2.5</div><div class="exo-title">Lancement d'un projectile. Force de frottement.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_2/M2_6/M2_6_enon_1.htm" target="_blank" style="display:contents"><div class="exo-num">M2.6</div><div class="exo-title">Étude d'un mouvement à force centrale avec amortissement.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_2/M2_7/m_2_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M2.7</div><div class="exo-title">Particule sur un cerceau avec frottements visqueux.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_2/M2_12/m_2_12_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M2.8</div><div class="exo-title">Parabole de sûreté.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_2/M2_9/m_2_9_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M2.9</div><div class="exo-title">Équilibre d'un point matériel.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_2/M2_10/m_2_10_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M2.10</div><div class="exo-title">Étude d'un mouvement avec force centrale avec amortissement.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_2/M2_11/m2_11_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M2.11</div><div class="exo-title">Mouvement d'une bille dans un tube.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="me-m3">
+        <div class="acc-head" onclick="toggleAcc('me-m3')">
+          <div class="acc-head-left"><span class="acc-code">M3</span><span class="acc-title">Énergie. <span class="acc-kholor">Kholor — <a href="https://payhip.com/b/TViO7" target="_blank" style="color:inherit">3,59 €</a></span></span></div>
+          <div class="acc-meta"><span class="acc-count">16 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/m_3_1/m_3_1_enon/m_3_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M3.1</div><div class="exo-title">Équilibre d'une charge sur un plan incliné.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/M3_2/M3_2_enon/M3_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M3.2</div><div class="exo-title">Travail d'une force de frottement.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/M3_3/M3_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M3.3</div><div class="exo-title">Travail d'une force non conservative.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/M3_4/M3_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M3.4</div><div class="exo-title">Étude d'un système avec ressort. Bifurcation.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/M3_5/M3_5_enon/M3_5_enon_1.htm" target="_blank" style="display:contents"><div class="exo-num">M3.5</div><div class="exo-title">Énergie mécanique d'une particule sur une trajectoire elliptique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/M3_6/M3_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M3.6</div><div class="exo-title">Mouvement unidimensionnel d'une particule.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/m_3_7/m_3_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M3.7</div><div class="exo-title">Étude d'un système masse-ressort.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/m_3_8/m_3_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M3.8</div><div class="exo-title">Énergie potentielle et stabilité d'une position d'équilibre.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/m_3_9/m_3_9_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M3.9</div><div class="exo-title">Petites oscillations autour d'une position d'équilibre.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/m_3_10/m_3_10_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M3.10</div><div class="exo-title">Recherche de positions d'équilibre stables.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/m_3_11/m_3_11_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M3.11</div><div class="exo-title">Équilibre d'un point matériel.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/m_3_12/m_3_12_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M3.12</div><div class="exo-title">Mouvement d'une particule dans un champ de force en 1/r³.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/m_3_13/m_3_13_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M3.13</div><div class="exo-title">Mouvement d'une particule dans un champ de force dérivant de Ep = kxy.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/m_3_14/m_3_14_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M3.14</div><div class="exo-title">Mouvement d'une particule soumise à une force de puissance constante.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/m_3_15/m_3_15_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M3.15</div><div class="exo-title">Particule dans une cuvette.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_3/m_3_16/m_2_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M3.16</div><div class="exo-title">Point mobile à l'intérieur d'un cône.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="me-m4">
+        <div class="acc-head" onclick="toggleAcc('me-m4')">
+          <div class="acc-head-left"><span class="acc-code">M4</span><span class="acc-title">Oscillateur harmonique. Oscillateur amorti.</span></div>
+          <div class="acc-meta"><span class="acc-count">7 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_4/m_4_1/M4_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M4.1</div><div class="exo-title">Oscillations longitudinales. Association de ressorts.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_4/m_4_2/M4_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M4.2</div><div class="exo-title">Oscillateurs couplés.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_4/m_4_3/M4_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M4.3</div><div class="exo-title">Détermination d'un coefficient de viscosité.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_4/m_4_4/m_4_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M4.4</div><div class="exo-title">Microscope à force atomique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_4/m_4_5/m_4_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M4.5</div><div class="exo-title">Gravimètre à ressort.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_4/m_4_6/m_4_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M4.6</div><div class="exo-title">Petites oscillations autour d'une position d'équilibre stable.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_4/m_4_7/m_4_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M4.7</div><div class="exo-title">Microscope à force atomique (II).</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="me-m5">
+        <div class="acc-head" onclick="toggleAcc('me-m5')">
+          <div class="acc-head-left"><span class="acc-code">M5</span><span class="acc-title">Oscillations forcées. Résonance.</span></div>
+          <div class="acc-meta"><span class="acc-count">5 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_5/m_5_1/m_5_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M5.1</div><div class="exo-title">Amortisseur d'une machine.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_5/m_5_2/m_5_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M5.2</div><div class="exo-title">Oscillations forcées par déplacement de l'oscillateur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_5/m_5_3/m_5_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M5.3</div><div class="exo-title">Mouvement sans suspension.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_5/m_5_4/m_5_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M5.4</div><div class="exo-title">Oscillations forcées d'un véhicule sur une route ondulée.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_5/m_5_5/m_5_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M5.5</div><div class="exo-title">Oscillateur mécanique. Résonateur.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="me-m6">
+        <div class="acc-head" onclick="toggleAcc('me-m6')">
+          <div class="acc-head-left"><span class="acc-code">M6</span><span class="acc-title">Théorème du moment cinétique. <span class="acc-kholor">Kholor — <a href="https://payhip.com/b/YmgwO" target="_blank" style="color:inherit">2,89 €</a></span></span></div>
+          <div class="acc-meta"><span class="acc-count">7 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_6/m_6_1/m_6_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M6.1</div><div class="exo-title">Pendule conique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_6/m_6_2/m_6_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M6.2</div><div class="exo-title">Oscillations circulaires.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_6/m_6_3/m_6_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M6.3</div><div class="exo-title">Gravimètre à ressort.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_6/m_6_4/m_6_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M6.4</div><div class="exo-title">Force centrale. Lois de force et de vitesse.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_6/m_6_5/m_6_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M6.5</div><div class="exo-title">Mouvement d'une particule dans un champ de force dérivant de Ep = kxy.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_6/m_6_6/m_6_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M6.6</div><div class="exo-title">Caractéristiques des mouvements à force centrale. Lois de Binet.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_6/m_6_7/m_6_7_tot.htm" target="_blank" style="display:contents"><div class="exo-num">M6.7</div><div class="exo-title">Sismographe de La Coste.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="me-m7">
+        <div class="acc-head" onclick="toggleAcc('me-m7')">
+          <div class="acc-head-left"><span class="acc-code">M7</span><span class="acc-title">Force centrale conservative. Mouvements newtoniens. <span class="acc-kholor">Kholor — <a href="https://payhip.com/b/b1zEZ" target="_blank" style="color:inherit">3,49 €</a></span></span></div>
+          <div class="acc-meta"><span class="acc-count">8 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_7/m_7_1/m_7_1_tot.htm" target="_blank" style="display:contents"><div class="exo-num">M7.1</div><div class="exo-title">Mouvement elliptique d'un satellite artificiel.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_7/m_7_2/m_7_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M7.2</div><div class="exo-title">Mouvement hyperbolique d'un satellite artificiel.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_7/m_7_3/m_7_3_tot.htm" target="_blank" style="display:contents"><div class="exo-num">M7.3</div><div class="exo-title">Chute d'un météorite.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_7/m_7_4/m_7_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M7.4</div><div class="exo-title">Freinage d'un satellite.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_7/m_7_5/m_7_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M7.5</div><div class="exo-title">Rencontre orbitale.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_7/m_7_6/m_7_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M7.6</div><div class="exo-title">Mouvement d'un satellite artificiel.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_7/m_7_7/m_7_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M7.7</div><div class="exo-title">Mouvement de comètes.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_7/m_7_8/m_7_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M7.8</div><div class="exo-title">Satellite Hipparcos.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="me-m8">
+        <div class="acc-head" onclick="toggleAcc('me-m8')">
+          <div class="acc-head-left"><span class="acc-code">M8</span><span class="acc-title">Changements de référentiels. Aspect cinématique.</span></div>
+          <div class="acc-meta"><span class="acc-count">11 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_8/m_8_1/m_8_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M8.1</div><div class="exo-title">Étude du mouvement d'une balle dans un référentiel tournant.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_8/m_8_2/m_8_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M8.2</div><div class="exo-title">Composition de mouvements de deux barres.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_8/m_8_3/m_8_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M8.3</div><div class="exo-title">Composition d'un mouvement d'entraînement circulaire et d'un mouvement relatif rectiligne.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_8/m_8_4/m_8_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M8.4</div><div class="exo-title">Rotation d'une roue autour d'un axe fixe.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_8/m_8_5/m_8_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M8.5</div><div class="exo-title">Mouvement d'un point sur le bord d'un cerceau en rotation.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_8/m_8_6/m_8_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M8.6</div><div class="exo-title">Mouvement sinusoïdal d'un point sur une tige en rotation autour d'un axe fixe.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_8/m_8_7/m_8_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M8.7</div><div class="exo-title">Système bielle-biellette.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_8/m_8_8/m_8_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M8.8</div><div class="exo-title">Vitesse d'éjection de l'eau dans un tourniquet hydraulique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_8/m_8_9/m_8_9_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M8.9</div><div class="exo-title">Mouvement elliptique d'un point appartenant à une tige.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_8/m_8_10/m_8_10_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M8.10</div><div class="exo-title">Rotation sur plateau tournant.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_8/m_8_11/m_8_11_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M8.11</div><div class="exo-title">Mouvement d'un point matériel sur une tige en rotation.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="me-m9">
+        <div class="acc-head" onclick="toggleAcc('me-m9')">
+          <div class="acc-head-left"><span class="acc-code">M9</span><span class="acc-title">Dynamique du point matériel dans un référentiel non galiléen.</span></div>
+          <div class="acc-meta"><span class="acc-count">22 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/M9_1/mecanique_9_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.1</div><div class="exo-title">Étude d'un pendule simple dans un ascenseur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/M9_2/m9_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.2</div><div class="exo-title">Étude d'un sismographe élémentaire.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/M9_3/m9_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.3</div><div class="exo-title">Masse sur une tige en rotation autour d'un axe fixe.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/M9_4/m_9_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.4</div><div class="exo-title">Masse sur une tige en rotation autour d'un axe fixe et liée par un ressort.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/M9_5/m9_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.5</div><div class="exo-title">Particule sur un axe en rotation inclinée par rapport à l'horizontal.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/M9_6/m_9_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.6</div><div class="exo-title">Bille sur un plateau en translation sinusoïdale.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/M9_7/m_9_7_tot.htm" target="_blank" style="display:contents"><div class="exo-num">M9.7</div><div class="exo-title">Mouvement d'un glaçon sur un plateau en rotation.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/M9_8/m_9_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.8</div><div class="exo-title">Mouvement d'une particule contenue dans un tube en rotation.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/M9_9/m_9_9_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.9</div><div class="exo-title">Pendule simple. Mouvement de translation rectiligne du point d'attache.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/M9_10/m_9_10_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.10</div><div class="exo-title">Étude d'un équilibre relatif.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/M9_11/m_9_11_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.11</div><div class="exo-title">Mouvement d'un anneau sur un cerceau en rotation.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/M9_12/m_9_12_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.12</div><div class="exo-title">Mouvement d'un anneau sur un cerceau en rotation (II).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/M9_13/m_9_13_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.13</div><div class="exo-title">Énergie cinétique d'une masse sur un axe en rotation.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/M9_14/m9_14_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.14</div><div class="exo-title">Exemple de bifurcation en mécanique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/m_9_15/m_9_15_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.15</div><div class="exo-title">Masse sur une tige en rotation autour d'un axe fixe en présence de frottement.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/m_9_16/m_9_16_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.16</div><div class="exo-title">Mouvement d'un point matériel guidé sur une droite mobile.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/m_9_17/m_9_17_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.17</div><div class="exo-title">Mouvement et équilibre relatif d'une particule sur une tige en rotation.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/m_9_18/m_9_18_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.18</div><div class="exo-title">Pendule dans un wagon.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/m_9_19/m_9_19_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.19</div><div class="exo-title">Point matériel en contact avec une demi-sphère.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/m_9_20/m_9_20_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.20</div><div class="exo-title">Oscillations paramétriques d'un pendule simple.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/m_9_21/m_9_21_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.21</div><div class="exo-title">Point matériel sur un cercle vertical tournant.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_9/m_9_22/m_9_22_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M9.22</div><div class="exo-title">Pendule à point d'attache mobile.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="me-m10">
+        <div class="acc-head" onclick="toggleAcc('me-m10')">
+          <div class="acc-head-left"><span class="acc-code">M10</span><span class="acc-title">Caractère galiléen approché du référentiel géocentrique et terrestre.</span></div>
+          <div class="acc-meta"><span class="acc-count">5 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_10/M10_1/m_10_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M10.1</div><div class="exo-title">Influence de la force de Coriolis sur une balle de fusil.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_10/M10_2/m_10_2_ens.htm" target="_blank" style="display:contents"><div class="exo-num">M10.2</div><div class="exo-title">Déviation vers l'est lors d'une chute libre.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_10/M10_3/m_10_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M10.3</div><div class="exo-title">Limite de Roche.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_10/m_10_4/m_10_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M10.4</div><div class="exo-title">Usure inégale des rails de chemin de fer.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_10/m_10_5/m_10_5_tot.htm" target="_blank" style="display:contents"><div class="exo-num">M10.5</div><div class="exo-title">Pendule de Foucault.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="me-m11">
+        <div class="acc-head" onclick="toggleAcc('me-m11')">
+          <div class="acc-head-left"><span class="acc-code">M11</span><span class="acc-title">Système de deux points matériels.</span></div>
+          <div class="acc-meta"><span class="acc-count">9 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_11/m_11_1/m_11_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M11.1</div><div class="exo-title">Pendule à point d'attache mobile.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_11/m_11_2/m_11_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M11.2</div><div class="exo-title">Oscillateur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_11/m_11_3/m_11_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M11.3</div><div class="exo-title">Utilisation des théorèmes de Koenig.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_11/m_11_4/m_11_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M11.4</div><div class="exo-title">Poids apparent d'un sablier.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_11/m_11_5/m_11_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M11.5</div><div class="exo-title">Chute d'un objet vers le Soleil.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_11/m_11_6/m_11_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M11.6</div><div class="exo-title">Diffusion d'une particule alpha.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_11/m_11_7/M11_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M11.7</div><div class="exo-title">Vecteur de Runge-Lenz.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_11/m_11_8/m_11_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M11.8</div><div class="exo-title">Molécule diatomique et potentiel de Morse.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/mecanique/mecanique_11/m_11_9/m_11_9_enon.htm" target="_blank" style="display:contents"><div class="exo-num">M11.9</div><div class="exo-title">Expérience de Rutherford.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="page-optique" class="page">
+  <span class="back-btn" onclick="showPage('home')">← Retour à l'accueil</span>
+  <div class="disc-header">
+    <div class="disc-header-icon" style="background:var(--tag-opt-bg)">🔭</div>
+    <div><div class="disc-header-title">Optique</div><div class="disc-header-sub">Optique géométrique et ondulatoire, interférences, diffraction</div></div>
+  </div>
+  <section class="section">
+    <div class="acc-list">
+
+      <div class="acc-item" id="op-o1">
+        <div class="acc-head" onclick="toggleAcc('op-o1')">
+          <div class="acc-head-left"><span class="acc-code">O1</span><span class="acc-title">Bases de l'optique géométrique.</span></div>
+          <div class="acc-meta"><span class="acc-count">5 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_1/o_1_1/o_1_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O1.1</div><div class="exo-title">Prisme à déviation π/2.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_1/o_1_2/o_1_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O1.2</div><div class="exo-title">Mesure d'indice.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_1/o_1_3/o_1_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O1.3</div><div class="exo-title">Prisme : conditions d'émergence.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_1/o_1_4/o_1_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O1.4</div><div class="exo-title">Trajet d'un rayon dans un prisme.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_1/o_1_5/o_1_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O1.5</div><div class="exo-title">Arc-en-ciel.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="op-o3">
+        <div class="acc-head" onclick="toggleAcc('op-o3')">
+          <div class="acc-head-left"><span class="acc-code">O3</span><span class="acc-title">Miroirs sphériques.</span></div>
+          <div class="acc-meta"><span class="acc-count">3 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_3/o_3_1/o_3_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O3.1</div><div class="exo-title">Système à deux miroirs sphériques coaxiaux : télescope Cassegrain.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_3/o_3_3/o_3_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O3.3</div><div class="exo-title">Système à deux miroirs sphériques coaxiaux et concentriques.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_3/o_3_4/o_3_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O3.4</div><div class="exo-title">Images par un miroir sphérique.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="op-o4">
+        <div class="acc-head" onclick="toggleAcc('op-o4')">
+          <div class="acc-head-left"><span class="acc-code">O4</span><span class="acc-title">Lentilles minces sphériques.</span></div>
+          <div class="acc-meta"><span class="acc-count">7 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_4/o_4_1/o_4_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O4.1</div><div class="exo-title">Latitude de mise au point d'une loupe.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_4/o_4_2/o_4_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O4.2</div><div class="exo-title">Vergence d'une lentille mince.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_4/o_4_3/o_4_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O4.3</div><div class="exo-title">Étude d'un microscope.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_4/o_4_4/o_4_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O4.4</div><div class="exo-title">Téléobjectif.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_4/o_4_5/o_4_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O4.5</div><div class="exo-title">Lunette de Galilée.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_4/o_4_6/o_4_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O4.6</div><div class="exo-title">Principe du téléobjectif.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_4/o_4_7/o_4_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O4.7</div><div class="exo-title">Vision d'un petit objet à l'aide d'un microscope.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="op-o5">
+        <div class="acc-head" onclick="toggleAcc('op-o5')">
+          <div class="acc-head-left"><span class="acc-code">O5</span><span class="acc-title">Interférences lumineuses.</span></div>
+          <div class="acc-meta"><span class="acc-count">7 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_5/o_5_1/o_5_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O5.1</div><div class="exo-title">Interférences lumineuses. Trous d'Young.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_5/o_5_2/O_5_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O5.2</div><div class="exo-title">Trois fentes de Young avec observation à l'infini.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_5/o_5_3/o_5_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O5.3</div><div class="exo-title">Franges d'Young à l'infini. Mesure de distance stellaire.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_5/o_5_4/o_5_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O5.4</div><div class="exo-title">Interférences lumineuses. Cohérence spatiale.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_5/o_5_5/o_5_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O5.5</div><div class="exo-title">Interférences avec sources à profil rectangulaire. Longueur et temps de cohérence.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_5/o_5_6/o_5_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O5.6</div><div class="exo-title">Interféromètre de Michelson : anneaux d'égale inclinaison.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_5/o_5_7/o_5_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O5.7</div><div class="exo-title">Interféromètre à deux miroirs quasi-orthogonaux en lumière monochromatique.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="op-o6">
+        <div class="acc-head" onclick="toggleAcc('op-o6')">
+          <div class="acc-head-left"><span class="acc-code">O6</span><span class="acc-title">Diffraction.</span></div>
+          <div class="acc-meta"><span class="acc-count">4 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_6/o_6_1/o_6_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O6.1</div><div class="exo-title">Fentes d'Young de même largeur. Cas limite d'une fente simple.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_6/o_6_2/o_6_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O6.2</div><div class="exo-title">Réseau réel de diffraction à fentes larges.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_6/o_6_3/o_6_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O6.3</div><div class="exo-title">Diffraction par une fente de transmittance linéaire. Apodisation.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/optique/o_6/o_6_4/o_6_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">O6.4</div><div class="exo-title">Diffraction par une fente de transmission sinusoïdale. Apodisation.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="page-thermodynamique" class="page">
+  <span class="back-btn" onclick="showPage('home')">← Retour à l'accueil</span>
+  <div class="disc-header">
+    <div class="disc-header-icon" style="background:var(--tag-thermo-bg)">🌡️</div>
+    <div><div class="disc-header-title">Thermodynamique</div><div class="disc-header-sub">Gaz parfaits, statique des fluides, principes, machines thermiques, corps purs, diffusion</div></div>
+  </div>
+  <section class="section">
+    <div class="acc-list">
+
+      <div class="acc-item" id="th-t1">
+        <div class="acc-head" onclick="toggleAcc('th-t1')">
+          <div class="acc-head-left"><span class="acc-code">T1</span><span class="acc-title">Le gaz parfait monoatomique.</span></div>
+          <div class="acc-meta"><span class="acc-count">11 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T1/T1_1/T1_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T1.1</div><div class="exo-title">Effusion gazeuse.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T1/T1_2/T1_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T1.2</div><div class="exo-title">Fuite d'air dans une cabine spatiale.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T1/T1_3/T1_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T1.3</div><div class="exo-title">Équation d'état. Coefficients thermoélastiques (1).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T1/T1_4/T1_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T1.4</div><div class="exo-title">Équation d'état. Coefficients thermoélastiques (2).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T1/T1_5/t_1_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T1.5</div><div class="exo-title">Échauffement isochore.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T1/T1_6/t_1_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T1.6</div><div class="exo-title">Pression cinétique : modèle du choc élastique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T1/T1_7/t_1_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T1.7</div><div class="exo-title">Gaz de Dieterici.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T1/T1_8/t_1_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T1.8</div><div class="exo-title">Reconstruction de l'équation d'état à partir de la donnée de coefficients thermoélastiques.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T1/T1_9/t_1_9_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T1.9</div><div class="exo-title">Thermomètres différentiels à gaz parfait.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T1/T1_10/t_1_10_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T1.10</div><div class="exo-title">Pression dans un cylindre.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T1/T1_11/t_1_11_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T1.11</div><div class="exo-title">Oscillations isentropiques.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="th-t2">
+        <div class="acc-head" onclick="toggleAcc('th-t2')">
+          <div class="acc-head-left"><span class="acc-code">T2</span><span class="acc-title">Statique des fluides.</span></div>
+          <div class="acc-meta"><span class="acc-count">18 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/T2_1/t_2_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.1</div><div class="exo-title">Cloche renversée.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/T2_2/T2_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.2</div><div class="exo-title">Remontée d'un bouchon. Poussée d'Archimède.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/T2_3/T2_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.3</div><div class="exo-title">Pression d'un gaz dans une enceinte tournante.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/T2_4/T2_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.4</div><div class="exo-title">Équilibre d'une étoile.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/T2_5/T2_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.5</div><div class="exo-title">Équilibre hydrostatique d'une étoile.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/T2_6/T2_6_bis_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.6</div><div class="exo-title">Forces pressantes sur un bol hémisphérique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/T2_7/T2_7_doc_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.7</div><div class="exo-title">Résultante des forces de pression sur un barrage.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/T2_8/T2_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.8</div><div class="exo-title">Résultante des forces de pression sur un barrage (2).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/T2_9/T2_9_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.9</div><div class="exo-title">Obturation d'une canalisation.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/T2_10/T2_10_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.10</div><div class="exo-title">Pression dans la troposphère.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/t_2_11/t_2_11_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.11</div><div class="exo-title">Modèles d'atmosphère.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/t_2_12/t_2_12_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.12</div><div class="exo-title">Mouvements verticaux de masses d'air.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/t_2_13/t%20_2_13_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.13</div><div class="exo-title">Aérostat dans l'atmosphère terrestre.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/t_2_14/t_2_14_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.14</div><div class="exo-title">Équilibre d'une sphère flottant sur un liquide.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/t_2_15/t_2_15_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.15</div><div class="exo-title">Équilibre d'un cube partiellement immergé.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/t_2_16/t_2_16_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.16</div><div class="exo-title">Flottaison de deux boules.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/t_2_17/t_2_17_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.17</div><div class="exo-title">Liquide en rotation.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T2/t_2_18/t_2_18_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T2.18</div><div class="exo-title">Principe d'un densimètre.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="th-t3">
+        <div class="acc-head" onclick="toggleAcc('th-t3')">
+          <div class="acc-head-left"><span class="acc-code">T3</span><span class="acc-title">Premier principe de la thermodynamique.</span></div>
+          <div class="acc-meta"><span class="acc-count">17 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/T3_1/T3_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T3.1</div><div class="exo-title">Transformations réversibles couplées d'un gaz parfait.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/T3_2/T3_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T3.2</div><div class="exo-title">Freinage d'un véhicule.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/T3_3/T3_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T3.3</div><div class="exo-title">Bilan énergétique sur un cycle (1).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/T3_4/t_3_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T3.4</div><div class="exo-title">Bilan énergétique sur un cycle (2).</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/T3_5/T3_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T3.5</div><div class="exo-title">Détente dans le vide avec présence d'un ressort.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/T3_6/T3_6_enon_bis.htm" target="_blank" style="display:contents"><div class="exo-num">T3.6</div><div class="exo-title">Transformation polytropique d'un gaz parfait.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/T3_7/t_3_7_tot.htm" target="_blank" style="display:contents"><div class="exo-num">T3.7</div><div class="exo-title">Travail des forces de pression.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/T3_8/T3_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T3.8</div><div class="exo-title">Étude du cycle de Lenoir.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/T3_9/T3_9_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T3.9</div><div class="exo-title">Compression adiabatique irréversible.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/T3_10/t_3_10_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T3.10</div><div class="exo-title">Compression d'un gaz parfait.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/T_3_11/t_3_11_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T3.11</div><div class="exo-title">Travail isotherme : gaz réel et gaz parfait.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/t_3_12/t_3_12_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T3.12</div><div class="exo-title">Transformations cycliques d'un gaz parfait.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/t_3_13/t_3_13_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T3.13</div><div class="exo-title">Transformations isochore et isotherme d'un gaz parfait.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/t_3_14/t_3_14_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T3.14</div><div class="exo-title">Couplage par une colonne de mercure dans un tube en U.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/t_3_15/t_3_15_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T3.15</div><div class="exo-title">Échanges de chaleur : effet Joule et rayonnement.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/t_3_16/t_3_16_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T3.16</div><div class="exo-title">Compression en deux étapes. Travail minimal.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T3/t_3_17/t_3_17_tot.htm" target="_blank" style="display:contents"><div class="exo-num">T3.17</div><div class="exo-title">Remplissage d'un récipient initialement vide.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="th-t4">
+        <div class="acc-head" onclick="toggleAcc('th-t4')">
+          <div class="acc-head-left"><span class="acc-code">T4</span><span class="acc-title">Second principe de la thermodynamique.</span></div>
+          <div class="acc-meta"><span class="acc-count">12 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T4/t_4_1/t_4_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T4.1</div><div class="exo-title">Détente d'un gaz parfait dans le vide. Bilan entropique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T4/t_4_2/t_4_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T4.2</div><div class="exo-title">Gaz parfaits séparés par une paroi mobile diathermane.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T4/t_4_3/t_4_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T4.3</div><div class="exo-title">Bilans entropiques.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T4/t_4_4/t_4_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T4.4</div><div class="exo-title">Détermination de γ par la méthode de Ruchard.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T4/t_4_5/t_4_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T4.5</div><div class="exo-title">Détermination de γ par la méthode de Rinkel.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T4/t_4_6/t_4_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T4.6</div><div class="exo-title">Compression monotherme d'un gaz parfait.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T4/t_4_7/t_4_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T4.7</div><div class="exo-title">Critère de réversibilité. Transformation monotherme. Bilan entropique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T4/t_4_8/t_4_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T4.8</div><div class="exo-title">Optimisation d'un compresseur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T4/t_4_9/t_4_9_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T4.9</div><div class="exo-title">Relation entre p et V dans le cas où γ dépend de la température.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T4/t_4_10/t_4_10_enon_1.htm" target="_blank" style="display:contents"><div class="exo-num">T4.10</div><div class="exo-title">Entrée d'air. Bilan entropique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T4/t_4_11/t_4_11_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T4.11</div><div class="exo-title">Bilan entropique d'un mélange de gaz parfaits.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T4/t_4_12/t_4_12_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T4.12</div><div class="exo-title">Entropie d'un gaz parfait en variables T, P.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="th-t5">
+        <div class="acc-head" onclick="toggleAcc('th-t5')">
+          <div class="acc-head-left"><span class="acc-code">T5</span><span class="acc-title">Machines thermiques.</span></div>
+          <div class="acc-meta"><span class="acc-count">18 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/T5_1/T_5_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T5.1</div><div class="exo-title">Pompe à chaleur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/T5_2/t_5_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T5.2</div><div class="exo-title">Cycle Diesel.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/T5_3/t_5_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T5.3</div><div class="exo-title">Moteur thermique avec des pseudo-sources.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/T5_4/t_5_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T5.4</div><div class="exo-title">Rendement d'une machine thermique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/T5_5/t_5_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T5.5</div><div class="exo-title">Cycle de Beau de Rochas.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/T5_6/t_5_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T5.6</div><div class="exo-title">Variations d'énergie interne et d'entropie sur un cycle.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/T5_7/t_5_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T5.7</div><div class="exo-title">Rendement d'un cycle.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/T5_8/t_5_8_enon_v2.htm" target="_blank" style="display:contents"><div class="exo-num">T5.8</div><div class="exo-title">Climatiseur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/t_5_9/t_5_9_tot.htm" target="_blank" style="display:contents"><div class="exo-num">T5.9</div><div class="exo-title">Cycle de Joule.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/t_5_10/t_5_10_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T5.10</div><div class="exo-title">Étude d'un cycle moteur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/t_5_11/t_5_11_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T5.11</div><div class="exo-title">Moteur utilisant des pseudo-sources.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/t_5_12/t_5_12_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T5.12</div><div class="exo-title">Cycle de Stirling.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/t_5_13/t_5_13_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T5.13</div><div class="exo-title">Diagramme de Raveau.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/t_5_14/t_5_14_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T5.14</div><div class="exo-title">Moteur Diesel.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/t_5_15/t_5_15_tot.htm" target="_blank" style="display:contents"><div class="exo-num">T5.15</div><div class="exo-title">Cycle d'un moteur Diesel.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/t_5_16/t_5_16_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T5.16</div><div class="exo-title">Moteur irréversible. Inégalité de Clausius.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/t_5_17/t_5_17_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T5.17</div><div class="exo-title">Étude d'une machine frigorifique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T5/t_5_18/t_5_18_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T5.18</div><div class="exo-title">Pompe à chaleur (II).</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="th-t6">
+        <div class="acc-head" onclick="toggleAcc('th-t6')">
+          <div class="acc-head-left"><span class="acc-code">T6</span><span class="acc-title">Étude descriptive du corps pur diphasé en équilibre.</span></div>
+          <div class="acc-meta"><span class="acc-count">7 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T6/t_6_1/t_6_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T6.1</div><div class="exo-title">Vaporisation réversible ou irréversible : bilan entropique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T6/t_6_2/t_6_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T6.2</div><div class="exo-title">Étude d'un mélange eau-glace.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T6/t_6_3/t_6_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T6.3</div><div class="exo-title">Détente isochore d'une vapeur d'eau saturante.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T6/t_6_4/t_6_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T6.4</div><div class="exo-title">Entropie d'un mélange liquide-vapeur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T6/t_6_5/t_6_5_tot.htm" target="_blank" style="display:contents"><div class="exo-num">T6.5</div><div class="exo-title">Machine à vapeur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T6/t_6_6/t_6_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T6.6</div><div class="exo-title">Détente de Joule-Kelvin d'un fréon dans une machine frigorifique.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T6/t_6_7/t_6_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T6.7</div><div class="exo-title">Machine de Linde pour la liquéfaction des gaz.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="acc-item" id="th-t8">
+        <div class="acc-head" onclick="toggleAcc('th-t8')">
+          <div class="acc-head-left"><span class="acc-code">T8</span><span class="acc-title">Diffusion de particules. Diffusion de la chaleur.</span></div>
+          <div class="acc-meta"><span class="acc-count">12 exercices</span><span class="acc-arrow">▾</span></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="exo-grid">
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T8/T8_1/t_8_1_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T8.1</div><div class="exo-title">Injection d'un soluté dans une veine.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T8/T8_2/t_8_2_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T8.2</div><div class="exo-title">Sédimentation.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T8/T8_3/t_8_3_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T8.3</div><div class="exo-title">Diffusion en présence de sources de particules.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T8/t_8_4/t_8_4_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T8.4</div><div class="exo-title">Fluctuation de température du sous-sol.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T8/t_8_5/t_8_5_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T8.5</div><div class="exo-title">Étude d'un barreau d'uranium.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T8/t_8_6/t_8_6_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T8.6</div><div class="exo-title">Flux thermique latéral : ailette de refroidissement.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T8/t_8_7/t_8_7_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T8.7</div><div class="exo-title">Géothermie.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T8/t_8_8/t_8_8_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T8.8</div><div class="exo-title">Double vitrage.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T8/t_8_9/t_8_9_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T8.9</div><div class="exo-title">Résistances thermiques : lois d'associations.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T8/t_8_10/t_8_10_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T8.10</div><div class="exo-title">Diffusion de particules chargées dans un semi-conducteur.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T8/t_8_11/t_8_11_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T8.11</div><div class="exo-title">Autodiffusion du krypton : expression microscopique de D.</div></a></div>
+        <div class="exo-card"><a href="http://hdehaan.free.fr/thermodynamique/T8/t_8_12/t_8_12_enon.htm" target="_blank" style="display:contents"><div class="exo-num">T8.12</div><div class="exo-title">Propagation radiale cylindrique.</div></a></div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">KholaWeb</div>
+      <div class="footer-meta">Hubert de Haan · www.kholaweb.com · Mise à jour : juillet 2026</div>
+    </div>
+    <div class="footer-links">
+      <a onclick="showPage('home')">Accueil</a>
+      <a onclick="showDisc('electricite')">Électricité</a>
+      <a onclick="showDisc('electromagnetisme')">Électromagnétisme</a>
+      <a onclick="showDisc('electronique')">Électronique</a>
+      <a onclick="showDisc('mecanique')">Mécanique</a>
+      <a onclick="showDisc('optique')">Optique</a>
+      <a onclick="showDisc('thermodynamique')">Thermodynamique</a>
+      <a href="https://payhip.com/kholor" target="_blank">Kholor ↗</a>
+      <a href="mailto:kholaweb@free.fr">Contact</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════
+     JAVASCRIPT
+     Placé en bas du <body> : le HTML est entièrement analysé
+     avant que le script s'exécute, donc tous les getElementById
+     trouvent leurs cibles sans attendre.
+     ════════════════════════════════════════ -->
+<script>
+
+/* ── NAVIGATION ENTRE PAGES ── */
+function showPage(id) {
+  /* Cache toutes les pages, affiche uniquement celle demandée */
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  /* Désactive tous les liens actifs dans la nav */
+  document.querySelectorAll('nav a[data-disc], nav a[data-page]').forEach(a => a.classList.remove('active'));
+  /* Active le lien correspondant s'il existe */
+  const link = document.querySelector('nav a[data-page="'+id+'"]');
+  if (link) link.classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+
+}
+
+function showDisc(disc) {
+  showPage(disc);
+  /* Active le lien de discipline dans la nav */
+  document.querySelectorAll('nav a[data-disc]').forEach(a => {
+    a.classList.toggle('active', a.dataset.disc === disc);
+  });
+}
+
+/* ── ACCORDION ──
+   toggleAcc(id) : ouvre/ferme le panneau dont l'id est passé.
+   Ajoute/retire la classe .open sur .acc-item ;
+   le CSS gère ensuite le max-height et la rotation de la flèche. */
+function toggleAcc(id) {
+  const item = document.getElementById(id);
+  if (!item) return;
+  item.classList.toggle('open');
+}
+
+/* ── MENU HAMBURGER (mobile) ── */
+document.getElementById('burger').addEventListener('click', function() {
+  document.getElementById('main-nav').classList.toggle('open');
+});
+
+</script>
+</body>
+</html>

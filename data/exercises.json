@@ -1,0 +1,2973 @@
+{
+  "disciplines": [
+    {
+      "id": "electricite",
+      "name": "Électricité",
+      "icon": "⚡",
+      "summary": "Circuits, dipôles, régimes transitoires et sinusoïdaux, filtres",
+      "chapters": [
+        {
+          "id": "el-e1",
+          "code": "E1",
+          "title": "Approximation des régimes quasi stationnaires. Dipôles.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "E1.1",
+              "title": "Thermistance.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_1/e_1_1/e_1_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E1.2",
+              "title": "Détermination d'une tension.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_1/e_1_2/e_1_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E1.3",
+              "title": "Étude d'un réseau. Lois de Kirchhoff.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_1/e_1_3/e_1_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E1.4",
+              "title": "Réseau à résistance réglable.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_1/e_1_4/e_1_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E1.5",
+              "title": "Analyse d'un réseau linéaire.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_1/e_1_5/e_1_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E1.6",
+              "title": "Lois de Kirchhoff. Utilisation des symétries.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_1/e_1_6/e_1_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E1.7",
+              "title": "Thermistance (II).",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_1/e_1_7/e_1_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E1.8",
+              "title": "Circuit avec voltamètre.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_1/e_1_8/e_1_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E1.9",
+              "title": "Transfert de puissance d'un générateur à un récepteur.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_1/e_1_9/e_1_9_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-e2",
+          "code": "E2",
+          "title": "Réseaux linéaires. Théorèmes généraux.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "E2.1",
+              "title": "Détermination d'une tension.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_1/e_2_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.2",
+              "title": "Étude d'un réseau.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_2/e_2_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.3",
+              "title": "Analyse d'un réseau linéaire par différentes méthodes.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_3/e_2_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.4",
+              "title": "Étude d'un circuit par la méthode de superposition des états.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_4/e_2_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.5",
+              "title": "Utilisation du théorème de Millman.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_5/e_2_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.6",
+              "title": "Résistances équivalentes (cube).",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_6/e_2_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.7",
+              "title": "Résistances équivalentes (treillis).",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_7/e_2_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.8",
+              "title": "Résistance équivalente. Utilisation des symétries.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_8/e_2_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.9",
+              "title": "Résistance itérative.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_9/e_2_9_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.10",
+              "title": "Association de générateurs. Dipôle équivalent.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_10/e_2_10_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.11",
+              "title": "Générateur de Thévenin équivalent.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_11/e_2_11_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.12",
+              "title": "Représentations de Thévenin et de Norton.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_12/e_2_12_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.13",
+              "title": "Intensité traversant un générateur de tension.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_13/e_2_13_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.14",
+              "title": "Théorème de superposition et source liée.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_14/e_2_14_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.15",
+              "title": "Optimisation d'un groupement de piles.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_15/e_2_15_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.16",
+              "title": "Pont de Wheatstone alimenté par une source de courant.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_16/e_2_16_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.17",
+              "title": "Transformation triangle-étoile. Théorème de Kennely.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_17/e_2_17_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E2.18",
+              "title": "Générateurs en opposition.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_2/e_2_18/e_2_18_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-e3",
+          "code": "E3",
+          "title": "Réseaux linéaires en régime transitoire.",
+          "kholor": {
+            "price": "3,59 €",
+            "url": "https://payhip.com/b/Z4YW"
+          },
+          "exercises": [
+            {
+              "code": "E3.1",
+              "title": "Circuit RC série soumis à une tension carrée.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_3/e_3_1/e_3_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E3.2",
+              "title": "Régime transitoire et facteur de qualité d'un circuit RLC.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_3/e_3_2/e_3_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E3.3",
+              "title": "Réponse à une tension en dent de scie.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_3/e_3_3/e_3_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E3.4",
+              "title": "Étude du circuit de Wien en régime transitoire.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_3/e_3_4/e_3_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E3.5",
+              "title": "Étude d'un circuit (RL, R//C) en régime transitoire.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_3/e_3_5/e_3_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E3.6",
+              "title": "Circuit (R1//(R2//L)).",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_3/e_3_6/e_3_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E3.7",
+              "title": "Réponse indicielle.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_3/e_3_7/e_3_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E3.8",
+              "title": "Étude d'une réponse en tension.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_3/e_3_8/e_3_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E3.9",
+              "title": "Étude d'une réponse en courant.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_3/e_3_9/e_3_9_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E3.10",
+              "title": "Réponse d'un circuit R, R₀//C à un échelon de tension.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_3/e_3_10/e_3_10_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E3.11",
+              "title": "Étude d'un circuit RLC parallèle.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_3/e_3_11/e_3_11_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E3.12",
+              "title": "Décharge d'un condensateur dans un circuit RLC série.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_3/e_3_12/e_3_12_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-e4",
+          "code": "E4",
+          "title": "Réseaux linéaires en régime sinusoïdal forcé.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "E4.1",
+              "title": "Étude d'un montage déphaseur.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_4/e_4_1/e_4_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E4.2",
+              "title": "Condition d'obtention d'une amplitude maximale.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_4/e_4_2/e_4_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E4.3",
+              "title": "Courant et tension en phase.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_4/e_4_3/e_4_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E4.4",
+              "title": "Circuits (L, C) et (R, L, C).",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_4/e_4_4/e_4_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E4.5",
+              "title": "Détermination des caractéristiques d'une tension.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_4/e_4_5/e_4_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E4.6",
+              "title": "Circuit RLC : amplitude et déphasage de différentes intensités.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_4/e_4_6/e_4_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E4.7",
+              "title": "Impédance itérative.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_4/e_4_7/e_4_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E4.8",
+              "title": "Recherche des caractéristiques d'un courant dans une maille.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_4/e_4_8/e_4_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-e5",
+          "code": "E5",
+          "title": "Fonctions de transfert des réseaux linéaires.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "E5.1",
+              "title": "Pont de Wien.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_5/e_5_1/e_5_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E5.2",
+              "title": "Circuit coupe-bande du second ordre.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_5/e_5_2/e_5_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E5.3",
+              "title": "Circuit passe-bande du second ordre.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_5/e_5_3/e_5_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E5.4",
+              "title": "Biporte RC du second ordre.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_5/e_5_4/e_5_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E5.5",
+              "title": "Déphaseur.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_5/e_5_5/e_5_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E5.6",
+              "title": "Filtre passe-haut du second ordre.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_5/e_5_6/e_5_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E5.7",
+              "title": "Étude d'un montage réjecteur.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_5/e_5_7/e_5_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E5.8",
+              "title": "Étude d'un filtre avec AO.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_5/e_5_8/e_5_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E5.9",
+              "title": "Double (R,C) série.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_5/e_5_9/e_5_9_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "E5.10",
+              "title": "Étude d'un filtre avec AO (II).",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_5/e_5_10/e_5_10_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E5.11",
+              "title": "Réalisation d'un filtre.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_5/e_5_11/e_5_11_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E5.12",
+              "title": "Étude d'un filtre coupe-bande. Interprétation de courbes.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_5/e_5_12/e_5_12_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E5.13",
+              "title": "Filtre à avance de phase.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_5/e_5_13/e_5_13_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E5.14",
+              "title": "Étude d'un filtre.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_5/e_5_14/e_5_14_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-e6",
+          "code": "E6",
+          "title": "Filtres actifs du second ordre.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "E6.1",
+              "title": "Fonction de transfert (1).",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_6/e_6_1/e_6_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E6.2",
+              "title": "Fonction de transfert. Caractéristiques du signal de sortie.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_6/e_6_2/e_6_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E6.3",
+              "title": "Filtre passe-bande de Rauch.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_6/e_6_3/e_6_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E6.4",
+              "title": "Filtre à structure de Rauch (II).",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_6/e_6_4/e_6_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E6.5",
+              "title": "Filtre avec AO.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_6/e_6_5/e_6_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E6.6",
+              "title": "Étude d'un montage passe-bande.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_6/e_6_6/e_6_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E6.7",
+              "title": "Filtre passe-bande. Décomposition en série de Fourier.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_6/e_6_7/e_6_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E6.8",
+              "title": "Étude d'un montage déphaseur.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_6/e_6_8/e_6_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-e7",
+          "code": "E7",
+          "title": "Puissance en régime sinusoïdal forcé.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "E7.1",
+              "title": "Puissance moyenne dissipée par un dipôle.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_7/e_7_1/e_7_1_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "E7.2",
+              "title": "Relèvement du facteur de puissance d'un moteur.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_7/e_7_2/e_7_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E7.3",
+              "title": "Facteur de puissance.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_7/e_7_3/e_7_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E7.4",
+              "title": "Méthode des trois ampèremètres. Détermination du facteur de puissance.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_7/e_7_4/e_7_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "E7.5",
+              "title": "Puissance moyenne maximale.",
+              "externalUrl": "http://hdehaan.free.fr/electricite/e_7/e_7_5/e_7_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electromagnetisme",
+      "name": "Électromagnétisme",
+      "icon": "🧲",
+      "summary": "Champ électrostatique, magnétostatique, particules chargées, forces de Laplace",
+      "chapters": [
+        {
+          "id": "el-em1",
+          "code": "EM1",
+          "title": "Champ électrostatique.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "EM1.1",
+              "title": "Champ au centre d'un anneau présentant une ouverture.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_1/em_1_1/em_1_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM1.2",
+              "title": "Champ créé par une demi-sphère chargée en surface.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_1/em_1_2/em_1_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM1.3",
+              "title": "Champ créé par une portion de cône.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_1/em_1_3/em_1_3_enon/em_1_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM1.4",
+              "title": "Champ créé par un disque en un point de son axe.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_1/em_1_4/em_1_4_enon/em_1_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM1.5",
+              "title": "Champ électrostatique créé par un segment électrisé.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_1/em_1_5/em_1_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM1.6",
+              "title": "Champ électrostatique créé par une demi-sphère chargée en surface.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_1/em_1_6/em_1_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM1.7",
+              "title": "Champ électrique sur l'axe d'un système (-q, +q).",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_1/em_1_7/em_1_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-em2",
+          "code": "EM2",
+          "title": "Potentiel électrostatique.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "EM2.1",
+              "title": "Potentiel et champ créés par un disque en un point de son axe.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_2/em_2_1/em_2_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM2.2",
+              "title": "Potentiel et champ créés par une demi-sphère chargée en surface.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_2/em_2_2/em_2_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM2.3",
+              "title": "Potentiel créé par une portion de cône.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_2/em_2_3/em_2_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM2.4",
+              "title": "Lignes de champ.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_2/em_2_4/em_2_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-em3",
+          "code": "EM3",
+          "title": "Théorème de Gauss. Applications.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "EM3.1",
+              "title": "Atome d'hydrogène.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_3/em_3_1/em_3_1_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "EM3.2",
+              "title": "Étude d'une distribution cylindrique de charge.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_3/em_3_2/em_3_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM3.3",
+              "title": "Traversée d'une couche chargée.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_3/em_3_3/em_3_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM3.4",
+              "title": "Champ sur l'axe d'une ouverture circulaire d'un plan.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_3/em_3_4/em_3_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM3.5",
+              "title": "Champ dans une cavité sphérique.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_3/em_3_5/em_3_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM3.6",
+              "title": "Recherche de la direction du champ électrostatique créé par une demi-sphère.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_3/em_3_6/em_3_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM3.7",
+              "title": "Étude d'une distribution sphérique inhomogène.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_3/em_3_7/em_3_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM3.8",
+              "title": "Champ au voisinage de l'axe d'un cerceau uniformément chargé.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_3/em_3_8/em_3_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM3.9",
+              "title": "Sphère creuse.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_3/em_3_9/em_3_9_enon_version2.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM3.10",
+              "title": "Densité volumique uniforme entre deux plans.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_3/em_3_10/em_3_10_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-em4",
+          "code": "EM4",
+          "title": "Dipôle électrostatique.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "EM4.1",
+              "title": "Potentiel et champ d'un quadripôle. Modélisation de CO2.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_4/em_4_1/em_4_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM4.2",
+              "title": "Oscillations d'un dipôle dans le champ créé par un anneau.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_4/em_4_2/em_4_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM4.3",
+              "title": "Étude de distributions linéiques.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_4/em_4_3/em_4_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-em5",
+          "code": "EM5",
+          "title": "Mouvements d'une particule chargée dans un champ électromagnétique.",
+          "kholor": {
+            "price": "2,49 €",
+            "url": "https://payhip.com/b/Q3Rqn"
+          },
+          "exercises": [
+            {
+              "code": "EM5.1",
+              "title": "Actions d'un champ magnétique et d'une force de rappel.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_5/em_5_1/em_5_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM5.2",
+              "title": "Actions d'un champ magnétique et d'une force de frottement.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_5/em_5_2/em_5_2_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "EM5.3",
+              "title": "E et B orthogonaux. Cycloïde.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_5/em_5_3/em_5_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM5.4",
+              "title": "Mouvement d'un proton dans un liquide.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_5/em_5_4/em_5_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM5.5",
+              "title": "Mouvement d'une particule chargée dans un champ magnétique uniforme.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_5/em_5_5/em_5_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM5.6",
+              "title": "Action d'un champ magnétique. Déflexion magnétique. Mouvement hélicoïdal.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_5/em_5_6/em_5_6-enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM5.7",
+              "title": "Mouvement d'une particule dans un volume cylindrique chargé.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_5/em_5_7/em_5_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-em6",
+          "code": "EM6",
+          "title": "Champ magnétique.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "EM6.1",
+              "title": "Champ magnétique créé par une spire carrée.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_6/em_6_1/em_6_1_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "EM6.2",
+              "title": "Champ magnétique en un point du plan d'une spire.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_6/em_6_2/em_6_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM6.3",
+              "title": "Détermination du champ magnétique au centre d'une sphère bobinée.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_6/em_6_3/em_6_3_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "EM6.4",
+              "title": "Champ magnétique d'un circuit coudé à angle droit.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_6/em_6_4/em_6_4_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "EM6.5",
+              "title": "Champ magnétique créé par des fils et deux demi-spires.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_6/em_6_5/em_6_5_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "EM6.6",
+              "title": "Champ magnétique créé par deux demi-spires.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_6/em_6_6/em_6_6_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "EM6.7",
+              "title": "Champ magnétique créé par deux circuits de même longueur.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_6/em_6_7/em_6_7_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "EM6.8",
+              "title": "Solénoïde de section carrée.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_6/em_6_8/em_6_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-em7",
+          "code": "EM7",
+          "title": "Théorème d'Ampère. Flux du champ magnétique.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "EM7.1",
+              "title": "Détermination de la direction d'un champ magnétique.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_7/em_7_1/em_7_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM7.2",
+              "title": "Champ magnétique à l'intérieur d'un tore.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_7/em_7_2/em_7_2.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "EM7.3",
+              "title": "Détermination des caractéristiques d'une distribution de courants.",
+              "externalUrl": "http://hdehaan.free.fr/electromagnetisme/em_7/em_7_3/em_7_3.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electronique",
+      "name": "Électronique",
+      "icon": "🔌",
+      "summary": "Amplificateur opérationnel, filtres, comparateurs, oscillateurs",
+      "chapters": [
+        {
+          "id": "el-ao1",
+          "code": "AO1",
+          "title": "Montages de base de l'amplificateur opérationnel.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "AO1.1",
+              "title": "Amplificateur inverseur-non inverseur à gain réglable. Résistance d'entrée.",
+              "externalUrl": "http://hdehaan.free.fr/electronique/ao_1/ao_1_1/ao_1_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "AO1.2",
+              "title": "Sommateur-soustracteur multiple.",
+              "externalUrl": "http://hdehaan.free.fr/electronique/ao_1/ao_1_2/ao_1_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "AO1.3",
+              "title": "Appareil de mesure.",
+              "externalUrl": "http://hdehaan.free.fr/electronique/ao_1/ao_1_3/ao_1_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "AO1.4",
+              "title": "Gain complexe. Stabilité.",
+              "externalUrl": "http://hdehaan.free.fr/electronique/ao_1/ao_1_4/ao_1_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-ao2",
+          "code": "AO2",
+          "title": "Filtre passe-bas. Montage intégrateur.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "AO2.1",
+              "title": "Dérive d'un intégrateur.",
+              "externalUrl": "http://hdehaan.free.fr/electronique/ao_2/ao_2_1/ao_2_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "AO2.2",
+              "title": "Intégrateur.",
+              "externalUrl": "http://hdehaan.free.fr/electronique/ao_2/ao_2_2/ao_2_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-ao3",
+          "code": "AO3",
+          "title": "Filtre passe-haut. Montage dérivateur.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "AO3.2",
+              "title": "Montage dérivateur. Modélisation à bande passante limitée.",
+              "externalUrl": "http://hdehaan.free.fr/electronique/ao_3/ao_3_2/ao_3_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-ao4",
+          "code": "AO4",
+          "title": "Comparateurs.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "AO4.1",
+              "title": "Étude du régime transitoire d'un comparateur à hystérésis.",
+              "externalUrl": "http://hdehaan.free.fr/electronique/ao_4/ao_4_1/ao_4_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-ao5",
+          "code": "AO5",
+          "title": "Multivibrateurs. Générateurs de fonctions.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "AO5.1",
+              "title": "Générateur de fonctions.",
+              "externalUrl": "http://hdehaan.free.fr/electronique/ao_5/ao_5_1/ao_5_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "AO5.2",
+              "title": "Générateur de fonctions à comparateur inverseur à hystérésis.",
+              "externalUrl": "http://hdehaan.free.fr/electronique/ao_5/ao_5_2/ao_5_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "AO5.3",
+              "title": "Multivibrateur astable.",
+              "externalUrl": "http://hdehaan.free.fr/electronique/ao_5/ao_5_3/ao_5_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-ao6",
+          "code": "AO6",
+          "title": "Circuits avec diodes. Redressement.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "AO6.1",
+              "title": "Étude d'un redresseur double alternance sans seuil.",
+              "externalUrl": "http://hdehaan.free.fr/electronique/ao_6/ao_6_1/ao_6_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "AO6.2",
+              "title": "Étude d'un redresseur simple alternance avec amplification.",
+              "externalUrl": "http://hdehaan.free.fr/electronique/ao_6/ao_6_2/ao_6_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "el-ao7",
+          "code": "AO7",
+          "title": "Oscillateur quasi sinusoïdal.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "AO7.1",
+              "title": "Oscillateur à pont de Wien.",
+              "externalUrl": "http://hdehaan.free.fr/electronique/ao_7/ao_7_1/ao_7_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "AO7.2",
+              "title": "Oscillateurs à résistance négative.",
+              "externalUrl": "http://hdehaan.free.fr/electronique/ao_7/ao_7_2/ao_7_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mecanique",
+      "name": "Mécanique",
+      "icon": "⚙️",
+      "summary": "Cinématique, dynamique, énergie, oscillateurs, référentiels non galiléens, gravitation",
+      "chapters": [
+        {
+          "id": "me-m1",
+          "code": "M1",
+          "title": "Cinématique du point matériel.",
+          "kholor": {
+            "price": "2,39 €",
+            "url": "https://payhip.com/b/Epak7"
+          },
+          "exercises": [
+            {
+              "code": "M1.1",
+              "title": "Cardioïde.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_1/M1_1/mecanique_1_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M1.2",
+              "title": "Mouvement hélicoïdal.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_1/M1_2/m_1_2_ens.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M1.3",
+              "title": "Mouvement d'un point sur un pourtour plan.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_1/M1_3/mecanique_1_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M1.4",
+              "title": "Mouvement cycloïdal.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_1/M1_4/mecanique_1_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M1.5",
+              "title": "Mouvement en spirale (I).",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_1/M1_5/mecanique_1_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M1.6",
+              "title": "Mouvement en spirale (II).",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_1/M1_6/mecanique_1_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M1.7",
+              "title": "Mouvement d'un point matériel sur une parabole.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_1/M1_7/mecanique_1_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M1.8",
+              "title": "Mouvement d'un point matériel sur une spirale tracée sur un cône.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_1/M1_8/mecanique_1_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M1.9",
+              "title": "Mouvement d'un point matériel sur une sextique.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_1/M1_9/m_1_9_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M1.10",
+              "title": "Mouvement d'un point matériel.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_1/M1_10/m_1_10_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M1.11",
+              "title": "Courbe d'équation r = a·exp(θ).",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_1/m_1_11/m_1_11_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "me-m2",
+          "code": "M2",
+          "title": "Dynamique du point matériel.",
+          "kholor": {
+            "price": "3,69 €",
+            "url": "https://payhip.com/b/NnXqd"
+          },
+          "exercises": [
+            {
+              "code": "M2.1",
+              "title": "Pendule conique.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_2/M2_1/M2_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M2.2",
+              "title": "Pendule simple.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_2/M2_2/M2_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M2.3",
+              "title": "Mouvement d'une sphère dans un liquide.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_2/M2_3/M2_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M2.4",
+              "title": "Mouvement d'un point sur une sphère.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_2/M2_4/M2_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M2.5",
+              "title": "Lancement d'un projectile. Force de frottement.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_2/M2_5/M2_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M2.6",
+              "title": "Étude d'un mouvement à force centrale avec amortissement.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_2/M2_6/M2_6_enon_1.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M2.7",
+              "title": "Particule sur un cerceau avec frottements visqueux.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_2/M2_7/m_2_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M2.8",
+              "title": "Parabole de sûreté.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_2/M2_12/m_2_12_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M2.9",
+              "title": "Équilibre d'un point matériel.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_2/M2_9/m_2_9_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M2.10",
+              "title": "Étude d'un mouvement avec force centrale avec amortissement.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_2/M2_10/m_2_10_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M2.11",
+              "title": "Mouvement d'une bille dans un tube.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_2/M2_11/m2_11_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "me-m3",
+          "code": "M3",
+          "title": "Énergie.",
+          "kholor": {
+            "price": "3,59 €",
+            "url": "https://payhip.com/b/TViO7"
+          },
+          "exercises": [
+            {
+              "code": "M3.1",
+              "title": "Équilibre d'une charge sur un plan incliné.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/m_3_1/m_3_1_enon/m_3_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M3.2",
+              "title": "Travail d'une force de frottement.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/M3_2/M3_2_enon/M3_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M3.3",
+              "title": "Travail d'une force non conservative.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/M3_3/M3_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M3.4",
+              "title": "Étude d'un système avec ressort. Bifurcation.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/M3_4/M3_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M3.5",
+              "title": "Énergie mécanique d'une particule sur une trajectoire elliptique.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/M3_5/M3_5_enon/M3_5_enon_1.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M3.6",
+              "title": "Mouvement unidimensionnel d'une particule.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/M3_6/M3_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M3.7",
+              "title": "Étude d'un système masse-ressort.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/m_3_7/m_3_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M3.8",
+              "title": "Énergie potentielle et stabilité d'une position d'équilibre.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/m_3_8/m_3_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M3.9",
+              "title": "Petites oscillations autour d'une position d'équilibre.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/m_3_9/m_3_9_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M3.10",
+              "title": "Recherche de positions d'équilibre stables.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/m_3_10/m_3_10_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M3.11",
+              "title": "Équilibre d'un point matériel.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/m_3_11/m_3_11_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M3.12",
+              "title": "Mouvement d'une particule dans un champ de force en 1/r³.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/m_3_12/m_3_12_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M3.13",
+              "title": "Mouvement d'une particule dans un champ de force dérivant de Ep = kxy.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/m_3_13/m_3_13_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M3.14",
+              "title": "Mouvement d'une particule soumise à une force de puissance constante.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/m_3_14/m_3_14_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M3.15",
+              "title": "Particule dans une cuvette.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/m_3_15/m_3_15_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M3.16",
+              "title": "Point mobile à l'intérieur d'un cône.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_3/m_3_16/m_2_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "me-m4",
+          "code": "M4",
+          "title": "Oscillateur harmonique. Oscillateur amorti.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "M4.1",
+              "title": "Oscillations longitudinales. Association de ressorts.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_4/m_4_1/M4_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M4.2",
+              "title": "Oscillateurs couplés.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_4/m_4_2/M4_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M4.3",
+              "title": "Détermination d'un coefficient de viscosité.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_4/m_4_3/M4_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M4.4",
+              "title": "Microscope à force atomique.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_4/m_4_4/m_4_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M4.5",
+              "title": "Gravimètre à ressort.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_4/m_4_5/m_4_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M4.6",
+              "title": "Petites oscillations autour d'une position d'équilibre stable.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_4/m_4_6/m_4_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M4.7",
+              "title": "Microscope à force atomique (II).",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_4/m_4_7/m_4_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "me-m5",
+          "code": "M5",
+          "title": "Oscillations forcées. Résonance.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "M5.1",
+              "title": "Amortisseur d'une machine.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_5/m_5_1/m_5_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M5.2",
+              "title": "Oscillations forcées par déplacement de l'oscillateur.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_5/m_5_2/m_5_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M5.3",
+              "title": "Mouvement sans suspension.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_5/m_5_3/m_5_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M5.4",
+              "title": "Oscillations forcées d'un véhicule sur une route ondulée.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_5/m_5_4/m_5_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M5.5",
+              "title": "Oscillateur mécanique. Résonateur.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_5/m_5_5/m_5_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "me-m6",
+          "code": "M6",
+          "title": "Théorème du moment cinétique.",
+          "kholor": {
+            "price": "2,89 €",
+            "url": "https://payhip.com/b/YmgwO"
+          },
+          "exercises": [
+            {
+              "code": "M6.1",
+              "title": "Pendule conique.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_6/m_6_1/m_6_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M6.2",
+              "title": "Oscillations circulaires.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_6/m_6_2/m_6_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M6.3",
+              "title": "Gravimètre à ressort.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_6/m_6_3/m_6_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M6.4",
+              "title": "Force centrale. Lois de force et de vitesse.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_6/m_6_4/m_6_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M6.5",
+              "title": "Mouvement d'une particule dans un champ de force dérivant de Ep = kxy.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_6/m_6_5/m_6_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M6.6",
+              "title": "Caractéristiques des mouvements à force centrale. Lois de Binet.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_6/m_6_6/m_6_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M6.7",
+              "title": "Sismographe de La Coste.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_6/m_6_7/m_6_7_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "me-m7",
+          "code": "M7",
+          "title": "Force centrale conservative. Mouvements newtoniens.",
+          "kholor": {
+            "price": "3,49 €",
+            "url": "https://payhip.com/b/b1zEZ"
+          },
+          "exercises": [
+            {
+              "code": "M7.1",
+              "title": "Mouvement elliptique d'un satellite artificiel.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_7/m_7_1/m_7_1_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "M7.2",
+              "title": "Mouvement hyperbolique d'un satellite artificiel.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_7/m_7_2/m_7_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M7.3",
+              "title": "Chute d'un météorite.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_7/m_7_3/m_7_3_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "M7.4",
+              "title": "Freinage d'un satellite.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_7/m_7_4/m_7_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M7.5",
+              "title": "Rencontre orbitale.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_7/m_7_5/m_7_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M7.6",
+              "title": "Mouvement d'un satellite artificiel.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_7/m_7_6/m_7_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M7.7",
+              "title": "Mouvement de comètes.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_7/m_7_7/m_7_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M7.8",
+              "title": "Satellite Hipparcos.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_7/m_7_8/m_7_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "me-m8",
+          "code": "M8",
+          "title": "Changements de référentiels. Aspect cinématique.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "M8.1",
+              "title": "Étude du mouvement d'une balle dans un référentiel tournant.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_8/m_8_1/m_8_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M8.2",
+              "title": "Composition de mouvements de deux barres.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_8/m_8_2/m_8_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M8.3",
+              "title": "Composition d'un mouvement d'entraînement circulaire et d'un mouvement relatif rectiligne.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_8/m_8_3/m_8_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M8.4",
+              "title": "Rotation d'une roue autour d'un axe fixe.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_8/m_8_4/m_8_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M8.5",
+              "title": "Mouvement d'un point sur le bord d'un cerceau en rotation.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_8/m_8_5/m_8_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M8.6",
+              "title": "Mouvement sinusoïdal d'un point sur une tige en rotation autour d'un axe fixe.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_8/m_8_6/m_8_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M8.7",
+              "title": "Système bielle-biellette.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_8/m_8_7/m_8_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M8.8",
+              "title": "Vitesse d'éjection de l'eau dans un tourniquet hydraulique.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_8/m_8_8/m_8_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M8.9",
+              "title": "Mouvement elliptique d'un point appartenant à une tige.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_8/m_8_9/m_8_9_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M8.10",
+              "title": "Rotation sur plateau tournant.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_8/m_8_10/m_8_10_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M8.11",
+              "title": "Mouvement d'un point matériel sur une tige en rotation.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_8/m_8_11/m_8_11_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "me-m9",
+          "code": "M9",
+          "title": "Dynamique du point matériel dans un référentiel non galiléen.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "M9.1",
+              "title": "Étude d'un pendule simple dans un ascenseur.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/M9_1/mecanique_9_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.2",
+              "title": "Étude d'un sismographe élémentaire.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/M9_2/m9_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.3",
+              "title": "Masse sur une tige en rotation autour d'un axe fixe.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/M9_3/m9_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.4",
+              "title": "Masse sur une tige en rotation autour d'un axe fixe et liée par un ressort.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/M9_4/m_9_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.5",
+              "title": "Particule sur un axe en rotation inclinée par rapport à l'horizontal.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/M9_5/m9_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.6",
+              "title": "Bille sur un plateau en translation sinusoïdale.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/M9_6/m_9_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.7",
+              "title": "Mouvement d'un glaçon sur un plateau en rotation.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/M9_7/m_9_7_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "M9.8",
+              "title": "Mouvement d'une particule contenue dans un tube en rotation.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/M9_8/m_9_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.9",
+              "title": "Pendule simple. Mouvement de translation rectiligne du point d'attache.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/M9_9/m_9_9_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.10",
+              "title": "Étude d'un équilibre relatif.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/M9_10/m_9_10_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.11",
+              "title": "Mouvement d'un anneau sur un cerceau en rotation.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/M9_11/m_9_11_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.12",
+              "title": "Mouvement d'un anneau sur un cerceau en rotation (II).",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/M9_12/m_9_12_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.13",
+              "title": "Énergie cinétique d'une masse sur un axe en rotation.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/M9_13/m_9_13_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.14",
+              "title": "Exemple de bifurcation en mécanique.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/M9_14/m9_14_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.15",
+              "title": "Masse sur une tige en rotation autour d'un axe fixe en présence de frottement.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/m_9_15/m_9_15_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.16",
+              "title": "Mouvement d'un point matériel guidé sur une droite mobile.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/m_9_16/m_9_16_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.17",
+              "title": "Mouvement et équilibre relatif d'une particule sur une tige en rotation.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/m_9_17/m_9_17_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.18",
+              "title": "Pendule dans un wagon.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/m_9_18/m_9_18_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.19",
+              "title": "Point matériel en contact avec une demi-sphère.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/m_9_19/m_9_19_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.20",
+              "title": "Oscillations paramétriques d'un pendule simple.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/m_9_20/m_9_20_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.21",
+              "title": "Point matériel sur un cercle vertical tournant.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/m_9_21/m_9_21_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M9.22",
+              "title": "Pendule à point d'attache mobile.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_9/m_9_22/m_9_22_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "me-m10",
+          "code": "M10",
+          "title": "Caractère galiléen approché du référentiel géocentrique et terrestre.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "M10.1",
+              "title": "Influence de la force de Coriolis sur une balle de fusil.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_10/M10_1/m_10_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M10.2",
+              "title": "Déviation vers l'est lors d'une chute libre.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_10/M10_2/m_10_2_ens.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M10.3",
+              "title": "Limite de Roche.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_10/M10_3/m_10_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M10.4",
+              "title": "Usure inégale des rails de chemin de fer.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_10/m_10_4/m_10_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M10.5",
+              "title": "Pendule de Foucault.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_10/m_10_5/m_10_5_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "me-m11",
+          "code": "M11",
+          "title": "Système de deux points matériels.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "M11.1",
+              "title": "Pendule à point d'attache mobile.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_11/m_11_1/m_11_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M11.2",
+              "title": "Oscillateur.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_11/m_11_2/m_11_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M11.3",
+              "title": "Utilisation des théorèmes de Koenig.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_11/m_11_3/m_11_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M11.4",
+              "title": "Poids apparent d'un sablier.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_11/m_11_4/m_11_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M11.5",
+              "title": "Chute d'un objet vers le Soleil.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_11/m_11_5/m_11_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M11.6",
+              "title": "Diffusion d'une particule alpha.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_11/m_11_6/m_11_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M11.7",
+              "title": "Vecteur de Runge-Lenz.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_11/m_11_7/M11_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M11.8",
+              "title": "Molécule diatomique et potentiel de Morse.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_11/m_11_8/m_11_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "M11.9",
+              "title": "Expérience de Rutherford.",
+              "externalUrl": "http://hdehaan.free.fr/mecanique/mecanique_11/m_11_9/m_11_9_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "optique",
+      "name": "Optique",
+      "icon": "🔭",
+      "summary": "Optique géométrique et ondulatoire, interférences, diffraction",
+      "chapters": [
+        {
+          "id": "op-o1",
+          "code": "O1",
+          "title": "Bases de l'optique géométrique.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "O1.1",
+              "title": "Prisme à déviation π/2.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_1/o_1_1/o_1_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O1.2",
+              "title": "Mesure d'indice.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_1/o_1_2/o_1_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O1.3",
+              "title": "Prisme : conditions d'émergence.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_1/o_1_3/o_1_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O1.4",
+              "title": "Trajet d'un rayon dans un prisme.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_1/o_1_4/o_1_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O1.5",
+              "title": "Arc-en-ciel.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_1/o_1_5/o_1_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "op-o3",
+          "code": "O3",
+          "title": "Miroirs sphériques.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "O3.1",
+              "title": "Système à deux miroirs sphériques coaxiaux : télescope Cassegrain.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_3/o_3_1/o_3_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O3.3",
+              "title": "Système à deux miroirs sphériques coaxiaux et concentriques.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_3/o_3_3/o_3_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O3.4",
+              "title": "Images par un miroir sphérique.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_3/o_3_4/o_3_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "op-o4",
+          "code": "O4",
+          "title": "Lentilles minces sphériques.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "O4.1",
+              "title": "Latitude de mise au point d'une loupe.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_4/o_4_1/o_4_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O4.2",
+              "title": "Vergence d'une lentille mince.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_4/o_4_2/o_4_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O4.3",
+              "title": "Étude d'un microscope.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_4/o_4_3/o_4_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O4.4",
+              "title": "Téléobjectif.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_4/o_4_4/o_4_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O4.5",
+              "title": "Lunette de Galilée.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_4/o_4_5/o_4_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O4.6",
+              "title": "Principe du téléobjectif.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_4/o_4_6/o_4_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O4.7",
+              "title": "Vision d'un petit objet à l'aide d'un microscope.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_4/o_4_7/o_4_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "op-o5",
+          "code": "O5",
+          "title": "Interférences lumineuses.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "O5.1",
+              "title": "Interférences lumineuses. Trous d'Young.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_5/o_5_1/o_5_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O5.2",
+              "title": "Trois fentes de Young avec observation à l'infini.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_5/o_5_2/O_5_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O5.3",
+              "title": "Franges d'Young à l'infini. Mesure de distance stellaire.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_5/o_5_3/o_5_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O5.4",
+              "title": "Interférences lumineuses. Cohérence spatiale.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_5/o_5_4/o_5_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O5.5",
+              "title": "Interférences avec sources à profil rectangulaire. Longueur et temps de cohérence.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_5/o_5_5/o_5_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O5.6",
+              "title": "Interféromètre de Michelson : anneaux d'égale inclinaison.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_5/o_5_6/o_5_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O5.7",
+              "title": "Interféromètre à deux miroirs quasi-orthogonaux en lumière monochromatique.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_5/o_5_7/o_5_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "op-o6",
+          "code": "O6",
+          "title": "Diffraction.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "O6.1",
+              "title": "Fentes d'Young de même largeur. Cas limite d'une fente simple.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_6/o_6_1/o_6_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O6.2",
+              "title": "Réseau réel de diffraction à fentes larges.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_6/o_6_2/o_6_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O6.3",
+              "title": "Diffraction par une fente de transmittance linéaire. Apodisation.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_6/o_6_3/o_6_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "O6.4",
+              "title": "Diffraction par une fente de transmission sinusoïdale. Apodisation.",
+              "externalUrl": "http://hdehaan.free.fr/optique/o_6/o_6_4/o_6_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thermodynamique",
+      "name": "Thermodynamique",
+      "icon": "🌡️",
+      "summary": "Gaz parfaits, statique des fluides, principes, machines thermiques, corps purs, diffusion",
+      "chapters": [
+        {
+          "id": "th-t1",
+          "code": "T1",
+          "title": "Le gaz parfait monoatomique.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "T1.1",
+              "title": "Effusion gazeuse.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T1/T1_1/T1_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T1.2",
+              "title": "Fuite d'air dans une cabine spatiale.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T1/T1_2/T1_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T1.3",
+              "title": "Équation d'état. Coefficients thermoélastiques (1).",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T1/T1_3/T1_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T1.4",
+              "title": "Équation d'état. Coefficients thermoélastiques (2).",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T1/T1_4/T1_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T1.5",
+              "title": "Échauffement isochore.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T1/T1_5/t_1_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T1.6",
+              "title": "Pression cinétique : modèle du choc élastique.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T1/T1_6/t_1_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T1.7",
+              "title": "Gaz de Dieterici.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T1/T1_7/t_1_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T1.8",
+              "title": "Reconstruction de l'équation d'état à partir de la donnée de coefficients thermoélastiques.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T1/T1_8/t_1_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T1.9",
+              "title": "Thermomètres différentiels à gaz parfait.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T1/T1_9/t_1_9_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T1.10",
+              "title": "Pression dans un cylindre.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T1/T1_10/t_1_10_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T1.11",
+              "title": "Oscillations isentropiques.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T1/T1_11/t_1_11_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "th-t2",
+          "code": "T2",
+          "title": "Statique des fluides.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "T2.1",
+              "title": "Cloche renversée.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/T2_1/t_2_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.2",
+              "title": "Remontée d'un bouchon. Poussée d'Archimède.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/T2_2/T2_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.3",
+              "title": "Pression d'un gaz dans une enceinte tournante.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/T2_3/T2_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.4",
+              "title": "Équilibre d'une étoile.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/T2_4/T2_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.5",
+              "title": "Équilibre hydrostatique d'une étoile.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/T2_5/T2_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.6",
+              "title": "Forces pressantes sur un bol hémisphérique.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/T2_6/T2_6_bis_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.7",
+              "title": "Résultante des forces de pression sur un barrage.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/T2_7/T2_7_doc_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.8",
+              "title": "Résultante des forces de pression sur un barrage (2).",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/T2_8/T2_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.9",
+              "title": "Obturation d'une canalisation.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/T2_9/T2_9_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.10",
+              "title": "Pression dans la troposphère.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/T2_10/T2_10_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.11",
+              "title": "Modèles d'atmosphère.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/t_2_11/t_2_11_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.12",
+              "title": "Mouvements verticaux de masses d'air.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/t_2_12/t_2_12_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.13",
+              "title": "Aérostat dans l'atmosphère terrestre.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/t_2_13/t%20_2_13_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.14",
+              "title": "Équilibre d'une sphère flottant sur un liquide.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/t_2_14/t_2_14_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.15",
+              "title": "Équilibre d'un cube partiellement immergé.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/t_2_15/t_2_15_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.16",
+              "title": "Flottaison de deux boules.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/t_2_16/t_2_16_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.17",
+              "title": "Liquide en rotation.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/t_2_17/t_2_17_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T2.18",
+              "title": "Principe d'un densimètre.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T2/t_2_18/t_2_18_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "th-t3",
+          "code": "T3",
+          "title": "Premier principe de la thermodynamique.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "T3.1",
+              "title": "Transformations réversibles couplées d'un gaz parfait.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/T3_1/T3_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T3.2",
+              "title": "Freinage d'un véhicule.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/T3_2/T3_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T3.3",
+              "title": "Bilan énergétique sur un cycle (1).",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/T3_3/T3_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T3.4",
+              "title": "Bilan énergétique sur un cycle (2).",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/T3_4/t_3_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T3.5",
+              "title": "Détente dans le vide avec présence d'un ressort.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/T3_5/T3_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T3.6",
+              "title": "Transformation polytropique d'un gaz parfait.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/T3_6/T3_6_enon_bis.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T3.7",
+              "title": "Travail des forces de pression.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/T3_7/t_3_7_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "T3.8",
+              "title": "Étude du cycle de Lenoir.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/T3_8/T3_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T3.9",
+              "title": "Compression adiabatique irréversible.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/T3_9/T3_9_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T3.10",
+              "title": "Compression d'un gaz parfait.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/T3_10/t_3_10_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T3.11",
+              "title": "Travail isotherme : gaz réel et gaz parfait.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/T_3_11/t_3_11_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T3.12",
+              "title": "Transformations cycliques d'un gaz parfait.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/t_3_12/t_3_12_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T3.13",
+              "title": "Transformations isochore et isotherme d'un gaz parfait.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/t_3_13/t_3_13_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T3.14",
+              "title": "Couplage par une colonne de mercure dans un tube en U.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/t_3_14/t_3_14_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T3.15",
+              "title": "Échanges de chaleur : effet Joule et rayonnement.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/t_3_15/t_3_15_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T3.16",
+              "title": "Compression en deux étapes. Travail minimal.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/t_3_16/t_3_16_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T3.17",
+              "title": "Remplissage d'un récipient initialement vide.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T3/t_3_17/t_3_17_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "th-t4",
+          "code": "T4",
+          "title": "Second principe de la thermodynamique.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "T4.1",
+              "title": "Détente d'un gaz parfait dans le vide. Bilan entropique.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T4/t_4_1/t_4_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T4.2",
+              "title": "Gaz parfaits séparés par une paroi mobile diathermane.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T4/t_4_2/t_4_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T4.3",
+              "title": "Bilans entropiques.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T4/t_4_3/t_4_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T4.4",
+              "title": "Détermination de γ par la méthode de Ruchard.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T4/t_4_4/t_4_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T4.5",
+              "title": "Détermination de γ par la méthode de Rinkel.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T4/t_4_5/t_4_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T4.6",
+              "title": "Compression monotherme d'un gaz parfait.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T4/t_4_6/t_4_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T4.7",
+              "title": "Critère de réversibilité. Transformation monotherme. Bilan entropique.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T4/t_4_7/t_4_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T4.8",
+              "title": "Optimisation d'un compresseur.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T4/t_4_8/t_4_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T4.9",
+              "title": "Relation entre p et V dans le cas où γ dépend de la température.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T4/t_4_9/t_4_9_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T4.10",
+              "title": "Entrée d'air. Bilan entropique.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T4/t_4_10/t_4_10_enon_1.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T4.11",
+              "title": "Bilan entropique d'un mélange de gaz parfaits.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T4/t_4_11/t_4_11_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T4.12",
+              "title": "Entropie d'un gaz parfait en variables T, P.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T4/t_4_12/t_4_12_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "th-t5",
+          "code": "T5",
+          "title": "Machines thermiques.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "T5.1",
+              "title": "Pompe à chaleur.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/T5_1/T_5_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T5.2",
+              "title": "Cycle Diesel.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/T5_2/t_5_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T5.3",
+              "title": "Moteur thermique avec des pseudo-sources.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/T5_3/t_5_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T5.4",
+              "title": "Rendement d'une machine thermique.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/T5_4/t_5_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T5.5",
+              "title": "Cycle de Beau de Rochas.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/T5_5/t_5_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T5.6",
+              "title": "Variations d'énergie interne et d'entropie sur un cycle.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/T5_6/t_5_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T5.7",
+              "title": "Rendement d'un cycle.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/T5_7/t_5_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T5.8",
+              "title": "Climatiseur.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/T5_8/t_5_8_enon_v2.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T5.9",
+              "title": "Cycle de Joule.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/t_5_9/t_5_9_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "T5.10",
+              "title": "Étude d'un cycle moteur.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/t_5_10/t_5_10_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T5.11",
+              "title": "Moteur utilisant des pseudo-sources.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/t_5_11/t_5_11_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T5.12",
+              "title": "Cycle de Stirling.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/t_5_12/t_5_12_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T5.13",
+              "title": "Diagramme de Raveau.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/t_5_13/t_5_13_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T5.14",
+              "title": "Moteur Diesel.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/t_5_14/t_5_14_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T5.15",
+              "title": "Cycle d'un moteur Diesel.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/t_5_15/t_5_15_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "T5.16",
+              "title": "Moteur irréversible. Inégalité de Clausius.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/t_5_16/t_5_16_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T5.17",
+              "title": "Étude d'une machine frigorifique.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/t_5_17/t_5_17_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T5.18",
+              "title": "Pompe à chaleur (II).",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T5/t_5_18/t_5_18_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "th-t6",
+          "code": "T6",
+          "title": "Étude descriptive du corps pur diphasé en équilibre.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "T6.1",
+              "title": "Vaporisation réversible ou irréversible : bilan entropique.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T6/t_6_1/t_6_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T6.2",
+              "title": "Étude d'un mélange eau-glace.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T6/t_6_2/t_6_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T6.3",
+              "title": "Détente isochore d'une vapeur d'eau saturante.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T6/t_6_3/t_6_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T6.4",
+              "title": "Entropie d'un mélange liquide-vapeur.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T6/t_6_4/t_6_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T6.5",
+              "title": "Machine à vapeur.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T6/t_6_5/t_6_5_tot.htm",
+              "hasCorrige": true,
+              "contentFile": null
+            },
+            {
+              "code": "T6.6",
+              "title": "Détente de Joule-Kelvin d'un fréon dans une machine frigorifique.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T6/t_6_6/t_6_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T6.7",
+              "title": "Machine de Linde pour la liquéfaction des gaz.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T6/t_6_7/t_6_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        },
+        {
+          "id": "th-t8",
+          "code": "T8",
+          "title": "Diffusion de particules. Diffusion de la chaleur.",
+          "kholor": null,
+          "exercises": [
+            {
+              "code": "T8.1",
+              "title": "Injection d'un soluté dans une veine.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T8/T8_1/t_8_1_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T8.2",
+              "title": "Sédimentation.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T8/T8_2/t_8_2_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T8.3",
+              "title": "Diffusion en présence de sources de particules.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T8/T8_3/t_8_3_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T8.4",
+              "title": "Fluctuation de température du sous-sol.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T8/t_8_4/t_8_4_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T8.5",
+              "title": "Étude d'un barreau d'uranium.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T8/t_8_5/t_8_5_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T8.6",
+              "title": "Flux thermique latéral : ailette de refroidissement.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T8/t_8_6/t_8_6_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T8.7",
+              "title": "Géothermie.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T8/t_8_7/t_8_7_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T8.8",
+              "title": "Double vitrage.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T8/t_8_8/t_8_8_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T8.9",
+              "title": "Résistances thermiques : lois d'associations.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T8/t_8_9/t_8_9_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T8.10",
+              "title": "Diffusion de particules chargées dans un semi-conducteur.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T8/t_8_10/t_8_10_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T8.11",
+              "title": "Autodiffusion du krypton : expression microscopique de D.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T8/t_8_11/t_8_11_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            },
+            {
+              "code": "T8.12",
+              "title": "Propagation radiale cylindrique.",
+              "externalUrl": "http://hdehaan.free.fr/thermodynamique/T8/t_8_12/t_8_12_enon.htm",
+              "hasCorrige": false,
+              "contentFile": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

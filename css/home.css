@@ -1,0 +1,289 @@
+/* ════════════════════════════════════════
+   KholaWeb — styles propres à l'accueil
+   (index.html). Nécessite base.css.
+   ════════════════════════════════════════ */
+
+a { color:inherit; text-decoration:none; }
+
+/* ── SYSTÈME DE PAGES ── */
+/* Toutes les "pages" sont cachées par défaut ; seule celle avec .active est affichée */
+.page { display:none; }
+.page.active { display:block; }
+
+/* ── HÉROS ── */
+.hero { max-width:1100px; margin:0 auto; padding:4rem 1.5rem 2.5rem; display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+.hero-title { font-family:var(--font-serif); font-size:clamp(2.2rem,5vw,3.2rem); line-height:1.15; margin-bottom:1rem; }
+.hero-title em { color:var(--accent); font-style:normal; }
+.hero-sub { font-size:1.05rem; color:var(--text-muted); margin-bottom:1.75rem; max-width:42ch; }
+.btn-primary { display:inline-block; background:var(--accent); color:#fff; font-weight:600; font-size:.9rem; padding:.65rem 1.5rem; border-radius:var(--radius); transition:opacity .15s; cursor:pointer; }
+.btn-primary:hover { opacity:.85; }
+.btn-outline { display:inline-block; border:1px solid var(--border); color:var(--text-muted); font-weight:600; font-size:.9rem; padding:.65rem 1.5rem; border-radius:var(--radius); margin-left:.75rem; transition:border-color .15s,color .15s; }
+.btn-outline:hover { border-color:var(--accent-mid); color:var(--accent); }
+.hero-visual { display:flex; justify-content:center; align-items:center; }
+.hero-visual svg { width:100%; max-width:380px; }
+@media(max-width:700px){ .hero { grid-template-columns:1fr; padding:2.5rem 1.25rem 2rem; gap:2rem; } .hero-visual { order:-1; } .hero-visual svg { max-width:260px; } }
+
+/* ── SECTION ── */
+.section { max-width:1100px; margin:0 auto; padding:0 1.5rem 3rem; }
+.section-label { font-family:var(--font-mono); font-size:.72rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--text-hint); margin-bottom:1.25rem; }
+.section-title { font-family:var(--font-serif); font-size:1.75rem; margin-bottom:2rem; line-height:1.25; }
+.divider { max-width:1100px; margin:.5rem auto 2rem; padding:0 1.5rem; }
+.divider hr { border:none; border-top:1px solid var(--border-light); }
+
+/* ── GRILLE DISCIPLINES ── */
+.disciplines-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:1rem; }
+.disc-card { background:var(--surface); border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:1.25rem 1rem; cursor:pointer; transition:box-shadow .2s,transform .15s,border-color .2s; display:flex; flex-direction:column; gap:.6rem; }
+.disc-card:hover { box-shadow:var(--shadow); transform:translateY(-2px); border-color:var(--border); }
+.disc-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
+.disc-name { font-weight:600; font-size:.9rem; }
+.disc-count { font-size:.78rem; color:var(--text-hint); font-family:var(--font-mono); }
+
+/* ── EN-TÊTE DE PAGE DISCIPLINE ── */
+.disc-header { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 1.5rem; display:flex; align-items:center; gap:1.25rem; }
+.disc-header-icon { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.6rem; flex-shrink:0; }
+.disc-header-title { font-family:var(--font-serif); font-size:2rem; line-height:1.15; }
+.disc-header-sub { font-size:.92rem; color:var(--text-muted); margin-top:.25rem; }
+.back-btn { display:inline-flex; align-items:center; gap:.4rem; font-size:.85rem; font-weight:600; color:var(--text-muted); cursor:pointer; padding:.35rem .75rem; border-radius:var(--radius); transition:background .15s,color .15s; margin:1.5rem 0 0 1.5rem; }
+.back-btn:hover { background:var(--accent-light); color:var(--accent); }
+
+/* ── ACCORDION ──
+   Chaque chapitre est un "accordion item" : un en-tête cliquable
+   qui affiche/masque un corps contenant la liste des exercices.
+   L'animation max-height permet une ouverture fluide. */
+.acc-list { display:flex; flex-direction:column; gap:.75rem; margin-bottom:2rem; }
+
+.acc-item {
+  background:var(--surface);
+  border:1px solid var(--border-light);
+  border-radius:var(--radius-lg);
+  overflow:hidden; /* Masque le corps quand max-height = 0 */
+}
+
+/* En-tête de l'accordion : toujours visible, clic = ouvrir/fermer */
+.acc-head {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem 1.25rem;
+  cursor:pointer;
+  gap:1rem;
+  user-select:none; /* Empêche la sélection de texte au double-clic */
+  transition:background .15s;
+}
+.acc-head:hover { background:var(--accent-light); }
+
+/* Version "ouverte" : fond légèrement teinté */
+.acc-item.open .acc-head { background:var(--accent-light); }
+
+.acc-head-left { display:flex; align-items:center; gap:.9rem; flex:1; min-width:0; }
+
+/* Code du chapitre (ex: "M1") */
+.acc-code { font-family:var(--font-mono); font-size:.75rem; color:var(--text-hint); min-width:36px; }
+
+.acc-title { font-weight:600; font-size:.95rem; line-height:1.3; }
+
+/* Badge "Kholor dispo" dans l'en-tête */
+.acc-kholor { font-size:.68rem; font-weight:600; padding:2px 7px; border-radius:999px; background:var(--accent-warm-light); color:var(--accent-warm); white-space:nowrap; }
+
+.acc-meta { display:flex; align-items:center; gap:.75rem; flex-shrink:0; }
+.acc-count { font-size:.78rem; color:var(--text-hint); font-family:var(--font-mono); white-space:nowrap; }
+
+/* Flèche rotative : pointe vers le bas fermé, vers le haut ouvert */
+.acc-arrow {
+  width:20px; height:20px;
+  border-radius:50%; background:var(--border-light);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.65rem; color:var(--text-hint);
+  transition:transform .25s, background .15s;
+  flex-shrink:0;
+}
+.acc-item.open .acc-arrow { transform:rotate(180deg); background:var(--accent-light); }
+
+/* Corps de l'accordion : animation d'ouverture par max-height */
+.acc-body {
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .3s ease; /* Doux dépliage en 300ms */
+}
+.acc-item.open .acc-body { max-height:2000px; /* Valeur arbitrairement grande */ }
+
+.acc-body-inner { padding:.25rem 1.25rem 1.25rem; border-top:1px solid var(--border-light); }
+
+/* Grille d'exercices dans l'accordion */
+.exo-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:.6rem; margin-top:.75rem; }
+
+.exo-card { background:var(--bg); border:1px solid var(--border-light); border-radius:var(--radius); padding:.85rem 1rem; display:flex; flex-direction:column; gap:.35rem; cursor:pointer; transition:box-shadow .15s,transform .12s,border-color .15s; }
+.exo-card:hover { box-shadow:var(--shadow); transform:translateY(-1px); border-color:var(--border); background:var(--surface); }
+.exo-num { font-family:var(--font-mono); font-size:.68rem; color:var(--text-hint); }
+.exo-title { font-weight:600; font-size:.85rem; line-height:1.35; }
+.exo-tags { display:flex; gap:.35rem; flex-wrap:wrap; margin-top:.15rem; }
+.exo-tag { font-size:.65rem; font-weight:600; padding:2px 6px; border-radius:999px; }
+.exo-corrige { font-size:.68rem; font-weight:600; padding:2px 7px; border-radius:999px; }
+.exo-corrige.oui { background:#e5f4ee; color:#1a5c3a; }
+.exo-corrige.non { background:#fdf0e4; color:#7a4010; }
+.exo-kholor { font-size:.68rem; font-weight:600; padding:2px 7px; border-radius:999px; background:var(--accent-warm-light); color:var(--accent-warm); }
+
+/* Lien Kholor sous un chapitre */
+.kholor-link { display:inline-flex; align-items:center; gap:.35rem; font-size:.82rem; font-weight:600; color:var(--accent-warm); margin-top:.85rem; }
+.kholor-link:hover { text-decoration:underline; }
+
+/* ── ACTUALITÉS / KHOLOR ── */
+.news-card { background:var(--accent-warm-light); border:1px solid var(--border-light); border-left:3px solid var(--accent-warm); border-radius:var(--radius-lg); padding:1.5rem; display:grid; grid-template-columns:1fr auto; gap:1rem; align-items:start; }
+@media(max-width:500px){ .news-card { grid-template-columns:1fr; } }
+.news-badge { display:inline-block; background:var(--accent-warm); color:#fff; font-size:.7rem; font-weight:600; font-family:var(--font-mono); letter-spacing:.08em; padding:3px 10px; border-radius:999px; text-transform:uppercase; margin-bottom:.6rem; }
+.news-title { font-family:var(--font-serif); font-size:1.2rem; margin-bottom:.5rem; line-height:1.3; }
+.news-body  { font-size:.92rem; color:var(--text-muted); line-height:1.6; }
+.news-link  { display:inline-flex; align-items:center; gap:4px; color:var(--accent-warm); font-weight:600; font-size:.85rem; margin-top:.85rem; }
+.news-link:hover { text-decoration:underline; }
+.news-meta  { font-family:var(--font-mono); font-size:.75rem; color:var(--text-hint); white-space:nowrap; }
+
+.kholor-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:1.25rem; margin-top:1.5rem; }
+.kholor-book {
+  background:var(--surface);
+  border:1px solid var(--border-light);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  transition:box-shadow .2s, transform .15s;
+  display:flex; flex-direction:column;
+}
+.kholor-book:hover { box-shadow:var(--shadow); transform:translateY(-3px); }
+
+/* Couverture : image carrée avec ratio 4/3 */
+.book-cover {
+  width:100%; aspect-ratio:3/4;
+  overflow:hidden; background:var(--border-light);
+  position:relative;
+}
+.book-cover img {
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .3s ease;
+}
+.kholor-book:hover .book-cover img { transform:scale(1.04); }
+
+/* Étiquette de prix flottante sur l'image */
+.book-price-badge {
+  position:absolute; bottom:.5rem; right:.5rem;
+  background:var(--accent); color:#fff;
+  font-family:var(--font-mono); font-size:.72rem; font-weight:500;
+  padding:3px 8px; border-radius:999px;
+  box-shadow:0 1px 4px rgba(0,0,0,.25);
+}
+
+/* Partie texte sous l'image */
+.book-info  { padding:.75rem .9rem .9rem; flex:1; display:flex; flex-direction:column; gap:.2rem; }
+.book-code  { font-family:var(--font-mono); font-size:.68rem; color:var(--text-hint); }
+.book-title { font-weight:600; font-size:.83rem; line-height:1.35; flex:1; }
+.book-cta   {
+  display:inline-flex; align-items:center; gap:4px;
+  font-size:.75rem; font-weight:600;
+  color:var(--accent-warm); margin-top:.5rem;
+}
+.book-cta:hover { text-decoration:underline; }
+
+/* ── ANIMATION HÉROS ──
+   Conteneur carré responsive : utilise un padding-bottom trick
+   (padding-bottom:100% sur un wrapper = hauteur = largeur).
+   Les cercles sont positionnés en % pour s'adapter à toute taille. */
+.anim-container {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  /* Ratio carré : la hauteur suit automatiquement la largeur */
+  aspect-ratio: 1 / 1;
+}
+
+.anim-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.85;
+}
+
+/* Cercle 1 — 70% de la taille du conteneur, centré à 15% */
+.anim-c1 {
+  width: 70%; height: 70%;
+  top: 15%; left: 15%;
+  background: radial-gradient(circle, #AC4541 0%, #7E4672 100%);
+  animation: ac1 12s infinite ease-in-out;
+}
+
+/* Cercle 2 — 60% */
+.anim-c2 {
+  width: 60%; height: 60%;
+  top: 20%; left: 20%;
+  background: radial-gradient(circle, #B85A55 0%, #8A507B 100%);
+  animation: ac2 14s infinite ease-in-out;
+}
+
+/* Cercle 3 — 50% */
+.anim-c3 {
+  width: 50%; height: 50%;
+  top: 25%; left: 25%;
+  background: radial-gradient(circle, #C57067 0%, #956385 100%);
+  animation: ac3 16s infinite ease-in-out;
+}
+
+/* Cercle central — dégradé orange animé */
+.anim-center {
+  width: 15%; height: 15%;
+  top: 42.5%; left: 42.5%;
+  /* Le dégradé est appliqué via background-image ;
+     on anime background-position pour simuler un déplacement du dégradé */
+  background: radial-gradient(circle at 30% 30%,
+    #ff9f4a 0%, #e8521a 40%, #b84c1e 100%);
+  background-size: 200% 200%;
+  animation: ac-center 6s infinite ease-in-out;
+  box-shadow: 0 0 14px rgba(184, 76, 30, .55),
+              0 0 4px  rgba(255, 159, 74, .4);
+}
+
+@keyframes ac-center {
+  /* Le point chaud du dégradé radial se déplace
+     en changeant background-position sur un fond surdimensionné.
+     On joue aussi sur le box-shadow pour un effet de pulsation lumineuse. */
+  0%   {
+    background-position: 20% 20%;
+    box-shadow: 0 0 14px rgba(184,76,30,.55), 0 0 4px rgba(255,159,74,.4);
+  }
+  25%  {
+    background-position: 80% 20%;
+    box-shadow: 0 0 22px rgba(232,82,26,.7),  0 0 8px rgba(255,159,74,.6);
+  }
+  50%  {
+    background-position: 80% 80%;
+    box-shadow: 0 0 10px rgba(184,76,30,.4),  0 0 3px rgba(255,159,74,.25);
+  }
+  75%  {
+    background-position: 20% 80%;
+    box-shadow: 0 0 26px rgba(232,82,26,.8),  0 0 10px rgba(255,200,80,.5);
+  }
+  100% {
+    background-position: 20% 20%;
+    box-shadow: 0 0 14px rgba(184,76,30,.55), 0 0 4px rgba(255,159,74,.4);
+  }
+}
+
+/* Les translations sont exprimées en px pour rester légères
+   (les % en translate se réfèrent à l'élément lui-même, pas au parent) */
+@keyframes ac1 {
+  0%,100% { transform: translate(0,0); }
+  25%      { transform: translate(-10px, 5px); }
+  50%      { transform: translate(5px,-10px); }
+  75%      { transform: translate(-5px, 10px); }
+}
+@keyframes ac2 {
+  0%,100% { transform: translate(0,0); }
+  25%      { transform: translate(8px,-8px); }
+  50%      { transform: translate(-10px, 5px); }
+  75%      { transform: translate(5px, 8px); }
+}
+@keyframes ac3 {
+  0%,100% { transform: translate(0,0); }
+  25%      { transform: translate(-8px,-10px); }
+  50%      { transform: translate(10px, 5px); }
+  75%      { transform: translate(-5px, 8px); }
+}
+
+/* Réduction du mouvement si l'utilisateur l'a activé (accessibilité) */
+@media (prefers-reduced-motion: reduce) {
+  .anim-c1, .anim-c2, .anim-c3 { animation: none; }
+}
