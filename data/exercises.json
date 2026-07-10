@@ -16,8 +16,8 @@
               "code": "E1.1",
               "title": "Thermistance.",
               "externalUrl": "http://hdehaan.free.fr/electricite/e_1/e_1_1/e_1_1_enon.htm",
-              "hasCorrige": false,
-              "contentFile": null
+              "hasCorrige": true,
+              "contentFile": "exercices/e1_1.html"
             },
             {
               "code": "E1.2",

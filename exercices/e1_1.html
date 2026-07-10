@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="E1.1. Thermistance. Énoncé et corrigé. KholaWeb.">
+<meta name="author" content="Hubert de Haan — KholaWeb">
+<title>E1.1 — Thermistance · KholaWeb</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- KaTeX — rendu mathématique rapide côté client -->
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+<!-- auto-render : parcourt le DOM et rend tous les délimiteurs \(...\) et \[...\] -->
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false},
+      {left: '$$',  right: '$$',  display: true},
+      {left: '$',   right: '$',   display: false}
+    ],
+    throwOnError: false
+  });">
+</script>
+
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/exercice.css">
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="nav-inner">
+    <div class="logo"><a href="../index.html">Khola<span>Web</span></a></div>
+    <nav class="nav-links" id="main-nav">
+      <a href="../index.html#electricite" class="active">Électricité</a>
+      <a href="../index.html#electromagnetisme">Électromagnétisme</a>
+      <a href="../index.html#electronique">Électronique</a>
+      <a href="../index.html#mecanique">Mécanique</a>
+      <a href="../index.html#optique">Optique</a>
+      <a href="../index.html#thermodynamique">Thermodynamique</a>
+      <a href="https://payhip.com/kholor" target="_blank" class="nav-cta">Kholor ↗</a>
+    </nav>
+    <button class="hamburger" id="burger" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <line x1="3" y1="6"  x2="19" y2="6"/>
+        <line x1="3" y1="11" x2="19" y2="11"/>
+        <line x1="3" y1="16" x2="19" y2="16"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- ══ CONTENU PRINCIPAL ══ -->
+<div class="page-wrap">
+
+  <!-- Fil d'ariane -->
+  <nav class="breadcrumb" aria-label="Fil d'ariane">
+    <a href="../index.html">Accueil</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Électricité</a>
+    <span class="sep">›</span>
+    <a href="../index.html">E1 — Approximation des régimes quasi stationnaires. Dipôles.</a>
+    <span class="sep">›</span>
+    <span class="current">E1.1</span>
+  </nav>
+
+  <!-- En-tête exercice -->
+  <header class="exo-header">
+    <div class="exo-meta">
+      <span class="badge badge-disc-electricite">Électricité</span>
+      <span class="badge badge-code">E1.1</span>
+      <span class="badge badge-enon">Énoncé</span>
+    </div>
+    <h1 class="exo-title">Thermistance</h1>
+    <p style="color:var(--text-muted);font-size:.95rem;max-width:60ch;">
+      Loi de variation de la résistance d'une thermistance avec la température,
+      et puissance qu'elle peut dissiper en régime permanent.
+    </p>
+    <div class="exo-actions">
+      <a id="btn-pdf-enonce" href="http://hdehaan.free.fr/electricite/e_1/e_1_1/e_1_1_enon.pdf"
+         target="_blank" class="exo-btn exo-btn-pdf">
+        ↓ Télécharger l'énoncé PDF
+      </a>
+      <a id="btn-pdf-corrige" href="http://hdehaan.free.fr/electricite/e_1/e_1_1/e_1_1_cons.pdf"
+         target="_blank" class="exo-btn exo-btn-pdf" style="display:none;">
+        ↓ Télécharger le corrigé PDF
+      </a>
+      <a href="http://hdehaan.free.fr/electricite/e_1/e_1_1/e_1_1_enon.htm"
+         target="_blank" class="exo-btn exo-btn-outline">
+        ↗ Page originale
+      </a>
+    </div>
+  </header>
+
+  <!-- Grille contenu + sidebar -->
+  <div class="exo-layout">
+
+    <!-- ── COLONNE PRINCIPALE ── -->
+    <div>
+
+      <!-- Onglets -->
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" role="tab" aria-selected="true"
+                onclick="switchTab('enonce', this)">Énoncé</button>
+        <button class="tab-btn" role="tab" aria-selected="false"
+                onclick="switchTab('corrige', this)">Corrigé</button>
+      </div>
+
+      <!-- ── PANNEAU ÉNONCÉ ── -->
+      <div id="tab-enonce" class="tab-panel active">
+        <div class="content-card">
+
+          <h2>E1.1 — Thermistance</h2>
+
+          <p>
+            Une thermistance est un composant thermosensible dont la valeur de la résistance
+            \(R\) dépend fortement de sa température absolue \(T\). On admettra que la relation
+            entre ces deux grandeurs est de la forme \(R = R_0 \exp\!\left(\dfrac{A}{T}\right)\),
+            avec \(A\) et \(R_0\) constantes.
+          </p>
+
+          <p>
+            <strong>1.</strong> On mesure les valeurs suivantes : \(R(300\text{ K}) = 160\ \Omega\)
+            et \(R(420\text{ K}) = 29\ \Omega\). Déterminer \(R_0\) et \(A\).
+          </p>
+
+          <p>
+            <strong>2.</strong> Quelle est l'allure de la courbe donnant \(\ln R\) en fonction de \(1/T\) ?
+          </p>
+
+          <p>
+            La thermistance est à la température \(T\). Elle est mise en contact thermique avec un
+            milieu de température constante \(T_0\). Dans ces conditions la relation entre la puissance
+            \(P\) dissipée par la thermistance et sa température est donnée par la loi de Newton :
+            \(P = H(T - T_0)\) avec \(H = 8{,}0 \times 10^{-3}\ \text{W/K}\). On note \(U\) la tension
+            aux bornes de la thermistance et \(I\) l'intensité qui la traverse.
+          </p>
+
+          <p>
+            <strong>3.</strong> Déterminer \(U\) et \(I\) en fonction de \(T\).
+          </p>
+
+          <p>
+            <strong>4.</strong> La thermistance est caractérisée par la température limite
+            \(T_m = 500\ \text{K}\). En déduire la puissance \(P_m\) que peut alors dissiper la
+            thermistance lorsque \(T_0 = 300\ \text{K}\), ainsi que les valeurs \(U_m\) et \(I_m\)
+            qui lui correspondent.
+          </p>
+
+        </div><!-- /.content-card -->
+      </div><!-- /#tab-enonce -->
+
+      <!-- ── PANNEAU CORRIGÉ ── -->
+      <div id="tab-corrige" class="tab-panel">
+        <div class="content-card">
+
+          <h2>Corrigé — E1.1</h2>
+
+          <!-- Question 1 -->
+          <h3>1. Détermination de A et R₀</h3>
+
+          <div class="formula-block">
+            \[
+              \ln\frac{R}{R_0} = \frac{A}{T}
+              \quad\Rightarrow\quad
+              \ln\frac{R_2}{R_1} = A\left(\frac{1}{T_2} - \frac{1}{T_1}\right)
+            \]
+          </div>
+
+          <p>De ces deux expressions on tire :</p>
+
+          <div class="answer">
+            <div class="answer-head">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M5 7l2 2 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              Résultat
+            </div>
+            <div class="result-box">
+              \(\displaystyle A = 1790\ \text{K} \quad\text{et}\quad R_0 = 0{,}41\ \Omega\)
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <h3>2. Allure de la courbe</h3>
+
+          <p>
+            La courbe donnant \(\ln R\) en fonction de \(1/T\) est une droite d'ordonnée à l'origine
+            \(\ln R_0\) et de pente positive \(A\).
+          </p>
+
+          <!-- Question 3 -->
+          <h3>3. Tension et intensité en fonction de T</h3>
+
+          <p>La puissance échangée par la thermistance avec le circuit s'écrit :</p>
+
+          <div class="formula-block">
+            \[
+              P = \frac{U^2}{R} = R I^2 = H(T - T_0)
+            \]
+          </div>
+
+          <p>D'où :</p>
+
+          <div class="answer">
+            <div class="answer-head">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M5 7l2 2 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              Résultat
+            </div>
+            <div class="result-box">
+              \(\displaystyle U = \sqrt{R_0 H (T - T_0)}\; \exp\!\left(\frac{A}{2T}\right)\)
+            </div>
+            <div class="result-box">
+              \(\displaystyle I = \sqrt{\frac{H(T - T_0)}{R_0}}\; \exp\!\left(-\frac{A}{2T}\right)\)
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <h3>4. Valeurs maximales</h3>
+
+          <div class="answer">
+            <div class="answer-head">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M5 7l2 2 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              Résultat
+            </div>
+            <div class="result-box">
+              \(\displaystyle P_m = 1{,}6\ \text{W} \qquad I_m = 0{,}33\ \text{A} \qquad U_m = 4{,}85\ \text{V}\)
+            </div>
+          </div>
+
+        </div><!-- /.content-card -->
+      </div><!-- /#tab-corrige -->
+
+      <!-- Navigation entre exercices -->
+      <nav class="exo-nav" aria-label="Navigation exercices">
+        <span></span>
+        <span class="exo-nav-center">E1 · Régimes quasi stationnaires</span>
+        <a href="http://hdehaan.free.fr/electricite/e_1/e_1_2/e_1_2_enon.htm"
+           target="_blank" class="exo-nav-btn">
+          E1.2 — Détermination d'une tension →
+        </a>
+      </nav>
+
+    </div><!-- /colonne principale -->
+
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="exo-sidebar">
+
+      <!-- Fiche de l'exercice -->
+      <div class="sidebar-card">
+        <div class="sidebar-label">Fiche</div>
+        <div class="sidebar-item">
+          <span class="sidebar-key">Discipline</span>
+          <span class="sidebar-val" style="color:var(--tag-elec)">Électricité</span>
+        </div>
+        <div class="sidebar-item">
+          <span class="sidebar-key">Chapitre</span>
+          <span class="sidebar-val">E1</span>
+        </div>
+        <div class="sidebar-item">
+          <span class="sidebar-key">Exercice</span>
+          <span class="sidebar-val">E1.1</span>
+        </div>
+      </div>
+
+      <!-- Liens -->
+      <div class="sidebar-card">
+        <div class="sidebar-label">Ressources</div>
+        <a id="sidebar-pdf-enonce" href="http://hdehaan.free.fr/electricite/e_1/e_1_1/e_1_1_enon.pdf"
+           target="_blank" class="sidebar-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+          Énoncé PDF
+        </a>
+        <a id="sidebar-pdf-corrige" href="http://hdehaan.free.fr/electricite/e_1/e_1_1/e_1_1_cons.pdf"
+           target="_blank" class="sidebar-link" style="display:none;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+          Corrigé PDF
+        </a>
+        <a href="http://hdehaan.free.fr/electricite/e_1/e_1_1/e_1_1_enon.htm"
+           target="_blank" class="sidebar-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Page originale
+        </a>
+      </div>
+
+      <!-- Autres exercices du chapitre E1 -->
+      <div class="sidebar-card">
+        <div class="sidebar-label">Chapitre E1</div>
+        <a href="#" class="sidebar-link" style="font-size:.82rem;color:var(--accent);font-weight:700;">
+          E1.1 — Thermistance ←
+        </a>
+        <a href="http://hdehaan.free.fr/electricite/e_1/e_1_2/e_1_2_enon.htm"
+           target="_blank" class="sidebar-link" style="font-size:.82rem;">E1.2 — Détermination d'une tension</a>
+        <a href="http://hdehaan.free.fr/electricite/e_1/e_1_3/e_1_3_enon.htm"
+           target="_blank" class="sidebar-link" style="font-size:.82rem;">E1.3 — Étude d'un réseau. Lois de Kirchhoff.</a>
+        <a href="http://hdehaan.free.fr/electricite/e_1/e_1_4/e_1_4_enon.htm"
+           target="_blank" class="sidebar-link" style="font-size:.82rem;">E1.4 — Réseau à résistance réglable</a>
+        <a href="http://hdehaan.free.fr/electricite/e_1/e_1_5/e_1_5_enon.htm"
+           target="_blank" class="sidebar-link" style="font-size:.82rem;">E1.5 — Analyse d'un réseau linéaire</a>
+        <a href="http://hdehaan.free.fr/electricite/e_1/e_1_6/e_1_6_enon.htm"
+           target="_blank" class="sidebar-link" style="font-size:.82rem;">E1.6 — Lois de Kirchhoff. Utilisation des symétries.</a>
+        <a href="http://hdehaan.free.fr/electricite/e_1/e_1_7/e_1_7_enon.htm"
+           target="_blank" class="sidebar-link" style="font-size:.82rem;">E1.7 — Thermistance (II)</a>
+        <a href="http://hdehaan.free.fr/electricite/e_1/e_1_8/e_1_8_enon.htm"
+           target="_blank" class="sidebar-link" style="font-size:.82rem;">E1.8 — Circuit avec voltamètre</a>
+        <a href="http://hdehaan.free.fr/electricite/e_1/e_1_9/e_1_9_enon.htm"
+           target="_blank" class="sidebar-link" style="font-size:.82rem;">E1.9 — Transfert de puissance d'un générateur à un récepteur</a>
+      </div>
+
+    </aside>
+
+  </div><!-- /.exo-layout -->
+
+</div><!-- /.page-wrap -->
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">KholaWeb</div>
+      <div class="footer-meta">Hubert de Haan · www.kholaweb.com · Mise à jour : mai 2025</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Accueil</a>
+      <a href="../index.html">Électricité</a>
+      <a href="../index.html">Électromagnétisme</a>
+      <a href="../index.html">Électronique</a>
+      <a href="../index.html">Mécanique</a>
+      <a href="../index.html">Optique</a>
+      <a href="../index.html">Thermodynamique</a>
+      <a href="https://payhip.com/kholor" target="_blank">Kholor ↗</a>
+      <a href="mailto:kholaweb@free.fr">Contact</a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+/* ── ONGLETS ÉNONCÉ / CORRIGÉ ── */
+function switchTab(name, btn) {
+  /* Désactive tous les panneaux et boutons */
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected','false');
+  });
+  /* Active le panneau et le bouton demandés */
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected','true');
+
+  /* Bascule le bouton de téléchargement PDF selon l'onglet actif */
+  document.getElementById('btn-pdf-enonce').style.display = (name === 'enonce') ? '' : 'none';
+  document.getElementById('btn-pdf-corrige').style.display = (name === 'corrige') ? '' : 'none';
+
+  /* Bascule les liens PDF de la carte "Ressources" selon l'onglet actif */
+  document.getElementById('sidebar-pdf-enonce').style.display = (name === 'enonce') ? '' : 'none';
+  document.getElementById('sidebar-pdf-corrige').style.display = (name === 'corrige') ? '' : 'none';
+}
+
+/* ── MENU HAMBURGER ── */
+document.getElementById('burger').addEventListener('click', function() {
+  document.getElementById('main-nav').classList.toggle('open');
+});
+</script>
+
+</body>
+</html>

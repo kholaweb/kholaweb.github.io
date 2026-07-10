@@ -45,10 +45,17 @@ a:hover { text-decoration:underline; }
   padding:3px 10px; border-radius:999px;
   letter-spacing:.04em;
 }
-.badge-disc  { background:var(--tag-opt-bg); color:var(--tag-opt); }
 .badge-code  { background:var(--accent-light); color:var(--accent); }
 .badge-enon  { background:var(--green-bg); color:var(--green); }
 .badge-cons  { background:var(--accent-warm-light); color:var(--accent-warm); }
+
+/* Badge "Discipline" — une classe par discipline (voir --tag-* dans base.css) */
+.badge-disc-electricite       { background:var(--tag-elec-bg);   color:var(--tag-elec); }
+.badge-disc-electromagnetisme { background:var(--tag-em-bg);     color:var(--tag-em); }
+.badge-disc-electronique      { background:var(--tag-elek-bg);   color:var(--tag-elek); }
+.badge-disc-mecanique         { background:var(--tag-mec-bg);    color:var(--tag-mec); }
+.badge-disc-optique           { background:var(--tag-opt-bg);    color:var(--tag-opt); }
+.badge-disc-thermodynamique   { background:var(--tag-thermo-bg); color:var(--tag-thermo); }
 
 .exo-title {
   font-family:var(--font-serif);
