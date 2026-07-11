@@ -37,15 +37,15 @@
               "code": "E1.4",
               "title": "Réseau à résistance réglable.",
               "externalUrl": "http://hdehaan.free.fr/electricite/e_1/e_1_4/e_1_4_enon.htm",
-              "hasCorrige": false,
-              "contentFile": null
+              "hasCorrige": true,
+              "contentFile": "exercices/e1_4.html"
             },
             {
               "code": "E1.5",
               "title": "Analyse d'un réseau linéaire.",
               "externalUrl": "http://hdehaan.free.fr/electricite/e_1/e_1_5/e_1_5_enon.htm",
-              "hasCorrige": false,
-              "contentFile": null
+              "hasCorrige": true,
+              "contentFile": "exercices/e1_5.html"
             },
             {
               "code": "E1.6",

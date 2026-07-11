@@ -3,16 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="E1.1. Thermistance. Énoncé et corrigé. KholaWeb.">
+<meta name="description" content="E1.4. Réseau à résistance réglable. Énoncé et corrigé. KholaWeb.">
 <meta name="author" content="Hubert de Haan — KholaWeb">
-<title>E1.1 — Thermistance · KholaWeb</title>
+<title>E1.4 — Réseau à résistance réglable · KholaWeb</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
-<!-- KaTeX — rendu mathématique rapide côté client -->
 <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
-<!-- auto-render : parcourt le DOM et rend tous les délimiteurs \(...\) et \[...\] -->
 <script defer
   src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
   onload="renderMathInElement(document.body, {
@@ -65,31 +63,30 @@
     <span class="sep">›</span>
     <a href="../index.html">E1 — Approximation des régimes quasi stationnaires. Dipôles.</a>
     <span class="sep">›</span>
-    <span class="current">E1.1</span>
+    <span class="current">E1.4</span>
   </nav>
 
   <!-- En-tête exercice -->
   <header class="exo-header">
     <div class="exo-meta">
       <span class="badge badge-disc-electricite">Électricité</span>
-      <span class="badge badge-code">E1.1</span>
+      <span class="badge badge-code">E1.4</span>
       <span class="badge badge-enon">Énoncé</span>
     </div>
-    <h1 class="exo-title">Thermistance</h1>
+    <h1 class="exo-title">Réseau à résistance réglable</h1>
     <p style="color:var(--text-muted);font-size:.95rem;max-width:60ch;">
-      Loi de variation de la résistance d'une thermistance avec la température,
-      et puissance qu'elle peut dissiper en régime permanent.
+      Potentiomètre alimenté par deux générateurs identiques, étudié à l'aide des lois de Kirchhoff.
     </p>
     <div class="exo-actions">
-      <a id="btn-pdf-enonce" href="http://hdehaan.free.fr/electricite/e_1/e_1_1/e_1_1_enon.pdf"
+      <a id="btn-pdf-enonce" href="http://hdehaan.free.fr/electricite/e_1/e_1_4/e_1_4_enon.pdf"
          target="_blank" class="exo-btn exo-btn-pdf">
         ↓ Télécharger l'énoncé PDF
       </a>
-      <a id="btn-pdf-corrige" href="http://hdehaan.free.fr/electricite/e_1/e_1_1/e_1_1_cons.pdf"
+      <a id="btn-pdf-corrige" href="http://hdehaan.free.fr/electricite/e_1/e_1_4/e_1_4_cons.pdf"
          target="_blank" class="exo-btn exo-btn-pdf" style="display:none;">
         ↓ Télécharger le corrigé PDF
       </a>
-      <a href="http://hdehaan.free.fr/electricite/e_1/e_1_1/e_1_1_enon.htm"
+      <a href="http://hdehaan.free.fr/electricite/e_1/e_1_4/e_1_4_enon.htm"
          target="_blank" class="exo-btn exo-btn-outline">
         ↗ Page originale
       </a>
@@ -114,41 +111,39 @@
       <div id="tab-enonce" class="tab-panel active">
         <div class="content-card">
 
-          <h2>E1.1 — Thermistance</h2>
+          <h2>E1.4 — Réseau à résistance réglable</h2>
 
           <p>
-            Une thermistance est un composant thermosensible dont la valeur de la résistance
-            \(R\) dépend fortement de sa température absolue \(T\). On admettra que la relation
-            entre ces deux grandeurs est de la forme \(R = R_0 \exp\!\left(\dfrac{A}{T}\right)\),
-            avec \(A\) et \(R_0\) constantes.
+            On considère le montage représenté ci-dessous : les deux générateurs ont même f.é.m.
+            \(E\) et une résistance interne négligeable. Une résistance fixe \(r\) est intercalée
+            entre \(C\) et \(D\). Un curseur \(C\), mobile sur le conducteur \(AB\) de résistance
+            totale \(R\), délimite une fraction \(xR\) de la résistance \(R\) entre les points
+            \(A\) et \(C\) \((0 < x < 1)\).
+          </p>
+
+          <div class="schema-wrap">
+            <img src="images/e1_4_circuit.jpg" alt="Circuit E1.4 : potentiomètre AB entre deux générateurs E, résistance r entre C et D" style="max-width:100%;height:auto;">
+          </div>
+
+          <p>
+            <strong>1.</strong> Calculer, en fonction de \(E\), \(r\), \(R\) et \(x\), la valeur
+            algébrique du courant \(i\) circulant dans la résistance \(r\) (compté positivement
+            dans le sens \(C\) vers \(D\)) à l'aide des lois de Kirchhoff.
           </p>
 
           <p>
-            <strong>1.</strong> On mesure les valeurs suivantes : \(R(300\text{ K}) = 160\ \Omega\)
-            et \(R(420\text{ K}) = 29\ \Omega\). Déterminer \(R_0\) et \(A\).
+            <strong>2.</strong> Calculer, en fonction de \(E\), \(r\), \(R\) et \(x\), les
+            intensités des courants \(i_1\) et \(i_2\) qui traversent chacun des générateurs.
           </p>
 
           <p>
-            <strong>2.</strong> Quelle est l'allure de la courbe donnant \(\ln R\) en fonction de \(1/T\) ?
+            <strong>3.</strong> Pour quelle valeur de \(x\), exprimée en fonction de \(r\) et \(R\),
+            l'intensité \(i_2\) est-elle minimale ?
           </p>
 
           <p>
-            La thermistance est à la température \(T\). Elle est mise en contact thermique avec un
-            milieu de température constante \(T_0\). Dans ces conditions la relation entre la puissance
-            \(P\) dissipée par la thermistance et sa température est donnée par la loi de Newton :
-            \(P = H(T - T_0)\) avec \(H = 8{,}0 \times 10^{-3}\ \text{W/K}\). On note \(U\) la tension
-            aux bornes de la thermistance et \(I\) l'intensité qui la traverse.
-          </p>
-
-          <p>
-            <strong>3.</strong> Déterminer \(U\) et \(I\) en fonction de \(T\).
-          </p>
-
-          <p>
-            <strong>4.</strong> La thermistance est caractérisée par la température limite
-            \(T_m = 500\ \text{K}\). En déduire la puissance \(P_m\) que peut alors dissiper la
-            thermistance lorsque \(T_0 = 300\ \text{K}\), ainsi que les valeurs \(U_m\) et \(I_m\)
-            qui lui correspondent.
+            <strong>4.</strong> Calculer le rapport des puissances consommées dans \(AC\) et \(CB\),
+            lorsque l'intensité \(i_2\) est minimale.
           </p>
 
         </div><!-- /.content-card -->
@@ -158,20 +153,18 @@
       <div id="tab-corrige" class="tab-panel">
         <div class="content-card">
 
-          <h2>Corrigé — E1.1</h2>
+          <h2>Corrigé — E1.4</h2>
 
           <!-- Question 1 -->
-          <h3>1. Détermination de A et R₀</h3>
+          <h3>1. Intensité i</h3>
 
-          <div class="formula-block">
-            \[
-              \ln\frac{R}{R_0} = \frac{A}{T}
-              \quad\Rightarrow\quad
-              \ln\frac{R_2}{R_1} = A\left(\frac{1}{T_2} - \frac{1}{T_1}\right)
-            \]
-          </div>
-
-          <p>De ces deux expressions on tire :</p>
+          <p>
+            Le circuit est constitué de trois branches et de deux nœuds (\(C\) et \(D\)). La loi
+            des nœuds ne donnant qu'une seule équation indépendante, il faut deux équations de
+            maille pour déterminer les deux inconnues \(i_1\) et \(i_2\) (question 2). Le courant
+            \(i\) dans \(r\) s'obtient ensuite par la loi des nœuds au point \(C\) :
+            \(i = i_1 - i_2\).
+          </p>
 
           <div class="answer">
             <div class="answer-head">
@@ -182,30 +175,44 @@
               Résultat
             </div>
             <div class="result-box">
-              \(\displaystyle A = 1790\ \text{K} \quad\text{et}\quad R_0 = 0{,}41\ \Omega\)
+              \(\displaystyle i = \frac{E(1-2x)}{r + Rx(1-x)}\)
             </div>
           </div>
 
           <!-- Question 2 -->
-          <h3>2. Allure de la courbe</h3>
-
-          <p>
-            La courbe donnant \(\ln R\) en fonction de \(1/T\) est une droite d'ordonnée à l'origine
-            \(\ln R_0\) et de pente positive \(A\).
-          </p>
-
-          <!-- Question 3 -->
-          <h3>3. Tension et intensité en fonction de T</h3>
-
-          <p>La puissance échangée par la thermistance avec le circuit s'écrit :</p>
+          <h3>2. Intensités i₁ et i₂</h3>
 
           <div class="formula-block">
             \[
-              P = \frac{U^2}{R} = R I^2 = H(T - T_0)
+              i_1 = \frac{E - ri}{xR} = \frac{2r + R(1-x)}{r + Rx(1-x)}\cdot\frac{E}{R}
+            \]
+          </div>
+          <div class="formula-block">
+            \[
+              i_2 = \frac{E + ri}{(1-x)R} = \frac{2r + Rx}{r + Rx(1-x)}\cdot\frac{E}{R}
             \]
           </div>
 
-          <p>D'où :</p>
+          <!-- Question 3 -->
+          <h3>3. Valeur de x pour laquelle i₂ est minimale</h3>
+
+          <p>L'intensité \(i_2\) passe par un extremum, que l'on suppose minimal, quand :</p>
+
+          <div class="formula-block">
+            \[
+              \frac{di_2}{dx} = \frac{R\big(r+Rx(1-x)\big) - (2r+Rx)\,R(1-2x)}{\big(r+Rx(1-x)\big)^2}\cdot\frac{E}{R} = 0
+            \]
+          </div>
+
+          <p>Le numérateur doit être nul :</p>
+
+          <div class="formula-block">
+            \[
+              Rx^2 + 4rx - r = 0
+            \]
+          </div>
+
+          <p>La solution acceptable \(x > 0\) est :</p>
 
           <div class="answer">
             <div class="answer-head">
@@ -216,15 +223,18 @@
               Résultat
             </div>
             <div class="result-box">
-              \(\displaystyle U = \sqrt{R_0 H (T - T_0)}\; \exp\!\left(\frac{A}{2T}\right)\)
-            </div>
-            <div class="result-box">
-              \(\displaystyle I = \sqrt{\frac{H(T - T_0)}{R_0}}\; \exp\!\left(-\frac{A}{2T}\right)\)
+              \(\displaystyle x = \frac{-2r + \sqrt{4r^2 + Rr}}{R}\)
             </div>
           </div>
 
           <!-- Question 4 -->
-          <h3>4. Valeurs maximales</h3>
+          <h3>4. Rapport des puissances</h3>
+
+          <div class="formula-block">
+            \[
+              \beta = \frac{P_{AC}}{P_{CB}} = \frac{xR\,i_1^2}{(1-x)R\,i_2^2}
+            \]
+          </div>
 
           <div class="answer">
             <div class="answer-head">
@@ -235,7 +245,7 @@
               Résultat
             </div>
             <div class="result-box">
-              \(\displaystyle P_m = 1{,}6\ \text{W} \qquad I_m = 0{,}33\ \text{A} \qquad U_m = 4{,}85\ \text{V}\)
+              \(\displaystyle \beta = \frac{x}{1-x}\left(\frac{2r+R(1-x)}{r+Rx(1-x)}\right)^{\!2}\)
             </div>
           </div>
 
@@ -244,11 +254,13 @@
 
       <!-- Navigation entre exercices -->
       <nav class="exo-nav" aria-label="Navigation exercices">
-        <span></span>
-        <span class="exo-nav-center">E1 · Régimes quasi stationnaires</span>
-        <a href="http://hdehaan.free.fr/electricite/e_1/e_1_2/e_1_2_enon.htm"
+        <a href="http://hdehaan.free.fr/electricite/e_1/e_1_3/e_1_3_enon.htm"
            target="_blank" class="exo-nav-btn">
-          E1.2 — Détermination d'une tension →
+          ← E1.3 — Étude d'un réseau
+        </a>
+        <span class="exo-nav-center">E1 · Régimes quasi stationnaires</span>
+        <a href="e1_5.html" class="exo-nav-btn">
+          E1.5 — Analyse d'un réseau linéaire →
         </a>
       </nav>
 
@@ -271,24 +283,24 @@
         </div>
         <div class="sidebar-item">
           <span class="sidebar-key">Exercice</span>
-          <span class="sidebar-val">E1.1</span>
+          <span class="sidebar-val">E1.4</span>
         </div>
       </div>
 
       <!-- Liens -->
       <div class="sidebar-card">
         <div class="sidebar-label">Ressources</div>
-        <a id="sidebar-pdf-enonce" href="http://hdehaan.free.fr/electricite/e_1/e_1_1/e_1_1_enon.pdf"
+        <a id="sidebar-pdf-enonce" href="http://hdehaan.free.fr/electricite/e_1/e_1_4/e_1_4_enon.pdf"
            target="_blank" class="sidebar-link">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
           Énoncé PDF
         </a>
-        <a id="sidebar-pdf-corrige" href="http://hdehaan.free.fr/electricite/e_1/e_1_1/e_1_1_cons.pdf"
+        <a id="sidebar-pdf-corrige" href="http://hdehaan.free.fr/electricite/e_1/e_1_4/e_1_4_cons.pdf"
            target="_blank" class="sidebar-link" style="display:none;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
           Corrigé PDF
         </a>
-        <a href="http://hdehaan.free.fr/electricite/e_1/e_1_1/e_1_1_enon.htm"
+        <a href="http://hdehaan.free.fr/electricite/e_1/e_1_4/e_1_4_enon.htm"
            target="_blank" class="sidebar-link">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Page originale
@@ -298,14 +310,14 @@
       <!-- Autres exercices du chapitre E1 -->
       <div class="sidebar-card">
         <div class="sidebar-label">Chapitre E1</div>
-        <a href="#" class="sidebar-link" style="font-size:.82rem;color:var(--accent);font-weight:700;">
-          E1.1 — Thermistance ←
-        </a>
+        <a href="e1_1.html" class="sidebar-link" style="font-size:.82rem;">E1.1 — Thermistance</a>
         <a href="http://hdehaan.free.fr/electricite/e_1/e_1_2/e_1_2_enon.htm"
            target="_blank" class="sidebar-link" style="font-size:.82rem;">E1.2 — Détermination d'une tension</a>
         <a href="http://hdehaan.free.fr/electricite/e_1/e_1_3/e_1_3_enon.htm"
            target="_blank" class="sidebar-link" style="font-size:.82rem;">E1.3 — Étude d'un réseau. Lois de Kirchhoff.</a>
-        <a href="e1_4.html" class="sidebar-link" style="font-size:.82rem;">E1.4 — Réseau à résistance réglable</a>
+        <a href="#" class="sidebar-link" style="font-size:.82rem;color:var(--accent);font-weight:700;">
+          E1.4 — Réseau à résistance réglable ←
+        </a>
         <a href="e1_5.html" class="sidebar-link" style="font-size:.82rem;">E1.5 — Analyse d'un réseau linéaire</a>
         <a href="http://hdehaan.free.fr/electricite/e_1/e_1_6/e_1_6_enon.htm"
            target="_blank" class="sidebar-link" style="font-size:.82rem;">E1.6 — Lois de Kirchhoff. Utilisation des symétries.</a>
@@ -349,22 +361,18 @@
 <script>
 /* ── ONGLETS ÉNONCÉ / CORRIGÉ ── */
 function switchTab(name, btn) {
-  /* Désactive tous les panneaux et boutons */
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => {
     b.classList.remove('active');
     b.setAttribute('aria-selected','false');
   });
-  /* Active le panneau et le bouton demandés */
   document.getElementById('tab-' + name).classList.add('active');
   btn.classList.add('active');
   btn.setAttribute('aria-selected','true');
 
-  /* Bascule le bouton de téléchargement PDF selon l'onglet actif */
   document.getElementById('btn-pdf-enonce').style.display = (name === 'enonce') ? '' : 'none';
   document.getElementById('btn-pdf-corrige').style.display = (name === 'corrige') ? '' : 'none';
 
-  /* Bascule les liens PDF de la carte "Ressources" selon l'onglet actif */
   document.getElementById('sidebar-pdf-enonce').style.display = (name === 'enonce') ? '' : 'none';
   document.getElementById('sidebar-pdf-corrige').style.display = (name === 'corrige') ? '' : 'none';
 }
