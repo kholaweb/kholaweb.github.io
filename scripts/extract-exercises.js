@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /*
  * Extrait le catalogue (disciplines → chapitres → exercices) de
- * index.html et le sérialise dans data/exercises.json.
+ * index.htm et le sérialise dans data/exercises.json.
  *
  * Le HTML source est généré/rédigé à la main mais avec une mise en
  * forme très régulière (un exo-card par ligne, un acc-item par
@@ -14,7 +14,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SRC = path.join(__dirname, '..', 'index.html');
+const SRC = path.join(__dirname, '..', 'index.htm');
 const OUT = path.join(__dirname, '..', 'data', 'exercises.json');
 
 const PAGE_START = /^<div id="page-([a-z]+)" class="page( active)?">/;
