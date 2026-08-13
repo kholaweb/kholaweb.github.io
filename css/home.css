@@ -46,6 +46,27 @@ a { color:inherit; text-decoration:none; }
 .back-btn { display:inline-flex; align-items:center; gap:.4rem; font-size:.85rem; font-weight:600; color:var(--text-muted); cursor:pointer; padding:.35rem .75rem; border-radius:var(--radius); transition:background .15s,color .15s; margin:1.5rem 0 0 1.5rem; }
 .back-btn:hover { background:var(--accent-light); color:var(--accent); }
 
+/* ── ICÔNES SVG DES DISCIPLINES ──
+   Les six pictogrammes au trait remplacent les émojis d'origine.
+   Le trait suit `currentColor`, donc la couleur posée sur la pastille
+   (--tag-elec, --tag-em…) ; seul l'accent chaud est fixé ici.
+   Classes utilitaires portées par les tracés :
+     .ic-a  trait d'accent      .ic-af  aplat d'accent
+     .ic-m  mercure épaissi     .ic-d   trait auxiliaire pointillé */
+.disc-icon .ic, .disc-header-icon .ic {
+  display:block;
+  fill:none; stroke:currentColor;
+  stroke-width:4; stroke-linecap:round; stroke-linejoin:round;
+  overflow:visible; /* préserve les extrémités arrondies en bord de viewBox */
+}
+.disc-icon .ic        { width:22px; height:22px; }
+.disc-header-icon .ic { width:30px; height:30px; }
+
+.disc-icon .ic .ic-a,  .disc-header-icon .ic .ic-a  { stroke:var(--accent-warm); }
+.disc-icon .ic .ic-af, .disc-header-icon .ic .ic-af { fill:var(--accent-warm); stroke:none; }
+.disc-icon .ic .ic-m,  .disc-header-icon .ic .ic-m  { stroke-width:5.5; }
+.disc-icon .ic .ic-d,  .disc-header-icon .ic .ic-d  { stroke-width:2.5; stroke-dasharray:3 4; opacity:.5; }
+
 /* ── ACCORDION ──
    Chaque chapitre est un "accordion item" : un en-tête cliquable
    qui affiche/masque un corps contenant la liste des exercices.
