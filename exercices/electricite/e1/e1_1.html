@@ -63,7 +63,7 @@
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--papier);color:var(--encre);
-  font-family:var(--sans);font-size:15px;line-height:1.6;
+  font-family:var(--sans);font-size:15px;line-height:1.45;
 }
 a{color:inherit}
 .enveloppe{max-width:var(--mesure);margin:0 auto;padding:0 1.5rem}
@@ -98,7 +98,7 @@ a{color:inherit}
   color:var(--gris-clair);margin:0 0 1rem}
 .entete h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.55rem,3.4vw,2.05rem);
   line-height:1.15;letter-spacing:-.01em;margin:0 0 .85rem}
-.entete .chapeau{font-family:var(--serif);font-size:1.0625rem;line-height:1.7;
+.entete .chapeau{font-family:var(--serif);font-size:1.0625rem;line-height:1.55;
   color:var(--gris);max-width:54ch;margin:0}
 
 /* ---------- corps ---------- */
@@ -106,19 +106,19 @@ a{color:inherit}
 .partie + .partie{border-top:1px solid var(--filet)}
 .titre-partie{font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;
   color:var(--gris-clair);margin:0 0 1.75rem}
-.partie h2{font-size:1.15rem;font-weight:650;letter-spacing:-.01em;margin:2.5rem 0 1rem}
+.partie h2{font-size:1.15rem;font-weight:650;letter-spacing:-.01em;margin:2rem 0 .8rem}
 .partie h2:first-of-type{margin-top:0}
 /* dans un titre en sans-serif gras, les grandeurs en KaTeX paraissent trop
    grandes au facteur commun : on les ramène sous la taille du titre */
 .partie h2 .katex{font-size:.95em}
-.partie p{margin:0 0 1.1rem;max-width:60ch}
+.partie p{margin:0 0 .85rem;max-width:60ch}
 .partie .large{max-width:none}
 
 /* Questions de l'énoncé. Les retraits sont ceux du document : la numérotation y
    est définie avec left=720 et hanging=360 twips, soit le numéro à 1,5 rem de la
    marge et le texte à 3 rem. */
 .questions{list-style:none;counter-reset:q;margin:1.5rem 0;padding:0 0 0 1.5rem}
-.questions li{counter-increment:q;position:relative;padding:0 0 1rem 1.5rem;max-width:68ch}
+.questions li{counter-increment:q;position:relative;padding:0 0 .8rem 1.5rem;max-width:68ch}
 .questions li:last-child{padding-bottom:0}
 .questions li::before{content:counter(q) ".";position:absolute;left:0;top:0;
   font-weight:650;font-size:.875rem;color:var(--bordeaux)}
@@ -137,7 +137,7 @@ a{color:inherit}
 /* équations — disposition du document d'origine : la formule est décalée
    d'une tabulation vers la droite, le numéro est repoussé à la marge */
 .eq{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
-  gap:.75rem 1rem;margin:1.4rem 0}
+  gap:.5rem 1rem;margin:1.05rem 0}
 /* la tabulation par défaut du document vaut 708 twips, soit 1,25 cm */
 .eq-corps{overflow-x:auto;overflow-y:hidden;padding:.15rem .1rem .15rem 2.95rem}
 .eq-corps .katex-display,
@@ -147,7 +147,7 @@ a{color:inherit}
 
 /* résultat encadré */
 .encadre{background:var(--ivoire-fond2);border:1px solid var(--ivoire-filet);
-  border-left:3px solid var(--bordeaux);padding:.9rem 1.1rem;margin:1.6rem 0}
+  border-left:3px solid var(--bordeaux);padding:.7rem 1.1rem;margin:1.25rem 0}
 .encadre .eq{margin:0}
 .encadre .eq-num{color:var(--ivoire-sourd)}
 
