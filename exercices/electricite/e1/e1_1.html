@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E1.1 Thermistance — corrigé · KholaWeb</title>
+<meta name="author" content="Hubert de Haan — KholaWeb">
+<meta name="description" content="E1.1 Thermistance : énoncé et corrigé détaillé. Loi de variation de la résistance avec la température, puissance dissipée en régime permanent.">
+<meta name="keywords" content="thermistance, exercice corrigé, électricité, régime continu, CPGE, kholaweb">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://www.kholaweb.com/exercices/electricite/e1/e1_1.html">
+
+<!-- KaTeX — rendu des formules côté client -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{
+    delimiters:[
+      {left:'\\[',right:'\\]',display:true},
+      {left:'\\(',right:'\\)',display:false}
+    ],
+    throwOnError:false
+  });"></script>
+
+<style>
+:root{
+  --encre:#181614;
+  --gris:#5f5b55;
+  --gris-clair:#8c8781;
+  --filet:#e2ded7;
+  --papier:#ffffff;
+  --bordeaux:#a10115;
+  --ivoire:#f6f1e7;
+  --ivoire-filet:#e0d6c3;
+  --ivoire-texte:#4a463f;
+  --ivoire-sourd:#8d8471;
+  --ivoire-fond2:#fbf8f2;
+  --bandeau-fond:rgba(255,255,255,.94);
+  --sans:ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --mesure:74rem;
+  --colonne:50rem;
+}
+
+/* ---------- mode sombre ---------- */
+@media (prefers-color-scheme:dark){
+  :root{
+    --encre:#f0ede7;
+    --gris:#a29c94;
+    --gris-clair:#79736c;
+    --filet:#2e2b26;
+    --papier:#13110e;
+    --bordeaux:#e0616e;
+    --ivoire:#1c1913;
+    --ivoire-filet:#332e25;
+    --ivoire-texte:#c0b9ab;
+    --ivoire-sourd:#9c9384;
+    --ivoire-fond2:#221e17;
+    --bandeau-fond:rgba(19,17,14,.94);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--papier);color:var(--encre);
+  font-family:var(--sans);font-size:15px;line-height:1.6;
+}
+a{color:inherit}
+.enveloppe{max-width:var(--mesure);margin:0 auto;padding:0 1.5rem}
+
+/* ---------- en-tête ---------- */
+.bandeau{position:sticky;top:0;z-index:20;background:var(--bandeau-fond);
+  backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--filet)}
+.bandeau .enveloppe{display:flex;align-items:baseline;gap:1.75rem;
+  height:60px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+.bandeau .enveloppe::-webkit-scrollbar{display:none}
+.marque{font-weight:650;letter-spacing:-.015em;font-size:1.0625rem;text-decoration:none;white-space:nowrap}
+.marque em{font-style:normal;color:var(--bordeaux)}
+.menu{display:flex;gap:1.25rem;font-size:.8125rem;color:var(--gris);white-space:nowrap}
+.menu a{text-decoration:none}
+.menu a:hover{color:var(--bordeaux)}
+.menu .vers-kholor{color:var(--bordeaux);font-family:var(--serif);font-size:.9375rem;letter-spacing:.01em}
+
+/* ---------- colonne de lecture ---------- */
+.colonne{max-width:var(--colonne);margin:0 auto;padding:0 1.5rem}
+
+/* ---------- fil d'ariane ---------- */
+/* les marges latérales reprennent celles de .colonne : les règles qui suivent
+   redéfinissent le raccourci padding, il faut donc les répéter */
+.ariane{padding:1.5rem 1.5rem 0;font-size:.8125rem;color:var(--gris-clair)}
+.ariane a{text-decoration:none}
+.ariane a:hover{color:var(--bordeaux)}
+.ariane .sep{padding:0 .45rem;color:var(--filet)}
+
+/* ---------- titre de l'exercice ---------- */
+.entete{padding:1.75rem 1.5rem 2.5rem;border-bottom:1px solid var(--filet)}
+.surtitre{font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gris-clair);margin:0 0 1rem}
+.entete h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.55rem,3.4vw,2.05rem);
+  line-height:1.15;letter-spacing:-.01em;margin:0 0 .85rem}
+.entete .chapeau{font-family:var(--serif);font-size:1.0625rem;line-height:1.7;
+  color:var(--gris);max-width:54ch;margin:0}
+
+/* ---------- corps ---------- */
+.partie{padding:3rem 1.5rem 1rem}
+.partie + .partie{border-top:1px solid var(--filet)}
+.titre-partie{font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gris-clair);margin:0 0 1.75rem}
+.partie h2{font-size:1.15rem;font-weight:650;letter-spacing:-.01em;margin:2.5rem 0 1rem}
+.partie h2:first-of-type{margin-top:0}
+/* dans un titre en sans-serif gras, les grandeurs en KaTeX paraissent trop
+   grandes au facteur commun : on les ramène sous la taille du titre */
+.partie h2 .katex{font-size:.95em}
+.partie p{margin:0 0 1.1rem;max-width:60ch}
+.partie .large{max-width:none}
+
+/* Questions de l'énoncé. Les retraits sont ceux du document : la numérotation y
+   est définie avec left=720 et hanging=360 twips, soit le numéro à 1,5 rem de la
+   marge et le texte à 3 rem. */
+.questions{list-style:none;counter-reset:q;margin:1.5rem 0;padding:0 0 0 1.5rem}
+.questions li{counter-increment:q;position:relative;padding:0 0 1rem 1.5rem;max-width:68ch}
+.questions li:last-child{padding-bottom:0}
+.questions li::before{content:counter(q) ".";position:absolute;left:0;top:0;
+  font-weight:650;font-size:.875rem;color:var(--bordeaux)}
+.questions li > p{margin:.5rem 0 0}
+
+/* Formule dans le fil du texte : retrait de 360 twips dans le document, soit
+   1,5 rem. Sous une question, le document la met à 720 twips, c'est-à-dire au
+   niveau du texte de la question — donc sans retrait supplémentaire. */
+.partie .ligne-formule{padding-left:1.5rem;max-width:none}
+.questions .ligne-formule{padding-left:0}
+
+/* KaTeX rend les formules à 1.21em par défaut, ce qui les fait dominer la
+   typographie sans empattement du texte : on rapproche les deux tailles */
+.katex{font-size:1.1em}
+
+/* équations — disposition du document d'origine : la formule est décalée
+   d'une tabulation vers la droite, le numéro est repoussé à la marge */
+.eq{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
+  gap:.75rem 1rem;margin:1.4rem 0}
+/* la tabulation par défaut du document vaut 708 twips, soit 1,25 cm */
+.eq-corps{overflow-x:auto;overflow-y:hidden;padding:.15rem .1rem .15rem 2.95rem}
+.eq-corps .katex-display,
+.eq-corps .katex-display > .katex{text-align:left}
+.eq-num{font-size:.8125rem;color:var(--gris-clair);white-space:nowrap;font-variant-numeric:tabular-nums}
+.eq .katex-display{margin:.35rem 0}
+
+/* résultat encadré */
+.encadre{background:var(--ivoire-fond2);border:1px solid var(--ivoire-filet);
+  border-left:3px solid var(--bordeaux);padding:.9rem 1.1rem;margin:1.6rem 0}
+.encadre .eq{margin:0}
+.encadre .eq-num{color:var(--ivoire-sourd)}
+
+/* application numérique */
+.numerique{color:var(--gris)}
+
+/* ---------- navigation de fin ---------- */
+.suite{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;
+  align-items:baseline;padding:2.5rem 0 0;margin-top:2rem;border-top:1px solid var(--filet);
+  font-size:.9375rem}
+.suite a{text-decoration:none;color:var(--bordeaux);
+  border-bottom:1px solid currentColor;padding-bottom:1px}
+.suite .chapitre-courant{font-size:.8125rem;color:var(--gris-clair)}
+
+/* ---------- bande Kholor ---------- */
+.kholor{background:var(--ivoire);color:var(--encre);padding:3.25rem 0;margin-top:3.5rem;
+  border-top:1px solid var(--ivoire-filet);border-bottom:1px solid var(--ivoire-filet)}
+.kholor .surtitre{color:var(--ivoire-sourd)}
+.kholor h2{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.2;margin:0 0 .6rem}
+.kholor p{font-family:var(--serif);font-size:1.0625rem;line-height:1.7;
+  color:var(--ivoire-texte);max-width:56ch;margin:0 0 1.1rem}
+.lire{font-family:var(--serif);font-size:1.0625rem;color:var(--bordeaux);text-decoration:none;
+  border-bottom:1px solid currentColor;padding-bottom:1px}
+
+/* ---------- pied ---------- */
+.pied{padding:2rem 0 3rem;font-size:.8125rem;color:var(--gris-clair)}
+.pied a{text-decoration:none}
+.pied a:hover{color:var(--bordeaux)}
+
+@media (max-width:640px){
+  .partie{padding-top:2.25rem}
+  .entete{padding-bottom:2rem}
+  .eq{grid-template-columns:minmax(0,1fr);gap:.25rem}
+  .eq-num{justify-self:end}
+  /* un peu plus de place pour les formules ; les plus larges défilent
+     horizontalement à l'intérieur de leur cadre */
+  .eq .katex-display{font-size:.94em}
+  .encadre{padding:.8rem .65rem}
+  .eq-corps{padding-left:1.1rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<link rel="stylesheet" href="../../../css/protection.css">
+</head>
+<body>
+
+<header class="bandeau">
+  <div class="enveloppe">
+    <a class="marque" href="../../../index.htm">Khola<em>Web</em></a>
+    <nav class="menu">
+      <a href="../../../index.htm#electricite">Électricité</a>
+      <a href="../../../index.htm#electromagnetisme">Électromagnétisme</a>
+      <a href="../../../index.htm#electronique">Électronique</a>
+      <a href="../../../index.htm#mecanique">Mécanique</a>
+      <a href="../../../index.htm#optique">Optique</a>
+      <a href="../../../index.htm#thermodynamique">Thermodynamique</a>
+      <a class="vers-kholor" href="../../../index.htm#kholor">Kholor</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="ariane colonne" aria-label="Fil d'ariane">
+  <a href="../../../index.htm">Accueil</a>
+  <span class="sep">›</span>
+  <a href="../../../index.htm#electricite">Électricité</a>
+  <span class="sep">›</span>
+  <a href="../../../index.htm#electricite">E1 — Approximation des régimes quasi stationnaires. Dipôles.</a>
+  <span class="sep">›</span>
+  E1.1
+</nav>
+
+<div class="entete colonne">
+  <p class="surtitre">Électricité · E1.1</p>
+  <h1>Thermistance</h1>
+  <p class="chapeau">Loi de variation de la résistance d'une thermistance avec la température,
+     puis puissance qu'elle peut dissiper en régime permanent lorsqu'elle échange
+     de la chaleur avec le milieu extérieur.</p>
+</div>
+
+<!-- ══════════════ ÉNONCÉ ══════════════ -->
+<section class="partie colonne">
+  <p class="titre-partie">Énoncé</p>
+
+  <p>Une thermistance est un composant thermosensible dont la résistance \(R\) dépend
+     de sa température absolue \(T\). On admettra que ces deux grandeurs sont liées
+     par une relation de la forme :</p>
+
+  <p class="ligne-formule">
+    \(\displaystyle R(T) = R_o \exp\!\left(\frac{A}{T}\right)\)
+    où \(A\) et \(R_o\) désignent des constantes.
+  </p>
+
+  <ol class="questions">
+    <li>Les mesures suivantes ont été relevées :
+      <p class="ligne-formule">
+        \(\displaystyle R\left(T_1 = 300\ \mathrm{K}\right) = R_1 = 160\ \Omega\)
+        et
+        \(\displaystyle R\left(T_2 = 420\ \mathrm{K}\right) = R_2 = 29\ \Omega\).
+      </p>
+      <p>Déterminer \(R_o\) et \(A\).</p>
+    </li>
+    <li>Quelle allure présente la courbe donnant \(\ln R\) en fonction de \(1/T\) ?</li>
+  </ol>
+
+  <p>La thermistance, portée à la température \(T\), est mise en contact thermique avec
+     un milieu de température constante \(T_o\). Dans ces conditions, la puissance \(P\)
+     qu'elle dissipe est reliée à sa température par la loi de Newton :</p>
+
+  <p class="ligne-formule">
+    \(\displaystyle P = H\left(T - T_o\right)\)
+    avec \(H = 8{,}0 \times 10^{-3}\ \mathrm{W\cdot K^{-1}}\).
+  </p>
+
+  <p>On désigne par \(U\) la tension aux bornes de la thermistance et par \(I\)
+     l'intensité qui la traverse.</p>
+
+  <ol class="questions" start="3" style="counter-reset:q 2">
+    <li>Établir les expressions de \(U\) et de \(I\) en fonction de \(T\), en ne faisant appel
+        qu'aux grandeurs introduites dans l'énoncé dont la valeur numérique est connue.</li>
+    <li>La thermistance est caractérisée par une température limite \(T_m = 500\ \mathrm{K}\).
+        En déduire la puissance \(P_m\) que peut alors dissiper la thermistance lorsque
+        \(T_o = 300\ \mathrm{K}\), ainsi que les valeurs \(U_m\) et \(I_m\) qui lui correspondent.</li>
+  </ol>
+</section>
+
+<!-- ══════════════ CORRIGÉ ══════════════ -->
+<section class="partie colonne">
+  <p class="titre-partie">Corrigé</p>
+
+  <!-- ─────────── 1 ─────────── -->
+  <h2>1. Détermination de \(A\) et \(R_o\)</h2>
+
+  <p>La dépendance en température de la résistance d'une thermistance est donnée
+     par la relation :</p>
+
+  <div class="eq">
+    <div class="eq-corps">\[ R(T) = R_o \exp\!\left(\frac{A}{T}\right) \]</div>
+    <span class="eq-num">(1)</span>
+  </div>
+
+  <p>Soit :</p>
+
+  <div class="eq">
+    <div class="eq-corps">\[ \frac{R(T)}{R_o} = \exp\!\left(\frac{A}{T}\right) \]</div>
+    <span class="eq-num">(2)</span>
+  </div>
+
+  <p>Le logarithme népérien de cette dernière relation donne :</p>
+
+  <div class="eq">
+    <div class="eq-corps">\[ \ln\!\left(\frac{R}{R_o}\right) = \frac{A}{T} \]</div>
+    <span class="eq-num">(3)</span>
+  </div>
+
+  <p>Les données de l'énoncé conduisent alors à :</p>
+
+  <div class="eq">
+    <div class="eq-corps">
+      \[ \ln\!\left(\frac{R_1}{R_o}\right) = \frac{A}{T_1}
+         \;\Rightarrow\;
+         \ln\!\left(R_1\right) - \ln\!\left(R_o\right) = \frac{A}{T_1} \]
+    </div>
+    <span class="eq-num">(4)</span>
+  </div>
+
+  <div class="eq">
+    <div class="eq-corps">
+      \[ \ln\!\left(\frac{R_2}{R_o}\right) = \frac{A}{T_2}
+         \;\Rightarrow\;
+         \ln\!\left(R_2\right) - \ln\!\left(R_o\right) = \frac{A}{T_2} \]
+    </div>
+    <span class="eq-num">(5)</span>
+  </div>
+
+  <p>La soustraction membre à membre de l'équation (5) et de l'équation (4) fournit :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ \ln\!\left(R_2\right) - \ln\!\left(R_1\right)
+       = A\left(\frac{1}{T_2} - \frac{1}{T_1}\right) \]
+  </div></div>
+
+  <div class="eq"><div class="eq-corps">
+    \[ \ln\!\left(\frac{R_2}{R_1}\right)
+       = A\left(\frac{1}{T_2} - \frac{1}{T_1}\right) \]
+  </div></div>
+
+  <div class="encadre">
+    <div class="eq">
+      <div class="eq-corps">
+        \[ A = \frac{\ln\!\left(\dfrac{R_2}{R_1}\right)}
+                    {\dfrac{1}{T_2} - \dfrac{1}{T_1}} \]
+      </div>
+      <span class="eq-num">(6)</span>
+    </div>
+  </div>
+
+  <div class="eq numerique"><div class="eq-corps">
+    \[ A = \frac{\ln\!\left(\dfrac{29}{160}\right)}
+                {\dfrac{1}{420} - \dfrac{1}{300}}
+         = \underline{1{,}8 \times 10^{3}\ \mathrm{K}} \]
+  </div></div>
+
+  <p>La relation (2) permet ensuite d'exprimer la résistance \(R_o\) :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ R_o = \frac{R(T)}{\exp\!\left(\dfrac{A}{T}\right)} \]
+  </div></div>
+
+  <p>En reportant (6) et en s'appuyant sur la première donnée de l'énoncé, il vient :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ \begin{aligned}
+         R_o &= \frac{R_1}
+                     {\exp\!\left(\dfrac{1}{T_1}\,
+                       \dfrac{\ln\!\left(\frac{R_2}{R_1}\right)}
+                             {\frac{1}{T_2} - \frac{1}{T_1}}\right)} \\[.6em]
+         R_o &= \frac{R_1}
+                     {\exp\!\left(\dfrac{\ln\!\left(\frac{R_2}{R_1}\right)}
+                                        {\frac{T_1}{T_2} - 1}\right)}
+              = \frac{R_1}
+                     {\exp\!\left(\dfrac{\ln\!\left(\frac{R_2}{R_1}\right)}
+                                        {\frac{T_1 - T_2}{T_2}}\right)}
+       \end{aligned} \]
+  </div></div>
+
+  <div class="encadre">
+    <div class="eq">
+      <div class="eq-corps">
+        \[ R_o = \frac{R_1}
+                      {\left(\dfrac{R_2}{R_1}\right)^{\frac{T_2}{T_1 - T_2}}} \]
+      </div>
+      <span class="eq-num">(7)</span>
+    </div>
+  </div>
+
+  <!-- Écart avec le document source : celui-ci écrit l'exposant directement sur
+       la fraction, sans parenthèses. Ajoutées ici pour lever l'ambiguïté ; le
+       sens est inchangé. -->
+  <div class="eq numerique"><div class="eq-corps">
+    \[ R_o = \frac{160}
+                  {\left(\dfrac{29}{160}\right)^{\frac{420}{300 - 420}}}
+           = \underline{0{,}41\ \Omega} \]
+  </div></div>
+
+  <!-- ─────────── 2 ─────────── -->
+  <h2>2. Allure de la courbe</h2>
+
+  <p>La relation (3) s'écrit encore :</p>
+
+  <div class="eq">
+    <div class="eq-corps">\[ \ln\!\left(R(T)\right) = \ln\!\left(R_o\right) + \frac{A}{T} \]</div>
+    <span class="eq-num">(8)</span>
+  </div>
+
+  <p>Cette fonction est représentée par une droite d'ordonnée à l'origine \(\ln\!\left(R_o\right)\)
+     et de pente positive \(A\).</p>
+
+  <!-- ─────────── 3 ─────────── -->
+  <h2>3. Tension et intensité en fonction de \(T\)</h2>
+
+  <p>En se plaçant en convention récepteur, la puissance échangée par la thermistance
+     avec le reste du circuit s'écrit :</p>
+
+  <div class="eq">
+    <div class="eq-corps">
+      \[ P = UI = RI^{2} = \frac{U^{2}}{R} = H\left(T - T_o\right) \]
+    </div>
+    <span class="eq-num">(9)</span>
+  </div>
+
+  <p>D'où :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ \begin{aligned}
+         U &= \left(RH\left(T - T_o\right)\right)^{\frac{1}{2}} \\[.35em]
+         U &= \left(R_o H \left(T - T_o\right)\exp\!\left(\frac{A}{T}\right)\right)^{\frac{1}{2}}
+       \end{aligned} \]
+  </div></div>
+
+  <p>Les relations (6) et (7) permettent d'y substituer les grandeurs \(A\) et \(R_o\) :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ U = \left(\frac{R_1}{\left(\dfrac{R_2}{R_1}\right)^{\frac{T_2}{T_1 - T_2}}}\,
+                 H\left(T - T_o\right)\right)^{\frac{1}{2}}
+           \exp\!\left(\frac{\dfrac{\ln\!\left(\frac{R_2}{R_1}\right)}
+                                   {\frac{1}{T_2} - \frac{1}{T_1}}}{2T}\right) \]
+  </div></div>
+
+  <p>En extrayant le terme \(\left(\dfrac{R_2}{R_1}\right)^{\frac{T_2}{T_1 - T_2}}\) de la
+     racine carrée et en réarrangeant l'argument de l'exponentielle :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ U = \left(R_1 H\left(T - T_o\right)\right)^{\frac{1}{2}}
+           \left(\frac{R_2}{R_1}\right)^{-\frac{T_2}{2\left(T_1 - T_2\right)}}
+           \exp\!\left(\ln\!\left(\frac{R_2}{R_1}\right)
+                       \frac{T_1 T_2}{2T\left(T_1 - T_2\right)}\right) \]
+  </div></div>
+
+  <div class="eq"><div class="eq-corps">
+    \[ U = \left(R_1 H\left(T - T_o\right)\right)^{\frac{1}{2}}
+           \left(\frac{R_2}{R_1}\right)^{-\frac{T_2}{2\left(T_1 - T_2\right)}}
+           \exp\!\left(\ln\!\left(\frac{R_2}{R_1}\right)\right)
+                ^{\frac{T_1 T_2}{2T\left(T_1 - T_2\right)}} \]
+  </div></div>
+
+  <div class="eq"><div class="eq-corps">
+    \[ U = \left(R_1 H\left(T - T_o\right)\right)^{\frac{1}{2}}
+           \left(\frac{R_2}{R_1}\right)^{-\frac{T_2}{2\left(T_1 - T_2\right)}}
+           \left(\frac{R_2}{R_1}\right)^{\frac{T_1 T_2}{2T\left(T_1 - T_2\right)}} \]
+  </div></div>
+
+  <div class="encadre">
+    <div class="eq">
+      <div class="eq-corps">
+        \[ U = \left(R_1 H\left(T - T_o\right)\right)^{\frac{1}{2}}
+               \left(\frac{R_2}{R_1}\right)^{\frac{T_2\left(T_1 - T\right)}
+                                                  {2T\left(T_1 - T_2\right)}} \]
+      </div>
+      <span class="eq-num">(10)</span>
+    </div>
+  </div>
+
+  <p>On procède de même à partir de (9) :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ \begin{aligned}
+         I &= \left(\frac{H\left(T - T_o\right)}{R}\right)^{\frac{1}{2}}
+            = \left(\frac{H\left(T - T_o\right)}{R_o\exp\!\left(\frac{A}{T}\right)}\right)^{\frac{1}{2}} \\[.6em]
+         I &= \left(\frac{H\left(T - T_o\right)}{R_o}\right)^{\frac{1}{2}}
+              \exp\!\left(-\frac{A}{2T}\right)
+       \end{aligned} \]
+  </div></div>
+
+  <div class="eq"><div class="eq-corps">
+    \[ I = \left(\frac{H\left(T - T_o\right)}
+                      {\dfrac{R_1}{\left(\dfrac{R_2}{R_1}\right)^{\frac{T_2}{T_1 - T_2}}}}
+           \right)^{\frac{1}{2}}
+           \exp\!\left(-\frac{\dfrac{\ln\!\left(\frac{R_2}{R_1}\right)}
+                                    {\frac{1}{T_2} - \frac{1}{T_1}}}{2T}\right) \]
+  </div></div>
+
+  <div class="eq"><div class="eq-corps">
+    \[ I = \left(\frac{H\left(T - T_o\right)}{R_1}\right)^{\frac{1}{2}}
+           \left(\frac{R_2}{R_1}\right)^{\frac{T_2}{2\left(T_1 - T_2\right)}}
+           \exp\!\left(-\ln\!\left(\frac{R_2}{R_1}\right)
+                        \frac{T_1 T_2}{2T\left(T_1 - T_2\right)}\right) \]
+  </div></div>
+
+  <div class="eq"><div class="eq-corps">
+    \[ I = \left(\frac{H\left(T - T_o\right)}{R_1}\right)^{\frac{1}{2}}
+           \left(\frac{R_2}{R_1}\right)^{\frac{T_2}{2\left(T_1 - T_2\right)}}
+           \exp\!\left(\ln\!\left(\frac{R_2}{R_1}\right)\right)
+                ^{-\frac{T_1 T_2}{2T\left(T_1 - T_2\right)}} \]
+  </div></div>
+
+  <div class="eq"><div class="eq-corps">
+    \[ I = \left(\frac{H\left(T - T_o\right)}{R_1}\right)^{\frac{1}{2}}
+           \left(\frac{R_2}{R_1}\right)^{\frac{T_2}{2\left(T_1 - T_2\right)}}
+           \left(\frac{R_2}{R_1}\right)^{-\frac{T_1 T_2}{2T\left(T_1 - T_2\right)}} \]
+  </div></div>
+
+  <div class="encadre">
+    <div class="eq">
+      <div class="eq-corps">
+        \[ I = \left(\frac{H\left(T - T_o\right)}{R_1}\right)^{\frac{1}{2}}
+               \left(\frac{R_2}{R_1}\right)^{\frac{T_2\left(T - T_1\right)}
+                                                  {2T\left(T_1 - T_2\right)}} \]
+      </div>
+      <span class="eq-num">(11)</span>
+    </div>
+  </div>
+
+  <!-- ─────────── 4 ─────────── -->
+  <h2>4. Valeurs maximales</h2>
+
+  <p>La puissance maximale s'obtient en reportant la température limite \(T_m\) dans
+     la relation donnée par l'énoncé :</p>
+
+  <div class="encadre">
+    <div class="eq">
+      <div class="eq-corps">\[ P_m = H\left(T_m - T_o\right) \]</div>
+      <span class="eq-num">(12)</span>
+    </div>
+  </div>
+
+  <div class="eq numerique"><div class="eq-corps">
+    \[ P_m = 8{,}0 \times 10^{-3}\left(500 - 300\right) = \underline{1{,}6\ \mathrm{W}} \]
+  </div></div>
+
+  <p>La tension et l'intensité correspondantes s'en déduisent au moyen des équations
+     (10) et (11) respectivement.</p>
+
+  <div class="encadre">
+    <div class="eq">
+      <div class="eq-corps">
+        \[ U_m = \left(R_1 H\left(T_m - T_o\right)\right)^{\frac{1}{2}}
+                 \left(\frac{R_2}{R_1}\right)^{\frac{T_2\left(T_1 - T_m\right)}
+                                                    {2T_m\left(T_1 - T_2\right)}} \]
+      </div>
+      <span class="eq-num">(13)</span>
+    </div>
+  </div>
+
+  <div class="eq numerique"><div class="eq-corps">
+    \[ \begin{aligned}
+         U_m &= \left(160 \times 8{,}0 \times 10^{-3} \times \left(500 - 300\right)\right)^{\frac{1}{2}}
+                \left(\frac{29}{160}\right)^{\frac{420 \times \left(300 - 500\right)}
+                                                  {2 \times 500 \times \left(300 - 420\right)}} \\[.35em]
+         U_m &= \underline{4{,}8\ \mathrm{V}}
+       \end{aligned} \]
+  </div></div>
+
+  <div class="encadre">
+    <div class="eq">
+      <div class="eq-corps">
+        \[ I_m = \left(\frac{H\left(T_m - T_o\right)}{R_1}\right)^{\frac{1}{2}}
+                 \left(\frac{R_2}{R_1}\right)^{\frac{T_2\left(T_m - T_1\right)}
+                                                    {2T_m\left(T_1 - T_2\right)}} \]
+      </div>
+      <span class="eq-num">(14)</span>
+    </div>
+  </div>
+
+  <div class="eq numerique"><div class="eq-corps">
+    \[ \begin{aligned}
+         I_m &= \left(\frac{8{,}0 \times 10^{-3} \times \left(500 - 300\right)}{160}\right)^{\frac{1}{2}}
+                \left(\frac{29}{160}\right)^{\frac{420 \times \left(500 - 300\right)}
+                                                  {2 \times 500 \times \left(300 - 420\right)}} \\[.35em]
+         I_m &= \underline{0{,}33\ \mathrm{A}}
+       \end{aligned} \]
+  </div></div>
+
+  <nav class="suite" aria-label="Navigation entre exercices">
+    <span class="chapitre-courant">E1 · Approximation des régimes quasi stationnaires. Dipôles.</span>
+    <a href="../../../electricite/e_1/e_1_2/e_1_2_enon.htm">E1.2 Détermination d'une tension →</a>
+  </nav>
+</section>
+
+<section class="kholor">
+  <div class="colonne">
+    <p class="surtitre">Recueil Kholor</p>
+    <h2>Le même chapitre, d'autres exercices.</h2>
+    <p>Le recueil <em>E1 · Lois de Kirchhoff. Réseaux en régime continu</em> réunit
+       23 exercices inédits, différents de ceux publiés ici, tous corrigés dans le détail.</p>
+    <a class="lire" href="https://payhip.com/b/pHb4u">Voir le recueil E1</a>
+  </div>
+</section>
+
+<footer class="pied">
+  <div class="colonne">
+    Hubert de Haan · www.kholaweb.com ·
+    <a href="../../../index.htm">Accueil</a> ·
+    <a href="../../../index.htm#kholor">Kholor</a> ·
+    <a href="mailto:kholaweb@free.fr">Contact</a>
+  </div>
+</footer>
+
+<script src="../../../scripts/protection.js"></script>
+
+</body>
+</html>
