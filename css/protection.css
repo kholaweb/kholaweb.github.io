@@ -1,0 +1,25 @@
+/* ══ Dissuasion de la copie ══════════════════════════════════════════════
+   À charger en dernier, avec scripts/protection.js.
+
+   Mesure de confort, non de sécurité : le contenu de la page est envoyé au
+   navigateur et reste lisible dans son code source, à l'impression ou par
+   une capture d'écran. Il s'agit seulement de décourager le copier-coller
+   ordinaire.                                                              */
+
+body{
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  user-select:none;
+  -webkit-touch-callout:none;   /* appui long sur iOS */
+}
+
+/* ce qui reste sélectionnable : adresses de contact, champs de saisie,
+   et tout élément auquel on ajoute la classe .copiable */
+a[href^="mailto:"],
+input,
+textarea,
+.copiable{
+  -webkit-user-select:text;
+  -moz-user-select:text;
+  user-select:text;
+}
