@@ -106,6 +106,25 @@ a{color:inherit}
 .partie + .partie{border-top:1px solid var(--filet)}
 .titre-partie{font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;
   color:var(--gris-clair);margin:0 0 1.75rem}
+
+/* Le corrigé ne se découvre qu'au clic. Là où le surtitre de l'énoncé s'efface,
+   ce mot-ci porte l'appel : il faut le voir pour savoir qu'on peut l'ouvrir. */
+.corrige > summary{display:flex;align-items:baseline;gap:.9rem;cursor:pointer;
+  list-style:none;font-family:var(--serif);font-size:1.35rem;color:var(--bordeaux);
+  background:var(--ivoire-fond2);border:1px solid var(--ivoire-filet);
+  border-left:3px solid var(--bordeaux);padding:.85rem 1.15rem}
+.corrige > summary::-webkit-details-marker{display:none}
+.corrige > summary:hover{background:var(--ivoire)}
+.corrige > summary:focus-visible{outline:2px solid var(--bordeaux);outline-offset:3px}
+.corrige .appel{margin-left:auto;font-family:var(--sans);font-size:.6875rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gris-clair)}
+.corrige .appel::after{content:"Afficher"}
+.corrige[open] .appel::after{content:"Masquer"}
+.corrige .chevron{align-self:center;width:.45rem;height:.45rem;
+  border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
+  transform:rotate(45deg);transition:transform .15s}
+.corrige[open] .chevron{transform:rotate(-135deg)}
+.corrige[open] > summary{margin-bottom:2.25rem}
 .partie h2{font-size:1.15rem;font-weight:650;letter-spacing:-.01em;margin:2rem 0 .8rem}
 .partie h2:first-of-type{margin-top:0}
 /* dans un titre en sans-serif gras, les grandeurs en KaTeX paraissent trop
@@ -276,7 +295,8 @@ a{color:inherit}
 
 <!-- ══════════════ CORRIGÉ ══════════════ -->
 <section class="partie colonne">
-  <p class="titre-partie">Corrigé</p>
+  <details class="corrige">
+  <summary>Corrigé<span class="appel"></span><span class="chevron" aria-hidden="true"></span></summary>
 
   <!-- ─────────── 1 ─────────── -->
   <h2>1. Détermination de \(A\) et \(R_o\)</h2>
@@ -323,7 +343,7 @@ a{color:inherit}
     <span class="eq-num">(5)</span>
   </div>
 
-  <p>La soustraction membre à membre de l'équation (5) et de l'équation (4) fournit :</p>
+  <p>La soustraction membre à membre des équations (5) et (4) fournit :</p>
 
   <div class="eq"><div class="eq-corps">
     \[ \ln\!\left(R_2\right) - \ln\!\left(R_1\right)
@@ -538,8 +558,8 @@ a{color:inherit}
     \[ P_m = 8{,}0 \times 10^{-3}\left(500 - 300\right) = \underline{1{,}6\ \mathrm{W}} \]
   </div></div>
 
-  <p>La tension et l'intensité correspondantes s'en déduisent au moyen des équations
-     (10) et (11) respectivement.</p>
+  <p>La tension et l'intensité correspondantes se déduisent respectivement des
+     équations (10) et (11).</p>
 
   <div class="encadre">
     <div class="eq">
@@ -580,6 +600,8 @@ a{color:inherit}
          I_m &= \underline{0{,}33\ \mathrm{A}}
        \end{aligned} \]
   </div></div>
+
+  </details>
 
   <nav class="suite" aria-label="Navigation entre exercices">
     <span class="chapitre-courant">E1 · Approximation des régimes quasi stationnaires. Dipôles.</span>
