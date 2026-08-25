@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E1.3 Étude d’un réseau — corrigé · KholaWeb</title>
+<meta name="author" content="Hubert de Haan — KholaWeb">
+<meta name="description" content="E1.3 Étude d’un réseau : énoncé et corrigé détaillé. Six branches, trois inconnues, résolution par les lois des nœuds et des mailles.">
+<meta name="keywords" content="lois de Kirchhoff, loi des mailles, loi des nœuds, réseau linéaire, exercice corrigé, CPGE, kholaweb">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://www.kholaweb.com/exercices/electricite/e1/e1_3.html">
+
+<!-- KaTeX — rendu des formules côté client -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{
+    delimiters:[
+      {left:'\\[',right:'\\]',display:true},
+      {left:'\\(',right:'\\)',display:false}
+    ],
+    throwOnError:false
+  });"></script>
+
+<style>
+:root{
+  --encre:#181614;
+  --gris:#5f5b55;
+  --gris-clair:#8c8781;
+  --filet:#e2ded7;
+  --papier:#ffffff;
+  --bordeaux:#a10115;
+  --ivoire:#f6f1e7;
+  --ivoire-filet:#e0d6c3;
+  --ivoire-texte:#4a463f;
+  --ivoire-sourd:#8d8471;
+  --ivoire-fond2:#fbf8f2;
+  --bandeau-fond:rgba(255,255,255,.94);
+  --sans:ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --mesure:74rem;
+  --colonne:50rem;
+}
+
+/* ---------- mode sombre ---------- */
+@media (prefers-color-scheme:dark){
+  :root{
+    --encre:#f0ede7;
+    --gris:#a29c94;
+    --gris-clair:#79736c;
+    --filet:#2e2b26;
+    --papier:#13110e;
+    --bordeaux:#e0616e;
+    --ivoire:#1c1913;
+    --ivoire-filet:#332e25;
+    --ivoire-texte:#c0b9ab;
+    --ivoire-sourd:#9c9384;
+    --ivoire-fond2:#221e17;
+    --bandeau-fond:rgba(19,17,14,.94);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--papier);color:var(--encre);
+  font-family:var(--sans);font-size:15px;line-height:1.45;
+}
+a{color:inherit}
+.enveloppe{max-width:var(--mesure);margin:0 auto;padding:0 1.5rem}
+
+/* ---------- en-tête ---------- */
+.bandeau{position:sticky;top:0;z-index:20;background:var(--bandeau-fond);
+  backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--filet)}
+.bandeau .enveloppe{display:flex;align-items:baseline;gap:1.75rem;
+  height:60px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+.bandeau .enveloppe::-webkit-scrollbar{display:none}
+.marque{font-weight:650;letter-spacing:-.015em;font-size:1.0625rem;text-decoration:none;white-space:nowrap}
+.marque em{font-style:normal;color:var(--bordeaux)}
+.menu{display:flex;gap:1.25rem;font-size:.8125rem;color:var(--gris);white-space:nowrap}
+.menu a{text-decoration:none}
+.menu a:hover{color:var(--bordeaux)}
+.menu .vers-kholor{color:var(--bordeaux);font-family:var(--serif);font-size:.9375rem;letter-spacing:.01em}
+
+/* ---------- colonne de lecture ---------- */
+.colonne{max-width:var(--colonne);margin:0 auto;padding:0 1.5rem}
+
+/* ---------- fil d'ariane ---------- */
+/* les marges latérales reprennent celles de .colonne : les règles qui suivent
+   redéfinissent le raccourci padding, il faut donc les répéter */
+.ariane{padding:1.5rem 1.5rem 0;font-size:.8125rem;color:var(--gris-clair)}
+.ariane a{text-decoration:none}
+.ariane a:hover{color:var(--bordeaux)}
+.ariane .sep{padding:0 .45rem;color:var(--filet)}
+
+/* ---------- titre de l'exercice ---------- */
+.entete{padding:1.75rem 1.5rem 2.5rem;border-bottom:1px solid var(--filet)}
+.surtitre{font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gris-clair);margin:0 0 1rem}
+.entete h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.55rem,3.4vw,2.05rem);
+  line-height:1.15;letter-spacing:-.01em;margin:0 0 .85rem}
+.entete .chapeau{font-family:var(--serif);font-size:1.0625rem;line-height:1.55;
+  color:var(--gris);max-width:54ch;margin:0}
+
+/* ---------- corps ---------- */
+.partie{padding:3rem 1.5rem 1rem}
+.partie + .partie{border-top:1px solid var(--filet)}
+.titre-partie{font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gris-clair);margin:0 0 1.75rem}
+.partie h2{font-size:1.15rem;font-weight:650;letter-spacing:-.01em;margin:2rem 0 .8rem}
+.partie h2:first-of-type{margin-top:0}
+/* dans un titre en sans-serif gras, les grandeurs en KaTeX paraissent trop
+   grandes au facteur commun : on les ramène sous la taille du titre */
+.partie h2 .katex{font-size:.95em}
+.partie p{margin:0 0 .85rem;max-width:60ch}
+.partie .large{max-width:none}
+
+/* Questions de l'énoncé. Les retraits sont ceux du document : la numérotation y
+   est définie avec left=720 et hanging=360 twips, soit le numéro à 1,5 rem de la
+   marge et le texte à 3 rem. */
+.questions{list-style:none;counter-reset:q;margin:1.5rem 0;padding:0 0 0 1.5rem}
+.questions li{counter-increment:q;position:relative;padding:0 0 .8rem 1.5rem;max-width:68ch}
+.questions li:last-child{padding-bottom:0}
+.questions li::before{content:counter(q) ".";position:absolute;left:0;top:0;
+  font-weight:650;font-size:.875rem;color:var(--bordeaux)}
+.questions li > p{margin:.5rem 0 0}
+
+/* Formule dans le fil du texte : retrait de 360 twips dans le document, soit
+   1,5 rem. Sous une question, le document la met à 720 twips, c'est-à-dire au
+   niveau du texte de la question — donc sans retrait supplémentaire. */
+.partie .ligne-formule{padding-left:1.5rem;max-width:none}
+.questions .ligne-formule{padding-left:0}
+
+/* KaTeX rend les formules à 1.21em par défaut, ce qui les fait dominer la
+   typographie sans empattement du texte : on rapproche les deux tailles */
+.katex{font-size:1.1em}
+
+/* équations — disposition du document d'origine : la formule est décalée
+   d'une tabulation vers la droite, le numéro est repoussé à la marge */
+.eq{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
+  gap:.5rem 1rem;margin:1.05rem 0}
+/* la tabulation par défaut du document vaut 708 twips, soit 1,25 cm */
+.eq-corps{overflow-x:auto;overflow-y:hidden;padding:.15rem .1rem .15rem 2.95rem}
+.eq-corps .katex-display,
+.eq-corps .katex-display > .katex{text-align:left}
+.eq-num{font-size:.8125rem;color:var(--gris-clair);white-space:nowrap;font-variant-numeric:tabular-nums}
+.eq .katex-display{margin:.35rem 0}
+
+/* résultat encadré */
+.encadre{background:var(--ivoire-fond2);border:1px solid var(--ivoire-filet);
+  border-left:3px solid var(--bordeaux);padding:.7rem 1.1rem;margin:1.25rem 0}
+.encadre .eq{margin:0}
+.encadre .eq-num{color:var(--ivoire-sourd)}
+
+/* application numérique */
+.numerique{color:var(--gris)}
+
+/* ---------- navigation de fin ---------- */
+.suite{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;
+  align-items:baseline;padding:2.5rem 0 0;margin-top:2rem;border-top:1px solid var(--filet);
+  font-size:.9375rem}
+.suite a{text-decoration:none;color:var(--bordeaux);
+  border-bottom:1px solid currentColor;padding-bottom:1px}
+.suite .chapitre-courant{font-size:.8125rem;color:var(--gris-clair)}
+
+/* ---------- bande Kholor ---------- */
+.kholor{background:var(--ivoire);color:var(--encre);padding:3.25rem 0;margin-top:3.5rem;
+  border-top:1px solid var(--ivoire-filet);border-bottom:1px solid var(--ivoire-filet)}
+.kholor .surtitre{color:var(--ivoire-sourd)}
+.kholor h2{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.2;margin:0 0 .6rem}
+.kholor p{font-family:var(--serif);font-size:1.0625rem;line-height:1.7;
+  color:var(--ivoire-texte);max-width:56ch;margin:0 0 1.1rem}
+.lire{font-family:var(--serif);font-size:1.0625rem;color:var(--bordeaux);text-decoration:none;
+  border-bottom:1px solid currentColor;padding-bottom:1px}
+
+/* ---------- pied ---------- */
+.pied{padding:2rem 0 3rem;font-size:.8125rem;color:var(--gris-clair)}
+.pied a{text-decoration:none}
+.pied a:hover{color:var(--bordeaux)}
+
+@media (max-width:640px){
+  .partie{padding-top:2.25rem}
+  .entete{padding-bottom:2rem}
+  .eq{grid-template-columns:minmax(0,1fr);gap:.25rem}
+  .eq-num{justify-self:end}
+  /* un peu plus de place pour les formules ; les plus larges défilent
+     horizontalement à l'intérieur de leur cadre */
+  .eq .katex-display{font-size:.94em}
+  .encadre{padding:.8rem .65rem}
+  .eq-corps{padding-left:1.1rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- schémas de circuit ----------
+   Redessinés en SVG plutôt que repris des images du document, qui sont en
+   noir sur blanc et de 215 pixels de large. Le tracé suit currentColor : le
+   schéma passe donc au mode sombre avec le reste de la page. */
+.schema{margin:1.4rem 0 1.6rem;padding-left:1.5rem}
+.schema svg{display:block;width:100%;height:auto;max-width:22rem;
+  color:var(--encre);overflow:visible}
+.schema .fil{fill:none;stroke:currentColor;stroke-width:1.6;
+  stroke-linecap:square}
+.schema .boite{fill:var(--papier);stroke:currentColor;stroke-width:1.6}
+.schema .pointe{fill:currentColor}
+/* Les schemas de cette page viennent de CorelDRAW et portent leurs propres
+   tailles de texte, exprimees dans les unites de leur viewBox. Ne rien imposer
+   ici : un font-size en pixels les rendrait minuscules. */
+.schema .noeud{fill:currentColor}
+.schema figcaption{font-size:.8125rem;color:var(--gris-clair);
+  margin-top:.5rem;font-style:normal}
+</style>
+
+<link rel="stylesheet" href="../../../css/protection.css">
+</head>
+<body>
+
+<header class="bandeau">
+  <div class="enveloppe">
+    <a class="marque" href="../../../index.htm">Khola<em>Web</em></a>
+    <nav class="menu">
+      <a href="../../../index.htm#electricite">Électricité</a>
+      <a href="../../../index.htm#electromagnetisme">Électromagnétisme</a>
+      <a href="../../../index.htm#electronique">Électronique</a>
+      <a href="../../../index.htm#mecanique">Mécanique</a>
+      <a href="../../../index.htm#optique">Optique</a>
+      <a href="../../../index.htm#thermodynamique">Thermodynamique</a>
+      <a class="vers-kholor" href="../../../index.htm#kholor">Kholor</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="ariane colonne" aria-label="Fil d'ariane">
+  <a href="../../../index.htm">Accueil</a>
+  <span class="sep">›</span>
+  <a href="../../../index.htm#electricite">Électricité</a>
+  <span class="sep">›</span>
+  <a href="../../../index.htm#electricite">E1 — Approximation des régimes quasi stationnaires. Dipôles.</a>
+  <span class="sep">›</span>
+  E1.3
+</nav>
+
+<div class="entete colonne">
+  <p class="surtitre">Électricité · E1.3</p>
+  <h1>Étude d'un réseau</h1>
+  <p class="chapeau">Un réseau à six branches et trois sources, où la loi des nœuds
+     ramène six intensités inconnues à trois, avant que trois équations de mailles
+     ne donnent le courant cherché.</p>
+</div>
+
+<!-- ══════════════ ÉNONCÉ ══════════════ -->
+<section class="partie colonne">
+  <p class="titre-partie">Énoncé</p>
+
+  <p>On considère le réseau ci-dessous.</p>
+
+  <figure class="schema">
+<svg role="img" style="max-width:30rem" aria-label="Réseau à six branches. Deux nœuds A et B en haut ; entre eux une source E3 et une résistance R. De A partent deux branches vers le bas, l’une avec une résistance R et la source E2, l’autre avec une résistance R. De B partent de même deux branches, l’une avec une résistance R portant le courant I, l’autre avec une résistance R et la source E1. Les branches basses sont reliées par une résistance R." xmlns="http://www.w3.org/2000/svg" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 8712.61 4965.78"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .eastr0 {stroke:currentColor;stroke-width:24.54;stroke-miterlimit:22.9256}
+    .eastr1 {stroke:currentColor;stroke-width:9.34;stroke-miterlimit:22.9256}
+    .eafil0 {fill:none}
+    .eafil1 {fill:none;fill-rule:nonzero}
+    .eafil2 {fill:currentColor}
+    .eafil3 {fill:var(--bordeaux)}
+    .eafnt1 {font-weight:normal;font-size:226.78px;font-family:var(--serif)}
+    .eafnt3 {font-weight:normal;font-size:226.78px;font-family:var(--serif)}
+    .eafnt5 {font-weight:normal;font-size:226.79px;font-family:var(--serif)}
+    .eafnt8 {font-weight:normal;font-size:741.89px;font-family:var(--serif)}
+    .eafnt0 {font-style:italic;font-weight:normal;font-size:296.76px;font-family:var(--serif)}
+    .eafnt7 {font-style:italic;font-weight:normal;font-size:296.76px;font-family:var(--serif)}
+    .eafnt2 {font-style:italic;font-weight:normal;font-size:392.28px;font-family:var(--serif)}
+    .eafnt4 {font-style:italic;font-weight:normal;font-size:392.28px;font-family:var(--serif)}
+    .eafnt6 {font-style:italic;font-weight:normal;font-size:392.28px;font-family:var(--serif)}
+   ]]>
+  </style>
+   <clipPath id="id0">
+    <rect x="8226.38" y="3743.14" width="510.97" height="637.88"/>
+   </clipPath>
+   <clipPath id="id1">
+    <rect x="2942.11" y="-24.73" width="538.99" height="637.88"/>
+   </clipPath>
+   <clipPath id="id2">
+    <rect x="-24.73" y="3797.53" width="538.99" height="637.89"/>
+   </clipPath>
+ </defs>
+ <g id="Couche1_x0020_">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="eafil0 eastr0" x="998.67" y="2481.89" width="617.94" height="929.49"/>
+  <rect class="eafil0 eastr0" x="2234.7" y="2481.89" width="617.94" height="929.49"/>
+  <rect class="eafil0 eastr0" x="4098.63" y="934.38" width="929.49" height="617.94"/>
+  <rect class="eafil0 eastr0" x="5957.62" y="2481.89" width="617.94" height="929.49"/>
+  <rect class="eafil0 eastr0" x="7188.75" y="2481.89" width="622.9" height="929.49"/>
+  <line class="eafil0 eastr0" x1="1305.41" y1="2482.25" x2="1305.41" y2= "1241.13" />
+  <line class="eafil0 eastr0" x1="1305.41" y1="1241.13" x2="4094.24" y2= "1241.13" />
+  <line class="eafil0 eastr0" x1="2546.54" y1="2482.25" x2="2546.54" y2= "1241.13" />
+  <line class="eafil0 eastr0" x1="5023.85" y1="1241.13" x2="6264.99" y2= "1241.13" />
+  <line class="eafil0 eastr0" x1="6264.99" y1="1241.13" x2="6264.99" y2= "2482.25" />
+  <line class="eafil0 eastr0" x1="6264.99" y1="1241.13" x2="7499.52" y2= "1241.13" />
+  <line class="eafil0 eastr0" x1="7499.52" y1="1552.64" x2="7499.52" y2= "2482.25" />
+  <line class="eafil0 eastr0" x1="7499.52" y1="1241.13" x2="7499.52" y2= "1552.64" />
+  <line class="eafil0 eastr0" x1="7499.52" y1="3411.86" x2="7499.52" y2= "4652.99" />
+  <line class="eafil0 eastr0" x1="3782.72" y1="4652.99" x2="1305.41" y2= "4652.99" />
+  <line class="eafil0 eastr0" x1="1305.41" y1="4652.99" x2="1305.41" y2= "3411.86" />
+  <line class="eafil0 eastr0" x1="2546.54" y1="3411.86" x2="2546.54" y2= "4652.99" />
+  <circle class="eafil0 eastr0" cx="1307.69" cy="4031.89" r="308.97"/>
+  <circle class="eafil0 eastr0" cx="3164.21" cy="1245.88" r="311.45"/>
+  <circle class="eafil0 eastr0" cx="7502.62" cy="4031.84" r="308.93"/>
+  <rect class="eafil0 eastr0" x="4093.68" y="4340.88" width="929.49" height="617.94"/>
+  <line class="eafil0 eastr0" x1="5023.85" y1="4652.99" x2="7499.52" y2= "4652.99" />
+  <line class="eafil0 eastr0" x1="6264.99" y1="3411.86" x2="6264.99" y2= "4652.99" />
+  <line class="eafil0 eastr1" x1="3782.72" y1="4652.99" x2="4094.24" y2= "4652.99" />
+  <g>
+   <line class="eafil1 eastr1" x1="687.33" y1="4341.46" x2="687.33" y2= "3723.38" />
+   <polygon id="_1" class="eafil2" points="622.17,3841.84 687.33,3723.38 752.48,3841.84 "/>
+  </g>
+  <g>
+   <line class="eafil1 eastr1" x1="3476.15" y1="623.03" x2="2853.12" y2= "623.03" />
+   <polygon id="_1_19" class="eafil2" points="2971.57,688.19 2853.12,623.03 2971.57,557.87 "/>
+  </g>
+  <g>
+   <line class="eafil1 eastr1" x1="8122.55" y1="4341.46" x2="8122.55" y2= "3723.38" />
+   <polygon id="_1_20" class="eafil2" points="8057.39,3841.84 8122.55,3723.38 8187.71,3841.84 "/>
+  </g>
+  <g>
+   <line class="eafil1 eastr1" x1="6264.99" y1="1864.16" x2="6264.99" y2= "2170.73" />
+   <polygon id="_1_21" class="eafil2" points="6330.14,2052.28 6264.99,2170.73 6199.83,2052.28 "/>
+  </g>
+  <g transform="matrix(1.001 0 0 1.001 180.527 -4762.69)">
+   <text x="6214.39" y="6948.5"  class="eafil2 eafnt0">I</text>
+  </g>
+  <g style="clip-path:url(#id0)">
+   <text x="8539.55" y="4261.29"  class="eafil2 eafnt1">1</text>
+   <text x="8323.22" y="4160.16"  class="eafil2 eafnt2">E</text>
+  </g>
+  <rect class="eafil0" x="8251.11" y="3767.87" width="461.51" height="588.42"/>
+  <g style="clip-path:url(#id1)">
+   <text x="3269.74" y="493.41"  class="eafil2 eafnt3">3</text>
+   <text x="3038.23" y="392.28"  class="eafil2 eafnt4">E</text>
+  </g>
+  <rect class="eafil0" x="2966.84" width="489.53" height="588.42"/>
+  <g style="clip-path:url(#id2)">
+   <text x="310.04" y="4315.69"  class="eafil2 eafnt5">2</text>
+   <text x="71.39" y="4214.56"  class="eafil2 eafnt6">E</text>
+  </g>
+  <rect class="eafil0" x="-0" y="3822.26" width="489.53" height="588.43"/>
+  <g transform="matrix(1.00275 0 0 1.00275 -5050.46 -3914.53)">
+   <text x="6214.39" y="6948.5"  class="eafil2 eafnt7">R</text>
+  </g>
+  <g transform="matrix(1.00275 0 0 1.00275 -1785.03 -5625.96)">
+   <text x="6214.39" y="6948.5"  class="eafil2 eafnt7">R</text>
+  </g>
+  <g transform="matrix(1.00275 0 0 1.00275 -1799.67 -2211.31)">
+   <text x="6214.39" y="6948.5"  class="eafil2 eafnt7">R</text>
+  </g>
+  <g transform="matrix(1.00275 0 0 1.00275 -3814.43 -3914.53)">
+   <text x="6214.39" y="6948.5"  class="eafil2 eafnt7">R</text>
+  </g>
+  <g transform="matrix(1.00275 0 0 1.00275 -91.506 -3914.53)">
+   <text x="6214.39" y="6948.5"  class="eafil2 eafnt7">R</text>
+  </g>
+  <g transform="matrix(1.00275 0 0 1.00275 1142.05 -3914.53)">
+   <text x="6214.39" y="6948.5"  class="eafil2 eafnt7">R</text>
+  </g>
+  <text x="2453.4" y="1158.9"  class="eafil2 eafnt7">A</text>
+  <text x="6112.31" y="1154"  class="eafil2 eafnt7">B</text>
+  <text x="2443.41" y="1280.44"  class="eafil3 eafnt8">.</text>
+  <text x="6161.86" y="1280.44"  class="eafil3 eafnt8">.</text>
+ </g>
+</svg>  </figure>
+
+  <p>Déterminer le courant \(I\) en utilisant les lois de Kirchhoff.</p>
+</section>
+
+<!-- ══════════════ CORRIGÉ ══════════════ -->
+<section class="partie colonne">
+  <p class="titre-partie">Corrigé</p>
+
+  <p>Le réseau comporte six branches, donc six intensités inconnues a priori. On peut
+     écrire quatre équations de nœuds aux points A, B, C et D, mais ces relations ne
+     sont pas linéairement indépendantes : chaque intensité y figure deux fois, une
+     fois à l'arrivée dans un nœud et une fois au départ de l'autre nœud de sa branche.
+     Trois d'entre elles suffisent donc, la quatrième s'en déduisant. Une fois la loi
+     des nœuds écrite, il ne subsiste que trois inconnues \(I\), \(i\) et \(j\), comme
+     l'indique le schéma suivant.</p>
+
+  <figure class="schema">
+<svg role="img" style="max-width:30rem" aria-label="Le même réseau, avec les intensités reportées après écriture de la loi des nœuds : trois inconnues seulement, I dans la branche centrale droite, i dans la branche de droite, j dans la branche verticale issue de A, et les combinaisons I plus i et I plus i moins j sur les autres branches." xmlns="http://www.w3.org/2000/svg" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 8712.61 5098.95"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .costr0 {stroke:currentColor;stroke-width:24.54;stroke-miterlimit:22.9256}
+    .costr1 {stroke:currentColor;stroke-width:12.27;stroke-miterlimit:22.9256}
+    .costr2 {stroke:currentColor;stroke-width:9.34;stroke-miterlimit:22.9256}
+    .cofil0 {fill:none}
+    .cofil1 {fill:none;fill-rule:nonzero}
+    .cofil2 {fill:currentColor}
+    .cofil3 {fill:var(--bordeaux)}
+    .cofnt6 {font-weight:normal;font-size:226.78px;font-family:var(--serif)}
+    .cofnt8 {font-weight:normal;font-size:226.78px;font-family:var(--serif)}
+    .cofnt10 {font-weight:normal;font-size:226.79px;font-family:var(--serif)}
+    .cofnt1 {font-weight:normal;font-size:296.76px;font-family:var(--serif)}
+    .cofnt3 {font-weight:normal;font-size:296.76px;font-family:var(--serif)}
+    .cofnt5 {font-weight:normal;font-size:296.76px;font-family:var(--serif)}
+    .cofnt13 {font-weight:normal;font-size:741.89px;font-family:var(--serif)}
+    .cofnt0 {font-style:italic;font-weight:normal;font-size:296.76px;font-family:var(--serif)}
+    .cofnt12 {font-style:italic;font-weight:normal;font-size:296.76px;font-family:var(--serif)}
+    .cofnt14 {font-style:italic;font-weight:normal;font-size:296.76px;font-family:var(--serif)}
+    .cofnt2 {font-style:italic;font-weight:normal;font-size:296.76px;font-family:var(--serif)}
+    .cofnt4 {font-style:italic;font-weight:normal;font-size:296.76px;font-family:var(--serif)}
+    .cofnt11 {font-style:italic;font-weight:normal;font-size:392.28px;font-family:var(--serif)}
+    .cofnt7 {font-style:italic;font-weight:normal;font-size:392.28px;font-family:var(--serif)}
+    .cofnt9 {font-style:italic;font-weight:normal;font-size:392.28px;font-family:var(--serif)}
+   ]]>
+  </style>
+   <clipPath id="id0">
+    <rect x="8226.38" y="3743.14" width="510.97" height="637.88"/>
+   </clipPath>
+   <clipPath id="id1">
+    <rect x="2942.11" y="-24.73" width="538.99" height="637.88"/>
+   </clipPath>
+   <clipPath id="id2">
+    <rect x="-24.73" y="3797.53" width="538.99" height="637.89"/>
+   </clipPath>
+ </defs>
+ <g id="Couche1_x0020_">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="cofil0 costr0" x="998.67" y="2481.89" width="617.94" height="929.49"/>
+  <rect class="cofil0 costr0" x="2234.7" y="2481.89" width="617.94" height="929.49"/>
+  <rect class="cofil0 costr0" x="4098.63" y="934.38" width="929.49" height="617.94"/>
+  <rect class="cofil0 costr0" x="5957.62" y="2481.89" width="617.94" height="929.49"/>
+  <rect class="cofil0 costr0" x="7188.75" y="2481.89" width="622.9" height="929.49"/>
+  <line class="cofil0 costr0" x1="1305.41" y1="2482.25" x2="1305.41" y2= "1241.13" />
+  <line class="cofil0 costr0" x1="1305.41" y1="1241.13" x2="4094.24" y2= "1241.13" />
+  <line class="cofil0 costr1" x1="2546.54" y1="2482.25" x2="2546.54" y2= "1241.13" />
+  <line class="cofil0 costr0" x1="5023.85" y1="1241.13" x2="6264.99" y2= "1241.13" />
+  <line class="cofil0 costr0" x1="6264.99" y1="1241.13" x2="6264.99" y2= "2482.25" />
+  <line class="cofil0 costr2" x1="6264.99" y1="1241.13" x2="7499.52" y2= "1241.13" />
+  <line class="cofil0 costr0" x1="7499.52" y1="1552.64" x2="7499.52" y2= "2482.25" />
+  <line class="cofil0 costr0" x1="7499.52" y1="1241.13" x2="7499.52" y2= "1552.64" />
+  <line class="cofil0 costr0" x1="7499.52" y1="3411.86" x2="7499.52" y2= "4652.99" />
+  <line class="cofil0 costr0" x1="3782.72" y1="4652.99" x2="1305.41" y2= "4652.99" />
+  <line class="cofil0 costr0" x1="1305.41" y1="4652.99" x2="1305.41" y2= "3411.86" />
+  <line class="cofil0 costr2" x1="2546.54" y1="3411.86" x2="2546.54" y2= "4652.99" />
+  <circle class="cofil0 costr0" cx="1307.69" cy="4031.89" r="308.97"/>
+  <circle class="cofil0 costr0" cx="3164.21" cy="1245.88" r="311.45"/>
+  <circle class="cofil0 costr0" cx="7502.62" cy="4031.84" r="308.93"/>
+  <rect class="cofil0 costr0" x="4093.68" y="4340.88" width="929.49" height="617.94"/>
+  <line class="cofil0 costr0" x1="5023.85" y1="4652.99" x2="7499.52" y2= "4652.99" />
+  <line class="cofil0 costr0" x1="6264.99" y1="3411.86" x2="6264.99" y2= "4652.99" />
+  <line class="cofil0 costr2" x1="3782.72" y1="4652.99" x2="4094.24" y2= "4652.99" />
+  <g>
+   <line class="cofil1 costr2" x1="687.33" y1="4341.46" x2="687.33" y2= "3723.38" />
+   <polygon id="_1" class="cofil2" points="622.17,3841.84 687.33,3723.38 752.48,3841.84 "/>
+  </g>
+  <g>
+   <line class="cofil1 costr2" x1="3476.15" y1="623.03" x2="2853.12" y2= "623.03" />
+   <polygon id="_1_11" class="cofil2" points="2971.57,688.19 2853.12,623.03 2971.57,557.87 "/>
+  </g>
+  <g>
+   <line class="cofil1 costr2" x1="8122.55" y1="4341.46" x2="8122.55" y2= "3723.38" />
+   <polygon id="_1_12" class="cofil2" points="8057.39,3841.84 8122.55,3723.38 8187.71,3841.84 "/>
+  </g>
+  <g>
+   <line class="cofil1 costr2" x1="6571.56" y1="1241.13" x2="6881.42" y2= "1241.13" />
+   <polygon id="_1_13" class="cofil2" points="6762.96,1175.97 6881.42,1241.13 6762.96,1306.28 "/>
+  </g>
+  <g>
+   <line class="cofil1 costr2" x1="6264.99" y1="1864.16" x2="6264.99" y2= "2170.73" />
+   <polygon id="_1_14" class="cofil2" points="6330.14,2052.28 6264.99,2170.73 6199.83,2052.28 "/>
+  </g>
+  <g>
+   <line class="cofil1 costr2" x1="5335.37" y1="1241.13" x2="5641.95" y2= "1241.13" />
+   <polygon id="_1_15" class="cofil2" points="5523.49,1175.97 5641.95,1241.13 5523.49,1306.28 "/>
+  </g>
+  <g>
+   <line class="cofil1 costr2" x1="5641.95" y1="4652.99" x2="5335.37" y2= "4652.99" />
+   <polygon id="_1_16" class="cofil2" points="5453.82,4718.15 5335.37,4652.99 5453.82,4587.83 "/>
+  </g>
+  <g>
+   <line class="cofil1 costr2" x1="2546.54" y1="4029.95" x2="2546.54" y2= "3723.38" />
+   <polygon id="_1_17" class="cofil2" points="2481.38,3841.84 2546.54,3723.38 2611.7,3841.84 "/>
+  </g>
+  <g>
+   <line class="cofil1 costr2" x1="1616.93" y1="1241.13" x2="1923.5" y2= "1241.13" />
+   <polygon id="_1_18" class="cofil2" points="1805.05,1175.97 1923.5,1241.13 1805.05,1306.28 "/>
+  </g>
+  <g transform="matrix(1.001 0 0 1.001 180.527 -4762.69)">
+   <text x="6214.39" y="6948.5"  class="cofil2 cofnt0">I</text>
+  </g>
+  <g transform="matrix(1.00477 0 0 1.00477 638.195 -5997.7)">
+   <text x="6214.39" y="6948.5"  class="cofil2 cofnt0">i</text>
+  </g>
+  <g transform="matrix(1.00103 0 0 1.00103 -886.099 -5971.73)">
+   <text x="6214.39" y="6948.5"  class="cofil2 cofnt0">I </text>
+   <text x="6666.06" y="6948.5"  class="cofil2 cofnt0"> i</text>
+   <text x="6435.18" y="6948.5"  class="cofil2 cofnt1">+</text>
+  </g>
+  <g transform="matrix(1.00119 0 0 1.00119 -1080.85 -1882.5)">
+   <text x="6214.39" y="6948.5"  class="cofil2 cofnt2">I </text>
+   <text x="6435.18" y="6948.5"  class="cofil2 cofnt3">+</text>
+   <text x="6666.06" y="6948.5"  class="cofil2 cofnt3"> </text>
+   <text x="6764.88" y="6948.5"  class="cofil2 cofnt4">i</text>
+  </g>
+  <g transform="matrix(1.00477 0 0 1.00477 -3529.19 -3003.03)">
+   <text x="6214.39" y="6948.5"  class="cofil2 cofnt4">j</text>
+  </g>
+  <g transform="matrix(1.00121 0 0 1.00121 -5228.15 -5973)">
+   <text x="6214.39" y="6948.5"  class="cofil2 cofnt4">I </text>
+   <text x="6666.06" y="6948.5"  class="cofil2 cofnt4"> i </text>
+   <text x="7167.27" y="6948.5"  class="cofil2 cofnt4">j</text>
+   <text x="6435.18" y="6948.5"  class="cofil2 cofnt5">+</text>
+   <text x="6969.63" y="6948.5"  class="cofil2 cofnt5">- </text>
+  </g>
+  <g style="clip-path:url(#id0)">
+   <text x="8539.55" y="4261.29"  class="cofil2 cofnt6">1</text>
+   <text x="8323.22" y="4160.16"  class="cofil2 cofnt7">E</text>
+  </g>
+  <rect class="cofil0" x="8251.11" y="3767.87" width="461.51" height="588.42"/>
+  <g style="clip-path:url(#id1)">
+   <text x="3269.74" y="493.41"  class="cofil2 cofnt8">3</text>
+   <text x="3038.23" y="392.28"  class="cofil2 cofnt9">E</text>
+  </g>
+  <rect class="cofil0" x="2966.84" width="489.53" height="588.42"/>
+  <g style="clip-path:url(#id2)">
+   <text x="310.04" y="4315.69"  class="cofil2 cofnt10">2</text>
+   <text x="71.39" y="4214.56"  class="cofil2 cofnt11">E</text>
+  </g>
+  <rect class="cofil0" x="-0" y="3822.26" width="489.53" height="588.43"/>
+  <g transform="matrix(1.00275 0 0 1.00275 -5050.46 -3914.53)">
+   <text x="6214.39" y="6948.5"  class="cofil2 cofnt12">R</text>
+  </g>
+  <g transform="matrix(1.00275 0 0 1.00275 -1785.03 -5625.96)">
+   <text x="6214.39" y="6948.5"  class="cofil2 cofnt12">R</text>
+  </g>
+  <g transform="matrix(1.00275 0 0 1.00275 -1799.67 -2211.31)">
+   <text x="6214.39" y="6948.5"  class="cofil2 cofnt12">R</text>
+  </g>
+  <g transform="matrix(1.00275 0 0 1.00275 -3814.43 -3914.53)">
+   <text x="6214.39" y="6948.5"  class="cofil2 cofnt12">R</text>
+  </g>
+  <g transform="matrix(1.00275 0 0 1.00275 -91.506 -3914.53)">
+   <text x="6214.39" y="6948.5"  class="cofil2 cofnt12">R</text>
+  </g>
+  <g transform="matrix(1.00275 0 0 1.00275 1142.05 -3914.53)">
+   <text x="6214.39" y="6948.5"  class="cofil2 cofnt12">R</text>
+  </g>
+  <text x="2443.41" y="1280.44"  class="cofil3 cofnt13">.</text>
+  <text x="6161.86" y="1280.44"  class="cofil3 cofnt13">.</text>
+  <text x="2430.73" y="1070.62"  class="cofil2 cofnt14">A</text>
+  <text x="6097.67" y="1065.72"  class="cofil2 cofnt14">B</text>
+ </g>
+</svg>  </figure>
+
+  <p>La résolution demande alors trois équations de mailles.</p>
+
+  <p>Maille \(\mathrm{ADE_2A}\) :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ Rj + E_2 - R(I + i - j) = 0 \]
+  </div></div>
+
+  <div class="eq">
+    <div class="eq-corps">
+      \[ I = \frac{1}{R}\left(E_2 + 2Rj - Ri\right) \]
+    </div>
+    <span class="eq-num">(1)</span>
+  </div>
+
+  <p>Maille \(\mathrm{DAE_3BC}\) :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ -Rj - E_3 - R(I + i) - RI - R(I + i) = 0 \]
+  </div></div>
+
+  <p>D'où :</p>
+
+  <div class="eq">
+    <div class="eq-corps">
+      \[ j = -\frac{1}{R}\left(E_3 + 3RI + 2Ri\right) \]
+    </div>
+    <span class="eq-num">(2)</span>
+  </div>
+
+  <p>Maille \(\mathrm{BCE_1B}\) :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ -RI + E_1 + Ri = 0 \]
+  </div></div>
+
+  <p>D'où :</p>
+
+  <div class="eq">
+    <div class="eq-corps">
+      \[ i = \frac{RI - E_1}{R} \]
+    </div>
+    <span class="eq-num">(3)</span>
+  </div>
+
+  <p>En reportant (3) dans (2), on obtient \(j\) en fonction de \(I\) :</p>
+
+  <div class="eq">
+    <div class="eq-corps">
+      \[ j = -\frac{1}{R}\left(E_3 - 2E_1 + 5RI\right) \]
+    </div>
+    <span class="eq-num">(4)</span>
+  </div>
+
+  <p>En reportant enfin (3) et (4) dans (1), on parvient à l'expression de
+     l'intensité \(I\) :</p>
+
+  <div class="encadre">
+    <div class="eq"><div class="eq-corps">
+      \[ I = \frac{5E_1 + E_2 - 2E_3}{12R} \]
+    </div></div>
+  </div>
+
+  <nav class="suite" aria-label="Navigation entre exercices">
+    <a href="e1_2.html">← E1.2 Détermination d'une tension</a>
+    <span class="chapitre-courant">E1 · Approximation des régimes quasi stationnaires. Dipôles.</span>
+    <a href="../../../electricite/e_1/e_1_4/e_1_4_enon.htm">E1.4 Réseau à résistance réglable →</a>
+  </nav>
+</section>
+
+<section class="kholor">
+  <div class="colonne">
+    <p class="surtitre">Recueil Kholor</p>
+    <h2>Le même chapitre, d'autres exercices.</h2>
+    <p>Le recueil <em>E1 · Lois de Kirchhoff. Réseaux en régime continu</em> réunit
+       23 exercices inédits, différents de ceux publiés ici, tous corrigés dans le détail.</p>
+    <a class="lire" href="https://payhip.com/b/pHb4u">Voir le recueil E1</a>
+  </div>
+</section>
+
+<footer class="pied">
+  <div class="colonne">
+    Hubert de Haan · www.kholaweb.com ·
+    <a href="../../../index.htm">Accueil</a> ·
+    <a href="../../../index.htm#kholor">Kholor</a> ·
+    <a href="mailto:kholaweb@free.fr">Contact</a>
+  </div>
+</footer>
+
+<script src="../../../scripts/protection.js"></script>
+
+</body>
+</html>

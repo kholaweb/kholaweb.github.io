@@ -30,8 +30,8 @@
               "code": "E1.3",
               "title": "Étude d'un réseau. Lois de Kirchhoff.",
               "externalUrl": "http://hdehaan.free.fr/electricite/e_1/e_1_3/e_1_3_enon.htm",
-              "hasCorrige": false,
-              "contentFile": null
+              "hasCorrige": true,
+              "contentFile": "exercices/electricite/e1/e1_3.html"
             },
             {
               "code": "E1.4",
