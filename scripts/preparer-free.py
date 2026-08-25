@@ -33,6 +33,9 @@ def fichiers():
     # .htaccess ne sert qu'a free.fr : il y supprime le cache des pages, que
     # l'hebergeur ne pilote par aucun en-tete. GitHub Pages ne le lit pas.
     yield RACINE / '.htaccess'
+    # page de rubrique de l'ancien site, entree au depot le 26 aout 2026 :
+    # ses liens E1.1 a E1.3 menent desormais vers les nouvelles pages
+    yield RACINE / 'page_base_electricite.htm'
     yield RACINE / 'css' / 'protection.css'
     yield RACINE / 'scripts' / 'protection.js'
     for dossier in ('exercices', 'img'):

@@ -35,3 +35,23 @@
   ExpiresByType text/javascript "access plus 0 seconds"
   ExpiresByType application/javascript "access plus 0 seconds"
 </IfModule>
+
+# Les anciennes pages d'un exercice converti renvoient vers la nouvelle, qui
+# réunit l'énoncé et le corrigé. Un visiteur venu d'un signet ou d'un moteur de
+# recherche ne doit plus lire la version périmée.
+#
+# On redirige le dossier entier de l'exercice, et non des fichiers nommés un à
+# un : outre _enon et _cons, les corrigés hérités ne sont pas liés par href mais
+# par des survols FrontPage, et leurs noms ne sont pas devinables. Les images du
+# dossier suivent, ce qui est sans effet : plus aucune page ne les demande.
+#
+# e_1_1 ne capture pas e_1_10 à e_1_14 : le motif exige une barre ou la fin.
+#
+# 301 : les navigateurs la retiennent durablement. À n'écrire que pour un
+# exercice réellement converti.
+
+<IfModule mod_alias.c>
+  RedirectMatch 301 ^/electricite/e_1/e_1_1(/.*)?$ /exercices/electricite/e1/e1_1.html
+  RedirectMatch 301 ^/electricite/e_1/e_1_2(/.*)?$ /exercices/electricite/e1/e1_2.html
+  RedirectMatch 301 ^/electricite/e_1/e_1_3(/.*)?$ /exercices/electricite/e1/e1_3.html
+</IfModule>

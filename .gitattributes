@@ -1,0 +1,4 @@
+# Page héritée du site d'origine : windows-1252, fins de ligne CRLF. Elle est
+# renvoyée telle quelle sur free.fr, où elle coexiste avec l'ancien site : git
+# ne doit convertir ni son encodage ni ses fins de ligne.
+page_base_electricite.htm -text

@@ -1,0 +1,826 @@
+<html>
+
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2TZ3HKVHWT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2TZ3HKVHWT');
+</script>
+
+<meta http-equiv="Cache-Control" content="no-cache" >
+<meta http-equiv="Cache-Control" content="no-store" >
+<meta http-equiv="Pragma" content="no-cache" >
+<meta http-equiv="Cache" content="no store" >
+<meta http-equiv="Expires" content="-1" >
+<META HTTP-EQUIV="Refresh" CONTENT="TRUE"> 
+
+<meta http-equiv="Content-Language" content="fr">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<link rel=”stylesheet” type=”text/css” href=”style.css?reload”>
+<style type="text/css">
+@import url(http://www.google.com/cse/api/branding.css);
+</style>
+
+<style type="text/css">
+@import url(http://www.google.com/cse/api/branding.css);
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="verify-v1" content="+bKaCJJBczKIs7VS1SuL0ZnYE9G+GZkflU1P2uZDWp4=" />
+<title>kholaweb\&nbsp;énoncés et corrigés d'exercices de physique&nbsp;</title>
+<meta name="author" content="Hubert de Haan. KholaWeb"> 
+
+<meta name="description" content="énoncés et corrigés d'exercices de physique du niveau classes préparatoires ou Licence. Préparation aux oraux des concours d'entrée aux Grandes Ecoles.">
+<meta name="keywords" content="exercices corrigés de physique,exercices en ligne,kholaweb,conducteur,bobine,condensateur,wien,kirchhoff,millman,resistor,fonction de transfert,filtre,passe haut,passe bas,passe bande,coupe bande,circuit RC,circuit RL,circuit RLC,serie,parallele,derivation,filtrage,pont diviseur,intensite,difference de potentie,tension,electique,electricite,mp3,grabber,colles,kholles,khôlles,devoir,enseignement,éducation,cours à distance,sciences,physique,sciences physiques,énoncés,exercices,corrigés,oraux,classes préparatoires,grandes écoles,licence, premier cycle universitaire,oraux,concours,capes,agrégation,électricité,électromagnétisme,électronique,mécanique,thermodynamique,optique,pcsi,mpsi,psi,pc,mp,music,mp3,video,game,fnac,priceminister,ebay,books">
+
+</head>
+<link rel="shortcut icon" href="http://hdehaan.free.fr/favicon.ico">
+
+<!-- ensemble scripts -->
+
+<script language="JavaScript">
+<!--
+IMG01 = "images/arrow.gif"     //image when mouse is over the link
+IMG02 = "images/dot.gif"    //image when mouse isn't over the link
+function imgover(imgname){
+     imgname.src = IMG01
+}
+function imgout(imgname){
+     imgname.src = IMG02
+}
+//-->
+</script>
+
+<script language="JavaScript" type="Text/JavaScript">
+// Made by 1st JavaScript Editor
+// http : // www.yaldex.com
+// Come and get more ( free ) products
+var initColor;
+var iddd;
+var interv;
+var count;
+var LinkColor = "000066";
+function OverCl1()
+{
+   if ( count % 2 == 0 )document.getElementById( iddd ).style.color = LinkColor;
+   else document.getElementById( iddd ).style.color = initColor;
+   count ++ ;
+}
+
+function Over( idd )
+{
+   if ( document.getElementById )
+   {
+      count = 1;
+      iddd = idd;
+      initColor = document.getElementById( iddd ).style.color;
+      document.getElementById( iddd ).style.color = LinkColor;
+      interv = setInterval( "OverCl1()", 750 );
+   }
+}
+
+function Out( idd )
+{
+   if ( document.getElementById )
+   {
+      clearInterval( interv );
+      document.getElementById( idd ).style.color = initColor;
+   }
+}
+</script>
+
+
+<script>
+var g_nExpando=0;
+// To make the cross clickable in every browser
+function putItemInState(n,bState)
+{
+var oItem,oGif;
+oItem=document.getElementById("descr"+n);
+oGif=document.getElementById("expandoGif"+n);
+
+if (bState=='toggle')
+bState=(oItem.style.display=='block');
+
+if(bState)
+{
+bState=(oItem.style.display='none');
+bState=(oGif.src='images/cross.gif');
+}
+else
+{
+bState=(oItem.style.display='block');
+bState=(oGif.src='images/noncross.gif');
+}
+}
+
+function expand(nItem)
+{
+putItemInState(nItem,'toggle');
+}
+
+function expandAll()
+{
+if (!g_nExpando)
+{
+document.all.chkFlag.checked=false;
+return;
+}
+var bState=!document.all.chkFlag.checked;
+for(var i=0; i<g_nExpando; i++)
+putItemInState(i,bState);
+}
+</script>
+
+<style type="text/css">BODY TD {FONT-SIZE: 11px; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif}
+.auto-style4 {
+	font-size: x-small;
+}
+.auto-style7 {
+	color: #800000;
+}
+.auto-style8 {
+	font-size: x-small;
+	vertical-align: middle;
+}
+</style>
+<script language="JavaScript">
+<!--
+function FP_swapImg() {//v1.0
+ var doc=document,args=arguments,elm,n; doc.$imgSwaps=new Array(); for(n=2; n<args.length;
+ n+=2) { elm=FP_getObjectByID(args[n]); if(elm) { doc.$imgSwaps[doc.$imgSwaps.length]=elm;
+ elm.$src=elm.src; elm.src=args[n+1]; } }
+}
+
+function FP_preloadImgs() {//v1.0
+ var d=document,a=arguments; if(!d.FP_imgs) d.FP_imgs=new Array();
+ for(var i=0; i<a.length; i++) { d.FP_imgs[i]=new Image; d.FP_imgs[i].src=a[i]; }
+}
+
+function FP_getObjectByID(id,o) {//v1.0
+ var c,el,els,f,m,n; if(!o)o=document; if(o.getElementById) el=o.getElementById(id);
+ else if(o.layers) c=o.layers; else if(o.all) el=o.all[id]; if(el) return el;
+ if(o.id==id || o.name==id) return o; if(o.childNodes) c=o.childNodes; if(c)
+ for(n=0; n<c.length; n++) { el=FP_getObjectByID(id,c[n]); if(el) return el; }
+ f=o.forms; if(f) for(n=0; n<f.length; n++) { els=f[n].elements;
+ for(m=0; m<els.length; m++){ el=FP_getObjectByID(id,els[n]); if(el) return el; } }
+ return null;
+}
+// -->
+</script>
+
+<script>
+function toggle(nome) {
+if(document.getElementById(nome).style.display=='none')
+{
+ document.getElementById(nome).style.display = '';
+ document.getElementById(nome+"img").src="images/noncross.gif";
+} else {
+ document.getElementById(nome).style.display = 'none';
+ document.getElementById(nome+"img").src="images/cross.gif";
+}
+}
+</script>
+<!-- Ensemble scripts FIN -->
+<link rel="stylesheet" type="text/css" href="feuilles_style_css/liens.css">
+
+<body onload="FP_preloadImgs(/*url*/'index_fichiers/boutons/button1B.jpg', /*url*/'index_fichiers/boutons/button1C.jpg', /*url*/'index_fichiers/boutons/button21.jpg', /*url*/'index_fichiers/boutons/button22.jpg', /*url*/'index_fichiers/boutons/button24.jpg', /*url*/'index_fichiers/boutons/button25.jpg', /*url*/'index_fichiers/boutons/button27.jpg', /*url*/'index_fichiers/boutons/button28.jpg')" leftmargin="213" topmargin="26" link="#FFFFFF" vlink="#000000" alink="#FFFFFF">
+
+<!-- Premier Cadre -->
+<!-- première ligne -->
+<tr>
+<td height="7"></td>
+<table border="0" cellpadding="0" cellspacing="0" id="table1" width="850" height="188" bgcolor="#FFFFFF">
+<!-- MSTableType="layout" -->
+<tr>
+<td bgcolor="#999999" valign="top" bordercolor="#FF0000" height="97">
+<a href="index.htm">
+<img border="0" src="index_fichiers/logo/logo4.png" align="left" width="233" height="97"></a>
+
+
+<p align="left"><font face="Tahoma">
+<span style="font-weight: 700"><font size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#FFFFFF"><br>
+<a name="énoncés">énoncés</a> et 
+corrigés d'exercices de physique</font></font></span></font></p>
+<p align="left"><span style="font-weight: 700">
+<font face="Tahoma" size="3" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; classes 
+préparatoires aux grandes écoles\ licence</font></span></p>
+</td>
+</tr>
+<tr>
+<td height="13"></td>
+</tr>
+<tr>
+<td align="left" bgcolor="#999999" height="24">
+<p align="center">
+<font face="Tahoma" style="font-weight: 700; text-decoration: none; font-size:9pt">
+<a id="1" onMouseOver="Over(this.id)" onMouseOut="Out(this.id)" href="page_base_electricite.htm">
+<span style="text-decoration: none">électricité</span></a> 
+&nbsp;\ &nbsp;</font><b><font face="Tahoma" style="font-size: 9pt"><a id="2" onMouseOver="Over(this.id)" onMouseOut="Out(this.id)" href="page_base_electromagnetisme.htm"><span style="text-decoration: none">électromagnétisme</span></a>
+</font></b>
+<font face="Tahoma" style="font-weight: 700; text-decoration: none; font-size:9pt">
+\</font><b><font face="Tahoma"><font style="font-size: 9pt">&nbsp; </font>
+<a id="3" onMouseOver="Over(this.id)" onMouseOut="Out(this.id)" href="page_base_electronique.htm">
+<span style="text-decoration: none">
+<font style="font-size: 9pt">électronique</font></span></a></font></b><font face="Tahoma" style="font-weight: 700; text-decoration: none; font-size:9pt">&nbsp; 
+\&nbsp; </font><b><font face="Tahoma">
+<font style="font-size: 9pt">&nbsp;</font><a id="4" onMouseOver="Over(this.id)" onMouseOut="Out(this.id)" href="page_base_mecanique.htm"><span style="text-decoration: none"><font style="font-size: 9pt">mécanique</font></span></a></font></b><font face="Tahoma" style="font-weight: 700; text-decoration: none; font-size:9pt"> </font>
+
+<font face="Tahoma" style="font-weight: 700; text-decoration: none; font-size:9pt">
+&nbsp;\&nbsp; </font><b><font face="Tahoma">
+<font style="font-size: 9pt">&nbsp;</font><a id="5" onMouseOver="Over(this.id)" onMouseOut="Out(this.id)" href="page_base_optique.htm"><span style="text-decoration: none"><font style="font-size: 9pt">optique</font></span></a><font style="font-size: 9pt">&nbsp;
+</font></font></b>
+
+<font face="Tahoma" style="font-weight: 700; text-decoration: none; font-size:9pt">
+\</font><b><font face="Tahoma" style="font-size: 9pt"><span style="">&nbsp; </span>
+<a id="6" onMouseOver="Over(this.id)" onMouseOut="Out(this.id)" href="page_base_thermodynamique.htm">
+<span style="text-decoration: none">thermodynamique</span></a></font></b></td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF" style="height: 37px">
+<p align="center"><br>
+<a href="index.htm"><img border="0" id="img34" src="index_fichiers/boutons/button1A.jpg" height="20" width="100" alt="accueil" onmouseover="FP_swapImg(1,0,/*id*/'img34',/*url*/'index_fichiers/boutons/button1B.jpg')" onmouseout="FP_swapImg(0,0,/*id*/'img34',/*url*/'index_fichiers/boutons/button1A.jpg')" onmousedown="FP_swapImg(1,0,/*id*/'img34',/*url*/'index_fichiers/boutons/button1C.jpg')" onmouseup="FP_swapImg(0,0,/*id*/'img34',/*url*/'index_fichiers/boutons/button1B.jpg')" fp-style="fp-btn: Soft Capsule 5" fp-title="accueil"></a><a href="page_base_documents.htm"><img border="0" id="img36" src="index_fichiers/boutons/button20.jpg" height="20" width="100" alt="documents" onmouseover="FP_swapImg(1,0,/*id*/'img36',/*url*/'index_fichiers/boutons/button21.jpg')" onmouseout="FP_swapImg(0,0,/*id*/'img36',/*url*/'index_fichiers/boutons/button20.jpg')" onmousedown="FP_swapImg(1,0,/*id*/'img36',/*url*/'index_fichiers/boutons/button22.jpg')" onmouseup="FP_swapImg(0,0,/*id*/'img36',/*url*/'index_fichiers/boutons/button21.jpg')" fp-style="fp-btn: Soft Capsule 5" fp-title="documents"></a><a href="page_base_pcsi.htm"><img border="0" id="img37" src="index_fichiers/boutons/button23.jpg" height="20" width="100" alt="pcsi" onmouseover="FP_swapImg(1,0,/*id*/'img37',/*url*/'index_fichiers/boutons/button24.jpg')" onmouseout="FP_swapImg(0,0,/*id*/'img37',/*url*/'index_fichiers/boutons/button23.jpg')" onmousedown="FP_swapImg(1,0,/*id*/'img37',/*url*/'index_fichiers/boutons/button25.jpg')" onmouseup="FP_swapImg(0,0,/*id*/'img37',/*url*/'index_fichiers/boutons/button24.jpg')" fp-style="fp-btn: Soft Capsule 5" fp-title="pcsi"></a><a href="page_base_problemes.htm"><img border="0" id="img38" src="index_fichiers/boutons/button26.jpg" height="20" width="100" alt="problèmes" onmouseover="FP_swapImg(1,0,/*id*/'img38',/*url*/'index_fichiers/boutons/button27.jpg')" onmouseout="FP_swapImg(0,0,/*id*/'img38',/*url*/'index_fichiers/boutons/button26.jpg')" onmousedown="FP_swapImg(1,0,/*id*/'img38',/*url*/'index_fichiers/boutons/button28.jpg')" onmouseup="FP_swapImg(0,0,/*id*/'img38',/*url*/'index_fichiers/boutons/button27.jpg')" fp-style="fp-btn: Soft Capsule 5" fp-title="problèmes"></a><br>
+
+&nbsp;
+<br>
+<!-- adSence -->
+<table align="center">
+<script type="text/javascript" src="http://fr.classic.clickintext.net/?v=3.0&a=10090&f=728x90"></script>
+</table>
+
+<table align="center">
+<span id="show_ads_4"></span>
+<script language="javascript" type="text/javascript" src="http://www.typelocal.com/adserve/show-ads.js"></script>
+<script language="javascript">
+if (window.ads_ad_block){ads_ad_block=ads_ad_block+1;}else{ads_ad_block=1;}
+function showAdBlock_4(ppc_ad_block_count)
+{
+keyword = "<music,mp3,game,video,fnac,priceminister,ebay,sony,samsung,physics,cars>"; 
+show_ads_id = 4;
+show_ads_url = "http://www.typelocal.com/adserve/publisher-show-ads.php";
+block_count=ppc_ad_block_count;
+iframe_width=728;
+iframe_height=105;
+metainfo=document.getElementsByTagName('meta');
+ref=document.referrer;
+showKeywordAds(metainfo);
+}
+setTimeout("showAdBlock_4("+ads_ad_block+")",1000*(ads_ad_block-1));
+</script>
+
+</table>
+<br>
+<!-- adSence -->
+&nbsp;
+<b>&nbsp;</b></td>
+</tr>
+<tr>
+<td height="15" width="850"></td>
+</tr>
+
+</table>
+</tr>
+<!-- Premier cadre FIN -->
+
+<!-- Cadre central -->
+<table cellpadding="0" cellspacing="0" width="856" height="42">
+<!-- MSTableType="layout" -->
+<tr>
+<td valign="top" width="20">
+<img border="0" src="index_fichiers/boutons/opentable_r1_c1.jpg" width="20" height="42"></td>
+<td background="index_fichiers/boutons/opentable_r1_c3.jpg" width="810">
+<p align="right"><strong><font size="2">chapitres et exercices d'électricité</font></strong></td>
+<td valign="top" width="24">
+<img border="0" src="index_fichiers/boutons/opentable_r1_c5.jpg" width="18" height="42"></td>
+</tr>
+</table>
+<!-- ligne centrale tableau -->
+<table cellpadding="0" cellspacing="0" width="848" id="table2" height="26">
+<!-- MSTableType="layout" -->
+<tr>
+<td background="index_fichiers/nouveau_cadre/opentable_r2_c1.jpg" width="10">&nbsp;</td>
+<td width="828" background="index_fichiers/nouveau_cadre/opentable_r2_c2.jpg">
+<!-- Tableau interieur 
+
+<table align="center" border="0" width="800" id="table34">
+<tbody><tr>
+<td class="white" style="padding-left: 12px; font-weight: bold; vertical-align: middle; padding-top: 2px;" bgcolor="#BBBBBB" height="25">
+<p style="margin-top: 0px; margin-bottom: 0px">&nbsp;<img src="index_fichiers/dot_arrow.gif" align="middle" width="5" height="12">
+&nbsp;&nbsp;recherche 
+sur kholaweb</td></tr>
+</tbody></table>
+<p style="margin-top: 0px; margin-bottom: 0px">
+
+&nbsp;
+
+<!-- tableau google
+<div align="center">
+<table cellpadding="0" cellspacing="0" width="752" height="28">
+<tr>
+<td height="28" width="752" class="style10">
+
+
+<div id="cse" style="width: 100%;">Loading</div>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript"> 
+  google.load('search', '1', {language : 'fr'});
+  google.setOnLoadCallback(function() {
+    var customSearchControl = new google.search.CustomSearchControl('005004228875270490383:xeztf6vykxk');
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    customSearchControl.draw('cse');
+  }, true);
+</script>
+<link rel="stylesheet" href="http://www.google.com/cse/style/look/default.css" type="text/css" />
+      
+
+
+</td></tr></table></div>
+<br>
+ fin tableau google -->
+
+
+<p style="margin-top: 0px; margin-bottom: 0px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="index_fichiers/dot_arrow.gif" align="absmiddle" width="5" height="12">
+&nbsp;<b><font size="2"><a name="exercices_délectricité">exercices d'électricité</a></font></b><p style="margin-top: 0px; margin-bottom: 0px"><br>
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+<a href="#E1">E1. Approximation des régimes quasi stationnaires. 
+Dipôles.</a><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#E2">E2. Réseaux linéaires. Théorèmes généraux.</a><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="#E3">E3. Réseaux linéaires en régime transitoire.</a><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="#E4">E4. Réseaux linéaires en régime 
+sinusoïdal forcé.</a><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="#E5">E5. Fonctions de transfert des réseaux linéaires.
+</a>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="#E6">E6. Filtres actifs du second ordre.
+</a>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="#E7">E7. Puissance en régime sinusoïdal forcé.
+</a>
+<br><br>
+
+
+
+
+<table align="center" border="0" width="800" id="table34">
+<tbody><tr>
+<td class="white" style="padding-left: 12px; font-weight: bold; vertical-align: middle; padding-top: 2px;" bgcolor="#F0F0F0" height="25">
+<p style="margin-top: 0px; margin-bottom: 0px">&nbsp;&nbsp;&nbsp;
+
+
+<a name="E1">E1. Approximation des régimes quasi stationnaires. 
+Dipôles. </a> 
+<a href="#énoncés">
+<img border="0" src="images/userbox.up.png" width="12" height="12" align="absmiddle"></a><br>
+<div align="center">
+<table width="95%" id="table36" bgcolor="#F0F0F0">
+<tr>
+<td bgcolor="#F0F0F0">
+<p align="left">
+<img name="IMG05" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<span style="text-decoration: none"><a onmouseover="imgover(IMG05)" onmouseout="imgout(IMG05)" href="exercices/electricite/e1/e1_1.html">E1.1.&nbsp; Thermistance.</a></span><br>
+<img name="IMG01" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<span style="text-decoration: none"><a onmouseover="imgover(IMG01)" onmouseout="imgout(IMG01)" href="exercices/electricite/e1/e1_2.html">E1.2.&nbsp; Détermination d’une tension.</a></span><br>
+<img name="IMG04" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<span style="text-decoration: none"><a onmouseover="imgover(IMG04)" onmouseout="imgout(IMG04)" href="exercices/electricite/e1/e1_3.html">E1.3.&nbsp; Etude d'un réseau. Lois de Kirchhoff.</a></span><br>
+<img name="IMG02" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<span style="text-decoration: none"><a onmouseover="imgover(IMG02)" onmouseout="imgout(IMG02)" href="electricite/e_1/e_1_4/e_1_4_enon.htm">E1.4.&nbsp; Réseau à résistance réglable.</a></span><br>
+<img name="IMG03" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<span style="text-decoration: none"><a onmouseover="imgover(IMG03)" onmouseout="imgout(IMG03)" href="electricite/e_1/e_1_5/e_1_5_enon.htm">E1.5.&nbsp; Analyse d'un réseau linéaire.</a></span><br>
+<img name="IMG06" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<span style="text-decoration: none"><a onmouseover="imgover(IMG06)" onmouseout="imgout(IMG06)" href="electricite/e_1/e_1_6/e_1_6_enon.htm"><font color="#800000">E1.6. Lois de Kirchhoff. Utilisation des symétries.</font></a></span><br>
+<img name="IMG06a" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<span style="text-decoration: none"><a onmouseover="imgover(IMG06a)" onmouseout="imgout(IMG06a)" href="electricite/e_1/e_1_7/e_1_7_enon.htm">E1.7. Thermistance (II).</a></span><br>
+<img name="IMG06b" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<span style="text-decoration: none"><a onmouseover="imgover(IMG06b)" onmouseout="imgout(IMG06b)" href="electricite/e_1/e_1_8/e_1_8_enon.htm">E1.8. Circuit avec voltamètre.</a></span><br>
+<img name="IMG06c" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<span style="text-decoration: none"><a onmouseover="imgover(IMG06c)" onmouseout="imgout(IMG06c)" href="electricite/e_1/e_1_9/e_1_9_enon.htm">E1.9. Transfert de puissance d'un générateur à un récepteur.</a></span><br>
+
+
+								</p></td>
+</tr>
+</table>
+</div>
+
+
+&nbsp;&nbsp;
+<br>
+<a name="E2">E2. Réseaux linéaires. Théorèmes généraux.</a>
+<a href="#énoncés">
+<img border="0" src="images/userbox.up.png" width="12" height="12" align="absmiddle"></a>
+<table align="center" width="95%" id="table37">
+<tr>
+<td><font color="#000000">
+									
+<img name="IMG09" src="images/dot.gif" width="5" height="12" border="0"> <a onmouseover="imgover(IMG09)" onmouseout="imgout(IMG09)" href="electricite/e_2/e_2_1/e_2_1_enon.htm">E2.1.&nbsp;&nbsp;Détermination d’une tension.</a><br>
+									
+<img name="IMG10" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG10)" onmouseout="imgout(IMG10)" href="electricite/e_2/e_2_2/e_2_2_enon.htm">E2.2.&nbsp; Etude d'un réseau.</a><br>
+									
+<img name="IMG11" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG11)" onmouseout="imgout(IMG11)" href="electricite/e_2/e_2_3/e_2_3_enon.htm">E2.3.&nbsp; Analyse d'un réseau linéaire par différentes méthodes.</font><br>
+									
+<img name="IMG12" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG12)" onmouseout="imgout(IMG12)" href="electricite/e_2/e_2_4/e_2_4_enon.htm">E2.4.&nbsp; Etude d’un circuit par la méthode de superposition des états.</a><br>
+									
+<img name="IMG13" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG13)" onmouseout="imgout(IMG13)" href="electricite/e_2/e_2_5/e_2_5_enon.htm">E2.5.&nbsp; Utilisation du théorème de Millman.</a><br>
+
+<img name="IMG13a" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG13a)" onmouseout="imgout(IMG13a)" href="electricite/e_2/e_2_6/e_2_6_enon.htm">E2.6.&nbsp; Résistances équivalentes 
+(cube).</a><br>
+
+<img name="IMG13b" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG13b)" onmouseout="imgout(IMG13b)" href="electricite/e_2/e_2_7/e_2_7_enon.htm"><font color="#800000">E2.7.&nbsp; Résistances équivalentes 
+(treillis).</font></a><br>
+
+<img name="IMG13c" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG13c)" onmouseout="imgout(IMG13c)" href="electricite/e_2/e_2_8/e_2_8_enon.htm">E2.8.&nbsp; Résistance équivalente. Utilisation des symétries.</a><br>
+
+<img name="IMG13d" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG13d)" onmouseout="imgout(IMG13d)" href="electricite/e_2/e_2_9/e_2_9_enon.htm">E2.9.&nbsp; Résistance itérative</a><br>
+									
+
+<img name="IMG13e" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG13e)" onmouseout="imgout(IMG13e)" href="electricite/e_2/e_2_10/e_2_10_enon.htm">E2.10. Association de générateurs. Dipôle équivalent.</a><br>
+
+<img name="IMG13f" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG13f)" onmouseout="imgout(IMG13f)" href="electricite/e_2/e_2_11/e_2_11_enon.htm">E2.11. Générateur de Thévenin équivalent.</a><br>
+
+<img name="IMG13g" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG13g)" onmouseout="imgout(IMG13g)" href="electricite/e_2/e_2_12/e_2_12_enon.htm">E2.12. Représentations de Thévenin et de Norton.
+</a><br>
+
+<img name="IMG13h" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG13h)" onmouseout="imgout(IMG13h)" href="electricite/e_2/e_2_13/e_2_13_enon.htm">E2.13. Intensité traversant un générateur de tension.</a><br>
+
+<img name="IMG13i" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG13i)" onmouseout="imgout(IMG13i)" href="electricite/e_2/e_2_14/e_2_14_enon.htm">E2.14. Théorème de superposition et source liée.</a><br>
+
+<img name="IMG13j" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG13j)" onmouseout="imgout(IMG13j)" href="electricite/e_2/e_2_15/e_2_15_enon.htm">E2.15. Optimisation d’un groupement de piles.</a><br>
+
+<img name="IMG13k" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG13k)" onmouseout="imgout(IMG13k)" href="electricite/e_2/e_2_16/e_2_16_enon.htm">E2.16. Pont de Wheatstone alimenté par une source de courant.</a><br>
+
+<img name="IMG13l" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG13l)" onmouseout="imgout(IMG13l)" href="electricite/e_2/e_2_17/e_2_17_enon.htm">E2.17. Transformation triangle-étoile. Théorème de Kennely.</a><br>
+
+<img name="IMG13la" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<a onmouseover="imgover(IMG13al)" onmouseout="imgout(IMG13la)" href="electricite/e_2/e_2_18/e_2_18_enon.htm">E2.18. Générateurs en opposition.</a><br>
+
+
+</td>
+</tr>
+</table>
+<br>
+
+&nbsp;&nbsp;&nbsp;
+
+<a name="E3">E3. Réseaux linéaires en régime transitoire. </a>
+<a href="#énoncés">
+<img border="0" src="images/userbox.up.png" width="12" height="12"></a>
+<br>
+<table align="center" width="95%" id="table38">
+
+	<span class="auto-style7">
+
+	<strong>NOUVEAU</strong></span>&nbsp;
+	
+	 
+	40 exercices, dont 4 sont corrigés, disponibles en suivant ce lien 
+	&nbsp;&nbsp;
+	
+	<a href="https://payhip.com/b/Z4YW">
+<img src="images/downloadarrowbutton.svg" width="32" height="32" alt="" class="auto-style8" ></a><span class="auto-style4">
+
+
+<tr>
+<td style="height: 180px">
+
+
+
+<span style="text-decoration: none">
+ 
+
+<a onmouseover="imgover(IMG15)" onmouseout="imgout(IMG15)" href="electricite/e_3/e_3_1/e_3_1_enon.htm">
+<img name="IMG15" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E3.1. Circuit RC série soumis à une tension carrée.</a><br>
+
+<a onmouseover="imgover(IMG16)" onmouseout="imgout(IMG16)" href="electricite/e_3/e_3_2/e_3_2_enon.htm">
+<img name="IMG16" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E3.2. Régime transitoire et facteur de qualité d'un circuit 
+<i>RLC</i>.</a><br>
+
+<a onmouseover="imgover(IMG17)" onmouseout="imgout(IMG17)" href="electricite/e_3/e_3_3/e_3_3_enon.htm">
+<img name="IMG17" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E3.3. Réponse à une tension en dent de scie.</a><br>
+
+<a onmouseover="imgover(IMG18)" onmouseout="imgout(IMG18)" href="electricite/e_3/e_3_4/e_3_4_enon.htm">
+<img name="IMG18" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E3.4. Etude du circuit de Wien en régime transitoire.</a><br>
+
+<a onmouseover="imgover(IMG19)" onmouseout="imgout(IMG19)" href="electricite/e_3/e_3_5/e_3_5_enon.htm">
+<img name="IMG19" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E3.5. Etude d'un circuit (<i>RL</i>, 
+<i>R//C</i>) en régime transitoire.</a><br>
+
+<a onmouseover="imgover(IMG19a)" onmouseout="imgout(IMG19a)" href="electricite/e_3/e_3_6/e_3_6_enon.htm">
+<img name="IMG19a" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E3.6. Circuit (<i>R1</i>//(<i>R2</i>//<i>L</i>))</a><br>
+
+
+<a onmouseover="imgover(IMG20)" onmouseout="imgout(IMG20)" href="electricite/e_3/e_3_7/e_3_7_enon.htm">
+<img name="IMG20" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E3.7. Réponse indicielle.</a><br>
+
+
+<a onmouseover="imgover(IMG20a)" onmouseout="imgout(IMG20a)" href="electricite/e_3/e_3_8/e_3_8_enon.htm">
+<font color="#800000">
+<img name="IMG20a" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E3.8. Etude d’une réponse en tension.</font></a><br>
+
+<a onmouseover="imgover(IMG20b)" onmouseout="imgout(IMG20b)" href="electricite/e_3/e_3_9/e_3_9_enon.htm">
+<font color="#800000">
+<img name="IMG20b" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E3.9. Etude d’une réponse en courant.</font></a><br>
+
+<a onmouseover="imgover(IMG20c)" onmouseout="imgout(IMG20c)" href="electricite/e_3/e_3_10/e_3_10_enon.htm">
+<img name="IMG20c" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E3.10. Réponse d'un circuit R, R’//C à un échelon de tension.</a><br>
+
+<a onmouseover="imgover(IMG20d)" onmouseout="imgout(IMG20d)" href="electricite/e_3/e_3_11/e_3_11_enon.htm">
+<font color="#800000">
+<img name="IMG20d" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E3.11. Etude d'un circuit RLC parallèle.</font></a><br>
+
+<a onmouseover="imgover(IMG20e)" onmouseout="imgout(IMG20e)" href="electricite/e_3/e_3_12/e_3_12_enon.htm">
+<font color="#800000">
+<img name="IMG20e" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E3.12. Décharge d’un condensateur dans un circuit RLC série.</font></a>
+</span></td>
+</tr>
+
+</span></table>
+<br>
+
+<a name="E4">&nbsp;&nbsp;&nbsp;
+
+E4. Réseaux linéaires en régime 
+sinusoïdal forcé.
+</a>
+<a href="#énoncés">
+<img border="0" src="images/userbox.up.png" width="12" height="12" align="absmiddle"></a>
+<table align="center" width="95%" id="table27">
+<tr>
+<td>
+<span style="text-decoration: none">
+<a onmouseover="imgover(IMG21)" onmouseout="imgout(IMG21)" href="electricite/e_4/e_4_1/e_4_1_enon.htm">
+<img name="IMG21" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E4.1. Etude d'un montage déphaseur.</a><br>
+
+<a onmouseover="imgover(IMG22)" onmouseout="imgout(IMG22)" href="electricite/e_4/e_4_2/e_4_2_enon.htm">
+<img name="IMG22" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E4.2. Condition d'obtention d'une amplitude maximale.</a><br>
+
+<a onmouseover="imgover(IMG23)" onmouseout="imgout(IMG23)" href="electricite/e_4/e_4_3/e_4_3_enon.htm">
+<img name="IMG23" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E4.3. Courant et tension en phase.</a><br>
+
+<a onmouseover="imgover(IMG24)" onmouseout="imgout(IMG24)" href="electricite/e_4/e_4_4/e_4_4_enon.htm">
+<img name="IMG24" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E4.4. Circuits (L, C) et (R, L, C).</a><br>
+
+<a onmouseover="imgover(IMG25)" onmouseout="imgout(IMG25)" href="electricite/e_4/e_4_5/e_4_5_enon.htm">
+
+<img name="IMG25" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E4.5. Détermination des caractéristiques d’une tension.</a><br>
+
+<a onmouseover="imgover(IMG26)" onmouseout="imgout(IMG26)" href="electricite/e_4/e_4_6/e_4_6_enon.htm">
+<font color="#800000">
+<img name="IMG26" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E4.6. Circuit RLC: Amplitude et déphasage de différentes intensités.</font></a><br>
+
+<a onmouseover="imgover(IMG26a)" onmouseout="imgout(IMG26a)" href="electricite/e_4/e_4_7/e_4_7_enon.htm">
+<font color="#800000">
+<img name="IMG26a" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E4.7. Impédance itérative.</font></a><br>
+
+<a onmouseover="imgover(IMG2612)" onmouseout="imgout(IMG2612)" href="electricite/e_4/e_4_8/e_4_8_enon.htm">
+
+<img name="IMG2612" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E4.8. Recherche des caractéristiques d’un courant dans une maille d’un réseau.</a>
+
+
+
+
+
+</span></td>
+</tr>
+</table>
+<br>
+
+<a name="E5">&nbsp;&nbsp;&nbsp;
+
+E5. Fonctions de transfert des réseaux linéaires.
+</a>
+<a href="#énoncés">
+<img border="0" src="images/userbox.up.png" width="12" height="12" align="absmiddle"></a>
+<table align="center" width="95%" id="table29">
+<tr>
+<td>
+<span style="text-decoration: none">
+<a onmouseover="imgover(IMG27)" onmouseout="imgout(IMG27)" href="electricite/e_5/e_5_1/e_5_1_enon.htm">
+<img name="IMG27" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E5.1.&nbsp; Pont de Wien.</a><br>
+
+<a onmouseover="imgover(IMG28)" onmouseout="imgout(IMG28)" href="electricite/e_5/e_5_2/e_5_2_enon.htm">
+<img name="IMG28" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E5.2.&nbsp; Circuit coupe bande du second ordre.</a><br>
+
+<a onmouseover="imgover(IMG29)" onmouseout="imgout(IMG29)" href="electricite/e_5/e_5_3/e_5_3_enon.htm">
+<img name="IMG29" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E5.3.&nbsp; Circuit passe bande du second ordre.</a><br>
+
+<a onmouseover="imgover(IMG30)" onmouseout="imgout(IMG30)" href="electricite/e_5/e_5_4/e_5_4_enon.htm">
+<img name="IMG30" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E5.4.&nbsp; Biporte RC du second ordre.</a><br>
+
+<a onmouseover="imgover(IMG31)" onmouseout="imgout(IMG31)" href="electricite/e_5/e_5_5/e_5_5_enon.htm">
+<img name="IMG31" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E5.5.&nbsp; Déphaseur.</a><br>
+
+<a onmouseover="imgover(IMG3a1)" onmouseout="imgout(IMG3a1)" href="electricite/e_5/e_5_6/e_5_6_enon.htm">
+<img name="IMG3a1" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E5.6.&nbsp; Filtre passe-haut du second ordre.</a><br>
+
+<a onmouseover="imgover(IMG3b1)" onmouseout="imgout(IMG3b1)" href="electricite/e_5/e_5_7/e_5_7_enon.htm">
+<img name="IMG3b1" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E5.7.&nbsp; Etude d’un montage réjecteur.</a><br>
+
+<a onmouseover="imgover(IMG3c1)" onmouseout="imgout(IMG3c1)" href="electricite/e_5/e_5_8/e_5_8_enon.htm">
+<img name="IMG3c1" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E5.8.&nbsp; Etude d'un filtre avec AO.</a><br>
+
+<a href="electricite/e_5/e_5_9/e_5_9_tot.htm" onmouseout="imgout(IMG3d1)" onmouseover="imgover(IMG3d1)">
+
+<img name="IMG3d1" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E5.9.&nbsp; Double (R,C) série.</a><br>
+
+
+<a onmouseover="imgover(IMG32)" onmouseout="imgout(IMG32)" href="electricite/e_5/e_5_10/e_5_10_enon.htm">
+<font color="#800000">
+<img name="IMG32" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E5.10. Etude d'un filtre avec AO.</font></a><br>
+
+
+<a onmouseover="imgover(IMG32a)" onmouseout="imgout(IMG32a)" href="electricite/e_5/e_5_11/e_5_11_enon.htm">
+
+<img name="IMG32a" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E5.11. Réalisation d’un filtre.</a><br>
+
+<a onmouseover="imgover(IMG32b)" onmouseout="imgout(IMG32b)" href="electricite/e_5/e_5_12/e_5_12_enon.htm">
+<font color="#800000">
+<img name="IMG32b" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E5.12. Etude d’un filtre coupe-bande. Interprétation de courbes.</font>&nbsp;</a><br>
+
+<a onmouseover="imgover(IMG32c)" onmouseout="imgout(IMG32c)" href="electricite/e_5/e_5_13/e_5_13_enon.htm">
+<font color="#800000">
+<img name="IMG32c" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E5.13. 
+Filtre à avance de phase.</font></a><br>
+
+<a onmouseover="imgover(IMG32d)" onmouseout="imgout(IMG32d)" href="electricite/e_5/e_5_14/e_5_14_enon.htm">
+<font color="#800000">
+<img name="IMG32d" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E5.14. 
+Etude d'un filtre.</font></a>
+
+
+
+</span></td>
+
+</tr>
+</table>
+
+<br>
+<a name="E6">&nbsp;&nbsp;&nbsp;
+
+E6. Filtres actifs du second ordre.
+</a>
+<a href="#énoncés">
+<img border="0" src="images/userbox.up.png" width="12" height="12" align="absmiddle"></a>
+<table align="center" width="95%" id="table30">
+<tr>
+<td>
+<span style="text-decoration: none">
+<a onmouseover="imgover(IMG33)" onmouseout="imgout(IMG33)" href="electricite/e_6/e_6_1/e_6_1_enon.htm">
+<font color="#800000">
+<img name="IMG33" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E6.1&nbsp; Fonction de transfert. (1).</font></a><br>
+
+<a onmouseover="imgover(IMG34)" onmouseout="imgout(IMG34)" href="electricite/e_6/e_6_2/e_6_2_enon.htm">
+
+<img name="IMG34" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E6.2. Fonction de transfert. Caractéristiques du signal de sortie.</a><br>
+
+<a onmouseover="imgover(IMG35)" onmouseout="imgout(IMG35)" href="electricite/e_6/e_6_3/e_6_3_enon.htm">
+
+<img name="IMG35" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E6.3. Filtre passe-bande de Rauch.</a><br>
+
+<a onmouseover="imgover(IMG36)" onmouseout="imgout(IMG36)" href="electricite/e_6/e_6_4/e_6_4_enon.htm">
+
+<img name="IMG36" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E6.4. Filtre à structure de Rauch (II).</a><br>
+
+<a onmouseover="imgover(IMG37)" onmouseout="imgout(IMG37)" href="electricite/e_6/e_6_5/e_6_5_enon.htm">
+<img name="IMG37" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E6.5.&nbsp;Filtre avec AO.</a><br>
+
+<a onmouseover="imgover(IMG38)" onmouseout="imgout(IMG38)" href="electricite/e_6/e_6_6/e_6_6_enon.htm">
+<font color="#800000">
+<img name="IMG38" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E6.6. Etude d’un montage passe-bande.</font></a><br>
+
+<a onmouseover="imgover(IMG38a)" onmouseout="imgout(IMG38a)" href="electricite/e_6/e_6_7/e_6_7_enon.htm">
+
+<img name="IMG38a" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E6.7. Filtre passe-bande. Décomposition en série de Fourier. (Corrigé manuscrit)</a><br>
+
+<a onmouseover="imgover(IMG38b)" onmouseout="imgout(IMG38b)" href="electricite/e_6/e_6_8/e_6_8_enon.htm">
+<font color="#800000">
+<img name="IMG38b" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E6.8. Etude d’un montage déphaseur.</font></a>
+
+</span></td>
+</tr>
+</table>
+
+<br>
+<a name="E7">&nbsp;&nbsp;&nbsp;
+
+E7. Puissance en régime sinusoïdal forcé.
+</a>
+<a href="#énoncés">
+<img border="0" src="images/userbox.up.png" width="12" height="12" align="absmiddle"></a>
+<table align="center" width="95%" id="table31">
+<tr>
+<td>
+<span style="text-decoration: none">
+<a onmouseover="imgover(IMG39)" onmouseout="imgout(IMG39)" href="electricite/e_7/e_7_1/e_7_1_tot.htm">
+
+<img name="IMG39" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E7.1. Puissance moyenne dissipée par un dipôle.</a><br>
+
+<a onmouseover="imgover(IMG40)" onmouseout="imgout(IMG40)" href="electricite/e_7/e_7_2/e_7_2_enon.htm">
+<font color="#800000">
+<img name="IMG40" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E7.2. Relèvement du facteur de puissance d'un moteur.</font></a><br>
+
+<a onmouseover="imgover(IMG41)" onmouseout="imgout(IMG41)" href="electricite/e_7/e_7_3/e_7_3_enon.htm">
+<font color="#800000">
+<img name="IMG41" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E7.3. Facteur de puissance.</font></a><br>
+
+<a onmouseover="imgover(IMG42)" onmouseout="imgout(IMG42)" href="electricite/e_7/e_7_4/e_7_4_enon.htm">
+<img name="IMG42" src="images/dot.gif" width=5 height=12 border=0>&nbsp;<font color="#800000">E7.4. Méthode des trois ampèremètres. Détermination du facteur de puissance.</font></a><br>
+
+
+<a onmouseover="imgover(IMG43)" onmouseout="imgout(IMG43)" href="electricite/e_7/e_7_5/e_7_5_enon.htm">
+<img name="IMG43" src="images/dot.gif" width=5 height=12 border=0>&nbsp;E7.5. Puissance moyenne maximale.</a><br>
+</span></td>
+</tr>
+</table>
+
+
+
+
+
+</td></tr>
+</tbody></table>
+
+
+<!-- Tableau interieur FIN --></td>
+<td background="index_fichiers/nouveau_cadre/opentable_r2_c6.jpg" width="12" height="26">&nbsp;</td>
+
+</tr>
+</table>
+<!-- ligne centrale tableau FIN -->
+
+<table cellpadding="0" cellspacing="0" width="850" height="19" id="table1">
+<!-- MSTableType="layout" -->
+<tr>
+<td valign="top" width="33">
+<img border="0" src="index_fichiers/boutons/opentable_r3_c1.jpg" width="33" height="18"></td>
+<td background="index_fichiers/boutons/opentable_r3_c4.jpg" width="797">
+<p align="right">
+<font face="Arial" size="1">
+www.kholaweb.com \ hdehaan</font></td>
+<td valign="top" width="20" height="19">
+<img border="0" src="index_fichiers/boutons/opentable_r3_c5.jpg" width="18" height="18"></td>
+</tr>
+</table>
+<!-- Cadre central FIN  -->
+
+<!-- Cadre Bas -->
+
+
+
+<table cellpadding="0" cellspacing="0" width="850">
+	<!-- MSCellFormattingTableID="5" -->
+	<tr>
+		<td height="30" width="850">
+		<!-- MSCellFormattingType="content" -->
+		&nbsp;<tr>
+<font face="Arial" style="font-size: 10">
+<td valign="top" height="14" bgcolor="#FFFFFF">&nbsp;<p>hubert de haan&nbsp; \&nbsp; 
+www.kholaweb.com&nbsp; \&nbsp; mise à jour :
+<!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%d %b %Y" startspan -->20 déc. 2023<!--webbot bot="Timestamp" endspan i-checksum="23366" --></p></font>	
+(
+<img src="http://perso0.free.fr/cgi-bin/wwwcount.cgi?df=hdehaan.free.fr.dat&ft=0&dd=E">&nbsp;&nbsp; 
+\&nbsp;&nbsp;
+
+<img src="http://perso0.free.fr/cgi-bin/wwwcount.cgi?df=hdehaan.free.fr.dat&ft=0&dd=E&display=clock">)  
+
+</tr>
+
+
+		
+		
+</td>
+</tr>
+</table>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2682576-1";
+urchinTracker();
+</script>
+		
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+	
+
+
+
+
+</body>
+
+</html>
