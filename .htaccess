@@ -1,0 +1,37 @@
+# Pas de cache sur les pages : le visiteur doit toujours recevoir la version du
+# serveur. Sans consigne, free.fr n'envoie que Last-Modified et ETag, et le
+# navigateur applique une fraîcheur heuristique — il peut resservir une page
+# vieille de plusieurs jours sans rien demander. C'est ce qui s'est produit le
+# 25 août 2026 : un sommaire périmé s'affichait alors que le serveur servait
+# bien le nouveau.
+#
+# Relevé sur free.fr le 26 août 2026 : mod_expires est actif, mod_headers ne
+# l'est pas. C'est donc le second bloc qui agit ; le premier est conservé, sans
+# effet aujourd'hui, au cas où l'hébergeur l'activerait.
+#
+# Les blocs IfModule sont indispensables : une directive laissée nue renverrait
+# une erreur 500 sur tout le site si son module manquait.
+#
+# Effet obtenu : Cache-Control max-age=0, donc revalidation à chaque visite. La
+# page n'est pas retéléchargée pour autant — le serveur répond 304 tant qu'elle
+# n'a pas changé. Les images et les PDF gardent leur cache : ils ne changent
+# pas, et pèsent 1,6 Mo à eux seuls.
+#
+# Ce fichier ne sert qu'à free.fr ; GitHub Pages ne le lit pas et n'offre aucun
+# réglage d'en-têtes.
+
+<IfModule mod_headers.c>
+  <FilesMatch "[.](html?|css|js)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 0 seconds"
+  ExpiresByType text/javascript "access plus 0 seconds"
+  ExpiresByType application/javascript "access plus 0 seconds"
+</IfModule>

@@ -30,6 +30,9 @@ def fichiers():
     GitHub Pages), data/, package.json, node_modules/ et Word/.
     """
     yield RACINE / 'index.htm'
+    # .htaccess ne sert qu'a free.fr : il y supprime le cache des pages, que
+    # l'hebergeur ne pilote par aucun en-tete. GitHub Pages ne le lit pas.
+    yield RACINE / '.htaccess'
     yield RACINE / 'css' / 'protection.css'
     yield RACINE / 'scripts' / 'protection.js'
     for dossier in ('exercices', 'img'):
