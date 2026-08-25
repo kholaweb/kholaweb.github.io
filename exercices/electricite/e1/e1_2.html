@@ -133,6 +133,13 @@ a{color:inherit}
 .partie p{margin:0 0 .85rem;max-width:60ch}
 .partie .large{max-width:none}
 
+/* Texte justifié, césure comprise : sans elle, la justification creuse des
+   lézardes dans une colonne étroite. lang="fr" donne les coupures françaises. */
+.entete .chapeau,
+.partie p:not(.ligne-formule),
+.questions li,
+.kholor p{text-align:justify;hyphens:auto}
+
 /* Questions de l'énoncé. Les retraits sont ceux du document : la numérotation y
    est définie avec left=720 et hanging=360 twips, soit le numéro à 1,5 rem de la
    marge et le texte à 3 rem. */
@@ -146,7 +153,7 @@ a{color:inherit}
 /* Formule dans le fil du texte : retrait de 360 twips dans le document, soit
    1,5 rem. Sous une question, le document la met à 720 twips, c'est-à-dire au
    niveau du texte de la question — donc sans retrait supplémentaire. */
-.partie .ligne-formule{padding-left:1.5rem;max-width:none}
+.partie .ligne-formule{padding-left:1.5rem;max-width:none;text-align:left}
 .questions .ligne-formule{padding-left:0}
 
 /* KaTeX rend les formules à 1.21em par défaut, ce qui les fait dominer la
@@ -174,12 +181,16 @@ a{color:inherit}
 .numerique{color:var(--gris)}
 
 /* ---------- navigation de fin ---------- */
-.suite{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;
+/* Navigation entre exercices : une seule ligne. Le chapitre, que le fil
+   d'ariane nomme déjà en tête de page, cède la place ; sous 640 px les titres
+   s'effacent à leur tour et il ne reste que les codes. */
+.suite{display:flex;flex-wrap:nowrap;gap:1.5rem;justify-content:space-between;
   align-items:baseline;padding:2.5rem 0 0;margin-top:2rem;border-top:1px solid var(--filet);
   font-size:.9375rem}
 .suite a{text-decoration:none;color:var(--bordeaux);
-  border-bottom:1px solid currentColor;padding-bottom:1px}
-.suite .chapitre-courant{font-size:.8125rem;color:var(--gris-clair)}
+  border-bottom:1px solid currentColor;padding-bottom:1px;
+  min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.suite a:only-child{margin-left:auto}
 
 /* ---------- bande Kholor ---------- */
 .kholor{background:var(--ivoire);color:var(--encre);padding:3.25rem 0;margin-top:3.5rem;
@@ -198,6 +209,7 @@ a{color:inherit}
 
 @media (max-width:640px){
   .partie{padding-top:2.25rem}
+  .suite .titre-exo{display:none}
   .entete{padding-bottom:2rem}
   .eq{grid-template-columns:minmax(0,1fr);gap:.25rem}
   .eq-num{justify-self:end}
@@ -246,7 +258,7 @@ a{color:inherit}
   </div>
 </header>
 
-<nav class="ariane colonne" aria-label="Fil d'ariane">
+<nav class="ariane colonne" aria-label="Fil d’ariane">
   <a href="../../../index.htm">Accueil</a>
   <span class="sep">›</span>
   <a href="../../../index.htm#electricite">Électricité</a>
@@ -258,10 +270,10 @@ a{color:inherit}
 
 <div class="entete colonne">
   <p class="surtitre">Électricité · E1.2</p>
-  <h1>Détermination d'une tension</h1>
+  <h1>Détermination d’une tension</h1>
   <p class="chapeau">Un réseau de quatre résistances égales alimenté par une source
-     de tension, où l'identification des nœuds confondus et la mise en évidence
-     d'un axe de symétrie dispensent d'écrire le système complet des lois de
+     de tension, où l’identification des nœuds confondus et la mise en évidence
+     d’un axe de symétrie dispensent d’écrire le système complet des lois de
      Kirchhoff.</p>
 </div>
 
@@ -273,7 +285,7 @@ a{color:inherit}
 
   <figure class="schema">
     <svg viewBox="0 0 264 268" role="img"
-         aria-label="Réseau carré : les sommets M, C, B et D sont reliés par des fils sans résistance ; du point M part une branche verticale contenant la source de tension E puis une résistance R jusqu'au point central A ; de A partent trois résistances R, vers C, vers B et vers D.">
+         aria-label="Réseau carré : les sommets M, C, B et D sont reliés par des fils sans résistance ; du point M part une branche verticale contenant la source de tension E puis une résistance R jusqu’au point central A ; de A partent trois résistances R, vers C, vers B et vers D.">
       <path class="fil" d="M32 34 H232 V234 H32 Z"/>
       <path class="fil" d="M132 34 V134"/>
       <circle class="fil" cx="132" cy="62" r="17"/>
@@ -299,7 +311,7 @@ a{color:inherit}
     </svg>
   </figure>
 
-  <p>Déterminer l'expression de la tension \(U_{AB}\) à l'aide des lois de Kirchhoff.</p>
+  <p>Déterminer l’expression de la tension \(U_{AB}\) à l’aide des lois de Kirchhoff.</p>
 </section>
 
 <!-- ══════════════ CORRIGÉ ══════════════ -->
@@ -356,23 +368,23 @@ a{color:inherit}
     </svg>
   </figure>
 
-  <p>L'axe \(AM\) est un axe de symétrie : chaque résistance de la portion de circuit
+  <p>L’axe \(AM\) est un axe de symétrie : chaque résistance de la portion de circuit
      \(AM\) est donc parcourue par le courant \(\dfrac{I}{3}\).</p>
 
-  <p>La tension aux bornes d'une dérivation étant commune à toutes ses branches,
+  <p>La tension aux bornes d’une dérivation étant commune à toutes ses branches,
      il vient :</p>
 
   <div class="eq"><div class="eq-corps">
     \[ U = R\,\frac{I}{3} = E - RI \]
   </div></div>
 
-  <p>Cette égalité fournit l'expression de \(I\) :</p>
+  <p>Cette égalité fournit l’expression de \(I\) :</p>
 
   <div class="eq"><div class="eq-corps">
     \[ I = \frac{3E}{4R} \]
   </div></div>
 
-  <p>La tension recherchée \(U_{AB}\) s'identifie à \(U = U_{AM}\), d'où :</p>
+  <p>La tension recherchée \(U_{AB}\) s’identifie à \(U = U_{AM}\), d’où :</p>
 
   <div class="eq"><div class="eq-corps">
     \[ U_{AB} = R\,\frac{I}{3} = R\,\frac{1}{3}\,\frac{3E}{4R} \]
@@ -390,16 +402,15 @@ a{color:inherit}
   </details>
 
   <nav class="suite" aria-label="Navigation entre exercices">
-    <a href="e1_1.html">← E1.1 Thermistance</a>
-    <span class="chapitre-courant">E1 · Approximation des régimes quasi stationnaires. Dipôles.</span>
-    <a href="e1_3.html">E1.3 Étude d&#39;un réseau →</a>
+    <a href="e1_1.html">← E1.1<span class="titre-exo"> Thermistance</span></a>
+    <a href="e1_3.html">E1.3<span class="titre-exo"> Étude d’un réseau</span> →</a>
   </nav>
 </section>
 
 <section class="kholor">
   <div class="colonne">
     <p class="surtitre">Recueil Kholor</p>
-    <h2>Le même chapitre, d'autres exercices.</h2>
+    <h2>Le même chapitre, d’autres exercices.</h2>
     <p>Le recueil <em>E1 · Lois de Kirchhoff. Réseaux en régime continu</em> réunit
        23 exercices inédits, différents de ceux publiés ici, tous corrigés dans le détail.</p>
     <a class="lire" href="https://payhip.com/b/pHb4u">Voir le recueil E1</a>

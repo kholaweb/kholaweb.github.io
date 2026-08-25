@@ -133,6 +133,13 @@ a{color:inherit}
 .partie p{margin:0 0 .85rem;max-width:60ch}
 .partie .large{max-width:none}
 
+/* Texte justifié, césure comprise : sans elle, la justification creuse des
+   lézardes dans une colonne étroite. lang="fr" donne les coupures françaises. */
+.entete .chapeau,
+.partie p:not(.ligne-formule),
+.questions li,
+.kholor p{text-align:justify;hyphens:auto}
+
 /* Questions de l'énoncé. Les retraits sont ceux du document : la numérotation y
    est définie avec left=720 et hanging=360 twips, soit le numéro à 1,5 rem de la
    marge et le texte à 3 rem. */
@@ -146,7 +153,7 @@ a{color:inherit}
 /* Formule dans le fil du texte : retrait de 360 twips dans le document, soit
    1,5 rem. Sous une question, le document la met à 720 twips, c'est-à-dire au
    niveau du texte de la question — donc sans retrait supplémentaire. */
-.partie .ligne-formule{padding-left:1.5rem;max-width:none}
+.partie .ligne-formule{padding-left:1.5rem;max-width:none;text-align:left}
 .questions .ligne-formule{padding-left:0}
 
 /* KaTeX rend les formules à 1.21em par défaut, ce qui les fait dominer la
@@ -174,12 +181,16 @@ a{color:inherit}
 .numerique{color:var(--gris)}
 
 /* ---------- navigation de fin ---------- */
-.suite{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;
+/* Navigation entre exercices : une seule ligne. Le chapitre, que le fil
+   d'ariane nomme déjà en tête de page, cède la place ; sous 640 px les titres
+   s'effacent à leur tour et il ne reste que les codes. */
+.suite{display:flex;flex-wrap:nowrap;gap:1.5rem;justify-content:space-between;
   align-items:baseline;padding:2.5rem 0 0;margin-top:2rem;border-top:1px solid var(--filet);
   font-size:.9375rem}
 .suite a{text-decoration:none;color:var(--bordeaux);
-  border-bottom:1px solid currentColor;padding-bottom:1px}
-.suite .chapitre-courant{font-size:.8125rem;color:var(--gris-clair)}
+  border-bottom:1px solid currentColor;padding-bottom:1px;
+  min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.suite a:only-child{margin-left:auto}
 
 /* ---------- bande Kholor ---------- */
 .kholor{background:var(--ivoire);color:var(--encre);padding:3.25rem 0;margin-top:3.5rem;
@@ -198,6 +209,7 @@ a{color:inherit}
 
 @media (max-width:640px){
   .partie{padding-top:2.25rem}
+  .suite .titre-exo{display:none}
   .entete{padding-bottom:2rem}
   .eq{grid-template-columns:minmax(0,1fr);gap:.25rem}
   .eq-num{justify-self:end}
@@ -247,7 +259,7 @@ a{color:inherit}
   </div>
 </header>
 
-<nav class="ariane colonne" aria-label="Fil d'ariane">
+<nav class="ariane colonne" aria-label="Fil d’ariane">
   <a href="../../../index.htm">Accueil</a>
   <span class="sep">›</span>
   <a href="../../../index.htm#electricite">Électricité</a>
@@ -259,7 +271,7 @@ a{color:inherit}
 
 <div class="entete colonne">
   <p class="surtitre">Électricité · E1.3</p>
-  <h1>Étude d'un réseau</h1>
+  <h1>Étude d’un réseau</h1>
   <p class="chapeau">Un réseau à six branches et trois sources, où la loi des nœuds
      ramène six intensités inconnues à trois, avant que trois équations de mailles
      ne donnent le courant cherché.</p>
@@ -400,12 +412,12 @@ viewBox="0 0 8712.61 4965.78"
   <summary>Corrigé<span class="appel"></span><span class="chevron" aria-hidden="true"></span></summary>
 
   <p>Le réseau comporte six branches, donc six intensités inconnues <i>a priori</i>.
-     Les quatre équations de nœuds que l'on peut écrire aux points \(A\), \(B\), \(C\)
+     Les quatre équations de nœuds que l’on peut écrire aux points \(A\), \(B\), \(C\)
      et \(D\) ne sont pas linéairement indépendantes : chaque intensité y figure deux
-     fois, à l'arrivée dans un nœud et au départ de l'autre nœud de sa branche. Trois
-     d'entre elles suffisent donc, la quatrième s'en déduisant. Une fois la loi des
+     fois, à l’arrivée dans un nœud et au départ de l’autre nœud de sa branche. Trois
+     d’entre elles suffisent donc, la quatrième s’en déduisant. Une fois la loi des
      nœuds écrite, il ne subsiste que trois inconnues, \(I\), \(i\) et \(j\), comme
-     l'indique le schéma suivant.</p>
+     l’indique le schéma suivant.</p>
 
   <figure class="schema">
 <svg role="img" style="max-width:30rem" aria-label="Le même réseau, avec les intensités reportées après écriture de la loi des nœuds : trois inconnues seulement, I dans la branche centrale droite, i dans la branche de droite, j dans la branche verticale issue de A, et les combinaisons I plus i et I plus i moins j sur les autres branches." xmlns="http://www.w3.org/2000/svg" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
@@ -599,7 +611,7 @@ viewBox="0 0 8712.61 5098.95"
     \[ -Rj - E_3 - R(I + i) - RI - R(I + i) = 0 \]
   </div></div>
 
-  <p>D'où :</p>
+  <p>D’où :</p>
 
   <div class="eq">
     <div class="eq-corps">
@@ -614,7 +626,7 @@ viewBox="0 0 8712.61 5098.95"
     \[ -RI + E_1 + Ri = 0 \]
   </div></div>
 
-  <p>D'où :</p>
+  <p>D’où :</p>
 
   <div class="eq">
     <div class="eq-corps">
@@ -632,8 +644,8 @@ viewBox="0 0 8712.61 5098.95"
     <span class="eq-num">(4)</span>
   </div>
 
-  <p>En reportant enfin (3) et (4) dans (1), on parvient à l'expression de
-     l'intensité \(I\) :</p>
+  <p>En reportant enfin (3) et (4) dans (1), on parvient à l’expression de
+     l’intensité \(I\) :</p>
 
   <div class="encadre">
     <div class="eq">
@@ -647,16 +659,15 @@ viewBox="0 0 8712.61 5098.95"
   </details>
 
   <nav class="suite" aria-label="Navigation entre exercices">
-    <a href="e1_2.html">← E1.2 Détermination d'une tension</a>
-    <span class="chapitre-courant">E1 · Approximation des régimes quasi stationnaires. Dipôles.</span>
-    <a href="../../../electricite/e_1/e_1_4/e_1_4_enon.htm">E1.4 Réseau à résistance réglable →</a>
+    <a href="e1_2.html">← E1.2<span class="titre-exo"> Détermination d’une tension</span></a>
+    <a href="../../../electricite/e_1/e_1_4/e_1_4_enon.htm">E1.4<span class="titre-exo"> Réseau à résistance réglable</span> →</a>
   </nav>
 </section>
 
 <section class="kholor">
   <div class="colonne">
     <p class="surtitre">Recueil Kholor</p>
-    <h2>Le même chapitre, d'autres exercices.</h2>
+    <h2>Le même chapitre, d’autres exercices.</h2>
     <p>Le recueil <em>E1 · Lois de Kirchhoff. Réseaux en régime continu</em> réunit
        23 exercices inédits, différents de ceux publiés ici, tous corrigés dans le détail.</p>
     <a class="lire" href="https://payhip.com/b/pHb4u">Voir le recueil E1</a>

@@ -133,6 +133,13 @@ a{color:inherit}
 .partie p{margin:0 0 .85rem;max-width:60ch}
 .partie .large{max-width:none}
 
+/* Texte justifié, césure comprise : sans elle, la justification creuse des
+   lézardes dans une colonne étroite. lang="fr" donne les coupures françaises. */
+.entete .chapeau,
+.partie p:not(.ligne-formule),
+.questions li,
+.kholor p{text-align:justify;hyphens:auto}
+
 /* Questions de l'énoncé. Les retraits sont ceux du document : la numérotation y
    est définie avec left=720 et hanging=360 twips, soit le numéro à 1,5 rem de la
    marge et le texte à 3 rem. */
@@ -146,7 +153,7 @@ a{color:inherit}
 /* Formule dans le fil du texte : retrait de 360 twips dans le document, soit
    1,5 rem. Sous une question, le document la met à 720 twips, c'est-à-dire au
    niveau du texte de la question — donc sans retrait supplémentaire. */
-.partie .ligne-formule{padding-left:1.5rem;max-width:none}
+.partie .ligne-formule{padding-left:1.5rem;max-width:none;text-align:left}
 .questions .ligne-formule{padding-left:0}
 
 /* KaTeX rend les formules à 1.21em par défaut, ce qui les fait dominer la
@@ -174,12 +181,16 @@ a{color:inherit}
 .numerique{color:var(--gris)}
 
 /* ---------- navigation de fin ---------- */
-.suite{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;
+/* Navigation entre exercices : une seule ligne. Le chapitre, que le fil
+   d'ariane nomme déjà en tête de page, cède la place ; sous 640 px les titres
+   s'effacent à leur tour et il ne reste que les codes. */
+.suite{display:flex;flex-wrap:nowrap;gap:1.5rem;justify-content:space-between;
   align-items:baseline;padding:2.5rem 0 0;margin-top:2rem;border-top:1px solid var(--filet);
   font-size:.9375rem}
 .suite a{text-decoration:none;color:var(--bordeaux);
-  border-bottom:1px solid currentColor;padding-bottom:1px}
-.suite .chapitre-courant{font-size:.8125rem;color:var(--gris-clair)}
+  border-bottom:1px solid currentColor;padding-bottom:1px;
+  min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.suite a:only-child{margin-left:auto}
 
 /* ---------- bande Kholor ---------- */
 .kholor{background:var(--ivoire);color:var(--encre);padding:3.25rem 0;margin-top:3.5rem;
@@ -198,6 +209,7 @@ a{color:inherit}
 
 @media (max-width:640px){
   .partie{padding-top:2.25rem}
+  .suite .titre-exo{display:none}
   .entete{padding-bottom:2rem}
   .eq{grid-template-columns:minmax(0,1fr);gap:.25rem}
   .eq-num{justify-self:end}
@@ -229,7 +241,7 @@ a{color:inherit}
   </div>
 </header>
 
-<nav class="ariane colonne" aria-label="Fil d'ariane">
+<nav class="ariane colonne" aria-label="Fil d’ariane">
   <a href="../../../index.htm">Accueil</a>
   <span class="sep">›</span>
   <a href="../../../index.htm#electricite">Électricité</a>
@@ -242,8 +254,8 @@ a{color:inherit}
 <div class="entete colonne">
   <p class="surtitre">Électricité · E1.1</p>
   <h1>Thermistance</h1>
-  <p class="chapeau">Loi de variation de la résistance d'une thermistance avec la température,
-     puis puissance qu'elle peut dissiper en régime permanent lorsqu'elle échange
+  <p class="chapeau">Loi de variation de la résistance d’une thermistance avec la température,
+     puis puissance qu’elle peut dissiper en régime permanent lorsqu’elle échange
      de la chaleur avec le milieu extérieur.</p>
 </div>
 
@@ -274,7 +286,7 @@ a{color:inherit}
 
   <p>La thermistance, portée à la température \(T\), est mise en contact thermique avec
      un milieu de température constante \(T_o\). Dans ces conditions, la puissance \(P\)
-     qu'elle dissipe est reliée à sa température par la loi de Newton :</p>
+     qu’elle dissipe est reliée à sa température par la loi de Newton :</p>
 
   <p class="ligne-formule">
     \(\displaystyle P = H\left(T - T_o\right)\)
@@ -282,11 +294,11 @@ a{color:inherit}
   </p>
 
   <p>On désigne par \(U\) la tension aux bornes de la thermistance et par \(I\)
-     l'intensité qui la traverse.</p>
+     l’intensité qui la traverse.</p>
 
   <ol class="questions" start="3" style="counter-reset:q 2">
     <li>Établir les expressions de \(U\) et de \(I\) en fonction de \(T\), en ne faisant appel
-        qu'aux grandeurs introduites dans l'énoncé dont la valeur numérique est connue.</li>
+        qu’aux grandeurs introduites dans l’énoncé dont la valeur numérique est connue.</li>
     <li>La thermistance est caractérisée par une température limite \(T_m = 500\ \mathrm{K}\).
         En déduire la puissance \(P_m\) que peut alors dissiper la thermistance lorsque
         \(T_o = 300\ \mathrm{K}\), ainsi que les valeurs \(U_m\) et \(I_m\) qui lui correspondent.</li>
@@ -301,7 +313,7 @@ a{color:inherit}
   <!-- ─────────── 1 ─────────── -->
   <h2>1. Détermination de \(A\) et \(R_o\)</h2>
 
-  <p>La dépendance en température de la résistance d'une thermistance est donnée
+  <p>La dépendance en température de la résistance d’une thermistance est donnée
      par la relation :</p>
 
   <div class="eq">
@@ -323,7 +335,7 @@ a{color:inherit}
     <span class="eq-num">(3)</span>
   </div>
 
-  <p>Les données de l'énoncé conduisent alors à :</p>
+  <p>Les données de l’énoncé conduisent alors à :</p>
 
   <div class="eq">
     <div class="eq-corps">
@@ -371,13 +383,13 @@ a{color:inherit}
          = \underline{1{,}8 \times 10^{3}\ \mathrm{K}} \]
   </div></div>
 
-  <p>La relation (2) permet ensuite d'exprimer la résistance \(R_o\) :</p>
+  <p>La relation (2) permet ensuite d’exprimer la résistance \(R_o\) :</p>
 
   <div class="eq"><div class="eq-corps">
     \[ R_o = \frac{R(T)}{\exp\!\left(\dfrac{A}{T}\right)} \]
   </div></div>
 
-  <p>En reportant (6) et en s'appuyant sur la première donnée de l'énoncé, il vient :</p>
+  <p>En reportant (6) et en s’appuyant sur la première donnée de l’énoncé, il vient :</p>
 
   <div class="eq"><div class="eq-corps">
     \[ \begin{aligned}
@@ -416,21 +428,21 @@ a{color:inherit}
   <!-- ─────────── 2 ─────────── -->
   <h2>2. Allure de la courbe</h2>
 
-  <p>La relation (3) s'écrit encore :</p>
+  <p>La relation (3) s’écrit encore :</p>
 
   <div class="eq">
     <div class="eq-corps">\[ \ln\!\left(R(T)\right) = \ln\!\left(R_o\right) + \frac{A}{T} \]</div>
     <span class="eq-num">(8)</span>
   </div>
 
-  <p>Cette fonction est représentée par une droite d'ordonnée à l'origine \(\ln\!\left(R_o\right)\)
+  <p>Cette fonction est représentée par une droite d’ordonnée à l’origine \(\ln\!\left(R_o\right)\)
      et de pente positive \(A\).</p>
 
   <!-- ─────────── 3 ─────────── -->
   <h2>3. Tension et intensité en fonction de \(T\)</h2>
 
   <p>En se plaçant en convention récepteur, la puissance échangée par la thermistance
-     avec le reste du circuit s'écrit :</p>
+     avec le reste du circuit s’écrit :</p>
 
   <div class="eq">
     <div class="eq-corps">
@@ -439,7 +451,7 @@ a{color:inherit}
     <span class="eq-num">(9)</span>
   </div>
 
-  <p>D'où :</p>
+  <p>D’où :</p>
 
   <div class="eq"><div class="eq-corps">
     \[ \begin{aligned}
@@ -448,7 +460,7 @@ a{color:inherit}
        \end{aligned} \]
   </div></div>
 
-  <p>Les relations (6) et (7) permettent d'y substituer les grandeurs \(A\) et \(R_o\) :</p>
+  <p>Les relations (6) et (7) permettent d’y substituer les grandeurs \(A\) et \(R_o\) :</p>
 
   <div class="eq"><div class="eq-corps">
     \[ U = \left(\frac{R_1}{\left(\dfrac{R_2}{R_1}\right)^{\frac{T_2}{T_1 - T_2}}}\,
@@ -458,7 +470,7 @@ a{color:inherit}
   </div></div>
 
   <p>En extrayant le terme \(\left(\dfrac{R_2}{R_1}\right)^{\frac{T_2}{T_1 - T_2}}\) de la
-     racine carrée et en réarrangeant l'argument de l'exponentielle :</p>
+     racine carrée et en réarrangeant l’argument de l’exponentielle :</p>
 
   <div class="eq"><div class="eq-corps">
     \[ U = \left(R_1 H\left(T - T_o\right)\right)^{\frac{1}{2}}
@@ -544,8 +556,8 @@ a{color:inherit}
   <!-- ─────────── 4 ─────────── -->
   <h2>4. Valeurs maximales</h2>
 
-  <p>La puissance maximale s'obtient en reportant la température limite \(T_m\) dans
-     la relation donnée par l'énoncé :</p>
+  <p>La puissance maximale s’obtient en reportant la température limite \(T_m\) dans
+     la relation donnée par l’énoncé :</p>
 
   <div class="encadre">
     <div class="eq">
@@ -558,7 +570,7 @@ a{color:inherit}
     \[ P_m = 8{,}0 \times 10^{-3}\left(500 - 300\right) = \underline{1{,}6\ \mathrm{W}} \]
   </div></div>
 
-  <p>La tension et l'intensité correspondantes se déduisent respectivement des
+  <p>La tension et l’intensité correspondantes se déduisent respectivement des
      équations (10) et (11).</p>
 
   <div class="encadre">
@@ -604,15 +616,14 @@ a{color:inherit}
   </details>
 
   <nav class="suite" aria-label="Navigation entre exercices">
-    <span class="chapitre-courant">E1 · Approximation des régimes quasi stationnaires. Dipôles.</span>
-    <a href="e1_2.html">E1.2 Détermination d&#39;une tension →</a>
+    <a href="e1_2.html">E1.2<span class="titre-exo"> Détermination d’une tension</span> →</a>
   </nav>
 </section>
 
 <section class="kholor">
   <div class="colonne">
     <p class="surtitre">Recueil Kholor</p>
-    <h2>Le même chapitre, d'autres exercices.</h2>
+    <h2>Le même chapitre, d’autres exercices.</h2>
     <p>Le recueil <em>E1 · Lois de Kirchhoff. Réseaux en régime continu</em> réunit
        23 exercices inédits, différents de ceux publiés ici, tous corrigés dans le détail.</p>
     <a class="lire" href="https://payhip.com/b/pHb4u">Voir le recueil E1</a>
