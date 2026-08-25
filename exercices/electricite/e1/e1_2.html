@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E1.2 Détermination d’une tension — corrigé · KholaWeb</title>
+<meta name="author" content="Hubert de Haan — KholaWeb">
+<meta name="description" content="E1.2 Détermination d’une tension : énoncé et corrigé détaillé. Réseau de quatre résistances et lois de Kirchhoff, résolution par symétrie.">
+<meta name="keywords" content="lois de Kirchhoff, réseau linéaire, pont de résistances, symétrie, exercice corrigé, CPGE, kholaweb">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://www.kholaweb.com/exercices/electricite/e1/e1_2.html">
+
+<!-- KaTeX — rendu des formules côté client -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{
+    delimiters:[
+      {left:'\\[',right:'\\]',display:true},
+      {left:'\\(',right:'\\)',display:false}
+    ],
+    throwOnError:false
+  });"></script>
+
+<style>
+:root{
+  --encre:#181614;
+  --gris:#5f5b55;
+  --gris-clair:#8c8781;
+  --filet:#e2ded7;
+  --papier:#ffffff;
+  --bordeaux:#a10115;
+  --ivoire:#f6f1e7;
+  --ivoire-filet:#e0d6c3;
+  --ivoire-texte:#4a463f;
+  --ivoire-sourd:#8d8471;
+  --ivoire-fond2:#fbf8f2;
+  --bandeau-fond:rgba(255,255,255,.94);
+  --sans:ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --mesure:74rem;
+  --colonne:50rem;
+}
+
+/* ---------- mode sombre ---------- */
+@media (prefers-color-scheme:dark){
+  :root{
+    --encre:#f0ede7;
+    --gris:#a29c94;
+    --gris-clair:#79736c;
+    --filet:#2e2b26;
+    --papier:#13110e;
+    --bordeaux:#e0616e;
+    --ivoire:#1c1913;
+    --ivoire-filet:#332e25;
+    --ivoire-texte:#c0b9ab;
+    --ivoire-sourd:#9c9384;
+    --ivoire-fond2:#221e17;
+    --bandeau-fond:rgba(19,17,14,.94);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--papier);color:var(--encre);
+  font-family:var(--sans);font-size:15px;line-height:1.45;
+}
+a{color:inherit}
+.enveloppe{max-width:var(--mesure);margin:0 auto;padding:0 1.5rem}
+
+/* ---------- en-tête ---------- */
+.bandeau{position:sticky;top:0;z-index:20;background:var(--bandeau-fond);
+  backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--filet)}
+.bandeau .enveloppe{display:flex;align-items:baseline;gap:1.75rem;
+  height:60px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+.bandeau .enveloppe::-webkit-scrollbar{display:none}
+.marque{font-weight:650;letter-spacing:-.015em;font-size:1.0625rem;text-decoration:none;white-space:nowrap}
+.marque em{font-style:normal;color:var(--bordeaux)}
+.menu{display:flex;gap:1.25rem;font-size:.8125rem;color:var(--gris);white-space:nowrap}
+.menu a{text-decoration:none}
+.menu a:hover{color:var(--bordeaux)}
+.menu .vers-kholor{color:var(--bordeaux);font-family:var(--serif);font-size:.9375rem;letter-spacing:.01em}
+
+/* ---------- colonne de lecture ---------- */
+.colonne{max-width:var(--colonne);margin:0 auto;padding:0 1.5rem}
+
+/* ---------- fil d'ariane ---------- */
+/* les marges latérales reprennent celles de .colonne : les règles qui suivent
+   redéfinissent le raccourci padding, il faut donc les répéter */
+.ariane{padding:1.5rem 1.5rem 0;font-size:.8125rem;color:var(--gris-clair)}
+.ariane a{text-decoration:none}
+.ariane a:hover{color:var(--bordeaux)}
+.ariane .sep{padding:0 .45rem;color:var(--filet)}
+
+/* ---------- titre de l'exercice ---------- */
+.entete{padding:1.75rem 1.5rem 2.5rem;border-bottom:1px solid var(--filet)}
+.surtitre{font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gris-clair);margin:0 0 1rem}
+.entete h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.55rem,3.4vw,2.05rem);
+  line-height:1.15;letter-spacing:-.01em;margin:0 0 .85rem}
+.entete .chapeau{font-family:var(--serif);font-size:1.0625rem;line-height:1.55;
+  color:var(--gris);max-width:54ch;margin:0}
+
+/* ---------- corps ---------- */
+.partie{padding:3rem 1.5rem 1rem}
+.partie + .partie{border-top:1px solid var(--filet)}
+.titre-partie{font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gris-clair);margin:0 0 1.75rem}
+.partie h2{font-size:1.15rem;font-weight:650;letter-spacing:-.01em;margin:2rem 0 .8rem}
+.partie h2:first-of-type{margin-top:0}
+/* dans un titre en sans-serif gras, les grandeurs en KaTeX paraissent trop
+   grandes au facteur commun : on les ramène sous la taille du titre */
+.partie h2 .katex{font-size:.95em}
+.partie p{margin:0 0 .85rem;max-width:60ch}
+.partie .large{max-width:none}
+
+/* Questions de l'énoncé. Les retraits sont ceux du document : la numérotation y
+   est définie avec left=720 et hanging=360 twips, soit le numéro à 1,5 rem de la
+   marge et le texte à 3 rem. */
+.questions{list-style:none;counter-reset:q;margin:1.5rem 0;padding:0 0 0 1.5rem}
+.questions li{counter-increment:q;position:relative;padding:0 0 .8rem 1.5rem;max-width:68ch}
+.questions li:last-child{padding-bottom:0}
+.questions li::before{content:counter(q) ".";position:absolute;left:0;top:0;
+  font-weight:650;font-size:.875rem;color:var(--bordeaux)}
+.questions li > p{margin:.5rem 0 0}
+
+/* Formule dans le fil du texte : retrait de 360 twips dans le document, soit
+   1,5 rem. Sous une question, le document la met à 720 twips, c'est-à-dire au
+   niveau du texte de la question — donc sans retrait supplémentaire. */
+.partie .ligne-formule{padding-left:1.5rem;max-width:none}
+.questions .ligne-formule{padding-left:0}
+
+/* KaTeX rend les formules à 1.21em par défaut, ce qui les fait dominer la
+   typographie sans empattement du texte : on rapproche les deux tailles */
+.katex{font-size:1.1em}
+
+/* équations — disposition du document d'origine : la formule est décalée
+   d'une tabulation vers la droite, le numéro est repoussé à la marge */
+.eq{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
+  gap:.5rem 1rem;margin:1.05rem 0}
+/* la tabulation par défaut du document vaut 708 twips, soit 1,25 cm */
+.eq-corps{overflow-x:auto;overflow-y:hidden;padding:.15rem .1rem .15rem 2.95rem}
+.eq-corps .katex-display,
+.eq-corps .katex-display > .katex{text-align:left}
+.eq-num{font-size:.8125rem;color:var(--gris-clair);white-space:nowrap;font-variant-numeric:tabular-nums}
+.eq .katex-display{margin:.35rem 0}
+
+/* résultat encadré */
+.encadre{background:var(--ivoire-fond2);border:1px solid var(--ivoire-filet);
+  border-left:3px solid var(--bordeaux);padding:.7rem 1.1rem;margin:1.25rem 0}
+.encadre .eq{margin:0}
+.encadre .eq-num{color:var(--ivoire-sourd)}
+
+/* application numérique */
+.numerique{color:var(--gris)}
+
+/* ---------- navigation de fin ---------- */
+.suite{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;
+  align-items:baseline;padding:2.5rem 0 0;margin-top:2rem;border-top:1px solid var(--filet);
+  font-size:.9375rem}
+.suite a{text-decoration:none;color:var(--bordeaux);
+  border-bottom:1px solid currentColor;padding-bottom:1px}
+.suite .chapitre-courant{font-size:.8125rem;color:var(--gris-clair)}
+
+/* ---------- bande Kholor ---------- */
+.kholor{background:var(--ivoire);color:var(--encre);padding:3.25rem 0;margin-top:3.5rem;
+  border-top:1px solid var(--ivoire-filet);border-bottom:1px solid var(--ivoire-filet)}
+.kholor .surtitre{color:var(--ivoire-sourd)}
+.kholor h2{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.2;margin:0 0 .6rem}
+.kholor p{font-family:var(--serif);font-size:1.0625rem;line-height:1.7;
+  color:var(--ivoire-texte);max-width:56ch;margin:0 0 1.1rem}
+.lire{font-family:var(--serif);font-size:1.0625rem;color:var(--bordeaux);text-decoration:none;
+  border-bottom:1px solid currentColor;padding-bottom:1px}
+
+/* ---------- pied ---------- */
+.pied{padding:2rem 0 3rem;font-size:.8125rem;color:var(--gris-clair)}
+.pied a{text-decoration:none}
+.pied a:hover{color:var(--bordeaux)}
+
+@media (max-width:640px){
+  .partie{padding-top:2.25rem}
+  .entete{padding-bottom:2rem}
+  .eq{grid-template-columns:minmax(0,1fr);gap:.25rem}
+  .eq-num{justify-self:end}
+  /* un peu plus de place pour les formules ; les plus larges défilent
+     horizontalement à l'intérieur de leur cadre */
+  .eq .katex-display{font-size:.94em}
+  .encadre{padding:.8rem .65rem}
+  .eq-corps{padding-left:1.1rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- schémas de circuit ----------
+   Redessinés en SVG plutôt que repris des images du document, qui sont en
+   noir sur blanc et de 215 pixels de large. Le tracé suit currentColor : le
+   schéma passe donc au mode sombre avec le reste de la page. */
+.schema{margin:1.4rem 0 1.6rem;padding-left:1.5rem}
+.schema svg{display:block;width:100%;height:auto;max-width:22rem;
+  color:var(--encre);overflow:visible}
+.schema .fil{fill:none;stroke:currentColor;stroke-width:1.6;
+  stroke-linecap:square}
+.schema .boite{fill:var(--papier);stroke:currentColor;stroke-width:1.6}
+.schema .pointe{fill:currentColor}
+.schema text{font-family:var(--serif);font-style:italic;font-size:15px;
+  fill:currentColor}
+.schema .noeud{fill:currentColor}
+.schema figcaption{font-size:.8125rem;color:var(--gris-clair);
+  margin-top:.5rem;font-style:normal}
+</style>
+
+<link rel="stylesheet" href="../../../css/protection.css">
+</head>
+<body>
+
+<header class="bandeau">
+  <div class="enveloppe">
+    <a class="marque" href="../../../index.htm">Khola<em>Web</em></a>
+    <nav class="menu">
+      <a href="../../../index.htm#electricite">Électricité</a>
+      <a href="../../../index.htm#electromagnetisme">Électromagnétisme</a>
+      <a href="../../../index.htm#electronique">Électronique</a>
+      <a href="../../../index.htm#mecanique">Mécanique</a>
+      <a href="../../../index.htm#optique">Optique</a>
+      <a href="../../../index.htm#thermodynamique">Thermodynamique</a>
+      <a class="vers-kholor" href="../../../index.htm#kholor">Kholor</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="ariane colonne" aria-label="Fil d'ariane">
+  <a href="../../../index.htm">Accueil</a>
+  <span class="sep">›</span>
+  <a href="../../../index.htm#electricite">Électricité</a>
+  <span class="sep">›</span>
+  <a href="../../../index.htm#electricite">E1 — Approximation des régimes quasi stationnaires. Dipôles.</a>
+  <span class="sep">›</span>
+  E1.2
+</nav>
+
+<div class="entete colonne">
+  <p class="surtitre">Électricité · E1.2</p>
+  <h1>Détermination d'une tension</h1>
+  <p class="chapeau">Un réseau de quatre résistances égales alimenté par une source
+     de tension, où la reconnaissance des nœuds communs et un axe de symétrie
+     évitent d'écrire le système complet des lois de Kirchhoff.</p>
+</div>
+
+<!-- ══════════════ ÉNONCÉ ══════════════ -->
+<section class="partie colonne">
+  <p class="titre-partie">Énoncé</p>
+
+  <p>On considère le réseau linéaire suivant :</p>
+
+  <figure class="schema">
+    <svg viewBox="0 0 264 268" role="img"
+         aria-label="Réseau carré : les sommets M, C, B et D sont reliés par des fils sans résistance ; du point M part une branche verticale contenant la source de tension E puis une résistance R jusqu'au point central A ; de A partent trois résistances R, vers C, vers B et vers D.">
+      <path class="fil" d="M32 34 H232 V234 H32 Z"/>
+      <path class="fil" d="M132 34 V134"/>
+      <circle class="fil" cx="132" cy="62" r="17"/>
+      <rect class="boite" x="120" y="92" width="24" height="32" rx="1"/>
+      <text x="132" y="113" text-anchor="middle">R</text>
+      <path class="fil" d="M180 40 V74"/>
+      <path class="pointe" d="M180 82 l-5 -11 h10 Z"/>
+      <text x="192" y="63">E</text>
+      <path class="fil" d="M32 134 H232"/>
+      <rect class="boite" x="64" y="122" width="32" height="24" rx="1"/>
+      <text x="80" y="139" text-anchor="middle">R</text>
+      <rect class="boite" x="168" y="122" width="32" height="24" rx="1"/>
+      <text x="184" y="139" text-anchor="middle">R</text>
+      <path class="fil" d="M132 134 V234"/>
+      <rect class="boite" x="120" y="168" width="24" height="32" rx="1"/>
+      <text x="132" y="189" text-anchor="middle">R</text>
+      <circle class="noeud" cx="132" cy="134" r="3.4"/>
+      <text x="132" y="22" text-anchor="middle">M</text>
+      <text x="18" y="139">C</text>
+      <text x="240" y="139">B</text>
+      <text x="132" y="256" text-anchor="middle">D</text>
+      <text x="141" y="152">A</text>
+    </svg>
+  </figure>
+
+  <p>Déterminer l'expression de la tension \(U_{AB}\) à l'aide des lois de Kirchhoff.</p>
+</section>
+
+<!-- ══════════════ CORRIGÉ ══════════════ -->
+<section class="partie colonne">
+  <p class="titre-partie">Corrigé</p>
+
+  <p>Les points B, C, D et M sont communs, car les fils de connexion CD, DB, BM et MC
+     sont supposés sans résistance. On confond alors les points B, C et D en un seul
+     point M. Les résistances \(R\) des branches AB, AC et AD sont mises en parallèle
+     avec la branche AM contenant la source de tension et la dernière résistance \(R\).</p>
+
+  <p>Le montage proposé est donc équivalent à celui-ci :</p>
+
+  <figure class="schema">
+    <svg viewBox="0 0 320 224" role="img" style="max-width:26rem"
+         aria-label="Montage équivalent : la source de tension E en série avec une résistance R dans la branche supérieure, reliant M à A ; entre M et A, trois résistances R en parallèle. La tension U est orientée de M vers A, le courant I descend dans la branche de droite.">
+      <path class="fil" d="M30 46 H272"/>
+      <circle class="fil" cx="96" cy="46" r="17"/>
+      <rect class="boite" x="168" y="34" width="34" height="24" rx="1"/>
+      <text x="185" y="51" text-anchor="middle">R</text>
+      <path class="fil" d="M70 18 H116"/>
+      <path class="pointe" d="M124 18 l-11 -5 v10 Z"/>
+      <text x="90" y="10" text-anchor="middle">E</text>
+      <path class="fil" d="M30 46 V140"/>
+      <path class="fil" d="M272 46 V78"/>
+      <path class="pointe" d="M272 86 l-5 -11 h10 Z"/>
+      <path class="fil" d="M272 86 V140"/>
+      <text x="282" y="82">I</text>
+      <path class="fil" d="M60 106 H212"/>
+      <path class="pointe" d="M220 106 l-11 -5 v10 Z"/>
+      <text x="138" y="98" text-anchor="middle">U</text>
+      <path class="fil" d="M30 140 H74"/>
+      <path class="fil" d="M74 140 V206"/>
+      <path class="fil" d="M232 140 H272"/>
+      <path class="fil" d="M232 140 V206"/>
+      <path class="fil" d="M74 140 H136"/>
+      <path class="fil" d="M170 140 H232"/>
+      <rect class="boite" x="136" y="128" width="34" height="24" rx="1"/>
+      <text x="153" y="145" text-anchor="middle">R</text>
+      <path class="fil" d="M74 174 H136"/>
+      <path class="fil" d="M170 174 H232"/>
+      <rect class="boite" x="136" y="162" width="34" height="24" rx="1"/>
+      <text x="153" y="179" text-anchor="middle">R</text>
+      <path class="fil" d="M74 206 H136"/>
+      <path class="fil" d="M170 206 H232"/>
+      <rect class="boite" x="136" y="194" width="34" height="24" rx="1"/>
+      <text x="153" y="211" text-anchor="middle">R</text>
+      <circle class="noeud" cx="74" cy="140" r="3.4"/>
+      <circle class="noeud" cx="232" cy="140" r="3.4"/>
+      <text x="52" y="134" text-anchor="middle">M</text>
+      <text x="248" y="134">A</text>
+    </svg>
+  </figure>
+
+  <p>L'axe AM est un axe de symétrie. Chaque résistance de la portion de circuit AM
+     est donc parcourue par un courant \(\dfrac{I}{3}\).</p>
+
+  <p>La tension aux bornes d'une dérivation étant la même pour chaque branche de la
+     dérivation, on a l'égalité suivante :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ U = R\,\frac{I}{3} = E - RI \]
+  </div></div>
+
+  <p>Cette égalité permet de déterminer l'expression de \(I\) :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ I = \frac{3E}{4R} \]
+  </div></div>
+
+  <p>La tension recherchée \(U_{AB}\) étant égale à \(U = U_{AM}\), on a :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ U_{AB} = R\,\frac{I}{3} = R\,\frac{1}{3}\,\frac{3E}{4R} \]
+  </div></div>
+
+  <div class="encadre">
+    <div class="eq"><div class="eq-corps">
+      \[ U_{AB} = \frac{E}{4} \]
+    </div></div>
+  </div>
+
+  <nav class="suite" aria-label="Navigation entre exercices">
+    <a href="e1_1.html">← E1.1 Thermistance</a>
+    <span class="chapitre-courant">E1 · Approximation des régimes quasi stationnaires. Dipôles.</span>
+    <a href="../../../electricite/e_1/e_1_3/e_1_3_enon.htm">E1.3 Étude d'un réseau →</a>
+  </nav>
+</section>
+
+<section class="kholor">
+  <div class="colonne">
+    <p class="surtitre">Recueil Kholor</p>
+    <h2>Le même chapitre, d'autres exercices.</h2>
+    <p>Le recueil <em>E1 · Lois de Kirchhoff. Réseaux en régime continu</em> réunit
+       23 exercices inédits, différents de ceux publiés ici, tous corrigés dans le détail.</p>
+    <a class="lire" href="https://payhip.com/b/pHb4u">Voir le recueil E1</a>
+  </div>
+</section>
+
+<footer class="pied">
+  <div class="colonne">
+    Hubert de Haan · www.kholaweb.com ·
+    <a href="../../../index.htm">Accueil</a> ·
+    <a href="../../../index.htm#kholor">Kholor</a> ·
+    <a href="mailto:kholaweb@free.fr">Contact</a>
+  </div>
+</footer>
+
+<script src="../../../scripts/protection.js"></script>
+
+</body>
+</html>

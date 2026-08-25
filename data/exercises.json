@@ -23,8 +23,8 @@
               "code": "E1.2",
               "title": "Détermination d'une tension.",
               "externalUrl": "http://hdehaan.free.fr/electricite/e_1/e_1_2/e_1_2_enon.htm",
-              "hasCorrige": false,
-              "contentFile": null
+              "hasCorrige": true,
+              "contentFile": "exercices/electricite/e1/e1_2.html"
             },
             {
               "code": "E1.3",
