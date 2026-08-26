@@ -167,6 +167,11 @@ a{color:inherit}
    typographie sans empattement du texte : on rapproche les deux tailles */
 .katex{font-size:1.1em}
 
+/* KaTeX compose ses blocs en inline-block : une coupure de ligne peut alors se
+   glisser entre une formule et la ponctuation qui la suit, et rejeter une
+   virgule en tête de ligne. Le span les tient ensemble. */
+.lie{white-space:nowrap}
+
 /* équations — disposition du document d'origine : la formule est décalée
    d'une tabulation vers la droite, le numéro est repoussé à la marge */
 .eq{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
@@ -419,11 +424,11 @@ viewBox="0 0 8712.61 4965.78"
   <summary>Corrigé<span class="appel"></span><span class="chevron" aria-hidden="true"></span></summary>
 
   <p>Le réseau comporte six branches, donc six intensités inconnues <i>a priori</i>.
-     Les quatre équations de nœuds que l’on peut écrire aux points \(A\), \(B\), \(C\)
+     Les quatre équations de nœuds que l’on peut écrire aux points <span class="lie">\(A\),</span> <span class="lie">\(B\),</span> \(C\)
      et \(D\) ne sont pas linéairement indépendantes : chaque intensité y figure deux
      fois, à l’arrivée dans un nœud et au départ de l’autre nœud de sa branche. Trois
      d’entre elles suffisent donc, la quatrième s’en déduisant. Une fois la loi des
-     nœuds écrite, il ne subsiste que trois inconnues, \(I\), \(i\) et \(j\), comme
+     nœuds écrite, il ne subsiste que trois inconnues, <span class="lie">\(I\),</span> \(i\) et <span class="lie">\(j\),</span> comme
      l’indique le schéma suivant.</p>
 
   <figure class="schema">
@@ -667,7 +672,7 @@ viewBox="0 0 8712.61 5098.95"
 
   <nav class="suite" aria-label="Navigation entre exercices">
     <a href="e1_2.html">← E1.2<span class="titre-exo"> Détermination d’une tension</span></a>
-    <a href="../../../electricite/e_1/e_1_4/e_1_4_enon.htm">E1.4<span class="titre-exo"> Réseau à résistance réglable</span> →</a>
+    <a href="e1_4.html">E1.4<span class="titre-exo"> Réseau à résistance réglable</span> →</a>
   </nav>
 </section>
 

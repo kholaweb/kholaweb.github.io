@@ -40,7 +40,18 @@ s = re.sub(r'stroke-width:([\d.]+)',
 s = s.replace('stroke:black', 'stroke:currentColor')
 s = s.replace('fill:black', 'fill:currentColor')
 s = s.replace('fill:#A10115', 'fill:var(--bordeaux)')
+# aplat pastel des surfaces (portion d'un potentiometre, zone hachuree...) :
+# une couleur fixe resterait claire en mode sombre, seule tache du dessin a ne
+# pas suivre le theme. Une teinte de l'encre courante joue le meme role et
+# s'adapte, la distinction restant lisible sur les deux fonds.
+s = s.replace('fill:#DBCEDE', 'fill:currentColor;fill-opacity:.14')
 s = re.sub(r"font-family:'[^']*'", 'font-family:var(--serif)', s)
+
+# ce que la conversion n'a pas su traduire : signale, jamais laisse passer en
+# silence -- une couleur fixe oubliee ne se voit qu'en mode sombre
+restes = sorted(set(re.findall(r'(?:fill|stroke):(#[0-9A-Fa-f]{3,6})', s)))
+if restes:
+    print('  ATTENTION couleurs fixes non converties : %s' % ', '.join(restes))
 
 # taille : on laisse la page decider, le viewBox suffit
 s = re.sub(r'\s(?:width|height)="[\d.]+mm"', '', s, count=2)

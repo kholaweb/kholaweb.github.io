@@ -37,8 +37,8 @@
               "code": "E1.4",
               "title": "Réseau à résistance réglable.",
               "externalUrl": "http://hdehaan.free.fr/electricite/e_1/e_1_4/e_1_4_enon.htm",
-              "hasCorrige": false,
-              "contentFile": null
+              "hasCorrige": true,
+              "contentFile": "exercices/electricite/e1/e1_4.html"
             },
             {
               "code": "E1.5",

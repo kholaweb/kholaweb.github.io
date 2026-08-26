@@ -54,4 +54,5 @@
   RedirectMatch 301 ^/electricite/e_1/e_1_1(/.*)?$ /exercices/electricite/e1/e1_1.html
   RedirectMatch 301 ^/electricite/e_1/e_1_2(/.*)?$ /exercices/electricite/e1/e1_2.html
   RedirectMatch 301 ^/electricite/e_1/e_1_3(/.*)?$ /exercices/electricite/e1/e1_3.html
+  RedirectMatch 301 ^/electricite/e_1/e_1_4(/.*)?$ /exercices/electricite/e1/e1_4.html
 </IfModule>

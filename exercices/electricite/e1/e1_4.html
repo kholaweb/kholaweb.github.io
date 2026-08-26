@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E1.4 Réseau à résistance réglable — corrigé · KholaWeb</title>
+<meta name="author" content="Hubert de Haan — KholaWeb">
+<meta name="description" content="E1.4 Réseau à résistance réglable : énoncé et corrigé détaillé. Lois de Kirchhoff, potentiomètre à curseur, et position du curseur qui minimise une intensité.">
+<meta name="keywords" content="lois de Kirchhoff, potentiomètre, résistance réglable, curseur, extremum, exercice corrigé, CPGE, kholaweb">
+<meta name="color-scheme" content="light dark">
+
+<!-- Pas de cache : la page affichée doit toujours être celle du serveur. Ces
+     balises restent des indications, les navigateurs ne les honorent pas tous ;
+     ce sont les en-têtes HTTP posés par .htaccess qui font foi sur free.fr. -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<link rel="canonical" href="https://www.kholaweb.com/exercices/electricite/e1/e1_4.html">
+
+<!-- KaTeX — rendu des formules côté client -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{
+    delimiters:[
+      {left:'\\[',right:'\\]',display:true},
+      {left:'\\(',right:'\\)',display:false}
+    ],
+    throwOnError:false
+  });"></script>
+
+<style>
+:root{
+  --encre:#181614;
+  --gris:#5f5b55;
+  --gris-clair:#8c8781;
+  --filet:#e2ded7;
+  --papier:#ffffff;
+  --bordeaux:#a10115;
+  --ivoire:#f6f1e7;
+  --ivoire-filet:#e0d6c3;
+  --ivoire-texte:#4a463f;
+  --ivoire-sourd:#8d8471;
+  --ivoire-fond2:#fbf8f2;
+  --bandeau-fond:rgba(255,255,255,.94);
+  --sans:ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --mesure:74rem;
+  --colonne:50rem;
+}
+
+/* ---------- mode sombre ---------- */
+@media (prefers-color-scheme:dark){
+  :root{
+    --encre:#f0ede7;
+    --gris:#a29c94;
+    --gris-clair:#79736c;
+    --filet:#2e2b26;
+    --papier:#13110e;
+    --bordeaux:#e0616e;
+    --ivoire:#1c1913;
+    --ivoire-filet:#332e25;
+    --ivoire-texte:#c0b9ab;
+    --ivoire-sourd:#9c9384;
+    --ivoire-fond2:#221e17;
+    --bandeau-fond:rgba(19,17,14,.94);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--papier);color:var(--encre);
+  font-family:var(--sans);font-size:15px;line-height:1.45;
+}
+a{color:inherit}
+.enveloppe{max-width:var(--mesure);margin:0 auto;padding:0 1.5rem}
+
+/* ---------- en-tête ---------- */
+.bandeau{position:sticky;top:0;z-index:20;background:var(--bandeau-fond);
+  backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--filet)}
+.bandeau .enveloppe{display:flex;align-items:baseline;gap:1.75rem;
+  height:60px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+.bandeau .enveloppe::-webkit-scrollbar{display:none}
+.marque{font-weight:650;letter-spacing:-.015em;font-size:1.0625rem;text-decoration:none;white-space:nowrap}
+.marque em{font-style:normal;color:var(--bordeaux)}
+.menu{display:flex;gap:1.25rem;font-size:.8125rem;color:var(--gris);white-space:nowrap}
+.menu a{text-decoration:none}
+.menu a:hover{color:var(--bordeaux)}
+.menu .vers-kholor{color:var(--bordeaux);font-family:var(--serif);font-size:.9375rem;letter-spacing:.01em}
+
+/* ---------- colonne de lecture ---------- */
+.colonne{max-width:var(--colonne);margin:0 auto;padding:0 1.5rem}
+
+/* ---------- fil d'ariane ---------- */
+/* les marges latérales reprennent celles de .colonne : les règles qui suivent
+   redéfinissent le raccourci padding, il faut donc les répéter */
+.ariane{padding:1.5rem 1.5rem 0;font-size:.8125rem;color:var(--gris-clair)}
+.ariane a{text-decoration:none}
+.ariane a:hover{color:var(--bordeaux)}
+.ariane .sep{padding:0 .45rem;color:var(--filet)}
+
+/* ---------- titre de l'exercice ---------- */
+.entete{padding:1.75rem 1.5rem 2.5rem;border-bottom:1px solid var(--filet)}
+.surtitre{font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gris-clair);margin:0 0 1rem}
+.entete h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.55rem,3.4vw,2.05rem);
+  line-height:1.15;letter-spacing:-.01em;margin:0 0 .85rem}
+.entete .chapeau{font-family:var(--serif);font-size:1.0625rem;line-height:1.55;
+  color:var(--gris);max-width:54ch;margin:0}
+
+/* ---------- corps ---------- */
+.partie{padding:3rem 1.5rem 1rem}
+.partie + .partie{border-top:1px solid var(--filet)}
+.titre-partie{font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gris-clair);margin:0 0 1.75rem}
+
+/* Le corrigé ne se découvre qu'au clic. Là où le surtitre de l'énoncé s'efface,
+   ce mot-ci porte l'appel : il faut le voir pour savoir qu'on peut l'ouvrir. */
+.corrige > summary{display:flex;align-items:baseline;gap:.9rem;cursor:pointer;
+  list-style:none;font-family:var(--serif);font-size:1.35rem;color:var(--bordeaux);
+  background:var(--ivoire-fond2);border:1px solid var(--ivoire-filet);
+  border-left:3px solid var(--bordeaux);padding:.85rem 1.15rem}
+.corrige > summary::-webkit-details-marker{display:none}
+.corrige > summary:hover{background:var(--ivoire)}
+.corrige > summary:focus-visible{outline:2px solid var(--bordeaux);outline-offset:3px}
+.corrige .appel{margin-left:auto;font-family:var(--sans);font-size:.6875rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gris-clair)}
+.corrige .appel::after{content:"Afficher"}
+.corrige[open] .appel::after{content:"Masquer"}
+.corrige .chevron{align-self:center;width:.45rem;height:.45rem;
+  border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
+  transform:rotate(45deg);transition:transform .15s}
+.corrige[open] .chevron{transform:rotate(-135deg)}
+.corrige[open] > summary{margin-bottom:2.25rem}
+.partie h2{font-size:1.15rem;font-weight:650;letter-spacing:-.01em;margin:2rem 0 .8rem}
+.partie h2:first-of-type{margin-top:0}
+/* dans un titre en sans-serif gras, les grandeurs en KaTeX paraissent trop
+   grandes au facteur commun : on les ramène sous la taille du titre */
+.partie h2 .katex{font-size:.95em}
+.partie p{margin:0 0 .85rem;max-width:60ch}
+.partie .large{max-width:none}
+
+/* Texte justifié, césure comprise : sans elle, la justification creuse des
+   lézardes dans une colonne étroite. lang="fr" donne les coupures françaises. */
+.entete .chapeau,
+.partie p:not(.ligne-formule),
+.questions li,
+.kholor p{text-align:justify;hyphens:auto}
+
+/* Questions de l'énoncé. Les retraits sont ceux du document : la numérotation y
+   est définie avec left=720 et hanging=360 twips, soit le numéro à 1,5 rem de la
+   marge et le texte à 3 rem. */
+.questions{list-style:none;counter-reset:q;margin:1.5rem 0;padding:0 0 0 1.5rem}
+.questions li{counter-increment:q;position:relative;padding:0 0 .8rem 1.5rem;max-width:68ch}
+.questions li:last-child{padding-bottom:0}
+.questions li::before{content:counter(q) ".";position:absolute;left:0;top:0;
+  font-weight:650;font-size:.875rem;color:var(--bordeaux)}
+.questions li > p{margin:.5rem 0 0}
+
+/* Formule dans le fil du texte : retrait de 360 twips dans le document, soit
+   1,5 rem. Sous une question, le document la met à 720 twips, c'est-à-dire au
+   niveau du texte de la question — donc sans retrait supplémentaire. */
+.partie .ligne-formule{padding-left:1.5rem;max-width:none;text-align:left}
+.questions .ligne-formule{padding-left:0}
+
+/* KaTeX rend les formules à 1.21em par défaut, ce qui les fait dominer la
+   typographie sans empattement du texte : on rapproche les deux tailles */
+.katex{font-size:1.1em}
+
+/* KaTeX compose ses blocs en inline-block : une coupure de ligne peut alors se
+   glisser entre une formule et la ponctuation qui la suit, et rejeter une
+   virgule en tête de ligne. Le span les tient ensemble. */
+.lie{white-space:nowrap}
+
+/* équations — disposition du document d'origine : la formule est décalée
+   d'une tabulation vers la droite, le numéro est repoussé à la marge */
+.eq{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
+  gap:.5rem 1rem;margin:1.05rem 0}
+/* la tabulation par défaut du document vaut 708 twips, soit 1,25 cm */
+.eq-corps{overflow-x:auto;overflow-y:hidden;padding:.15rem .1rem .15rem 2.95rem}
+.eq-corps .katex-display,
+.eq-corps .katex-display > .katex{text-align:left}
+.eq-num{font-size:.8125rem;color:var(--gris-clair);white-space:nowrap;font-variant-numeric:tabular-nums}
+.eq .katex-display{margin:.35rem 0}
+
+/* résultat encadré */
+.encadre{background:var(--ivoire-fond2);border:1px solid var(--ivoire-filet);
+  border-left:3px solid var(--bordeaux);padding:.7rem 1.1rem;margin:1.25rem 0}
+.encadre .eq{margin:0}
+.encadre .eq-num{color:var(--ivoire-sourd)}
+
+/* application numérique */
+.numerique{color:var(--gris)}
+
+/* ---------- navigation de fin ---------- */
+/* Navigation entre exercices : une seule ligne. Le chapitre, que le fil
+   d'ariane nomme déjà en tête de page, cède la place ; sous 640 px les titres
+   s'effacent à leur tour et il ne reste que les codes. */
+.suite{display:flex;flex-wrap:nowrap;gap:1.5rem;justify-content:space-between;
+  align-items:baseline;padding:2.5rem 0 0;margin-top:2rem;border-top:1px solid var(--filet);
+  font-size:.9375rem}
+.suite a{text-decoration:none;color:var(--bordeaux);
+  border-bottom:1px solid currentColor;padding-bottom:1px;
+  min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.suite a:only-child{margin-left:auto}
+
+/* ---------- bande Kholor ---------- */
+.kholor{background:var(--ivoire);color:var(--encre);padding:3.25rem 0;margin-top:3.5rem;
+  border-top:1px solid var(--ivoire-filet);border-bottom:1px solid var(--ivoire-filet)}
+.kholor .surtitre{color:var(--ivoire-sourd)}
+.kholor h2{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.2;margin:0 0 .6rem}
+.kholor p{font-family:var(--serif);font-size:1.0625rem;line-height:1.7;
+  color:var(--ivoire-texte);max-width:56ch;margin:0 0 1.1rem}
+.lire{font-family:var(--serif);font-size:1.0625rem;color:var(--bordeaux);text-decoration:none;
+  border-bottom:1px solid currentColor;padding-bottom:1px}
+
+/* ---------- pied ---------- */
+.pied{padding:2rem 0 3rem;font-size:.8125rem;color:var(--gris-clair)}
+.pied a{text-decoration:none}
+.pied a:hover{color:var(--bordeaux)}
+
+@media (max-width:640px){
+  .partie{padding-top:2.25rem}
+  .suite .titre-exo{display:none}
+  .entete{padding-bottom:2rem}
+  .eq{grid-template-columns:minmax(0,1fr);gap:.25rem}
+  .eq-num{justify-self:end}
+  /* un peu plus de place pour les formules ; les plus larges défilent
+     horizontalement à l'intérieur de leur cadre */
+  .eq .katex-display{font-size:.94em}
+  .encadre{padding:.8rem .65rem}
+  .eq-corps{padding-left:1.1rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- schémas de circuit ----------
+   Redessinés en SVG plutôt que repris des images du document, qui sont en
+   noir sur blanc et de 215 pixels de large. Le tracé suit currentColor : le
+   schéma passe donc au mode sombre avec le reste de la page. */
+.schema{margin:1.4rem 0 1.6rem;padding-left:1.5rem}
+.schema svg{display:block;width:100%;height:auto;max-width:22rem;
+  color:var(--encre);overflow:visible}
+.schema .fil{fill:none;stroke:currentColor;stroke-width:1.6;
+  stroke-linecap:square}
+.schema .boite{fill:var(--papier);stroke:currentColor;stroke-width:1.6}
+.schema .pointe{fill:currentColor}
+/* Les schemas de cette page viennent de CorelDRAW et portent leurs propres
+   tailles de texte, exprimees dans les unites de leur viewBox. Ne rien imposer
+   ici : un font-size en pixels les rendrait minuscules. */
+.schema .noeud{fill:currentColor}
+.schema figcaption{font-size:.8125rem;color:var(--gris-clair);
+  margin-top:.5rem;font-style:normal}
+</style>
+
+<link rel="stylesheet" href="../../../css/protection.css">
+</head>
+<body>
+
+<header class="bandeau">
+  <div class="enveloppe">
+    <a class="marque" href="../../../index.htm">Khola<em>Web</em></a>
+    <nav class="menu">
+      <a href="../../../index.htm#electricite">Électricité</a>
+      <a href="../../../index.htm#electromagnetisme">Électromagnétisme</a>
+      <a href="../../../index.htm#electronique">Électronique</a>
+      <a href="../../../index.htm#mecanique">Mécanique</a>
+      <a href="../../../index.htm#optique">Optique</a>
+      <a href="../../../index.htm#thermodynamique">Thermodynamique</a>
+      <a class="vers-kholor" href="../../../index.htm#kholor">Kholor</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="ariane colonne" aria-label="Fil d’ariane">
+  <a href="../../../index.htm">Accueil</a>
+  <span class="sep">›</span>
+  <a href="../../../index.htm#electricite">Électricité</a>
+  <span class="sep">›</span>
+  <a href="../../../index.htm#electricite">E1 — Approximation des régimes quasi stationnaires. Dipôles.</a>
+  <span class="sep">›</span>
+  E1.4
+</nav>
+
+<div class="entete colonne">
+  <p class="surtitre">Électricité · E1.4</p>
+  <h1>Réseau à résistance réglable</h1>
+  <p class="chapeau">Deux générateurs identiques alimentent un potentiomètre dont le
+     curseur partage la résistance. Les lois de Kirchhoff donnent les trois courants,
+     puis l’étude d’une dérivée la position du curseur qui rend l’un d’eux minimal.</p>
+</div>
+
+<!-- ══════════════ ÉNONCÉ ══════════════ -->
+<section class="partie colonne">
+  <p class="titre-partie">Énoncé</p>
+
+  <p>On considère le montage représenté ci-dessous : les deux générateurs ont même
+     f.é.m. \(E\) et une résistance interne négligeable. Une résistance fixe \(r\) est
+     intercalée entre \(C\) et <span class="lie">\(D\).</span> Un curseur <span class="lie">\(C\),</span> mobile sur le conducteur \(AB\)
+     de résistance totale <span class="lie">\(R\),</span> délimite une fraction \(xR\) de la résistance \(R\)
+     entre les points \(A\) et \(C\) (\(0 \lt x \lt 1\)).</p>
+
+  <figure class="schema">
+<svg role="img" aria-label="Le conducteur AB porte un potentiometre de resistance totale R, dont le curseur C delimite xR du cote de A et (1 moins x) R du cote de B. De C part une branche horizontale contenant la resistance fixe r, parcourue par le courant i, jusqu'au point D. Entre A et D, un generateur de force electromotrice E parcouru par le courant i1 ; entre D et B, un second generateur identique parcouru par i2." style="max-width:28rem; shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" xmlns="http://www.w3.org/2000/svg" version="1.1"
+viewBox="0 0 8816.82 7328.65"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .e4str0 {stroke:currentColor;stroke-width:46.57;stroke-miterlimit:22.9256}
+    .e4fil0 {fill:none}
+    .e4fil2 {fill:currentColor;fill-opacity:.14}
+    .e4fil1 {fill:currentColor;fill-rule:nonzero}
+    .e4fil3 {fill:var(--bordeaux);fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Plan_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="e4fil0 e4str0" d="M7295.33 1334.96c367.39,0 665.22,297.83 665.22,665.22 0,367.39 -297.83,665.22 -665.22,665.22 -367.39,0 -665.22,-297.83 -665.22,-665.22 0,-367.39 297.83,-665.22 665.22,-665.22z"/>
+  <path class="e4fil1" d="M8785.44 2052.56c0,-6.2 -6.76,-6.2 -8.45,-6.2 -6.2,0 -6.76,0.56 -11.83,13.52 -32.68,77.72 -52.38,114.34 -141.93,114.34l-68.72 0c-17.46,0 -17.46,-1.69 -17.46,-5.64 0,-3.38 1.69,-9.01 2.25,-12.39l38.86 -154.89 49 0c38.3,0 42.24,9.02 42.24,24.23 0,3.94 -0.56,12.39 -5.07,28.72 0,0 -1.12,4.5 -1.12,6.19 0,6.76 5.63,6.76 9.01,6.76 6.2,0 7.89,-1.12 10.14,-11.26l30.97 -123.92c0.56,-1.69 1.69,-7.32 1.69,-7.32 0,-6.76 -6.76,-6.76 -9.01,-6.76 -7.33,0 -7.33,1.69 -10.71,13.52 -10.7,39.99 -21.39,52.38 -67.01,52.38l-45.62 0 34.35 -138.55c4.51,-18.59 8.45,-19.15 27.03,-19.15l70.41 0c60.83,0 74.9,16.9 74.9,56.89 0,15.21 -1.13,22.52 -2.82,36.04 -0.56,2.81 -1.12,7.88 -1.12,9.57 0,6.76 6.19,6.76 8.45,6.76 7.88,0 8.45,-2.25 9.57,-12.39l12.96 -99.69c1.69,-14.63 -1.69,-14.63 -13.52,-14.63l-263.01 0c-9.58,0 -15.21,0 -15.21,10.14 0,7.32 3.94,7.32 15.21,7.32 32.66,0 32.66,4.51 32.66,9.58 0,0 0,4.5 -2.25,12.95l-75.48 301.89c-4.51,19.15 -7.89,23.66 -46.18,23.66 -9.02,0 -15.21,0 -15.21,10.7 0,6.76 5.07,6.76 14.08,6.76l269.77 0c11.27,0 11.83,-0.56 15.78,-9.01l50.12 -123.35c0.57,-1.13 2.26,-6.76 2.26,-6.76z"/>
+  <polygon class="e4fil0 e4str0" points="1656.77,2014.22 2259.34,2014.22 2259.34,4675.1 1656.77,4675.1 "/>
+  <line class="e4fil0 e4str0" x1="1930.37" y1="649.59" x2="7250.11" y2= "649.59" />
+  <line class="e4fil0 e4str0" x1="1958.06" y1="665.22" x2="1958.06" y2= "2014.22" />
+  <line class="e4fil0 e4str0" x1="1958.06" y1="4675.1" x2="1958.06" y2= "6656.75" />
+  <g>
+   <path class="e4fil1" d="M2341.32 3640.99l0 0 4.83 0.15 4.79 0.4 4.72 0.63 4.66 0.86 4.58 1.09 4.48 1.3 4.39 1.52 4.3 1.72 4.18 1.93 4.07 2.12 3.95 2.3 3.82 2.47 3.69 2.66 3.57 2.82 3.41 2.99 3.26 3.14 3.11 3.3 2.95 3.45 2.79 3.59 2.61 3.71 2.45 3.86 2.26 3.98 2.08 4.1 1.88 4.2 1.68 4.31 1.46 4.42 1.25 4.51 1.04 4.59 0.81 4.67 0.57 4.74 0.35 4.8 0.09 4.86 -47.31 -0.28 -0.05 -2.46 -0.16 -2.41 -0.29 -2.35 -0.4 -2.33 -0.52 -2.28 -0.63 -2.24 -0.73 -2.2 -0.82 -2.14 -0.94 -2.1 -1.02 -2.05 -1.13 -1.98 -1.22 -1.93 -1.32 -1.86 -1.4 -1.81 -1.49 -1.73 -1.57 -1.66 -1.64 -1.58 -1.72 -1.5 -1.78 -1.41 -1.86 -1.34 -1.92 -1.24 -1.97 -1.16 -2.04 -1.05 -2.08 -0.96 -2.14 -0.86 -2.18 -0.75 -2.22 -0.65 -2.28 -0.55 -2.31 -0.43 -2.35 -0.31 -2.39 -0.2 -2.45 -0.08 0 0 0.28 -47.31zm-95.18 94.06l0 0 0.16 -4.84 0.39 -4.79 0.64 -4.74 0.85 -4.66 1.09 -4.59 1.32 -4.48 1.52 -4.4 1.73 -4.3 1.92 -4.18 2.13 -4.07 2.3 -3.95 2.49 -3.82 2.66 -3.7 2.83 -3.55 2.99 -3.41 3.14 -3.26 3.3 -3.11 3.45 -2.94 3.59 -2.79 3.73 -2.61 3.84 -2.43 3.98 -2.26 4.1 -2.06 4.2 -1.88 4.31 -1.68 4.4 -1.46 4.51 -1.25 4.58 -1.04 4.67 -0.8 4.74 -0.57 4.79 -0.35 4.84 -0.09 -0.28 47.31 -2.45 0.05 -2.41 0.16 -2.35 0.29 -2.31 0.4 -2.29 0.52 -2.24 0.61 -2.18 0.73 -2.14 0.84 -2.1 0.93 -2.04 1.04 -2 1.12 -1.93 1.22 -1.86 1.32 -1.81 1.4 -1.73 1.48 -1.66 1.57 -1.58 1.64 -1.5 1.72 -1.42 1.8 -1.34 1.85 -1.24 1.92 -1.16 1.97 -1.05 2.04 -0.97 2.08 -0.85 2.14 -0.76 2.18 -0.65 2.22 -0.53 2.28 -0.44 2.33 -0.31 2.35 -0.2 2.41 -0.08 2.45 0 0 -47.31 -0.28zm94.06 95.18l0 0 -4.83 -0.15 -4.79 -0.4 -4.72 -0.63 -4.66 -0.86 -4.58 -1.09 -4.48 -1.3 -4.39 -1.52 -4.3 -1.72 -4.18 -1.93 -4.07 -2.12 -3.95 -2.3 -3.82 -2.47 -3.69 -2.66 -3.57 -2.82 -3.41 -2.99 -3.26 -3.14 -3.11 -3.3 -2.95 -3.45 -2.79 -3.59 -2.61 -3.71 -2.45 -3.86 -2.26 -3.98 -2.08 -4.1 -1.88 -4.2 -1.68 -4.31 -1.46 -4.42 -1.25 -4.51 -1.04 -4.59 -0.81 -4.67 -0.57 -4.74 -0.35 -4.8 -0.09 -4.86 47.31 0.28 0.05 2.46 0.16 2.41 0.29 2.35 0.4 2.33 0.52 2.28 0.63 2.24 0.73 2.2 0.82 2.14 0.94 2.1 1.02 2.05 1.13 1.98 1.22 1.93 1.32 1.86 1.4 1.81 1.49 1.73 1.57 1.66 1.64 1.58 1.72 1.5 1.78 1.41 1.86 1.34 1.92 1.24 1.97 1.16 2.04 1.05 2.08 0.96 2.14 0.86 2.18 0.75 2.22 0.65 2.28 0.55 2.31 0.43 2.35 0.31 2.39 0.2 2.45 0.08 0 0 -0.28 47.31zm95.18 -94.06l-0.16 4.84 -0.39 4.79 -0.64 4.74 -0.85 4.66 -1.09 4.59 -1.32 4.48 -1.52 4.4 -1.73 4.3 -1.92 4.18 -2.13 4.07 -2.3 3.95 -2.49 3.82 -2.66 3.7 -2.83 3.55 -2.99 3.41 -3.14 3.26 -3.3 3.11 -3.45 2.94 -3.59 2.79 -3.73 2.61 -3.84 2.43 -3.98 2.26 -4.1 2.06 -4.2 1.88 -4.31 1.68 -4.4 1.46 -4.51 1.25 -4.58 1.04 -4.67 0.8 -4.74 0.57 -4.79 0.35 -4.84 0.09 0.28 -47.31 2.45 -0.05 2.41 -0.16 2.35 -0.29 2.31 -0.4 2.29 -0.52 2.24 -0.61 2.18 -0.73 2.14 -0.84 2.1 -0.93 2.04 -1.04 2 -1.12 1.93 -1.22 1.86 -1.32 1.81 -1.4 1.73 -1.48 1.66 -1.57 1.58 -1.64 1.5 -1.72 1.42 -1.8 1.34 -1.85 1.24 -1.92 1.16 -1.97 1.05 -2.04 0.97 -2.08 0.85 -2.14 0.76 -2.18 0.65 -2.22 0.53 -2.28 0.44 -2.33 0.31 -2.35 0.2 -2.41 0.08 -2.45 47.31 0.28zm2198.99 26.13l-2228.31 -13.01 0.16 -26.61 2228.31 13.01 -0.16 26.61z"/>
+  </g>
+  <polygon class="e4fil2 e4str0" points="2259.34,3730.09 1656.77,3730.09 1656.77,4675.1 2259.34,4675.1 "/>
+  <path class="e4fil1" d="M1161.97 3051.47c0,-5.63 -4.51,-5.63 -8.45,-5.63 -6.76,0 -7.33,0.56 -10.14,9.58 -15.21,48.43 -43.37,70.39 -67.03,70.39 -11.27,0 -26.48,-6.76 -26.48,-36.04 0,-13.52 6.2,-37.73 10.71,-56.89l19.15 -77.15c7.89,-29.3 23.1,-60.27 49.56,-60.27 1.69,0 15.78,0 24.79,7.89 -22.52,5.63 -22.52,27.03 -22.52,27.03 0,7.32 5.07,18.01 19.7,18.01 10.14,0 27.59,-7.88 27.59,-29.84 0,-28.72 -32.66,-35.48 -48.99,-35.48 -30.99,0 -49.57,27.59 -55.2,38.29 -12.39,-33.79 -39.99,-38.29 -54.07,-38.29 -56.32,0 -86.73,73.77 -86.73,86.73 0,5.63 5.63,5.63 8.45,5.63 7.32,0 7.32,-0.56 10.14,-9.57 15.21,-48.44 44.49,-70.41 67.01,-70.41 16.34,0 27.03,12.96 27.03,35.48 0,13.52 -6.76,41.11 -11.83,61.96l-12.95 51.25c-9.02,36.61 -20.85,81.66 -54.64,81.66 -1.69,0 -15.21,0 -24.77,-7.88 16.9,-4.51 21.97,-18.59 21.97,-27.03 0,-14.65 -11.83,-18.03 -19.16,-18.03 -14.08,0 -28.15,11.83 -28.15,30.41 0,21.97 23.66,34.92 49.56,34.92 27.03,0 45.62,-21.41 55.2,-38.3 11.26,32.1 38.86,38.3 53.5,38.3 58.02,0 86.74,-75.48 86.74,-86.74zm393.69 28.72c0,-3.94 -1.13,-7.32 -8.45,-7.32 -7.33,0 -7.89,2.82 -9.58,9.58 -9.58,31.53 -26.48,49.56 -43.93,49.56 -16.9,0 -18.59,-15.21 -18.59,-33.23 0,-14.63 1.69,-28.15 3.38,-42.8 1.69,-12.96 4.51,-37.73 4.51,-49.56 0,-31.54 -19.72,-55.2 -48.44,-65.34 79.97,-20.28 118.28,-69.28 118.28,-110.39 0,-44.49 -42.8,-83.35 -113.21,-83.35l-148.69 0c-9.01,0 -15.21,0 -15.21,10.7 0,6.76 4.51,6.76 15.21,6.76 17.47,0 32.68,0 32.68,9.58 0,1.69 0,2.81 -2.26,10.7l-76.03 305.83c-4.5,19.15 -7.88,23.66 -46.18,23.66 -9.01,0 -15.21,0 -15.21,10.7 0,6.76 6.2,6.76 7.89,6.76 21.39,0 43.93,-1.69 65.32,-1.69 21.97,0 45.06,1.69 67.03,1.69 3.94,0 10.7,0 10.7,-10.14 0,-7.32 -3.94,-7.32 -15.21,-7.32 -32.66,0 -32.66,-4.51 -32.66,-9.58 0,-2.25 0,-3.38 2.25,-11.27l36.61 -148.12 60.83 0c23.66,0 52.94,9.01 52.94,49.56 0,7.89 -1.69,12.96 -9.57,44.49 -6.2,26.48 -8.45,34.37 -8.45,45.06 0,41.68 34.35,59.7 69.83,59.7 47.31,0 64.21,-59.7 64.21,-64.21l0 0zm-53.51 -262.46c0,3.38 -2.25,55.76 -32.66,86.17 -16.9,16.34 -45.06,29.28 -83.35,29.28l-56.89 0 36.61 -148.12c3.94,-16.9 8.45,-18.03 12.39,-19.15 3.94,-1.13 21.97,-1.13 32.66,-1.13 36.04,0 91.24,0 91.24,52.94z"/>
+  <path class="e4fil1" d="M130.46 4650.91c0,-1.69 0,-2.82 -9.55,-12.39 -70.3,-70.97 -88.3,-177.41 -88.3,-263.59 0,-98 21.38,-196 90.55,-266.41 7.3,-6.76 7.3,-7.88 7.3,-9.57 0,-3.95 -2.24,-5.64 -5.61,-5.64 -5.61,0 -56.24,38.3 -89.42,109.83 -28.68,61.96 -35.43,124.48 -35.43,171.79 0,43.93 6.19,112.08 37.12,175.72 33.74,69.28 82.11,105.88 87.73,105.88 3.38,0 5.61,-1.69 5.61,-5.63zm268.27 -135.17l0 -17.46 -18 0c-50.61,0 -52.3,-6.2 -52.3,-27.03l0 -315.97c0,-13.52 0,-14.65 -12.95,-14.65 -34.86,36.05 -84.35,36.05 -102.34,36.05l0 17.46c11.24,0 44.42,0 73.67,-14.65l0 291.75c0,20.28 -1.69,27.03 -52.3,27.03l-17.99 0 0 17.46c19.66,-1.69 68.6,-1.69 91.1,-1.69 22.5,0 71.42,0 91.11,1.69zm200.76 -105.32l0 -32.68 -149.02 0 0 32.68 149.02 0zm306.51 24.77c0,-5.63 -4.51,-5.63 -8.43,-5.63 -6.75,0 -7.32,0.56 -10.12,9.58 -15.18,48.43 -43.31,70.39 -66.92,70.39 -11.26,0 -26.44,-6.76 -26.44,-36.04 0,-13.52 6.19,-37.73 10.68,-56.89l19.12 -77.15c7.88,-29.3 23.07,-60.27 49.49,-60.27 1.68,0 15.75,0 24.75,7.89 -22.5,5.63 -22.5,27.03 -22.5,27.03 0,7.32 5.07,18.01 19.68,18.01 10.12,0 27.55,-7.88 27.55,-29.84 0,-28.72 -32.61,-35.48 -48.91,-35.48 -30.95,0 -49.51,27.59 -55.12,38.29 -12.37,-33.79 -39.94,-38.29 -53.99,-38.29 -56.24,0 -86.6,73.77 -86.6,86.73 0,5.63 5.61,5.63 8.43,5.63 7.3,0 7.3,-0.56 10.12,-9.57 15.18,-48.44 44.42,-70.41 66.91,-70.41 16.31,0 26.99,12.96 26.99,35.48 0,13.52 -6.75,41.11 -11.81,61.96l-12.92 51.25c-9.01,36.61 -20.82,81.66 -54.56,81.66 -1.69,0 -15.18,0 -24.73,-7.88 16.87,-4.51 21.93,-18.59 21.93,-27.03 0,-14.65 -11.8,-18.03 -19.13,-18.03 -14.05,0 -28.11,11.83 -28.11,30.41 0,21.97 23.63,34.92 49.49,34.92 26.99,0 45.55,-21.41 55.12,-38.3 11.23,32.1 38.8,38.3 53.42,38.3 57.93,0 86.61,-75.48 86.61,-86.74zm611.87 28.72c0,-3.94 -1.13,-7.32 -8.43,-7.32 -7.32,0 -7.88,2.82 -9.57,9.58 -9.57,31.53 -26.44,49.56 -43.86,49.56 -16.87,0 -18.56,-15.21 -18.56,-33.23 0,-14.63 1.69,-28.15 3.38,-42.8 1.69,-12.96 4.5,-37.73 4.5,-49.56 0,-31.54 -19.69,-55.2 -48.36,-65.34 79.85,-20.28 118.09,-69.28 118.09,-110.39 0,-44.49 -42.73,-83.35 -113.03,-83.35l-148.46 0c-8.99,0 -15.19,0 -15.19,10.7 0,6.76 4.51,6.76 15.19,6.76 17.44,0 32.62,0 32.62,9.58 0,1.69 0,2.81 -2.26,10.7l-75.91 305.83c-4.5,19.15 -7.86,23.66 -46.11,23.66 -8.99,0 -15.18,0 -15.18,10.7 0,6.76 6.19,6.76 7.88,6.76 21.37,0 43.86,-1.69 65.23,-1.69 21.93,0 45,1.69 66.92,1.69 3.94,0 10.68,0 10.68,-10.14 0,-7.32 -3.94,-7.32 -15.18,-7.32 -32.62,0 -32.62,-4.51 -32.62,-9.58 0,-2.25 0,-3.38 2.25,-11.27l36.56 -148.12 60.73 0c23.62,0 52.86,9.01 52.86,49.56 0,7.89 -1.69,12.96 -9.55,44.49 -6.19,26.48 -8.43,34.37 -8.43,45.06 0,41.68 34.3,59.7 69.73,59.7 47.24,0 64.11,-59.7 64.11,-64.21l0 0zm-53.43 -262.46c0,3.38 -2.25,55.76 -32.61,86.17 -16.87,16.34 -45,29.28 -83.23,29.28l-56.81 0 36.56 -148.12c3.94,-16.9 8.43,-18.03 12.37,-19.15 3.94,-1.13 21.93,-1.13 32.61,-1.13 35.99,0 91.11,0 91.11,52.94zm-409.42 173.48c0,-43.93 -6.17,-112.09 -37.12,-175.72 -33.74,-69.28 -82.09,-105.89 -87.73,-105.89 -3.37,0 -5.61,2.26 -5.61,5.64 0,1.69 0,2.81 10.68,12.95 55.11,55.76 87.17,145.31 87.17,263.03 0,96.31 -20.81,195.43 -90.55,266.39 -7.3,6.76 -7.3,7.89 -7.3,9.58 0,3.38 2.25,5.63 5.61,5.63 5.64,0 56.25,-38.29 89.42,-109.83 28.68,-61.95 35.43,-124.46 35.43,-171.77z"/>
+  <path class="e4fil1" d="M2824.1 3139.41c0.56,-2.25 1.12,-5.63 1.12,-7.88 0,0 -0.56,-5.64 -6.19,-5.64 0,0 -3.95,0 -9.02,6.2l-35.48 41.68c-24.21,-38.86 -56.88,-47.88 -85.04,-47.88 -116.01,0 -237.11,126.72 -237.11,259.08 0,92.37 60.27,150.38 137.99,150.38 109.81,0 171.21,-120.52 171.21,-147.56 0,-5.63 -5.64,-5.63 -8.45,-5.63 -3.38,0 -7.33,0 -9.02,4.5 -28.72,95.19 -99.12,131.23 -145.87,131.23 -47.31,0 -96.87,-31.54 -96.87,-111.52 0,-34.92 14.08,-123.35 59.14,-185.29 38.3,-51.82 90.11,-77.72 133.48,-77.72 59.7,0 79.97,54.07 79.97,103.06 0,14.65 -2.82,32.68 -2.82,34.37 0,5.63 5.64,5.63 8.45,5.63 6.2,0 7.89,-0.56 10.14,-10.14l34.37 -136.86z"/>
+  <path class="e4fil1" d="M1995.66 393.12c0,-7.32 -4.5,-7.32 -13.52,-7.32 -29.28,0 -30.97,-4.51 -32.1,-19.16l-24.21 -352.57c-0.56,-12.39 -1.13,-14.08 -10.14,-14.08 -9.01,0 -11.27,3.94 -14.65,10.14l-186.98 329.47c-24.21,42.81 -48.44,45.06 -68.15,46.19 -6.2,0.56 -6.76,10.7 -6.76,10.7 0,1.69 0.56,6.76 6.76,6.76 14.08,0 30.41,-1.69 45.05,-1.69 17.47,0 35.48,1.69 52.38,1.69 2.82,0 10.14,0 10.14,-10.7 0,-6.2 -4.5,-6.2 -9.01,-6.76 -3.38,-0.57 -23.66,-1.69 -23.66,-19.16 0,-5.07 2.82,-11.83 7.89,-21.39l40.55 -70.97 128.4 0 6.2 93.49c0,11.27 -13.52,18.03 -37.73,18.03 -6.2,0 -12.96,0 -12.96,10.7 0,6.76 6.76,6.76 8.45,6.76 20.85,0 43.37,-1.69 64.77,-1.69 19.72,0 39.99,1.69 59.14,1.69 3.38,0 10.14,0 10.14,-10.14zm-99.12 -136.3l-117.72 0 104.76 -184.16 12.96 184.16z"/>
+  <path class="e4fil1" d="M2100.55 7205.3c0,-46.75 -37.73,-72.66 -78.28,-77.72 68.72,-15.21 110.39,-63.65 110.39,-107.01 0,-40.55 -33.22,-76.59 -94.62,-76.59l-175.15 0c-9.01,0 -15.21,0 -15.21,10.7 0,6.76 4.51,6.76 15.21,6.76 17.46,0 32.66,0 32.66,9.58 0,1.69 0,2.81 -2.25,10.7l-76.03 305.83c-4.51,19.15 -7.89,23.66 -46.18,23.66 -9.02,0 -15.21,0 -15.21,10.7 0,6.76 5.07,6.76 14.08,6.76l185.86 0c79.97,0 144.74,-64.77 144.74,-123.35zm-17.46 -188.11c0,47.87 -43.37,105.32 -107.57,105.32l-74.34 0 34.91 -140.8c5.07,-20.28 9.02,-20.28 27.61,-20.28l66.46 0c47.31,0 52.94,38.3 52.94,55.76zm-32.66 180.79c0,54.63 -45.06,113.21 -107.01,113.21l-69.85 0c-17.46,0 -17.46,-1.69 -17.46,-5.64 0,-3.38 1.69,-9.01 2.25,-12.39l39.43 -158.27 96.87 0c52.38,0 55.76,48.44 55.76,63.09z"/>
+  <path class="e4fil0 e4str0" d="M7295.33 4661.06c367.39,0 665.22,297.83 665.22,665.22 0,367.39 -297.83,665.22 -665.22,665.22 -367.39,0 -665.22,-297.83 -665.22,-665.22 0,-367.39 297.83,-665.22 665.22,-665.22z"/>
+  <g>
+   <path class="e4fil1" d="M8344.04 1500.91l-247.33 0 123.66 -224.82 123.66 224.82zm-136.97 1105.62l0 -1125.11 26.61 0 0 1125.11 -26.61 0z"/>
+  </g>
+  <path class="e4fil1" d="M8785.44 5378.66c0,-6.2 -6.76,-6.2 -8.45,-6.2 -6.2,0 -6.76,0.56 -11.83,13.52 -32.68,77.72 -52.38,114.34 -141.93,114.34l-68.72 0c-17.46,0 -17.46,-1.69 -17.46,-5.64 0,-3.38 1.69,-9.01 2.25,-12.39l38.86 -154.89 49 0c38.3,0 42.24,9.02 42.24,24.23 0,3.94 -0.56,12.39 -5.07,28.72 0,0 -1.12,4.5 -1.12,6.19 0,6.76 5.63,6.76 9.01,6.76 6.2,0 7.89,-1.12 10.14,-11.26l30.97 -123.92c0.56,-1.69 1.69,-7.32 1.69,-7.32 0,-6.76 -6.76,-6.76 -9.01,-6.76 -7.33,0 -7.33,1.69 -10.71,13.52 -10.7,39.99 -21.39,52.38 -67.01,52.38l-45.62 0 34.35 -138.55c4.51,-18.59 8.45,-19.15 27.03,-19.15l70.41 0c60.83,0 74.9,16.9 74.9,56.89 0,15.21 -1.13,22.52 -2.82,36.04 -0.56,2.81 -1.12,7.88 -1.12,9.57 0,6.76 6.19,6.76 8.45,6.76 7.88,0 8.45,-2.25 9.57,-12.39l12.96 -99.69c1.69,-14.63 -1.69,-14.63 -13.52,-14.63l-263.01 0c-9.58,0 -15.21,0 -15.21,10.14 0,7.32 3.94,7.32 15.21,7.32 32.66,0 32.66,4.51 32.66,9.58 0,0 0,4.5 -2.25,12.95l-75.48 301.89c-4.51,19.15 -7.89,23.66 -46.18,23.66 -9.02,0 -15.21,0 -15.21,10.7 0,6.76 5.07,6.76 14.08,6.76l269.77 0c11.27,0 11.83,-0.56 15.78,-9.01l50.12 -123.35c0.57,-1.13 2.26,-6.76 2.26,-6.76z"/>
+  <path class="e4fil1" d="M7887.35 3220.79c0,-80.53 -45.62,-137.98 -118.28,-137.98l-175.72 0c-9.01,0 -15.21,0 -15.21,10.7 0,6.76 4.51,6.76 15.21,6.76 17.47,0 32.68,0 32.68,9.58 0,1.69 0,2.81 -2.26,10.7l-76.03 305.83c-4.5,19.15 -7.88,23.66 -46.18,23.66 -9.01,0 -15.21,0 -15.21,10.7 0,6.76 5.07,6.76 14.08,6.76l172.92 0c106.44,0 214.01,-119.97 214.01,-246.69zm-46.75 -21.41c0,33.23 -16.32,138.55 -64.21,194.88 -27.59,32.1 -67.57,55.76 -112.64,55.76l-58.01 0c-17.47,0 -17.47,-1.69 -17.47,-5.64 0,-3.38 1.69,-9.01 2.26,-12.39l77.72 -311.46c5.07,-19.72 9.01,-20.28 27.59,-20.28l54.63 0c45.62,0 90.11,25.34 90.11,99.12z"/>
+  <path class="e4fil1" d="M5414 3571.14c0,-29.3 -36.61,-35.48 -55.2,-35.48 -38.86,0 -59.14,28.15 -68.15,40.55 -6.2,-29.86 -28.17,-40.55 -46.75,-40.55 -20.28,0 -31.53,12.95 -40.55,29.84 -10.7,22.54 -18.01,56.89 -18.01,56.89 0,5.63 5.63,5.63 8.45,5.63 7.32,0 7.88,-0.56 10.7,-12.95 10.14,-39.43 20.83,-67.03 38.3,-67.03 14.63,0 14.63,16.34 14.63,22.52 0,9.02 -1.69,19.72 -3.94,28.72l-42.24 168.97c-1.13,3.38 -1.69,6.2 -1.69,7.89 0,6.2 4.51,14.65 15.77,14.65 16.9,0 20.85,-16.34 21.97,-20.85l36.61 -147.56c0.56,-1.69 25.9,-74.34 74.34,-74.34 2.82,0 18.59,0 29.86,7.89 -19.72,6.19 -21.41,24.21 -21.41,27.03 0,7.32 5.07,18.01 19.72,18.01 10.14,0 27.59,-7.88 27.59,-29.84z"/>
+  <polygon class="e4fil0 e4str0" points="4634.45,3330.62 5964.89,3330.62 5964.89,3995.84 4634.45,3995.84 "/>
+  <line class="e4fil0 e4str0" x1="1973.57" y1="6656.75" x2="7293.31" y2= "6656.75" />
+  <g>
+   <path class="e4fil1" d="M8386.16 4884.67l-247.33 0 123.66 -224.82 123.66 224.82zm-136.97 1105.62l0 -1125.11 26.61 0 0 1125.11 -26.61 0z"/>
+  </g>
+  <line class="e4fil0 e4str0" x1="7293.31" y1="6656.75" x2="7250.11" y2= "649.59" />
+  <line class="e4fil0 e4str0" x1="5964.89" y1="3663.23" x2="7245.1" y2= "3653.17" />
+  <g>
+   <path class="e4fil1" d="M3718.78 3756.96l-314.33 -1.84 0.16 -26.61 314.33 1.84 -0.16 26.61zm-18.71 -137.09l224.1 124.98 -225.54 122.36 1.44 -247.34z"/>
+  </g>
+  <path class="e4fil3" d="M7339.68 3649.58c0,-40.83 -33.79,-74.62 -74.62,-74.62 -40.83,0 -74.62,33.79 -74.62,74.62 0,40.83 33.79,74.62 74.62,74.62 40.83,0 74.62,-33.79 74.62,-74.62z"/>
+  <path class="e4fil1" d="M3815.51 3403.77c0,-5.63 -4.5,-5.63 -8.45,-5.63 -7.32,0 -7.32,1.13 -9.57,9.58 -4.51,16.32 -19.72,70.39 -52.38,70.39 -4.51,0 -12.4,-0.56 -12.4,-15.77 0,-14.65 7.33,-33.23 14.65,-54.07l36.04 -96.31c5.64,-16.34 6.76,-20.83 6.76,-31.54 0,-30.97 -21.39,-45.05 -42.24,-45.05 -52.94,0 -72.08,83.91 -72.08,86.73 0,5.63 5.63,5.63 8.45,5.63 7.32,0 7.88,-1.12 10.14,-9.01 5.07,-18.59 19.7,-70.97 52.38,-70.97 6.19,0 12.39,2.82 12.39,15.77 0,13.52 -6.2,29.86 -10.14,40.55l-16.9 46.75 -20.83 55.76c-7.89,21.41 -10.14,27.59 -10.14,38.86 0,21.97 13.52,45.06 42.8,45.06 52.94,0 71.52,-84.48 71.52,-86.74zm15.21 -263.57c0,-11.83 -8.45,-24.23 -25.34,-24.23 -18.01,0 -36.04,17.47 -36.04,35.48 0,12.4 9.01,24.23 25.34,24.23 18.03,0 36.04,-17.47 36.04,-35.48z"/>
+  <g>
+   <path class="e4fil1" d="M5810.68 6670.05l-566.9 0 0 -26.61 566.9 0 0 26.61zm-19.49 -136.97l224.82 123.66 -224.82 123.66 0 -247.33z"/>
+  </g>
+  <g>
+   <path class="e4fil1" d="M6151.14 636.28l496.69 0 0 26.61 -496.69 0 0 -26.61zm19.49 136.97l-224.82 -123.66 224.82 -123.66 0 247.33z"/>
+  </g>
+  <path class="e4fil1" d="M5851.97 7128.75c0,-5.63 -4.5,-5.63 -8.45,-5.63 -7.32,0 -7.32,1.13 -9.57,9.58 -4.51,16.32 -19.72,70.39 -52.38,70.39 -4.51,0 -12.4,-0.56 -12.4,-15.77 0,-14.65 7.33,-33.23 14.65,-54.07l36.04 -96.31c5.64,-16.34 6.76,-20.83 6.76,-31.54 0,-30.97 -21.39,-45.05 -42.24,-45.05 -52.94,0 -72.08,83.91 -72.08,86.73 0,5.63 5.63,5.63 8.45,5.63 7.32,0 7.88,-1.12 10.14,-9.01 5.07,-18.59 19.7,-70.97 52.38,-70.97 6.19,0 12.39,2.82 12.39,15.77 0,13.52 -6.2,29.86 -10.14,40.55l-16.9 46.75 -20.83 55.76c-7.89,21.41 -10.14,27.59 -10.14,38.86 0,21.97 13.52,45.06 42.8,45.06 52.94,0 71.52,-84.48 71.52,-86.74zm15.21 -263.57c0,-11.83 -8.45,-24.23 -25.34,-24.23 -18.01,0 -36.04,17.47 -36.04,35.48 0,12.4 9.01,24.23 25.34,24.23 18.03,0 36.04,-17.47 36.04,-35.48zm97.72 407.77l-7.04 0c-1.41,8.45 -3.38,20.83 -6.2,25.07 -1.97,2.25 -20.56,2.25 -26.76,2.25l-50.69 0 29.86 -29c43.93,-38.86 60.83,-54.07 60.83,-82.23 0,-32.1 -25.34,-54.63 -59.7,-54.63 -31.82,0 -52.67,25.9 -52.67,50.97 0,15.77 14.09,15.77 14.93,15.77 4.79,0 14.65,-3.38 14.65,-14.91 0,-7.33 -5.07,-14.65 -14.93,-14.65 -2.25,0 -2.82,0 -3.66,0.28 6.48,-18.31 21.69,-28.72 38.01,-28.72 25.64,0 37.74,22.8 37.74,45.9 0,22.54 -14.09,44.78 -29.58,62.24l-54.07 60.27c-3.1,3.1 -3.1,3.66 -3.1,10.42l104.48 0 7.89 -49z"/>
+  <path class="e4fil1" d="M6104.56 292.32c0,-5.63 -4.5,-5.63 -8.45,-5.63 -7.32,0 -7.32,1.13 -9.57,9.58 -4.51,16.32 -19.72,70.39 -52.38,70.39 -4.51,0 -12.4,-0.56 -12.4,-15.77 0,-14.65 7.33,-33.23 14.65,-54.07l36.04 -96.31c5.64,-16.34 6.76,-20.83 6.76,-31.54 0,-30.97 -21.39,-45.05 -42.24,-45.05 -52.94,0 -72.08,83.91 -72.08,86.73 0,5.63 5.63,5.63 8.45,5.63 7.32,0 7.88,-1.12 10.14,-9.01 5.07,-18.59 19.7,-70.97 52.38,-70.97 6.19,0 12.39,2.82 12.39,15.77 0,13.52 -6.2,29.86 -10.14,40.55l-16.9 46.75 -20.83 55.76c-7.89,21.41 -10.14,27.59 -10.14,38.86 0,21.97 13.52,45.06 42.8,45.06 52.94,0 71.52,-84.48 71.52,-86.74zm15.21 -263.57c0,-11.83 -8.45,-24.23 -25.34,-24.23 -18.01,0 -36.04,17.47 -36.04,35.48 0,12.4 9.01,24.23 25.34,24.23 18.03,0 36.04,-17.47 36.04,-35.48zm89.27 456.77l0 -8.73 -9.01 0c-25.34,0 -26.2,-3.1 -26.2,-13.52l0 -157.99c0,-6.76 0,-7.32 -6.48,-7.32 -17.46,18.01 -42.24,18.01 -51.25,18.01l0 8.74c5.63,0 22.24,0 36.89,-7.33l0 145.88c0,10.14 -0.85,13.52 -26.2,13.52l-9.01 0 0 8.73c9.86,-0.85 34.35,-0.85 45.62,-0.85 11.27,0 35.76,0 45.62,0.85z"/>
+ </g>
+</svg>
+  </figure>
+
+  <ol class="questions">
+    <li>Calculer, en fonction de <span class="lie">\(E\),</span> <span class="lie">\(r\),</span> \(R\) et <span class="lie">\(x\),</span> la valeur algébrique du
+        courant \(i\) circulant dans la résistance \(r\) (compté positivement dans le
+        sens \(C\) vers \(D\)) à l’aide des lois de Kirchhoff.</li>
+    <li>Calculer, en fonction de <span class="lie">\(E\),</span> <span class="lie">\(r\),</span> \(R\) et <span class="lie">\(x\),</span> les intensités des
+        courants \(i_1\) et \(i_2\) qui traversent chacun des générateurs.</li>
+    <li>Pour quelle valeur de <span class="lie">\(x\),</span> exprimée en fonction de \(r\) et <span class="lie">\(R\),</span> l’intensité
+        \(i_2\) est-elle minimale ?</li>
+  </ol>
+</section>
+
+<!-- ══════════════ CORRIGÉ ══════════════ -->
+<section class="partie colonne">
+  <details class="corrige">
+  <summary>Corrigé<span class="appel"></span><span class="chevron" aria-hidden="true"></span></summary>
+
+  <!-- ─────────── 1 ─────────── -->
+  <h2>1. Intensité \(i\)</h2>
+
+  <p>Le circuit comporte trois branches et deux nœuds, \(C\) et <span class="lie">\(D\).</span> La loi des nœuds
+     n’en fournissant qu’une seule équation linéairement indépendante, la détermination
+     de l’intensité \(i\) dans la branche \(CD\) demande deux équations de mailles, qui
+     expriment les deux inconnues \(i_1\) et <span class="lie">\(i_2\).</span></p>
+
+  <p>Maille \(DCAD\) :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ ri + xR\,i_1 - E = 0 \]
+  </div></div>
+
+  <div class="eq">
+    <div class="eq-corps">\[ i_1 = \frac{E - ri}{xR} \]</div>
+    <span class="eq-num">(1)</span>
+  </div>
+
+  <p>Maille \(DCBD\) :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ ri - \left(1 - x\right)R\,i_2 + E = 0 \]
+  </div></div>
+
+  <div class="eq">
+    <div class="eq-corps">\[ i_2 = \frac{ri + E}{\left(1 - x\right)R} \]</div>
+    <span class="eq-num">(2)</span>
+  </div>
+
+  <p>Comme <span class="lie">\(i = i_1 - i_2\),</span> il vient :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ i = \frac{E - ri}{xR} - \frac{ri + E}{\left(1 - x\right)R} \]
+  </div></div>
+
+  <div class="eq"><div class="eq-corps">
+    \[ x\left(1 - x\right)R\,i = \left(E - ri\right)\left(1 - x\right) - \left(ri + E\right)x \]
+  </div></div>
+
+  <div class="encadre">
+    <div class="eq">
+      <div class="eq-corps">
+        \[ i = \frac{\left(1 - 2x\right)E}{r + x\left(1 - x\right)R} \]
+      </div>
+      <span class="eq-num">(3)</span>
+    </div>
+  </div>
+
+  <!-- ─────────── 2 ─────────── -->
+  <h2>2. Intensités \(i_1\) et \(i_2\)</h2>
+
+  <p>Dans l’équation (1), on substitue le résultat obtenu en (3) :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ i_1 = \frac{E - ri}{xR}
+           = \frac{E - r\,\dfrac{\left(1 - 2x\right)E}{r + x\left(1 - x\right)R}}{xR}
+           = \frac{r + x\left(1 - x\right)R - r\left(1 - 2x\right)}
+                  {xR\left(r + x\left(1 - x\right)R\right)}\,E \]
+  </div></div>
+
+  <p>En développant puis en simplifiant par <span class="lie">\(x\),</span> il vient :</p>
+
+  <div class="encadre">
+    <div class="eq">
+      <div class="eq-corps">
+        \[ i_1 = \frac{2r + \left(1 - x\right)R}{r + x\left(1 - x\right)R}\,\frac{E}{R} \]
+      </div>
+      <span class="eq-num">(4)</span>
+    </div>
+  </div>
+
+  <p>Pour déterminer <span class="lie">\(i_2\),</span> on procède de manière identique à partir de l’équation (2).
+     Les calculs conduisent à :</p>
+
+  <div class="encadre">
+    <div class="eq">
+      <div class="eq-corps">
+        \[ i_2 = \frac{2r + xR}{r + x\left(1 - x\right)R}\,\frac{E}{R} \]
+      </div>
+      <span class="eq-num">(5)</span>
+    </div>
+  </div>
+
+  <!-- ─────────── 3 ─────────── -->
+  <h2>3. Valeur de \(x\)</h2>
+
+  <p>Le dénominateur \(r + x\left(1 - x\right)R\) reste strictement positif pour
+     <span class="lie">\(x \in \left[0, 1\right]\),</span> de sorte que \(i_2\) y est dérivable sans singularité.</p>
+
+  <p>On calcule la dérivée :</p>
+
+  <!-- Écart avec le document source : la dernière ligne de cette dérivée y perd le
+       facteur E, que portent les deux lignes précédentes. Il est rétabli ici. Le
+       signe de la dérivée, et donc toute la suite du raisonnement, n'en dépendent
+       pas : E est une constante strictement positive. -->
+  <div class="eq"><div class="eq-corps">
+    \[ \begin{aligned}
+         \frac{di_2}{dx} &= \frac{R\left(r + x\left(1 - x\right)R\right)
+                                  - \left(2r + xR\right)\left(\left(1 - x\right)R - xR\right)}
+                                 {\left[r + x\left(1 - x\right)R\right]^{2}}\,\frac{E}{R} \\[.55em]
+         \frac{di_2}{dx} &= \frac{r + x\left(1 - x\right)R - \left(2r + xR\right)\left(1 - 2x\right)}
+                                 {\left[r + x\left(1 - x\right)R\right]^{2}}\,E
+                          = \frac{r + xR - x^{2}R - 2r + 4xr - xR + 2x^{2}R}
+                                 {\left[r + x\left(1 - x\right)R\right]^{2}}\,E \\[.55em]
+         \frac{di_2}{dx} &= \frac{x^{2}R + 4xr - r}
+                                 {\left[r + x\left(1 - x\right)R\right]^{2}}\,E
+       \end{aligned} \]
+  </div></div>
+
+  <p>L’intensité \(i_2\) passe par un extremum — un minimum, d’après l’énoncé — lorsque
+     le numérateur de cette dérivée s’annule. Les racines du trinôme
+     \(x^{2}R + 4xr - r\) sont :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ x_{\pm} = \frac{-2r \pm \sqrt{4r^{2} + rR}}{R} \]
+  </div></div>
+
+  <p>dont une seule est positive :</p>
+
+  <div class="encadre">
+    <div class="eq">
+      <div class="eq-corps">
+        \[ x_o = \frac{\sqrt{r\left(4r + R\right)} - 2r}{R} \]
+      </div>
+      <span class="eq-num">(6)</span>
+    </div>
+  </div>
+
+  <p>Il reste à montrer que <span class="lie">\(x_o \lt 1\).</span> La chaîne d’équivalences s’écrit :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ x_o \lt 1
+       \;\Leftrightarrow\; \sqrt{r\left(4r + R\right)} - 2r \lt R
+       \;\Leftrightarrow\; \sqrt{r\left(4r + R\right)} \lt 2r + R
+       \;\Leftrightarrow\; r\left(4r + R\right) - \left(R + 2r\right)^{2} \lt 0 \]
+  </div></div>
+
+  <p>Le développement de cette différence donne :</p>
+
+  <div class="eq"><div class="eq-corps">
+    \[ 4r^{2} + rR - R^{2} - 4rR - 4r^{2} = -R\left(3r + R\right) \]
+  </div></div>
+
+  <p>strictement négatif pour toutes valeurs positives de \(r\) et de <span class="lie">\(R\).</span> Il existe
+     donc une position du curseur, toujours atteignable, qui minimise \(i_2\) : une
+     position située hors de la course du potentiomètre n’aurait aucune traduction
+     expérimentale.</p>
+
+  <p>Par ailleurs, le trinôme \(x^{2}R + 4xr - r\) vaut \(-r\) en \(x = 0\) et son
+     coefficient dominant \(R\) est positif : la dérivée est donc négative sur
+     \(\left[0,\, x_o\right[\) et positive sur <span class="lie">\(\left]x_o,\, 1\right]\).</span> L’intensité
+     \(i_2\) décroît puis croît — il s’agit bien d’un minimum.</p>
+
+  </details>
+
+  <nav class="suite" aria-label="Navigation entre exercices">
+    <a href="e1_3.html">← E1.3<span class="titre-exo"> Étude d’un réseau</span></a>
+    <a href="../../../electricite/e_1/e_1_5/e_1_5_enon.htm">E1.5<span class="titre-exo"> Analyse d’un réseau linéaire</span> →</a>
+  </nav>
+</section>
+
+<section class="kholor">
+  <div class="colonne">
+    <p class="surtitre">Recueil Kholor</p>
+    <h2>Le même chapitre, d’autres exercices.</h2>
+    <p>Le recueil <em>E1 · Lois de Kirchhoff. Réseaux en régime continu</em> réunit
+       23 exercices inédits, différents de ceux publiés ici, tous corrigés dans le détail.</p>
+    <a class="lire" href="https://payhip.com/b/pHb4u">Voir le recueil E1</a>
+  </div>
+</section>
+
+<footer class="pied">
+  <div class="colonne">
+    Hubert de Haan · www.kholaweb.com ·
+    <a href="../../../index.htm">Accueil</a> ·
+    <a href="../../../index.htm#kholor">Kholor</a> ·
+    <a href="mailto:kholaweb@free.fr">Contact</a>
+  </div>
+</footer>
+
+<script src="../../../scripts/protection.js"></script>
+
+</body>
+</html>
