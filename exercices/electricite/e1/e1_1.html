@@ -231,6 +231,33 @@ a{color:inherit}
   .encadre{padding:.8rem .65rem}
   .eq-corps{padding-left:1.1rem}
 }
+/* Au-delà de 1150 px, la figure de l'énoncé sort dans la marge de droite, où le
+   blanc ne servait à rien : l'énoncé et son schéma tiennent alors d'un seul
+   tenant à l'écran, au lieu qu'il faille défiler de l'un à l'autre. Le cadre
+   s'élargit de la sortie de la figure et cette largeur nouvelle va au padding de
+   droite — le texte garde exactement sa largeur, et le corrigé sa géométrie,
+   numéros d'équation compris. Élargir la colonne elle-même les éloignait de
+   leurs formules ; borner le bloc de texte faisait défiler les équations larges.
+   La règle ne vaut que pour les pages portant un schéma dans l'énoncé, d'où la
+   classe sur le corps : sans figure, la marge resterait vide et les filets
+   courraient dans le blanc. */
+@media (min-width:1150px){
+  .avec-marge .colonne{max-width:64rem}
+  /* .ariane, .entete et .partie redéfinissent le raccourci padding : il faut
+     leur répéter celui de droite, sans quoi elles l'écrasent */
+  .avec-marge .ariane,
+  .avec-marge .entete,
+  .avec-marge .partie,
+  .avec-marge .kholor .colonne,
+  .avec-marge .pied .colonne{padding-right:15.5rem}
+  /* la section doit contenir son flottant, sans quoi la figure déborde sur la
+     partie suivante et le filet de séparation la coupe en deux */
+  .avec-marge .partie{display:flow-root}
+  .schema.en-marge{float:right;width:24rem;padding-left:0;
+    margin:.2rem -14rem 1.2rem 2.5rem}
+  .schema.en-marge svg{max-width:100%}
+  .avec-marge .suite{clear:both}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
