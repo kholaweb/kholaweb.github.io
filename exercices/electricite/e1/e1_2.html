@@ -167,6 +167,11 @@ a{color:inherit}
    typographie sans empattement du texte : on rapproche les deux tailles */
 .katex{font-size:1.1em}
 
+/* KaTeX compose ses blocs en inline-block : une coupure de ligne peut alors se
+   glisser entre une formule et la ponctuation qui la suit, et rejeter une
+   virgule en tête de ligne. Le span les tient ensemble. */
+.lie{white-space:nowrap}
+
 /* équations — disposition du document d'origine : la formule est décalée
    d'une tabulation vers la droite, le numéro est repoussé à la marge */
 .eq{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
@@ -326,11 +331,11 @@ a{color:inherit}
   <details class="corrige">
   <summary>Corrigé<span class="appel"></span><span class="chevron" aria-hidden="true"></span></summary>
 
-  <p>Les fils de connexion \(CD\), \(DB\), \(BM\) et \(MC\) étant supposés sans
-     résistance, les points \(B\), \(C\), \(D\) et \(M\) sont au même potentiel et se
-     confondent en un point unique, \(M\). Les résistances \(R\) des branches \(AB\),
-     \(AC\) et \(AD\) se trouvent ainsi en parallèle avec la branche \(AM\), qui porte
-     la source de tension et la dernière résistance \(R\).</p>
+  <p>Les fils de connexion <span class="lie">\(CD\),</span> <span class="lie">\(DB\),</span> \(BM\) et \(MC\) étant supposés sans
+     résistance, les points <span class="lie">\(B\),</span> <span class="lie">\(C\),</span> \(D\) et \(M\) sont au même potentiel et se
+     confondent en un point unique, <span class="lie">\(M\).</span> Les résistances \(R\) des branches <span class="lie">\(AB\),</span>
+     \(AC\) et \(AD\) se trouvent ainsi en parallèle avec la branche <span class="lie">\(AM\),</span> qui porte
+     la source de tension et la dernière résistance <span class="lie">\(R\).</span></p>
 
   <p>Le montage proposé équivaut donc au suivant :</p>
 
@@ -376,7 +381,7 @@ a{color:inherit}
   </figure>
 
   <p>L’axe \(AM\) est un axe de symétrie : chaque résistance de la portion de circuit
-     \(AM\) est donc parcourue par le courant \(\dfrac{I}{3}\).</p>
+     \(AM\) est donc parcourue par le courant <span class="lie">\(\dfrac{I}{3}\).</span></p>
 
   <p>La tension aux bornes d’une dérivation étant commune à toutes ses branches,
      il vient :</p>
@@ -391,7 +396,7 @@ a{color:inherit}
     \[ I = \frac{3E}{4R} \]
   </div></div>
 
-  <p>La tension recherchée \(U_{AB}\) s’identifie à \(U = U_{AM}\), d’où :</p>
+  <p>La tension recherchée \(U_{AB}\) s’identifie à <span class="lie">\(U = U_{AM}\),</span> d’où :</p>
 
   <div class="eq"><div class="eq-corps">
     \[ U_{AB} = R\,\frac{I}{3} = R\,\frac{1}{3}\,\frac{3E}{4R} \]

@@ -167,6 +167,11 @@ a{color:inherit}
    typographie sans empattement du texte : on rapproche les deux tailles */
 .katex{font-size:1.1em}
 
+/* KaTeX compose ses blocs en inline-block : une coupure de ligne peut alors se
+   glisser entre une formule et la ponctuation qui la suit, et rejeter une
+   virgule en tête de ligne. Le span les tient ensemble. */
+.lie{white-space:nowrap}
+
 /* équations — disposition du document d'origine : la formule est décalée
    d'une tabulation vers la droite, le numéro est repoussé à la marge */
 .eq{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
@@ -271,7 +276,7 @@ a{color:inherit}
   <p class="titre-partie">Énoncé</p>
 
   <p>Une thermistance est un composant thermosensible dont la résistance \(R\) dépend
-     de sa température absolue \(T\). On admettra que ces deux grandeurs sont liées
+     de sa température absolue <span class="lie">\(T\).</span> On admettra que ces deux grandeurs sont liées
      par une relation de la forme :</p>
 
   <p class="ligne-formule">
@@ -284,31 +289,31 @@ a{color:inherit}
       <p class="ligne-formule">
         \(\displaystyle R\left(T_1 = 300\ \mathrm{K}\right) = R_1 = 160\ \Omega\)
         et
-        \(\displaystyle R\left(T_2 = 420\ \mathrm{K}\right) = R_2 = 29\ \Omega\).
+        <span class="lie">\(\displaystyle R\left(T_2 = 420\ \mathrm{K}\right) = R_2 = 29\ \Omega\).</span>
       </p>
-      <p>Déterminer \(R_o\) et \(A\).</p>
+      <p>Déterminer \(R_o\) et <span class="lie">\(A\).</span></p>
     </li>
     <li>Quelle allure présente la courbe donnant \(\ln R\) en fonction de \(1/T\) ?</li>
   </ol>
 
-  <p>La thermistance, portée à la température \(T\), est mise en contact thermique avec
-     un milieu de température constante \(T_o\). Dans ces conditions, la puissance \(P\)
+  <p>La thermistance, portée à la température <span class="lie">\(T\),</span> est mise en contact thermique avec
+     un milieu de température constante <span class="lie">\(T_o\).</span> Dans ces conditions, la puissance \(P\)
      qu’elle dissipe est reliée à sa température par la loi de Newton :</p>
 
   <p class="ligne-formule">
     \(\displaystyle P = H\left(T - T_o\right)\)
-    avec \(H = 8{,}0 \times 10^{-3}\ \mathrm{W\cdot K^{-1}}\).
+    avec <span class="lie">\(H = 8{,}0 \times 10^{-3}\ \mathrm{W\cdot K^{-1}}\).</span>
   </p>
 
   <p>On désigne par \(U\) la tension aux bornes de la thermistance et par \(I\)
      l’intensité qui la traverse.</p>
 
   <ol class="questions" start="3" style="counter-reset:q 2">
-    <li>Établir les expressions de \(U\) et de \(I\) en fonction de \(T\), en ne faisant appel
+    <li>Établir les expressions de \(U\) et de \(I\) en fonction de <span class="lie">\(T\),</span> en ne faisant appel
         qu’aux grandeurs introduites dans l’énoncé dont la valeur numérique est connue.</li>
-    <li>La thermistance est caractérisée par une température limite \(T_m = 500\ \mathrm{K}\).
+    <li>La thermistance est caractérisée par une température limite <span class="lie">\(T_m = 500\ \mathrm{K}\).</span>
         En déduire la puissance \(P_m\) que peut alors dissiper la thermistance lorsque
-        \(T_o = 300\ \mathrm{K}\), ainsi que les valeurs \(U_m\) et \(I_m\) qui lui correspondent.</li>
+        <span class="lie">\(T_o = 300\ \mathrm{K}\),</span> ainsi que les valeurs \(U_m\) et \(I_m\) qui lui correspondent.</li>
   </ol>
 </section>
 
@@ -443,7 +448,7 @@ a{color:inherit}
   </div>
 
   <p>Cette fonction est représentée par une droite d’ordonnée à l’origine \(\ln\!\left(R_o\right)\)
-     et de pente positive \(A\).</p>
+     et de pente positive <span class="lie">\(A\).</span></p>
 
   <!-- ─────────── 3 ─────────── -->
   <h2>3. Tension et intensité en fonction de \(T\)</h2>
