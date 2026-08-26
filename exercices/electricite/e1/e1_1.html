@@ -243,19 +243,27 @@ a{color:inherit}
    classe sur le corps : sans figure, la marge resterait vide et les filets
    courraient dans le blanc. */
 @media (min-width:1150px){
-  .avec-marge .colonne{max-width:64rem}
+  /* Un seul réglage par page : --figure, la largeur du schéma. Le cadre, le
+     padding de droite et la sortie dans la marge s'en déduisent, de sorte que
+     le texte garde sa largeur au pixel près, que l'ensemble reste centré, et
+     que l'écart entre le texte et la figure ne bouge pas.
+     La largeur se choisit pour que les capitales du dessin aient la hauteur de
+     celles du texte : au-delà, le schéma écrase la page — mesuré sur E1.4, dont
+     l'export CorelDRAW est à une autre échelle que les autres. */
+  .avec-marge{--figure:24rem}
+  .avec-marge .colonne{max-width:calc(40rem + var(--figure))}
   /* .ariane, .entete et .partie redéfinissent le raccourci padding : il faut
      leur répéter celui de droite, sans quoi elles l'écrasent */
   .avec-marge .ariane,
   .avec-marge .entete,
   .avec-marge .partie,
   .avec-marge .kholor .colonne,
-  .avec-marge .pied .colonne{padding-right:15.5rem}
+  .avec-marge .pied .colonne{padding-right:calc(var(--figure) - 8.5rem)}
   /* la section doit contenir son flottant, sans quoi la figure déborde sur la
      partie suivante et le filet de séparation la coupe en deux */
   .avec-marge .partie{display:flow-root}
-  .schema.en-marge{float:right;width:24rem;padding-left:0;
-    margin:.2rem -14rem 1.2rem 2.5rem}
+  .schema.en-marge{float:right;width:var(--figure);padding-left:0;
+    margin:.2rem calc(10rem - var(--figure)) 1.2rem 2.5rem}
   .schema.en-marge svg{max-width:100%}
   .avec-marge .suite{clear:both}
 }
