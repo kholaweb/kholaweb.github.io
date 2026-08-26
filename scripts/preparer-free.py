@@ -9,18 +9,33 @@ racine, l'ancienne arborescence electricite/, mecanique/... restant en place
 a cote et continuant de servir les exercices non encore convertis.
 
   python scripts/preparer-free.py [dossier de sortie]
+  python scripts/preparer-free.py --publie [dossier de sortie]
 
 Par defaut : ..\\kholaweb-publication-free, a cote du depot.
 
-<sortie>/liste.txt, hors du dossier a televerser, recense ce qui a change
-depuis la preparation precedente : seuls ces fichiers-la sont a renvoyer.
+<sortie>/liste.txt, hors du dossier a televerser, recense ce qui reste a
+envoyer. La comparaison porte sur l'etat du dernier televersement, note dans
+<sortie>/etat-publie.json, et non sur la preparation precedente : sans cela,
+relancer le script deux fois de suite effacerait la liste des fichiers a
+envoyer alors qu'ils n'ont pas quitte la machine. C'est arrive le 26 aout 2026.
+
+Une fois les fichiers deposes sur free.fr, le confirmer par :
+
+  python scripts/preparer-free.py --publie
+
+qui enregistre l'etat courant comme etant celui du serveur. Tant que cette
+confirmation n'est pas donnee, les fichiers restent annonces comme a envoyer.
 """
-import hashlib, shutil, sys
+import hashlib, json, shutil, sys
 from pathlib import Path
 
+arguments = [a for a in sys.argv[1:] if not a.startswith('--')]
+PUBLIE = '--publie' in sys.argv
+
 RACINE = Path(__file__).resolve().parent.parent
-SORTIE = Path(sys.argv[1]) if len(sys.argv) > 1 else RACINE.parent / 'kholaweb-publication-free'
+SORTIE = Path(arguments[0]) if arguments else RACINE.parent / 'kholaweb-publication-free'
 SITE = SORTIE / 'site'
+ETAT = SORTIE / 'etat-publie.json'
 
 
 def fichiers():
@@ -34,7 +49,7 @@ def fichiers():
     # l'hebergeur ne pilote par aucun en-tete. GitHub Pages ne le lit pas.
     yield RACINE / '.htaccess'
     # page de rubrique de l'ancien site, entree au depot le 26 aout 2026 :
-    # ses liens E1.1 a E1.3 menent desormais vers les nouvelles pages
+    # ses liens E1.1 a E1.4 menent desormais vers les nouvelles pages
     yield RACINE / 'page_base_electricite.htm'
     yield RACINE / 'css' / 'protection.css'
     yield RACINE / 'scripts' / 'protection.js'
@@ -49,40 +64,57 @@ def empreinte(p):
     return hashlib.sha256(p.read_bytes()).hexdigest()
 
 
-nouveaux, modifies, inchanges, attendus = [], [], [], set()
+publie = {}
+if ETAT.exists():
+    publie = json.loads(ETAT.read_text(encoding='utf8'))
+
+nouveaux, modifies, inchanges, attendus, courant = [], [], [], set(), {}
 
 for src in fichiers():
     rel = src.relative_to(RACINE)
+    cle = str(rel).replace('\\', '/')
     attendus.add(rel)
-    dest = SITE / rel
-    if not dest.exists():
-        etat = nouveaux
-    elif empreinte(dest) != empreinte(src):
-        etat = modifies
+    courant[cle] = empreinte(src)
+
+    if cle not in publie:
+        nouveaux.append(rel)
+    elif publie[cle] != courant[cle]:
+        modifies.append(rel)
     else:
-        etat = inchanges
+        inchanges.append(rel)
+
+    dest = SITE / rel
     dest.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(src, dest)
-    etat.append(rel)
 
 # un fichier retire du depot reste sur le serveur : le signaler, sans rien
 # supprimer nous-memes du cote distant
-obsoletes = []
+obsoletes = sorted(set(publie) - set(courant))
 if SITE.exists():
     for p in sorted(SITE.rglob('*')):
         if p.is_file() and p.relative_to(SITE) not in attendus:
-            obsoletes.append(p.relative_to(SITE))
             p.unlink()
 
 poids = sum((SITE / r).stat().st_size for r in attendus)
+
+if PUBLIE:
+    ETAT.write_text(json.dumps(courant, indent=1, sort_keys=True), encoding='utf8')
+    print('Etat enregistre : les %d fichiers de site\\ sont ceux du serveur.'
+          % len(courant))
+    print('La prochaine preparation ne signalera que ce qui aura change depuis.')
+    sys.exit(0)
 
 lignes = ['Publication KholaWeb sur hdehaan.pages-perso.free.fr', '']
 lignes.append('A televerser : le CONTENU du dossier site\\, a la racine du site.')
 lignes.append('Ne pas televerser ce fichier-ci.')
 lignes.append('')
-for titre, groupe in (('A ENVOYER -- nouveaux', nouveaux),
-                      ('A ENVOYER -- modifies', modifies),
-                      ('Inchanges depuis la derniere preparation', inchanges),
+lignes.append('Une fois le depot fait, le confirmer par :')
+lignes.append('    python scripts/preparer-free.py --publie')
+lignes.append("sans quoi ces fichiers resteront annonces comme a envoyer.")
+lignes.append('')
+for titre, groupe in (('A ENVOYER -- jamais deposes', nouveaux),
+                      ('A ENVOYER -- modifies depuis le dernier depot', modifies),
+                      ('Deja en ligne, inchanges', inchanges),
                       ('Retires du depot -- a supprimer sur le serveur', obsoletes)):
     lignes.append('%s (%d)' % (titre, len(groupe)))
     lignes += ['    ' + str(r) for r in groupe] or ['    (aucun)']
@@ -92,8 +124,10 @@ lignes.append('Total depose dans site\\ : %d fichiers, %.1f Mo' % (len(attendus)
 (SORTIE / 'liste.txt').write_text('\n'.join(lignes), encoding='utf8')
 
 print('Dossier pret : %s' % SITE)
-print('  a envoyer : %d nouveaux, %d modifies' % (len(nouveaux), len(modifies)))
-print('  inchanges : %d' % len(inchanges))
+if not ETAT.exists():
+    print('  (aucun etat de publication connu : tout est annonce comme a envoyer)')
+print('  a envoyer : %d jamais deposes, %d modifies' % (len(nouveaux), len(modifies)))
+print('  deja en ligne : %d' % len(inchanges))
 if obsoletes:
     print('  a supprimer sur le serveur : %d' % len(obsoletes))
 print('  total     : %d fichiers, %.1f Mo' % (len(attendus), poids / 1e6))
