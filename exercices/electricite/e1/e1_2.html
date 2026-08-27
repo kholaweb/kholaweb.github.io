@@ -47,6 +47,10 @@
   --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
   --mesure:74rem;
   --colonne:50rem;
+  /* largeur du schema de l'énoncé, seul réglage de sa mise en marge ;
+     choisie pour que les capitales du dessin aient la hauteur de celles
+     du texte, soit 11 px pour un corps de 15 */
+  --figure:20rem;
 }
 
 /* ---------- mode sombre ---------- */
@@ -250,7 +254,6 @@ a{color:inherit}
      La largeur se choisit pour que les capitales du dessin aient la hauteur de
      celles du texte : au-delà, le schéma écrase la page — mesuré sur E1.4, dont
      l'export CorelDRAW est à une autre échelle que les autres. */
-  .avec-marge{--figure:20rem}
   .avec-marge .colonne{max-width:calc(40rem + var(--figure))}
   /* .ariane, .entete et .partie redéfinissent le raccourci padding : il faut
      leur répéter celui de droite, sans quoi elles l'écrasent */
@@ -283,6 +286,9 @@ a{color:inherit}
 .schema text{font-family:var(--serif);font-style:italic;font-size:15px;
   fill:currentColor}
 .schema .noeud{fill:currentColor}
+/* la figure garde la même taille qu'elle soit en marge ou sous le texte :
+   sans cela elle grossissait en dessous du seuil */
+.schema.en-marge svg{max-width:var(--figure)}
 .schema figcaption{font-size:.8125rem;color:var(--gris-clair);
   margin-top:.5rem;font-style:normal}
 </style>
