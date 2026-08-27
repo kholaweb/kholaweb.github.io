@@ -177,6 +177,22 @@ a{color:inherit}
    virgule en tête de ligne. Le span les tient ensemble. */
 .lie{white-space:nowrap}
 
+/* Une équation trop large défile dans son cadre, et le lecteur y perd le début
+   de la ligne. KaTeX ne sachant pas couper les lignes de lui-même, les formules
+   qui enchaînent plusieurs relations sont écrites deux fois — d'un seul tenant
+   et coupée — et l'on montre celle qui convient à la largeur. La coupure suit
+   l'usage de l'imprimé : avant le signe de relation, la grandeur répétée à
+   chaque ligne.
+   Seuil relevé : au-delà de 780 px de fenêtre, la forme d'un seul tenant tient
+   dans le cadre. On coupe à 800 px, avec une marge — téléphones et tablettes en
+   portrait jusqu'à 768 px reçoivent la forme coupée, les iPad de 810 et 834 px
+   la forme d'origine, qui y tient. */
+.eq.coupee{display:none}
+@media (max-width:800px){
+  .eq.une-ligne{display:none}
+  .eq.coupee{display:grid}
+}
+
 /* équations — disposition du document d'origine : la formule est décalée
    d'une tabulation vers la droite, le numéro est repoussé à la marge */
 .eq{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
@@ -265,9 +281,9 @@ a{color:inherit}
   /* la section doit contenir son flottant, sans quoi la figure déborde sur la
      partie suivante et le filet de séparation la coupe en deux */
   .avec-marge .partie{display:flow-root}
-  .schema.en-marge{float:right;width:var(--figure);padding-left:0;
+  .avec-marge .schema-enonce{float:right;width:var(--figure);padding-left:0;
     margin:.2rem calc(10rem - var(--figure)) 1.2rem 2.5rem}
-  .schema.en-marge svg{max-width:100%}
+  .avec-marge .schema-enonce svg{max-width:100%}
   .avec-marge .suite{clear:both}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
@@ -289,7 +305,7 @@ a{color:inherit}
 .schema .noeud{fill:currentColor}
 /* la figure garde la même taille qu'elle soit en marge ou sous le texte :
    sans cela elle grossissait en dessous du seuil */
-.schema.en-marge svg{max-width:var(--figure)}
+.schema-enonce svg{max-width:var(--figure)}
 .schema figcaption{font-size:.8125rem;color:var(--gris-clair);
   margin-top:.5rem;font-style:normal}
 </style>
@@ -341,7 +357,7 @@ a{color:inherit}
      de résistance totale <span class="lie">\(R\),</span> délimite une fraction \(xR\) de la résistance \(R\)
      entre les points \(A\) et \(C\) (\(0 \lt x \lt 1\)).</p>
 
-  <figure class="schema en-marge">
+  <figure class="schema schema-enonce">
 <svg role="img" aria-label="Le conducteur AB porte un potentiometre de resistance totale R, dont le curseur C delimite xR du cote de A et (1 moins x) R du cote de B. De C part une branche horizontale contenant la resistance fixe r, parcourue par le courant i, jusqu'au point D. Entre A et D, un generateur de force electromotrice E parcouru par le courant i1 ; entre D et B, un second generateur identique parcouru par i2." style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" xmlns="http://www.w3.org/2000/svg" version="1.1"
 viewBox="0 0 8816.82 7328.65"
  xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -475,11 +491,20 @@ viewBox="0 0 8816.82 7328.65"
 
   <p>Dans l’équation (1), on substitue le résultat obtenu en (3) :</p>
 
-  <div class="eq"><div class="eq-corps">
+  <div class="eq une-ligne"><div class="eq-corps">
     \[ i_1 = \frac{E - ri}{xR}
            = \frac{E - r\,\dfrac{\left(1 - 2x\right)E}{r + x\left(1 - x\right)R}}{xR}
            = \frac{r + x\left(1 - x\right)R - r\left(1 - 2x\right)}
                   {xR\left(r + x\left(1 - x\right)R\right)}\,E \]
+  </div></div>
+
+  <div class="eq coupee"><div class="eq-corps">
+    \[ \begin{aligned}
+         i_1 &= \frac{E - ri}{xR} \\[.55em]
+         i_1 &= \frac{E - r\,\dfrac{\left(1 - 2x\right)E}{r + x\left(1 - x\right)R}}{xR} \\[.55em]
+         i_1 &= \frac{r + x\left(1 - x\right)R - r\left(1 - 2x\right)}
+                     {xR\left(r + x\left(1 - x\right)R\right)}\,E
+       \end{aligned} \]
   </div></div>
 
   <p>En développant puis en simplifiant par <span class="lie">\(x\),</span> il vient :</p>
@@ -517,7 +542,7 @@ viewBox="0 0 8816.82 7328.65"
        facteur E, que portent les deux lignes précédentes. Il est rétabli ici. Le
        signe de la dérivée, et donc toute la suite du raisonnement, n'en dépendent
        pas : E est une constante strictement positive. -->
-  <div class="eq"><div class="eq-corps">
+  <div class="eq une-ligne"><div class="eq-corps">
     \[ \begin{aligned}
          \frac{di_2}{dx} &= \frac{R\left(r + x\left(1 - x\right)R\right)
                                   - \left(2r + xR\right)\left(\left(1 - x\right)R - xR\right)}
@@ -525,6 +550,20 @@ viewBox="0 0 8816.82 7328.65"
          \frac{di_2}{dx} &= \frac{r + x\left(1 - x\right)R - \left(2r + xR\right)\left(1 - 2x\right)}
                                  {\left[r + x\left(1 - x\right)R\right]^{2}}\,E
                           = \frac{r + xR - x^{2}R - 2r + 4xr - xR + 2x^{2}R}
+                                 {\left[r + x\left(1 - x\right)R\right]^{2}}\,E \\[.55em]
+         \frac{di_2}{dx} &= \frac{x^{2}R + 4xr - r}
+                                 {\left[r + x\left(1 - x\right)R\right]^{2}}\,E
+       \end{aligned} \]
+  </div></div>
+
+  <div class="eq coupee"><div class="eq-corps">
+    \[ \begin{aligned}
+         \frac{di_2}{dx} &= \frac{R\left(r + x\left(1 - x\right)R\right)
+                                  - \left(2r + xR\right)\left(\left(1 - x\right)R - xR\right)}
+                                 {\left[r + x\left(1 - x\right)R\right]^{2}}\,\frac{E}{R} \\[.55em]
+         \frac{di_2}{dx} &= \frac{r + x\left(1 - x\right)R - \left(2r + xR\right)\left(1 - 2x\right)}
+                                 {\left[r + x\left(1 - x\right)R\right]^{2}}\,E \\[.55em]
+         \frac{di_2}{dx} &= \frac{r + xR - x^{2}R - 2r + 4xr - xR + 2x^{2}R}
                                  {\left[r + x\left(1 - x\right)R\right]^{2}}\,E \\[.55em]
          \frac{di_2}{dx} &= \frac{x^{2}R + 4xr - r}
                                  {\left[r + x\left(1 - x\right)R\right]^{2}}\,E
@@ -552,11 +591,20 @@ viewBox="0 0 8816.82 7328.65"
 
   <p>Il reste à montrer que <span class="lie">\(x_o \lt 1\).</span> La chaîne d’équivalences s’écrit :</p>
 
-  <div class="eq"><div class="eq-corps">
+  <div class="eq une-ligne"><div class="eq-corps">
     \[ x_o \lt 1
        \;\Leftrightarrow\; \sqrt{r\left(4r + R\right)} - 2r \lt R
        \;\Leftrightarrow\; \sqrt{r\left(4r + R\right)} \lt 2r + R
        \;\Leftrightarrow\; r\left(4r + R\right) - \left(R + 2r\right)^{2} \lt 0 \]
+  </div></div>
+
+  <div class="eq coupee"><div class="eq-corps">
+    \[ \begin{aligned}
+         & x_o \lt 1 \\[.45em]
+         \Leftrightarrow\quad & \sqrt{r\left(4r + R\right)} - 2r \lt R \\[.45em]
+         \Leftrightarrow\quad & \sqrt{r\left(4r + R\right)} \lt 2r + R \\[.45em]
+         \Leftrightarrow\quad & r\left(4r + R\right) - \left(R + 2r\right)^{2} \lt 0
+       \end{aligned} \]
   </div></div>
 
   <p>Le développement de cette différence donne :</p>

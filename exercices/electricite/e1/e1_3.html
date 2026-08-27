@@ -50,7 +50,7 @@
   /* largeur du schema de l'énoncé, seul réglage de sa mise en marge ;
      choisie pour que les capitales du dessin aient la hauteur de celles
      du texte, soit 11 px pour un corps de 15 */
-  --figure:24rem;
+  --figure:30rem;
 }
 
 /* ---------- mode sombre ---------- */
@@ -177,6 +177,19 @@ a{color:inherit}
    virgule en tête de ligne. Le span les tient ensemble. */
 .lie{white-space:nowrap}
 
+/* Une équation trop large défile dans son cadre, et le lecteur y perd le début
+   de la ligne. KaTeX ne sachant pas couper les lignes de lui-même, les formules
+   trop larges sont écrites deux fois — d'un seul tenant et coupée — et l'on
+   montre celle qui convient à la largeur.
+   Seuil : 800 px, ce qui donne la forme coupée aux téléphones et aux tablettes
+   en portrait jusqu'à 768 px, et la forme d'origine aux iPad de 810 et 834 px
+   comme aux ordinateurs, où elle tient. */
+.eq.coupee{display:none}
+@media (max-width:800px){
+  .eq.une-ligne{display:none}
+  .eq.coupee{display:grid}
+}
+
 /* équations — disposition du document d'origine : la formule est décalée
    d'une tabulation vers la droite, le numéro est repoussé à la marge */
 .eq{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
@@ -265,9 +278,9 @@ a{color:inherit}
   /* la section doit contenir son flottant, sans quoi la figure déborde sur la
      partie suivante et le filet de séparation la coupe en deux */
   .avec-marge .partie{display:flow-root}
-  .schema.en-marge{float:right;width:var(--figure);padding-left:0;
+  .avec-marge .schema-enonce{float:right;width:var(--figure);padding-left:0;
     margin:.2rem calc(10rem - var(--figure)) 1.2rem 2.5rem}
-  .schema.en-marge svg{max-width:100%}
+  .avec-marge .schema-enonce svg{max-width:100%}
   .avec-marge .suite{clear:both}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
@@ -289,14 +302,14 @@ a{color:inherit}
 .schema .noeud{fill:currentColor}
 /* la figure garde la même taille qu'elle soit en marge ou sous le texte :
    sans cela elle grossissait en dessous du seuil */
-.schema.en-marge svg{max-width:var(--figure)}
+.schema-enonce svg{max-width:var(--figure)}
 .schema figcaption{font-size:.8125rem;color:var(--gris-clair);
   margin-top:.5rem;font-style:normal}
 </style>
 
 <link rel="stylesheet" href="../../../css/protection.css">
 </head>
-<body class="avec-marge">
+<body>
 
 <header class="bandeau">
   <div class="enveloppe">
@@ -337,7 +350,7 @@ a{color:inherit}
 
   <p>On considère le réseau ci-dessous.</p>
 
-  <figure class="schema en-marge">
+  <figure class="schema schema-enonce">
 <svg role="img" aria-label="Réseau à six branches. Deux nœuds A et B en haut ; entre eux une source E3 et une résistance R. De A partent deux branches vers le bas, l’une avec une résistance R et la source E2, l’autre avec une résistance R. De B partent de même deux branches, l’une avec une résistance R portant le courant I, l’autre avec une résistance R et la source E1. Les branches basses sont reliées par une résistance R." xmlns="http://www.w3.org/2000/svg" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
 viewBox="0 0 8712.61 4965.78"
  xmlns:xlink="http://www.w3.org/1999/xlink"

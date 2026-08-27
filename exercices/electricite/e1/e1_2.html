@@ -177,6 +177,19 @@ a{color:inherit}
    virgule en tête de ligne. Le span les tient ensemble. */
 .lie{white-space:nowrap}
 
+/* Une équation trop large défile dans son cadre, et le lecteur y perd le début
+   de la ligne. KaTeX ne sachant pas couper les lignes de lui-même, les formules
+   trop larges sont écrites deux fois — d'un seul tenant et coupée — et l'on
+   montre celle qui convient à la largeur.
+   Seuil : 800 px, ce qui donne la forme coupée aux téléphones et aux tablettes
+   en portrait jusqu'à 768 px, et la forme d'origine aux iPad de 810 et 834 px
+   comme aux ordinateurs, où elle tient. */
+.eq.coupee{display:none}
+@media (max-width:800px){
+  .eq.une-ligne{display:none}
+  .eq.coupee{display:grid}
+}
+
 /* équations — disposition du document d'origine : la formule est décalée
    d'une tabulation vers la droite, le numéro est repoussé à la marge */
 .eq{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
@@ -265,9 +278,9 @@ a{color:inherit}
   /* la section doit contenir son flottant, sans quoi la figure déborde sur la
      partie suivante et le filet de séparation la coupe en deux */
   .avec-marge .partie{display:flow-root}
-  .schema.en-marge{float:right;width:var(--figure);padding-left:0;
+  .avec-marge .schema-enonce{float:right;width:var(--figure);padding-left:0;
     margin:.2rem calc(10rem - var(--figure)) 1.2rem 2.5rem}
-  .schema.en-marge svg{max-width:100%}
+  .avec-marge .schema-enonce svg{max-width:100%}
   .avec-marge .suite{clear:both}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
@@ -288,14 +301,14 @@ a{color:inherit}
 .schema .noeud{fill:currentColor}
 /* la figure garde la même taille qu'elle soit en marge ou sous le texte :
    sans cela elle grossissait en dessous du seuil */
-.schema.en-marge svg{max-width:var(--figure)}
+.schema-enonce svg{max-width:var(--figure)}
 .schema figcaption{font-size:.8125rem;color:var(--gris-clair);
   margin-top:.5rem;font-style:normal}
 </style>
 
 <link rel="stylesheet" href="../../../css/protection.css">
 </head>
-<body class="avec-marge">
+<body>
 
 <header class="bandeau">
   <div class="enveloppe">
@@ -337,7 +350,7 @@ a{color:inherit}
 
   <p>On considère le réseau linéaire suivant :</p>
 
-  <figure class="schema en-marge">
+  <figure class="schema schema-enonce">
     <svg viewBox="0 0 264 268" role="img"
          aria-label="Réseau carré : les sommets M, C, B et D sont reliés par des fils sans résistance ; du point M part une branche verticale contenant la source de tension E puis une résistance R jusqu’au point central A ; de A partent trois résistances R, vers C, vers B et vers D.">
       <path class="fil" d="M32 34 H232 V234 H32 Z"/>
