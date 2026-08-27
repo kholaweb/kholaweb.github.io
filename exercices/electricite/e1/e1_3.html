@@ -179,11 +179,15 @@ a{color:inherit}
 
 /* Une équation trop large défile dans son cadre, et le lecteur y perd le début
    de la ligne. KaTeX ne sachant pas couper les lignes de lui-même, les formules
-   trop larges sont écrites deux fois — d'un seul tenant et coupée — et l'on
-   montre celle qui convient à la largeur.
-   Seuil : 800 px, ce qui donne la forme coupée aux téléphones et aux tablettes
-   en portrait jusqu'à 768 px, et la forme d'origine aux iPad de 810 et 834 px
-   comme aux ordinateurs, où elle tient. */
+   qui débordent sont écrites deux fois — d'un seul tenant et coupée — et l'on
+   montre celle qui convient à la largeur. La coupure suit l'usage de l'imprimé :
+   avant le signe de relation quand la formule enchaîne des pas de calcul, la
+   grandeur répétée à chaque ligne ; avant le dernier facteur d'un produit trop
+   long, la suite ouverte par un signe de multiplication.
+   Seuil relevé : au-delà de 780 px de fenêtre, la forme d'un seul tenant tient
+   dans le cadre. On coupe à 800 px, avec une marge — téléphones et tablettes en
+   portrait jusqu'à 768 px reçoivent la forme coupée, les iPad de 810 et 834 px
+   la forme d'origine, qui y tient. */
 .eq.coupee{display:none}
 @media (max-width:800px){
   .eq.une-ligne{display:none}
