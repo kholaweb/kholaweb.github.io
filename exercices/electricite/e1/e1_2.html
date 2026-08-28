@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>E1.2 Détermination d’une tension — corrigé · KholaWeb</title>
 <meta name="author" content="Hubert de Haan — KholaWeb">
-<meta name="description" content="E1.2 Détermination d’une tension : énoncé et corrigé détaillé. Réseau de quatre résistances et lois de Kirchhoff, résolution par symétrie.">
-<meta name="keywords" content="lois de Kirchhoff, réseau linéaire, pont de résistances, symétrie, exercice corrigé, CPGE, kholaweb">
+<meta name="description" content="E1.2 Détermination d’une tension : énoncé et corrigé détaillé. Réseau de quatre résistances et lois de Kirchhoff, résolution par nœuds confondus et symétrie.">
+<meta name="keywords" content="lois de Kirchhoff, réseau linéaire, résistances en parallèle, symétrie, exercice corrigé, CPGE, kholaweb">
 <meta name="color-scheme" content="light dark">
 
 <!-- Pas de cache : la page affichée doit toujours être celle du serveur. Ces
@@ -47,10 +47,18 @@
   --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
   --mesure:74rem;
   --colonne:50rem;
-  /* largeur du schema de l'énoncé, seul réglage de sa mise en marge ;
-     choisie pour que les capitales du dessin aient la hauteur de celles
-     du texte, soit 11 px pour un corps de 15 */
-  --figure:20rem;
+  /* teinte dont l'auteur marque, sur le dessin du corrigé, la grandeur
+     cherchée : le libellé de la tension et la flèche qui l'oriente. Le
+     bordeaux y désigne déjà les points de nœud, les deux ne peuvent pas se
+     confondre. Une couleur fixe resterait sourde en mode sombre. */
+  --souligne:#7f1178;
+  /* largeur des schémas, seul réglage de leur taille : choisie pour que les
+     capitales du dessin aient la hauteur de celles du texte, soit 11 px pour
+     un corps de 15. Les deux exports n'ayant pas la même échelle interne —
+     117,8 unités par millimètre pour l'énoncé, 156,8 pour le corrigé —, une
+     largeur commune ne donnerait pas des libellés comparables. */
+  --figure:19rem;
+  --figure-corrige:14.5rem;
 }
 
 /* ---------- mode sombre ---------- */
@@ -68,6 +76,7 @@
     --ivoire-sourd:#9c9384;
     --ivoire-fond2:#221e17;
     --bandeau-fond:rgba(19,17,14,.94);
+    --souligne:#cd86c6;
   }
 }
 *{box-sizing:border-box}
@@ -262,7 +271,9 @@ a{color:inherit}
    leurs formules ; borner le bloc de texte faisait défiler les équations larges.
    La règle ne vaut que pour les pages portant un schéma dans l'énoncé, d'où la
    classe sur le corps : sans figure, la marge resterait vide et les filets
-   courraient dans le blanc. */
+   courraient dans le blanc. Cet exercice n'ayant qu'une seule question, il n'y
+   a rien à mettre à côté du schéma : le corps ne porte pas la classe et la
+   figure reste sous l'énoncé. */
 @media (min-width:1150px){
   /* Un seul réglage par page : --figure, la largeur du schéma. Le cadre, le
      padding de droite et la sortie dans la marge s'en déduisent, de sorte que
@@ -290,9 +301,10 @@ a{color:inherit}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
 /* ---------- schémas de circuit ----------
-   Redessinés en SVG plutôt que repris des images du document, qui sont en
-   noir sur blanc et de 215 pixels de large. Le tracé suit currentColor : le
-   schéma passe donc au mode sombre avec le reste de la page. */
+   Repris des SVG de l'auteur, tracés sous CorelDRAW, plutôt que des images du
+   document, qui sont en noir sur blanc et de deux cents pixels de large. Le
+   tracé suit currentColor : le schéma passe donc au mode sombre avec le reste
+   de la page. */
 .schema{margin:1.4rem 0 1.6rem;padding-left:1.5rem}
 .schema svg{display:block;width:100%;height:auto;max-width:22rem;
   color:var(--encre);overflow:visible}
@@ -300,12 +312,18 @@ a{color:inherit}
   stroke-linecap:square}
 .schema .boite{fill:var(--papier);stroke:currentColor;stroke-width:1.6}
 .schema .pointe{fill:currentColor}
-.schema text{font-family:var(--serif);font-style:italic;font-size:15px;
-  fill:currentColor}
+/* Les schemas de cette page viennent de CorelDRAW et portent leurs propres
+   tailles de texte, exprimees dans les unites de leur viewBox. Ne rien imposer
+   ici : un font-size en pixels les rendrait minuscules. */
 .schema .noeud{fill:currentColor}
 /* la figure garde la même taille qu'elle soit en marge ou sous le texte :
    sans cela elle grossissait en dessous du seuil */
 .schema-enonce svg{max-width:var(--figure)}
+/* le dessin du corrigé est à une autre échelle interne que celui de l'énoncé :
+   il lui faut sa propre largeur pour que les libellés se correspondent. Réglé
+   ici plutôt qu'en attribut style sur le <svg>, qui en porte déjà un — un
+   second serait jeté en silence par l'analyseur. */
+.schema-corrige svg{max-width:var(--figure-corrige)}
 .schema figcaption{font-size:.8125rem;color:var(--gris-clair);
   margin-top:.5rem;font-style:normal}
 </style>
@@ -355,34 +373,67 @@ a{color:inherit}
   <p>On considère le réseau linéaire suivant :</p>
 
   <figure class="schema schema-enonce">
-    <svg viewBox="0 0 264 268" role="img"
-         aria-label="Réseau carré : les sommets M, C, B et D sont reliés par des fils sans résistance ; du point M part une branche verticale contenant la source de tension E puis une résistance R jusqu’au point central A ; de A partent trois résistances R, vers C, vers B et vers D.">
-      <path class="fil" d="M32 34 H232 V234 H32 Z"/>
-      <path class="fil" d="M132 34 V134"/>
-      <circle class="fil" cx="132" cy="62" r="17"/>
-      <rect class="boite" x="120" y="92" width="24" height="32" rx="1"/>
-      <text x="132" y="113" text-anchor="middle">R</text>
-      <path class="fil" d="M180 40 V74"/>
-      <path class="pointe" d="M180 82 l-5 -11 h10 Z"/>
-      <text x="192" y="63">E</text>
-      <path class="fil" d="M32 134 H232"/>
-      <rect class="boite" x="64" y="122" width="32" height="24" rx="1"/>
-      <text x="80" y="139" text-anchor="middle">R</text>
-      <rect class="boite" x="168" y="122" width="32" height="24" rx="1"/>
-      <text x="184" y="139" text-anchor="middle">R</text>
-      <path class="fil" d="M132 134 V234"/>
-      <rect class="boite" x="120" y="168" width="24" height="32" rx="1"/>
-      <text x="132" y="189" text-anchor="middle">R</text>
-      <circle class="noeud" cx="132" cy="134" r="3.4"/>
-      <text x="132" y="22" text-anchor="middle">M</text>
-      <text x="18" y="139">C</text>
-      <text x="240" y="139">B</text>
-      <text x="132" y="256" text-anchor="middle">D</text>
-      <text x="141" y="152">A</text>
-    </svg>
+<svg role="img" aria-label="Réseau carré : les sommets M, C, B et D sont reliés par des fils sans résistance ; du point M part une branche verticale contenant la source de tension E puis une résistance R jusqu’au point central A ; de A partent trois résistances R, vers C, vers B et vers D." xmlns="http://www.w3.org/2000/svg" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 9353.02 9405.35"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .e2estr1 {stroke:currentColor;stroke-width:54.55;stroke-miterlimit:22.9256}
+    .e2estr0 {stroke:currentColor;stroke-width:41.23;stroke-miterlimit:22.9256}
+    .e2efil0 {fill:none}
+    .e2efil1 {fill:currentColor}
+    .e2efil3 {fill:var(--bordeaux)}
+    .e2efil2 {fill:currentColor;fill-rule:nonzero}
+    .e2efnt1 {font-weight:normal;font-size:1246.63px;font-family:var(--serif)}
+    .e2efnt0 {font-style:italic;font-weight:normal;font-size:498.65px;font-family:var(--serif)}
+    .e2efnt2 {font-style:italic;font-weight:normal;font-size:498.65px;font-family:var(--serif)}
+   ]]>
+  </style>
+ </defs>
+ <g id="Plan_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <line class="e2efil0 e2estr0" x1="4756.35" y1="2918.74" x2="4760.16" y2= "3516.52" />
+  <rect class="e2efil0 e2estr1" x="4503.23" y="3516.52" width="588.96" height="1766.89"/>
+  <line class="e2efil0 e2estr0" x1="4760.16" y1="5283.41" x2="4760.16" y2= "5881.18" />
+  <text x="4601.74" y="4564.77"  class="e2efil1 e2efnt0">R</text>
+  <line class="e2efil0 e2estr0" x1="4756.35" y1="5881.18" x2="4760.16" y2= "6478.95" />
+  <rect class="e2efil0 e2estr1" x="4503.23" y="6478.95" width="588.96" height="1766.89"/>
+  <line class="e2efil0 e2estr0" x1="4760.16" y1="8245.84" x2="4760.16" y2= "8843.61" />
+  <text x="4601.74" y="7527.2"  class="e2efil1 e2efnt0">R</text>
+  <rect class="e2efil0 e2estr0" x="1658.02" y="5574.58" width="1766.89" height="613.2"/>
+  <line class="e2efil0 e2estr0" x1="612.41" y1="5881.18" x2="1658.05" y2= "5881.18" />
+  <line class="e2efil0 e2estr0" x1="3424.91" y1="5881.18" x2="6095.41" y2= "5881.18" />
+  <text x="2345.5" y="6045.98"  class="e2efil1 e2efnt0">R</text>
+  <rect class="e2efil0 e2estr0" x="6095.41" y="5574.55" width="1766.89" height="613.2"/>
+  <line class="e2efil0 e2estr0" x1="7862.29" y1="5881.15" x2="8857.91" y2= "5881.15" />
+  <text x="6782.88" y="6045.96"  class="e2efil1 e2efnt0">R</text>
+  <circle class="e2efil0 e2estr0" cx="4760.88" cy="2047.42" r="588.96"/>
+  <line class="e2efil0 e2estr0" x1="4760.88" y1="3225.35" x2="4760.88" y2= "547.52" />
+  <g>
+   <path class="e2efil2" d="M3571.17 3118.04l0 -2248.54 23.56 0 0 2248.54 -23.56 0zm11.78 107.14l-54.29 -108.57 108.58 0 -54.29 108.57z"/>
+  </g>
+  <text x="3004.78" y="2237.34"  class="e2efil1 e2efnt0">E</text>
+  <line class="e2efil0 e2estr0" x1="612.41" y1="8843.61" x2="8857.91" y2= "8843.61" />
+  <line class="e2efil0 e2estr0" x1="640.71" y1="547.52" x2="8857.91" y2= "547.52" />
+  <line class="e2efil0 e2estr0" x1="640.71" y1="547.52" x2="612.41" y2= "8843.61" />
+  <line class="e2efil0 e2estr0" x1="8857.91" y1="547.52" x2="8857.91" y2= "8843.61" />
+  <text x="4586.87" y="5947.25"  class="e2efil3 e2efnt1">.</text>
+  <text x="8684.63" y="5947.22"  class="e2efil3 e2efnt1">.</text>
+  <text x="4586.87" y="8909.68"  class="e2efil3 e2efnt1">.</text>
+  <text x="466.15" y="5940.07"  class="e2efil3 e2efnt1">.</text>
+  <text x="4586.73" y="594.64"  class="e2efil3 e2efnt1">.</text>
+  <text x="4493.74" y="340.57"  class="e2efil1 e2efnt2">M</text>
+  <text x="4288.09" y="5807.94"  class="e2efil1 e2efnt2">A</text>
+  <text x="8987.01" y="6044.29"  class="e2efil1 e2efnt2">B</text>
+  <text x="4526.24" y="9405.35"  class="e2efil1 e2efnt2">D</text>
+  <text x="-74.8" y="6025.34"  class="e2efil1 e2efnt2">C</text>
+ </g>
+</svg>
   </figure>
 
-  <p>Déterminer l’expression de la tension \(U_{AB}\) à l’aide des lois de Kirchhoff.</p>
+  <p>Déterminer l’expression de la tension \(U_{AM}\) à l’aide des lois de Kirchhoff.</p>
 </section>
 
 <!-- ══════════════ CORRIGÉ ══════════════ -->
@@ -390,83 +441,137 @@ a{color:inherit}
   <details class="corrige">
   <summary>Corrigé<span class="appel"></span><span class="chevron" aria-hidden="true"></span></summary>
 
-  <p>Les fils de connexion <span class="lie">\(CD\),</span> <span class="lie">\(DB\),</span> \(BM\) et \(MC\) étant supposés sans
-     résistance, les points <span class="lie">\(B\),</span> <span class="lie">\(C\),</span> \(D\) et \(M\) sont au même potentiel et se
-     confondent en un point unique, <span class="lie">\(M\).</span> Les résistances \(R\) des branches <span class="lie">\(AB\),</span>
-     \(AC\) et \(AD\) se trouvent ainsi en parallèle avec la branche <span class="lie">\(AM\),</span> qui porte
-     la source de tension et la dernière résistance <span class="lie">\(R\).</span></p>
+  <p>Les fils de connexion <span class="lie">\(CD\),</span> <span class="lie">\(DB\),</span> \(CM\) et \(BM\) étant idéaux,
+     c’est-à-dire dépourvus de toute résistance, les points <span class="lie">\(B\),</span> <span class="lie">\(C\),</span> \(D\) et \(M\)
+     sont au même potentiel : ils se confondent en un point unique <span class="lie">\(M\).</span> Les résistances
+     \(R\) initialement disposées dans les branches <span class="lie">\(AB\),</span> \(AC\) et \(AD\) se trouvent
+     ainsi montées en parallèle entre le point \(A\) et ce point commun, en parallèle
+     également avec la branche <span class="lie">\(AM\),</span> qui porte à la fois la source de tension et
+     une quatrième résistance <span class="lie">\(R\).</span></p>
 
-  <p>Le montage proposé équivaut donc au suivant :</p>
+  <p>Le circuit équivalent se représente donc comme suit :</p>
 
-  <figure class="schema">
-    <svg viewBox="0 0 320 224" role="img" style="max-width:26rem"
-         aria-label="Montage équivalent : la source de tension E en série avec une résistance R dans la branche supérieure, reliant M à A ; entre M et A, trois résistances R en parallèle. La tension U est orientée de M vers A, le courant I descend dans la branche de droite.">
-      <path class="fil" d="M30 46 H272"/>
-      <circle class="fil" cx="96" cy="46" r="17"/>
-      <rect class="boite" x="168" y="34" width="34" height="24" rx="1"/>
-      <text x="185" y="51" text-anchor="middle">R</text>
-      <path class="fil" d="M70 18 H116"/>
-      <path class="pointe" d="M124 18 l-11 -5 v10 Z"/>
-      <text x="90" y="10" text-anchor="middle">E</text>
-      <path class="fil" d="M30 46 V140"/>
-      <path class="fil" d="M272 46 V78"/>
-      <path class="pointe" d="M272 86 l-5 -11 h10 Z"/>
-      <path class="fil" d="M272 86 V140"/>
-      <text x="282" y="82">I</text>
-      <path class="fil" d="M60 106 H212"/>
-      <path class="pointe" d="M220 106 l-11 -5 v10 Z"/>
-      <text x="138" y="98" text-anchor="middle">U</text>
-      <path class="fil" d="M30 140 H74"/>
-      <path class="fil" d="M74 140 V206"/>
-      <path class="fil" d="M232 140 H272"/>
-      <path class="fil" d="M232 140 V206"/>
-      <path class="fil" d="M74 140 H136"/>
-      <path class="fil" d="M170 140 H232"/>
-      <rect class="boite" x="136" y="128" width="34" height="24" rx="1"/>
-      <text x="153" y="145" text-anchor="middle">R</text>
-      <path class="fil" d="M74 174 H136"/>
-      <path class="fil" d="M170 174 H232"/>
-      <rect class="boite" x="136" y="162" width="34" height="24" rx="1"/>
-      <text x="153" y="179" text-anchor="middle">R</text>
-      <path class="fil" d="M74 206 H136"/>
-      <path class="fil" d="M170 206 H232"/>
-      <rect class="boite" x="136" y="194" width="34" height="24" rx="1"/>
-      <text x="153" y="211" text-anchor="middle">R</text>
-      <circle class="noeud" cx="74" cy="140" r="3.4"/>
-      <circle class="noeud" cx="232" cy="140" r="3.4"/>
-      <text x="52" y="134" text-anchor="middle">M</text>
-      <text x="248" y="134">A</text>
-    </svg>
+  <figure class="schema schema-corrige">
+<svg role="img" aria-label="Montage équivalent : entre le point M et le point A, la branche supérieure porte la source de tension E en série avec une résistance R, parcourue par le courant I ; trois résistances R relient M à A en parallèle. La tension U indice AM est repérée entre ces deux points." xmlns="http://www.w3.org/2000/svg" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 9196.52 8454.23"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .e2cstr0 {stroke:currentColor;stroke-width:54.88;stroke-miterlimit:22.9256}
+    .e2cfil0 {fill:none}
+    .e2cfil1 {fill:currentColor}
+    .e2cfil5 {fill:var(--souligne)}
+    .e2cfil3 {fill:var(--bordeaux)}
+    .e2cfil2 {fill:currentColor;fill-rule:nonzero}
+    .e2cfil4 {fill:var(--souligne);fill-rule:nonzero}
+    .e2cfnt1 {font-weight:normal;font-size:1659.27px;font-family:var(--serif)}
+    .e2cfnt3 {font-style:italic;font-weight:normal;font-size:352.59px;font-family:var(--serif)}
+    .e2cfnt4 {font-style:italic;font-weight:normal;font-size:608.39px;font-family:var(--serif)}
+    .e2cfnt0 {font-style:italic;font-weight:normal;font-size:663.71px;font-family:var(--serif)}
+    .e2cfnt2 {font-style:italic;font-weight:normal;font-size:663.71px;font-family:var(--serif)}
+   ]]>
+  </style>
+   <clipPath id="id0">
+    <rect x="3685.03" y="2785.36" width="1327.26" height="1106.19"/>
+   </clipPath>
+ </defs>
+ <g id="Plan_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="e2cfil0 e2cstr0" x="3172.79" y="4494.38" width="2351.73" height="816.18"/>
+  <line class="e2cfil0 e2cstr0" x1="821.08" y1="4902.47" x2="3172.82" y2= "4902.47" />
+  <line class="e2cfil0 e2cstr0" x1="5524.52" y1="4902.47" x2="7876.26" y2= "4902.47" />
+  <text x="4087.82" y="5121.83"  class="e2cfil1 e2cfnt0">R</text>
+  <rect class="e2cfil0 e2cstr0" x="3172.79" y="6058.38" width="2351.73" height="816.18"/>
+  <line class="e2cfil0 e2cstr0" x1="821.08" y1="6466.49" x2="3172.82" y2= "6466.49" />
+  <line class="e2cfil0 e2cstr0" x1="5524.52" y1="6466.49" x2="7876.26" y2= "6466.49" />
+  <text x="4087.82" y="6685.82"  class="e2cfil1 e2cfnt0">R</text>
+  <rect class="e2cfil0 e2cstr0" x="3172.79" y="7622.38" width="2351.73" height="816.18"/>
+  <line class="e2cfil0 e2cstr0" x1="821.08" y1="8030.48" x2="3172.82" y2= "8030.48" />
+  <line class="e2cfil0 e2cstr0" x1="5524.52" y1="8030.48" x2="7876.26" y2= "8030.48" />
+  <text x="4087.82" y="8249.82"  class="e2cfil1 e2cfnt0">R</text>
+  <rect class="e2cfil0 e2cstr0" x="4694.05" y="1366.36" width="2351.73" height="816.18"/>
+  <line class="e2cfil0 e2cstr0" x1="47.24" y1="1774.45" x2="4694.08" y2= "1774.45" />
+  <line class="e2cfil0 e2cstr0" x1="7045.78" y1="1774.45" x2="8662.9" y2= "1774.45" />
+  <text x="5609.07" y="1993.8"  class="e2cfil1 e2cfnt0">R</text>
+  <ellipse class="e2cfil0 e2cstr0" cx="2757.58" cy="1774.45" rx="786.95" ry="778.09"/>
+  <line class="e2cfil0 e2cstr0" x1="821.08" y1="4902.47" x2="821.08" y2= "8030.47" />
+  <line class="e2cfil0 e2cstr0" x1="7842.06" y1="4902.47" x2="7842.06" y2= "8030.47" />
+  <line class="e2cfil0 e2cstr0" x1="8662.9" y1="1774.45" x2="8662.9" y2= "6466.47" />
+  <line class="e2cfil0 e2cstr0" x1="47.24" y1="1774.45" x2="15.68" y2= "6466.47" />
+  <line class="e2cfil0 e2cstr0" x1="15.68" y1="6466.47" x2="821.08" y2= "6466.47" />
+  <line class="e2cfil0 e2cstr0" x1="7876.26" y1="6466.47" x2="8662.9" y2= "6466.47" />
+  <g>
+   <path class="e2cfil2" d="M3431.24 739.43l-1434.29 0 0 -31.36 1434.29 0 0 31.36zm142.61 -15.68l-144.51 72.26 0 -144.52 144.51 72.26z"/>
+  </g>
+  <text x="7611.42" y="6554.41"  class="e2cfil3 e2cfnt1">.</text>
+  <text x="590.44" y="6554.41"  class="e2cfil3 e2cfnt1">.</text>
+  <g>
+   <path class="e2cfil2" d="M8647.22 3878.5l0 -538.97 31.36 0 0 538.97 -31.36 0zm161.41 -22.97l-145.73 264.93 -145.73 -264.93 291.46 0z"/>
+  </g>
+  <text x="8864" y="4045.47"  class="e2cfil1 e2cfnt2">I</text>
+  <text x="7890.84" y="7175.63"  class="e2cfil1 e2cfnt2">A</text>
+  <text x="68.11" y="7101.22"  class="e2cfil1 e2cfnt2">M</text>
+  <g>
+   <path class="e2cfil4" d="M7600.1 3834.5l-6779.02 0 0 -31.36 6779.02 0 0 31.36zm-22.97 -161.41l264.93 145.73 -264.93 145.73 0 -291.46z"/>
+  </g>
+  <g style="clip-path:url(#id0)">
+   <text x="4220.77" y="3710.06"  class="e2cfil5 e2cfnt3">AM</text>
+   <text x="3728.24" y="3504.38"  class="e2cfil5 e2cfnt4">U</text>
+  </g>
+  <rect class="e2cfil0" x="3740.34" y="2840.68" width="1216.63" height="995.57"/>
+  <text x="2597.3" y="451.31"  class="e2cfil1 e2cfnt2">E</text>
+ </g>
+</svg>
   </figure>
 
-  <p>L’axe \(AM\) est un axe de symétrie : chaque résistance de la portion de circuit
-     \(AM\) est donc parcourue par le courant <span class="lie">\(\dfrac{I}{3}\).</span></p>
+  <p>L’axe \(AM\) constitue un axe de symétrie du montage : chacune des résistances
+     situées entre \(A\) et \(M\) est parcourue par un courant de même intensité
+     <span class="lie">\(\dfrac{I}{3}\),</span> où \(I\) désigne l’intensité principale du circuit.</p>
 
-  <p>La tension aux bornes d’une dérivation étant commune à toutes ses branches,
-     il vient :</p>
+  <p>Par ailleurs, dans un montage en dérivation, la tension aux bornes de chaque
+     branche est rigoureusement identique. On établit ainsi l’égalité :</p>
+
+  <div class="eq">
+    <div class="eq-corps">\[ U_{AM} = R\,\frac{I}{3} \]</div>
+    <span class="eq-num">(1)</span>
+  </div>
+
+  <p>Cette tension est également celle qui règne aux bornes de la source de tension
+     et de la quatrième résistance <span class="lie">\(R\).</span></p>
+
+  <div class="eq">
+    <div class="eq-corps">\[ U_{AM} = E - RI \]</div>
+    <span class="eq-num">(2)</span>
+  </div>
+
+  <p>Ces deux égalités permettent alors de déterminer l’expression de l’intensité
+     \(I\) du courant circulant dans le circuit :</p>
 
   <div class="eq"><div class="eq-corps">
-    \[ U = R\,\frac{I}{3} = E - RI \]
+    \[ R\,\frac{I}{3} = E - RI \]
   </div></div>
 
-  <p>Cette égalité fournit l’expression de \(I\) :</p>
+  <div class="eq">
+    <div class="eq-corps">\[ I = \frac{3}{4}\,\frac{E}{R} \]</div>
+    <span class="eq-num">(3)</span>
+  </div>
 
-  <div class="eq"><div class="eq-corps">
-    \[ I = \frac{3E}{4R} \]
-  </div></div>
+  <p>En reportant ce dernier résultat dans (1), on obtient finalement la tension
+     recherchée :</p>
 
-  <p>La tension recherchée \(U_{AB}\) s’identifie à <span class="lie">\(U = U_{AM}\),</span> d’où :</p>
-
-  <div class="eq"><div class="eq-corps">
-    \[ U_{AB} = R\,\frac{I}{3} = R\,\frac{1}{3}\,\frac{3E}{4R} \]
-  </div></div>
-
+  <!-- Écart avec le document source : celui-ci écrit cette dernière égalité
+       U_AB, alors que l'énoncé demande U_AM et que tout le raisonnement porte
+       sur U_AM — c'est la tension aux bornes de la dérivation, entre A et le
+       point commun M. Le B en indice est une coquille, rétablie ici en M. Le
+       résultat, E/4, est inchangé. -->
   <div class="encadre">
     <div class="eq">
       <div class="eq-corps">
-        \[ U_{AB} = \frac{E}{4} \]
+        \[ U_{AM} = \frac{E}{4} \]
       </div>
-      <span class="eq-num">(1)</span>
+      <span class="eq-num">(4)</span>
     </div>
   </div>
 
