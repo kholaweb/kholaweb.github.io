@@ -32,6 +32,7 @@ LANCEUR
 chmod +x "$OUTILS/chromium"
 
 if [ -n "${CLAUDE_ENV_FILE:-}" ]; then
-  echo "export NODE_PATH=\"$OUTILS/node_modules\"" >> "$CLAUDE_ENV_FILE"
+  # Placé devant le NODE_PATH du conteneur, qui donne accès aux modules globaux.
+  echo "export NODE_PATH=\"$OUTILS/node_modules${NODE_PATH:+:$NODE_PATH}\"" >> "$CLAUDE_ENV_FILE"
   echo "export CHROME=\"$OUTILS/chromium\"" >> "$CLAUDE_ENV_FILE"
 fi
