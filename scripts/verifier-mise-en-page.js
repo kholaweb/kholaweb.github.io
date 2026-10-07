@@ -27,6 +27,7 @@
 'use strict';
 
 const path = require('path');
+const { servirKatexLocal } = require('./katex-local');
 
 let puppeteer;
 try {
@@ -109,6 +110,7 @@ function releve() {
   for (const page of pages) {
     const url = 'file:///' + path.resolve(page).replace(/\\/g, '/');
     const onglet = await navigateur.newPage();
+    await servirKatexLocal(onglet);
     await onglet.goto(url, { waitUntil: 'networkidle0' });
 
     for (const largeur of LARGEURS) {

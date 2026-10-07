@@ -21,7 +21,10 @@ npm install --no-audit --no-fund
 OUTILS="$HOME/kholaweb-outils"
 mkdir -p "$OUTILS"
 [ -f "$OUTILS/package.json" ] || echo '{"private": true}' > "$OUTILS/package.json"
-npm install --prefix "$OUTILS" --no-audit --no-fund puppeteer-core
+# KaTeX à la version que chargent les pages depuis cdn.jsdelivr.net, domaine
+# que le réseau du conteneur peut refuser : les contrôles le servent alors
+# localement (scripts/katex-local.js, via KATEX_LOCAL).
+npm install --prefix "$OUTILS" --no-audit --no-fund puppeteer-core katex@0.16.10
 
 # Le conteneur tourne sous root, et Chromium refuse alors de démarrer sans
 # --no-sandbox ; ce lanceur l'ajoute sans toucher aux scripts.
@@ -35,4 +38,5 @@ if [ -n "${CLAUDE_ENV_FILE:-}" ]; then
   # Placé devant le NODE_PATH du conteneur, qui donne accès aux modules globaux.
   echo "export NODE_PATH=\"$OUTILS/node_modules${NODE_PATH:+:$NODE_PATH}\"" >> "$CLAUDE_ENV_FILE"
   echo "export CHROME=\"$OUTILS/chromium\"" >> "$CLAUDE_ENV_FILE"
+  echo "export KATEX_LOCAL=\"$OUTILS/node_modules/katex\"" >> "$CLAUDE_ENV_FILE"
 fi
