@@ -24,7 +24,7 @@ mkdir -p "$OUTILS"
 # KaTeX à la version que chargent les pages depuis cdn.jsdelivr.net, domaine
 # que le réseau du conteneur peut refuser : les contrôles le servent alors
 # localement (scripts/katex-local.js, via KATEX_LOCAL).
-npm install --prefix "$OUTILS" --no-audit --no-fund puppeteer-core katex@0.16.10
+npm install --prefix "$OUTILS" --no-audit --no-fund puppeteer-core katex@0.19.0
 
 # Le conteneur tourne sous root, et Chromium refuse alors de démarrer sans
 # --no-sandbox ; ce lanceur l'ajoute sans toucher aux scripts.
