@@ -42,6 +42,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { servirKatexLocal } = require('./katex-local');
 
 let puppeteer;
 try {
@@ -239,6 +240,7 @@ function rapporter(nom, resultat, capitaleTexte) {
 
   const navigateur = await puppeteer.launch({ executablePath: CHROME, headless: 'new' });
   const page = await navigateur.newPage();
+  await servirKatexLocal(page);
   await page.setViewport({ width: 1400, height: 1000, deviceScaleFactor: 1 });
 
   console.log('\n═══ %s', path.basename(cible));
